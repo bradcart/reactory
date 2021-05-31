@@ -1,21 +1,33 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import React, { useState, useEffect } from "react";
+import Head from "next/head";
+import Image from "next/image";
+import styles from "../styles/Home.module.css";
 
-import { Typography, Paper, Grid } from '@material-ui/core';
+import { Typography, Paper, Grid } from "@material-ui/core";
 
-import { Toolbox } from '../components/Toolbox';
-import { SettingsPanel } from '../components/SettingsPanel';
-import { Topbar } from '../components/Topbar';
+import { Toolbox } from "../components/Toolbox";
+import { SettingsPanel } from "../components/SettingsPanel";
+import { Topbar } from "../components/Topbar";
 
-import { Container } from '../components/user/Container';
-import { Button } from '../components/user/Button';
-import { Card } from '../components/user/Card';
-import { Text } from '../components/user/Text';
+import { Container } from "../components/user/Container";
+import { Button } from "../components/user/Button";
+import { Card } from "../components/user/Card";
+import { Text } from "../components/user/Text";
 
-import { Editor, Frame, Element } from "@craftjs/core"
+import { Editor, Frame, Element } from "@craftjs/core";
 
 export default function Home() {
+  // const [enabled, setEnabled] = useState(true);
+  // const [json, setJson] = useState(null);
+
+  // Load save state from server on page load
+
+  /* useEffect(() => {
+      const stateToLoad = await fetch("your api to get the compressed data");
+      const json = lz.decompress(lz.decodeBase64(stateToLoad));
+      setJson(json);
+  }, []); */
+
   return (
     <>
       <Head>
@@ -25,7 +37,9 @@ export default function Home() {
       </Head>
 
       <div style={{ margin: "0 auto", width: "800px" }}>
-        <Typography variant="h5" align="center">A super simple page editor</Typography>
+        <Typography variant="h5" align="center">
+          A super simple page editor
+        </Typography>
         <Editor resolver={{ Card, Button, Text, Container }}>
           <Topbar />
           <Grid container spacing={3} style={{ paddingTop: "10px" }}>
@@ -46,5 +60,5 @@ export default function Home() {
         </Editor>
       </div>
     </>
-  )
+  );
 }
