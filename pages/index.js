@@ -11,7 +11,7 @@ import { Topbar } from "../components/Topbar";
 
 import { Container } from "../components/user/Container";
 import { Button } from "../components/user/Button";
-import { Card } from "../components/user/Card";
+import { Card, CardTop, CardBottom } from "../components/user/Card";
 import { Text } from "../components/user/Text";
 
 import { Editor, Frame, Element } from "@craftjs/core";
@@ -40,7 +40,9 @@ export default function Home() {
         <Typography variant="h5" align="center">
           A super simple page editor
         </Typography>
-        <Editor resolver={{ Card, Button, Text, Container }}>
+        <Editor
+          resolver={{ Card, CardTop, CardBottom, Button, Text, Container }}
+        >
           <Topbar />
           <Grid container spacing={3} style={{ paddingTop: "10px" }}>
             <Grid item xs>
