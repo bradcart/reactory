@@ -1,30 +1,31 @@
 import React from "react";
 import {
-  Button as MaterialButton,
+  Button as ChakraButton,
+  SimpleGrid,
+  Box,
   FormControl,
   FormLabel,
   RadioGroup,
   Radio,
-  FormControlLabel,
-  TextField,
-  Grid,
-  Divider,
-} from "@material-ui/core";
+  HStack,
+  Input,
+} from "@chakra-ui/react";
 import { useNode } from "@craftjs/core";
 
 export const Button = ({ size, variant, color, text }) => {
   const {
     connectors: { connect, drag },
   } = useNode();
+
   return (
-    <MaterialButton
+    <ChakraButton
       ref={(ref) => connect(drag(ref))}
       size={size}
       variant={variant}
-      color={color}
+      colorScheme={color}
     >
       {text}
-    </MaterialButton>
+    </ChakraButton>
   );
 };
 
@@ -37,103 +38,87 @@ const ButtonSettings = () => {
   }));
 
   return (
-    <Grid container direction="column" spacing={2}>
-      <Grid item xs>
-        <FormControl size="small" component="fieldset">
-          <FormLabel component="legend">Size</FormLabel>
-          <RadioGroup
-            defaultValue={props.size}
-            onChange={(e) => setProp((props) => (props.size = e.target.value))}
-          >
-            <FormControlLabel
-              label="Small"
-              value="small"
-              control={<Radio size="small" color="primary" />}
-            />
-            <FormControlLabel
-              label="Medium"
-              value="medium"
-              control={<Radio size="small" color="primary" />}
-            />
-            <FormControlLabel
-              label="Large"
-              value="large"
-              control={<Radio size="small" color="primary" />}
-            />
+    <SimpleGrid rows={4} spacingY={4}>
+      <Box>
+        <FormControl
+          as="fieldset"
+          onChange={(e) => setProp((props) => (props.size = e.target.value))}
+        >
+          <FormLabel as="legend">Size</FormLabel>
+          <RadioGroup defaultValue={props.size}>
+            <HStack>
+              <Radio size="sm" value="sm">
+                Small
+              </Radio>
+              <Radio size="sm" value="md">
+                Medium
+              </Radio>
+              <Radio size="sm" value="lg">
+                Large
+              </Radio>
+            </HStack>
           </RadioGroup>
         </FormControl>
-      </Grid>
-      <Grid item xs>
-        <FormControl component="fieldset">
-          <FormLabel component="legend">Variant</FormLabel>
-          <RadioGroup
-            defaultValue={props.variant}
-            onChange={(e) =>
-              setProp((props) => (props.variant = e.target.value))
-            }
-          >
-            <FormControlLabel
-              label="Text"
-              value="text"
-              control={<Radio size="small" color="primary" />}
-            />
-            <FormControlLabel
-              label="Outlined"
-              value="outlined"
-              control={<Radio size="small" color="primary" />}
-            />
-            <FormControlLabel
-              label="Contained"
-              value="contained"
-              control={<Radio size="small" color="primary" />}
-            />
+      </Box>
+      <Box>
+        <FormControl
+          as="fieldset"
+          onChange={(e) => setProp((props) => (props.variant = e.target.value))}
+        >
+          <FormLabel as="legend">Variant</FormLabel>
+          <RadioGroup defaultValue={props.variant}>
+            <HStack>
+              <Radio size="sm" value="link">
+                Text
+              </Radio>
+              <Radio size="sm" value="outline">
+                Outlined
+              </Radio>
+              <Radio size="sm" value="solid">
+                Solid
+              </Radio>
+            </HStack>
           </RadioGroup>
         </FormControl>
-      </Grid>
-      <Grid item xs>
-        <FormControl component="fieldset">
-          <FormLabel component="legend">Color</FormLabel>
-          <RadioGroup
-            defaultValue={props.color}
-            onChange={(e) => setProp((props) => (props.color = e.target.value))}
-          >
-            <FormControlLabel
-              label="Default"
-              value="default"
-              control={<Radio size="small" color="default" />}
-            />
-            <FormControlLabel
-              label="Primary"
-              value="primary"
-              control={<Radio size="small" color="primary" />}
-            />
-            <FormControlLabel
-              label="Seconday"
-              value="secondary"
-              control={<Radio size="small" color="primary" />}
-            />
+      </Box>
+      <Box>
+        <FormControl
+          as="fieldset"
+          onChange={(e) => setProp((props) => (props.color = e.target.value))}
+        >
+          <FormLabel as="legend">Color</FormLabel>
+          <RadioGroup defaultValue={props.color}>
+            <HStack>
+              <Radio size="sm" value="blue">
+                Blue
+              </Radio>
+              <Radio size="sm" value="purple">
+                Purple
+              </Radio>
+              <Radio size="sm" value="pink">
+                Pink
+              </Radio>
+            </HStack>
           </RadioGroup>
         </FormControl>
-      </Grid>
-      <Grid item xs>
-        <TextField
-          variant="outlined"
-          // margin="dense"
-          size="small"
-          label="text"
+      </Box>
+      <Box>
+        <Input
+          variant="outline"
+          size="sm"
           defaultValue={props.text}
           onChange={(e) => setProp((props) => (props.text = e.target.value))}
         />
-      </Grid>
-    </Grid>
+      </Box>
+    </SimpleGrid>
   );
 };
 
 Button.craft = {
   props: {
-    size: "small",
-    variant: "contained",
-    color: "primary",
+    size: "sm",
+    variant: "solid",
+    color: "blue",
     text: "Click me",
   },
   related: {

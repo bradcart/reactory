@@ -28,9 +28,7 @@ export const Toolbox = () => {
         </Box>
         <Grid container direction="column" item>
           <MaterialButton
-            ref={(ref) =>
-              connectors.create(ref, <Button text="Click me" size="small" />)
-            }
+            ref={(ref) => connectors.create(ref, <Button />)}
             variant="contained"
           >
             Button
