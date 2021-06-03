@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import CssBaseline from "@material-ui/core/CssBaseline";
 // import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
@@ -19,6 +20,7 @@ function MyApp({ Component, pageProps }) {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
+      <CssBaseline />
       <Component {...pageProps} />
     </>
   );
