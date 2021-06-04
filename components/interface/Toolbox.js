@@ -1,10 +1,11 @@
 import React from "react";
 import {
   Box,
-  Typography,
-  Grid,
-  Button as MaterialButton,
-} from "@material-ui/core";
+  Flex,
+  VStack,
+  Heading,
+  Button as ChakraButton,
+} from "@chakra-ui/react";
 import { Element, useEditor } from "@craftjs/core";
 import { Container } from "../user/Container";
 import { Card } from "../user/Card";
@@ -16,54 +17,42 @@ export const Toolbox = () => {
 
   return (
     <Box px={2} py={2}>
-      <Grid
-        container
-        direction="column"
-        alignItems="center"
-        justify="center"
-        spacing={1}
-      >
+      <Flex direction="column">
         <Box pb={2}>
-          <Typography>Drag to add</Typography>
+          <Heading size="md">Drag to add</Heading>
         </Box>
-        <Grid container direction="column" item>
-          <MaterialButton
+        <VStack spacing={1}>
+          <ChakraButton
             ref={(ref) => connectors.create(ref, <Button />)}
-            variant="contained"
+            isFullWidth
           >
             Button
-          </MaterialButton>
-        </Grid>
-        <Grid container direction="column" item>
-          <MaterialButton
+          </ChakraButton>
+          <ChakraButton
             ref={(ref) => connectors.create(ref, <Text text="Hi world" />)}
-            variant="contained"
+            isFullWidth
           >
             Text
-          </MaterialButton>
-        </Grid>
-        <Grid container direction="column" item>
-          <MaterialButton
+          </ChakraButton>
+          <ChakraButton
             ref={(ref) =>
               connectors.create(
                 ref,
                 <Element is={Container} padding={20} canvas />
               )
             }
-            variant="contained"
+            isFullWidth
           >
             Container
-          </MaterialButton>
-        </Grid>
-        <Grid container direction="column" item>
-          <MaterialButton
+          </ChakraButton>
+          <ChakraButton
             ref={(ref) => connectors.create(ref, <Card />)}
-            variant="contained"
+            isFullWidth
           >
             Card
-          </MaterialButton>
-        </Grid>
-      </Grid>
+          </ChakraButton>
+        </VStack>
+      </Flex>
     </Box>
   );
 };

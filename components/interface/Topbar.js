@@ -1,18 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   Box,
-  FormControlLabel,
+  Flex,
+  Button as ChakraButton,
+  FormControl,
+  FormLabel,
   Switch,
-  Grid,
-  Button as MaterialButton,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogContentText,
-  DialogActions,
-  TextField,
-  Snackbar,
-} from "@material-ui/core";
+  HStack,
+  AlertDialog,
+  AlertDialogOverlay,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogBody,
+  AlertDialogFooter,
+  Input,
+  useToast,
+} from "@chakra-ui/react";
 import { useEditor } from "@craftjs/core";
 import lz from "lzutf8";
 import copy from "copy-to-clipboard";
@@ -23,96 +26,96 @@ export const Topbar = () => {
   }));
 
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState();
   const [stateToLoad, setStateToLoad] = useState(null);
 
-  return (
-    <Box px={1} py={1} mt={3} mb={1} bgcolor="#cbe8e7">
-      <Grid container alignItems="center">
-        <Grid item xs>
-          <FormControlLabel
-            control={
-              <Switch
-                checked={enabled}
-                onChange={(_, value) =>
-                  actions.setOptions((options) => (options.enabled = value))
-                }
-              />
-            }
-            label="Enable"
-          />
-        </Grid>
-        <Grid item>
-          <MaterialButton
-            className="copy-state-btn"
-            size="small"
-            variant="outlined"
-            color="secondary"
-            onClick={() => {
-              const json = query.serialize();
-              copy(lz.encodeBase64(lz.compress(json)));
-              setSnackbarMessage("State copied to clipboard");
-            }}
-          >
-            Copy current state
-          </MaterialButton>
-          <MaterialButton
-            className="load-state-btn"
-            size="small"
-            variant="outlined"
-            color="secondary"
-            onClick={() => setDialogOpen(true)}
-          >
-            Load
-          </MaterialButton>
-          <Dialog
-            open={dialogOpen}
-            onClose={() => setDialogOpen(false)}
-            fullWidth
-            maxWidth="md"
-          >
-            <DialogTitle id="alert-dialog-title">Load state</DialogTitle>
-            <DialogContent>
-              <TextField
-                multiline
-                fullWidth
-                placeholder='Paste the contents that was copied from the "Copy Current State" button'
-                size="small"
-                value={stateToLoad}
-                onChange={(e) => setStateToLoad(e.target.value)}
-              />
-            </DialogContent>
-            <DialogActions>
-              <MaterialButton
-                onClick={() => setDialogOpen(false)}
-                color="primary"
-              >
-                Cancel
-              </MaterialButton>
-              <MaterialButton
-                onClick={() => {
-                  setDialogOpen(false);
-                  const json = lz.decompress(lz.decodeBase64(stateToLoad));
-                  actions.deserialize(json);
-                  setSnackbarMessage("State loaded");
-                }}
-                color="primary"
-                autoFocus
-              >
-                Load
-              </MaterialButton>
-            </DialogActions>
-          </Dialog>
+  const toast = useToast();
+  const cancelRef = useRef();
 
-          <Snackbar
-            autoHideDuration={1000}
-            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-            open={!!snackbarMessage}
-            onClose={() => setSnackbarMessage(null)}
-            message={<span>{snackbarMessage}</span>}
+  return (
+    <Box px={3} py={1} mt={3} mb={1} bg="#cbe8e7" borderRadius={6}>
+      <Flex align="center" justify="space-between">
+        <FormControl display="flex" alignItems="center">
+          <Switch
+            id="editor-enabled"
+            isChecked={enabled}
+            onChange={() =>
+              actions.setOptions((options) => (options.enabled = !enabled))
+            }
           />
-        </Grid>
-      </Grid>
+          <FormLabel htmlFor="editor-enabled" mb={0} ml={1}>
+            Enabled
+          </FormLabel>
+        </FormControl>
+        <Box>
+          <HStack>
+            <ChakraButton
+              size="sm"
+              onClick={() => {
+                const json = query.serialize();
+                copy(lz.encodeBase64(lz.compress(json)));
+                toast({
+                  title: "State copied to clipboard.",
+                  status: "info",
+                  duration: 2000,
+                });
+              }}
+            >
+              Copy current state
+            </ChakraButton>
+            <ChakraButton size="sm" onClick={() => setDialogOpen(true)}>
+              Load
+            </ChakraButton>
+          </HStack>
+          <AlertDialog
+            isOpen={dialogOpen}
+            leastDestructiveRef={cancelRef}
+            onClose={() => setDialogOpen(false)}
+          >
+            <AlertDialogOverlay>
+              <AlertDialogContent>
+                <AlertDialogHeader fontSize="lg" fontWeight="bold">
+                  Load state
+                </AlertDialogHeader>
+
+                <AlertDialogBody>
+                  <Input
+                    placeholder='Paste the contents that was copied from the "Copy Current State" button'
+                    value={stateToLoad}
+                    onChange={(e) => setStateToLoad(e.target.value)}
+                  />
+                </AlertDialogBody>
+
+                <AlertDialogFooter>
+                  <HStack>
+                    <ChakraButton
+                      ref={cancelRef}
+                      onClick={() => setDialogOpen(false)}
+                    >
+                      Cancel
+                    </ChakraButton>
+                    <ChakraButton
+                      onClick={() => {
+                        setDialogOpen(false);
+                        const json = lz.decompress(
+                          lz.decodeBase64(stateToLoad)
+                        );
+                        actions.deserialize(json);
+                        toast({
+                          title: "State loaded.",
+                          status: "success",
+                          duration: 2000,
+                        });
+                      }}
+                    >
+                      Load
+                    </ChakraButton>
+                  </HStack>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialogOverlay>
+          </AlertDialog>
+        </Box>
+      </Flex>
     </Box>
   );
 };

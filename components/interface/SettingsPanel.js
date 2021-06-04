@@ -1,11 +1,14 @@
 import React from "react";
 import {
   Box,
-  Chip,
-  Grid,
-  Typography,
-  Button as MaterialButton,
-} from "@material-ui/core";
+  Flex,
+  Spacer,
+  HStack,
+  VStack,
+  Heading,
+  Badge,
+  Button as ChakraButton,
+} from "@chakra-ui/react";
 import { useEditor } from "@craftjs/core";
 
 export const SettingsPanel = () => {
@@ -30,35 +33,29 @@ export const SettingsPanel = () => {
   });
 
   return selected ? (
-    <Box bgcolor="rgba(0, 0, 0, 0.06)" mt={2} px={2} py={2}>
-      <Grid container direction="column" spacing={2}>
-        <Grid item>
-          <Grid container alignItems="center">
-            <Grid item xs>
-              <Typography variant="subtitle1">Selected</Typography>
-            </Grid>
-            <Grid item>
-              <Chip size="small" color="primary" label="Selected" />
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item>
+    <Box bg="rgba(0, 0, 0, 0.06)" mt={2} px={2} py={2}>
+      <VStack>
+        <HStack>
+          <Heading size="sm">Selected</Heading>
+          <Badge variant="solid">{selected.name}</Badge>
+        </HStack>
+        <VStack spacing={2}>
           {selected.settings && React.createElement(selected.settings)}
-        </Grid>
-        <Grid item>
           {selected.isDeletable ? (
-            <MaterialButton
-              variant="contained"
-              color="default"
-              onClick={() => {
-                actions.delete(selected.id);
-              }}
-            >
-              Delete
-            </MaterialButton>
+            <>
+              <Spacer />
+              <ChakraButton
+                colorScheme="red"
+                onClick={() => {
+                  actions.delete(selected.id);
+                }}
+              >
+                Delete
+              </ChakraButton>
+            </>
           ) : null}
-        </Grid>
-      </Grid>
+        </VStack>
+      </VStack>
     </Box>
   ) : null;
 };
