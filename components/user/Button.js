@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  Button as ChakraButton,
-  SimpleGrid,
-  FormControl,
-  FormLabel,
-  RadioGroup,
-  Radio,
-  HStack,
-  Input,
-} from "@chakra-ui/react";
+import { Button as RebassButton, Flex } from "rebass";
 import { useNode } from "@craftjs/core";
 
 export const Button = ({ size, variant, color, text }) => {
@@ -17,14 +8,14 @@ export const Button = ({ size, variant, color, text }) => {
   } = useNode();
 
   return (
-    <ChakraButton
+    <RebassButton
       ref={(ref) => connect(drag(ref))}
       size={size}
       variant={variant}
-      colorScheme={color}
+      bg={color}
     >
       {text}
-    </ChakraButton>
+    </RebassButton>
   );
 };
 
@@ -37,71 +28,40 @@ const ButtonSettings = () => {
   }));
 
   return (
-    <SimpleGrid rows={4} spacingY={4}>
-      <FormControl
-        as="fieldset"
-        onChange={(e) => setProp((props) => (props.size = e.target.value))}
-      >
-        <FormLabel as="legend">Size</FormLabel>
-        <RadioGroup defaultValue={props.size}>
-          <HStack>
-            <Radio size="sm" value="sm">
-              Small
-            </Radio>
-            <Radio size="sm" value="md">
-              Medium
-            </Radio>
-            <Radio size="sm" value="lg">
-              Large
-            </Radio>
-          </HStack>
-        </RadioGroup>
-      </FormControl>
-      <FormControl
-        as="fieldset"
+    <Flex flexDirection="column">
+      <form onChange={(e) => setProp((props) => (props.size = e.target.value))}>
+        <h3>Size</h3>
+        <div>
+          <RebassButton>Small</RebassButton>
+          <RebassButton>Medium</RebassButton>
+          <RebassButton>Large</RebassButton>
+        </div>
+      </form>
+      <form
         onChange={(e) => setProp((props) => (props.variant = e.target.value))}
       >
-        <FormLabel as="legend">Variant</FormLabel>
-        <RadioGroup defaultValue={props.variant}>
-          <HStack>
-            <Radio size="sm" value="link">
-              Text
-            </Radio>
-            <Radio size="sm" value="outline">
-              Outlined
-            </Radio>
-            <Radio size="sm" value="solid">
-              Solid
-            </Radio>
-          </HStack>
-        </RadioGroup>
-      </FormControl>
-      <FormControl
-        as="fieldset"
+        <h3>Variant</h3>
+        <div>
+          <RebassButton>Text</RebassButton>
+          <RebassButton>Outlined</RebassButton>
+          <RebassButton>Solid</RebassButton>
+        </div>
+      </form>
+      <form
         onChange={(e) => setProp((props) => (props.color = e.target.value))}
       >
-        <FormLabel as="legend">Color</FormLabel>
-        <RadioGroup defaultValue={props.color}>
-          <HStack>
-            <Radio size="sm" value="blue">
-              Blue
-            </Radio>
-            <Radio size="sm" value="purple">
-              Purple
-            </Radio>
-            <Radio size="sm" value="pink">
-              Pink
-            </Radio>
-          </HStack>
-        </RadioGroup>
-      </FormControl>
-      <Input
-        variant="outline"
-        size="sm"
+        <h3>Color</h3>
+        <div>
+          <RebassButton>Blue</RebassButton>
+          <RebassButton>Purple</RebassButton>
+          <RebassButton>Pink</RebassButton>
+        </div>
+      </form>
+      <input
         defaultValue={props.text}
         onChange={(e) => setProp((props) => (props.text = e.target.value))}
       />
-    </SimpleGrid>
+    </Flex>
   );
 };
 

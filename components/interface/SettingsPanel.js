@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Flex,
-  Spacer,
-  HStack,
-  VStack,
-  Heading,
-  Badge,
-  Button as ChakraButton,
-} from "@chakra-ui/react";
+import { Box, Flex, Button as RebassButton } from "rebass";
 import { useEditor } from "@craftjs/core";
 
 export const SettingsPanel = () => {
@@ -34,28 +25,25 @@ export const SettingsPanel = () => {
 
   return selected ? (
     <Box bg="rgba(0, 0, 0, 0.06)" mt={2} px={2} py={2}>
-      <VStack>
-        <HStack>
-          <Heading size="sm">Selected</Heading>
-          <Badge variant="solid">{selected.name}</Badge>
-        </HStack>
-        <VStack spacing={2}>
+      <Flex flexDirection="column">
+        <Flex px={1} justifyContent="space-between">
+          <h3>Selected</h3>
+          <h6>{selected.name}</h6>
+        </Flex>
+        <Flex flexDirection="column">
           {selected.settings && React.createElement(selected.settings)}
           {selected.isDeletable ? (
-            <>
-              <Spacer />
-              <ChakraButton
-                colorScheme="red"
-                onClick={() => {
-                  actions.delete(selected.id);
-                }}
-              >
-                Delete
-              </ChakraButton>
-            </>
+            <RebassButton
+              colorScheme="red"
+              onClick={() => {
+                actions.delete(selected.id);
+              }}
+            >
+              Delete
+            </RebassButton>
           ) : null}
-        </VStack>
-      </VStack>
+        </Flex>
+      </Flex>
     </Box>
   ) : null;
 };

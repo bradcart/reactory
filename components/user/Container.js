@@ -1,12 +1,4 @@
-import {
-  Box,
-  FormControl,
-  FormLabel,
-  Slider,
-  SliderTrack,
-  SliderFilledTrack,
-  SliderThumb,
-} from "@chakra-ui/react";
+import { Box } from "rebass";
 import { HexColorPicker, HexColorInput } from "react-colorful";
 import { useNode } from "@craftjs/core";
 
@@ -49,21 +41,19 @@ export const ContainerSettings = () => {
           style={{ width: "50%", margin: "10px 0" }}
         />
       </div>
-      <FormControl w="100%" as="fieldset">
-        <FormLabel as="legend">Padding</FormLabel>
-        <Slider
-          aria-label="padding-amount-slider"
-          defaultValue={padding}
-          onChange={(value) => {
-            setProp((props) => (props.padding = value));
+      <div className="slidecontainer">
+        <input
+          type="range"
+          min={1}
+          max={50}
+          step={7}
+          className="slider"
+          value={padding}
+          onChange={(e) => {
+            setProp((props) => (props.padding = e.target.value));
           }}
-        >
-          <SliderTrack>
-            <SliderFilledTrack />
-          </SliderTrack>
-          <SliderThumb />
-        </Slider>
-      </FormControl>
+        />
+      </div>
     </>
   );
 };

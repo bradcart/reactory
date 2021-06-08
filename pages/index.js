@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import FetchProjectData from "../components/utils/FetchProjectData";
 // import styles from "../styles/Home.module.css";
 
-import { Heading, Grid, GridItem, Box } from "@chakra-ui/react";
+import { Box as RebassBox, Flex as RebassFlex } from "rebass";
 
 import { Toolbox } from "../components/interface/Toolbox";
 import { SettingsPanel } from "../components/interface/SettingsPanel";
@@ -12,8 +12,11 @@ import { Container } from "../components/user/Container";
 import { Button } from "../components/user/Button";
 import { Card, CardTop, CardBottom } from "../components/user/Card";
 import { Text } from "../components/user/Text";
+// import { Grid } from "../components/user/Grid";
 
 import { Editor, Frame, Element } from "@craftjs/core";
+
+const texture = "/texture.png";
 
 export default function Home() {
   /* const [json, setJson] = useState(null);
@@ -25,28 +28,46 @@ export default function Home() {
   }, [data]); */
 
   return (
-    <div style={{ margin: "0 auto", width: "800px" }}>
-      <Heading textAlign="center">A super simple page editor</Heading>
-      <Editor resolver={{ Card, CardTop, CardBottom, Button, Text, Container }}>
+    <RebassBox
+      width="100vw"
+      height="100vh"
+      sx={{
+        position: "relative",
+        backgroundImage: `url(${texture})`,
+        backgroundSize: "auto",
+        backgroundRepeat: "repeat",
+      }}
+    >
+      <Editor
+        resolver={{ Card, CardTop, CardBottom, Button, Text, Container }}
+      >
         <Topbar />
-        <Grid templateColumns="repeat(4, 1fr)" gap={3} pt={10}>
-          <GridItem colSpan={1}>
-            <Box shadow="base" rounded="md">
+        <RebassFlex
+          sx={{ gridTemplateColumns: "repeat(4, 1fr)" }}
+          gap={3}
+          pt={10}
+        >
+          {/* <GridItem colSpan={1}> */}
+            <RebassBox>
               <Toolbox />
-              <SettingsPanel />
-            </Box>
-          </GridItem>
-          <GridItem colSpan={3}>
+            </RebassBox>
+          {/* </GridItem> */}
+          {/* <GridItem colSpan={2}> */}
             {/* {json ? ( */}
-            <Frame>
-              <Element is={Container} padding={5} background="#eee" canvas>
-                <Card />
-              </Element>
-            </Frame>
+            <div style={{ maxWidth: "70%" }}>
+              <Frame>
+                <Element is={Container} padding={5} background="#eee" canvas>
+                  <Card />
+                </Element>
+              </Frame>
+            </div>
             {/* ) : null} */}
-          </GridItem>
-        </Grid>
+          {/* </GridItem> */}
+          {/* <GridItem colSpan={1}> */}
+            <SettingsPanel />
+          {/* </GridItem> */}
+        </RebassFlex>
       </Editor>
-    </div>
+    </RebassBox>
   );
 }

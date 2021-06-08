@@ -1,11 +1,9 @@
 import React from "react";
 import {
-  Box,
-  Flex,
-  VStack,
-  Heading,
-  Button as ChakraButton,
-} from "@chakra-ui/react";
+  Button as RebassButton,
+  Box as RebassBox,
+  Flex as RebassFlex,
+} from "rebass";
 import { Element, useEditor } from "@craftjs/core";
 import { Container } from "../user/Container";
 import { Card } from "../user/Card";
@@ -16,25 +14,25 @@ export const Toolbox = () => {
   const { connectors, query } = useEditor();
 
   return (
-    <Box px={2} py={2}>
-      <Flex direction="column">
-        <Box pb={2}>
-          <Heading size="md">Drag to add</Heading>
-        </Box>
-        <VStack spacing={1}>
-          <ChakraButton
+    <RebassBox px={2} py={2}>
+      <RebassFlex flexDirection="column">
+        <RebassBox pb={2}>
+          <h3>Drag to add</h3>
+        </RebassBox>
+        <RebassFlex flexDirection="column">
+          <RebassButton
             ref={(ref) => connectors.create(ref, <Button />)}
             isFullWidth
           >
             Button
-          </ChakraButton>
-          <ChakraButton
+          </RebassButton>
+          <RebassButton
             ref={(ref) => connectors.create(ref, <Text text="Hi world" />)}
             isFullWidth
           >
             Text
-          </ChakraButton>
-          <ChakraButton
+          </RebassButton>
+          <RebassButton
             ref={(ref) =>
               connectors.create(
                 ref,
@@ -44,15 +42,15 @@ export const Toolbox = () => {
             isFullWidth
           >
             Container
-          </ChakraButton>
-          <ChakraButton
+          </RebassButton>
+          <RebassButton
             ref={(ref) => connectors.create(ref, <Card />)}
             isFullWidth
           >
             Card
-          </ChakraButton>
-        </VStack>
-      </Flex>
-    </Box>
+          </RebassButton>
+        </RebassFlex>
+      </RebassFlex>
+    </RebassBox>
   );
 };

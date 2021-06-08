@@ -1,15 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Editable,
-  EditableInput,
-  EditablePreview,
-  FormControl,
-  FormLabel,
-  Slider,
-  SliderTrack,
-  SliderFilledTrack,
-  SliderThumb,
-} from "@chakra-ui/react";
+import ContentEditable from "react-contenteditable";
 import { useNode } from "@craftjs/core";
 
 export const Text = ({ text, fontSize, textAlign }) => {
@@ -31,19 +21,20 @@ export const Text = ({ text, fontSize, textAlign }) => {
 
   return (
     <div ref={(ref) => connect(drag(ref))} onClick={(e) => setEditable(true)}>
-      <Editable
-        isDisabled={!editable}
-        defaultValue={text}
-        onChange={(value) =>
+      <ContentEditable
+        html={text}
+        disabled={!editable}
+        onChange={(e) =>
           setProp(
-            (props) => (props.text = value.replace(/<\/?[^>]+(>|$)/g, ""))
+            (props) =>
+              (props.text = e.target.value.replace(/<\/?[^>]+(>|$)/g, ""))
           )
         }
-        style={{ fontSize: `${fontSize}px`, textAlign }}
-      >
-        <EditablePreview />
-        <EditableInput />
-      </Editable>
+        tagName="p"
+        css={{
+          fontSize: `${fontSize}px`,
+        }}
+      />
     </div>
   );
 };
@@ -57,24 +48,22 @@ const TextSettings = () => {
   }));
 
   return (
-    <FormControl size="sm" as="fieldset">
-      <FormLabel as="legend">Font size</FormLabel>
-      <Slider
-        aria-label="font-size-slider"
-        defaultValue={fontSize}
-        step={7}
-        min={1}
-        max={50}
-        onChange={(value) => {
-          setProp((props) => (props.fontSize = value));
-        }}
-      >
-        <SliderTrack>
-          <SliderFilledTrack />
-        </SliderTrack>
-        <SliderThumb />
-      </Slider>
-    </FormControl>
+    <form>
+      <label>Font size</label>
+      <div className="slidecontainer">
+        <input
+          type="range"
+          min={1}
+          max={50}
+          step={7}
+          className="slider"
+          value={fontSize}
+          onChange={(e) => {
+            setProp((props) => (props.fontSize = e.target.value));
+          }}
+        />
+      </div>
+    </form>
   );
 };
 
