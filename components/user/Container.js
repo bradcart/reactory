@@ -1,4 +1,4 @@
-import { Box } from "rebass";
+import Box from "../styled/Box";
 import { HexColorPicker, HexColorInput } from "react-colorful";
 import { useNode } from "@craftjs/core";
 
@@ -60,7 +60,7 @@ export const ContainerSettings = () => {
 
 // We export this because we'll be using this in the Card component as well
 export const ContainerDefaultProps = {
-  background: "#ffffff",
+  background: "#fff",
   padding: 3,
 };
 

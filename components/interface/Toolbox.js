@@ -4,6 +4,11 @@ import {
   Box as RebassBox,
   Flex as RebassFlex,
 } from "rebass";
+import StyledBox from "../styled/Box";
+import StyledFlex from "../styled/Flex";
+import StyledGrid from "../styled/Grid";
+import StyledButton from "../styled/Button";
+import Heading from "../styled/Heading";
 import { Element, useEditor } from "@craftjs/core";
 import { Container } from "../user/Container";
 import { Card } from "../user/Card";
@@ -14,43 +19,43 @@ export const Toolbox = () => {
   const { connectors, query } = useEditor();
 
   return (
-    <RebassBox px={2} py={2}>
-      <RebassFlex flexDirection="column">
-        <RebassBox pb={2}>
-          <h3>Drag to add</h3>
-        </RebassBox>
-        <RebassFlex flexDirection="column">
-          <RebassButton
+    <StyledBox px={2} pt={4} minHeight="90vh" bg="white">
+      <StyledFlex flexDirection="column">
+        {/* <StyledFlex pb={2} justifyContent="center">
+          <Heading level={4}>Drag to add</Heading>
+        </StyledFlex> */}
+        <StyledGrid gridTemplateRows="repeat(4, 1fr)" gridRowGap={2}>
+          <StyledButton
+            variant="toolbox"
             ref={(ref) => connectors.create(ref, <Button />)}
-            isFullWidth
           >
             Button
-          </RebassButton>
-          <RebassButton
+          </StyledButton>
+          <StyledButton
+            variant="toolbox"
             ref={(ref) => connectors.create(ref, <Text text="Hi world" />)}
-            isFullWidth
           >
             Text
-          </RebassButton>
-          <RebassButton
+          </StyledButton>
+          <StyledButton
+            variant="toolbox"
             ref={(ref) =>
               connectors.create(
                 ref,
                 <Element is={Container} padding={20} canvas />
               )
             }
-            isFullWidth
           >
             Container
-          </RebassButton>
-          <RebassButton
+          </StyledButton>
+          <StyledButton
+            variant="toolbox"
             ref={(ref) => connectors.create(ref, <Card />)}
-            isFullWidth
           >
             Card
-          </RebassButton>
-        </RebassFlex>
-      </RebassFlex>
-    </RebassBox>
+          </StyledButton>
+        </StyledGrid>
+      </StyledFlex>
+    </StyledBox>
   );
 };

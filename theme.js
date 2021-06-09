@@ -1,30 +1,23 @@
-import { extendTheme } from "@chakra-ui/react";
-
-const globals = {
+export default {
   colors: {
-    black: "#1b1b1b",
-    white: "#f0f5f3",
+    transparent: "transparent",
+    black: "#1B1B1B",
+    white: "#F1F4F3",
+    glass: "rgba(27, 27, 27, 0.83)",
+  },
+  fontSizes: {
+    xxl: "32px",
+    xl: "24px",
+    l: "20px",
+    m: "16px",
+    s: "14px",
+    xs: "12px",
+  },
+  fontWeights: {
+    bold: 700,
+    semibold: 600,
+    medium: 500,
+    regular: 400,
+    light: 300,
   },
 };
-
-const components = {
-  Drawer: {
-    variants: {
-      alwaysOpen: {
-        dialog: {
-          pointerEvents: "auto",
-        },
-        dialogContainer: {
-          pointerEvents: "none",
-        },
-      },
-    },
-  },
-};
-
-const theme = extendTheme({
-  globals,
-  components,
-});
-
-export default theme;

@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import { Box, Flex, Button as RebassButton } from "rebass";
+import css from "@styled-system/css";
+import StyledBox from "../styled/Box";
+import StyledFlex from "../styled/Flex";
+import StyledButton from "../styled/Button";
+import Heading from "../styled/Heading";
 import { useEditor } from "@craftjs/core";
 import lz from "lzutf8";
 import copy from "copy-to-clipboard";
@@ -13,12 +18,8 @@ export const Topbar = () => {
   const [stateToLoad, setStateToLoad] = useState("");
 
   return (
-    <Box px={3} py={5} bg="black" sx={{ position: "static" }}>
-      <Flex
-        alignItems="center"
-        justifyContent="space-between"
-        sx={{ position: "static" }}
-      >
+    <StyledBox px={3} py={4} bg="black">
+      <Flex alignItems="center" justifyContent="space-between">
         {/* <FormControl display="flex" alignItems="center">
           <Switch
             id="editor-enabled"
@@ -32,10 +33,14 @@ export const Topbar = () => {
             Enabled
           </FormLabel>
         </FormControl> */}
-        <h1 style={{ color: "white" }}>Reactory</h1>
-        <Box sx={{ position: "static" }}>
-          <Flex>
-            <RebassButton
+        <Heading level={1} color="white">
+          Reactory
+        </Heading>
+        <div>
+          <StyledFlex>
+            <StyledButton
+              variant="primary"
+              mr={3}
               onClick={() => {
                 const json = query.serialize();
                 copy(lz.encodeBase64(lz.compress(json)));
@@ -43,11 +48,14 @@ export const Topbar = () => {
               }}
             >
               Copy current state
-            </RebassButton>
-            <RebassButton onClick={() => setDialogOpen(true)}>
+            </StyledButton>
+            <StyledButton
+              variant="secondary"
+              onClick={() => setDialogOpen(true)}
+            >
               Load
-            </RebassButton>
-          </Flex>
+            </StyledButton>
+          </StyledFlex>
           {dialogOpen ? (
             <Flex
               px={3}
@@ -88,8 +96,8 @@ export const Topbar = () => {
               </div>
             </Flex>
           ) : null}
-        </Box>
+        </div>
       </Flex>
-    </Box>
+    </StyledBox>
   );
 };

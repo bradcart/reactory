@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import FetchProjectData from "../components/utils/FetchProjectData";
 // import styles from "../styles/Home.module.css";
 
-import { Box as RebassBox, Flex as RebassFlex } from "rebass";
+import StyledBox from "../components/styled/Box";
+import StyledGrid from "../components/styled/Grid";
 
 import { Toolbox } from "../components/interface/Toolbox";
 import { SettingsPanel } from "../components/interface/SettingsPanel";
@@ -15,6 +16,7 @@ import { Text } from "../components/user/Text";
 // import { Grid } from "../components/user/Grid";
 
 import { Editor, Frame, Element } from "@craftjs/core";
+import { Layers } from "@craftjs/layers";
 
 const texture = "/texture.png";
 
@@ -28,46 +30,42 @@ export default function Home() {
   }, [data]); */
 
   return (
-    <RebassBox
+    <StyledBox
       width="100vw"
-      height="100vh"
-      sx={{
-        position: "relative",
-        backgroundImage: `url(${texture})`,
-        backgroundSize: "auto",
-        backgroundRepeat: "repeat",
-      }}
+      height="100%"
+      position="relative"
+      backgroundImage={`url(${texture})`}
+      backgroundSize="14%"
+      backgroundRepeat="repeat"
     >
-      <Editor
-        resolver={{ Card, CardTop, CardBottom, Button, Text, Container }}
-      >
+      <Editor resolver={{ Card, CardTop, CardBottom, Button, Text, Container }}>
         <Topbar />
-        <RebassFlex
-          sx={{ gridTemplateColumns: "repeat(4, 1fr)" }}
-          gap={3}
-          pt={10}
+        <StyledGrid
+          gridTemplateColumns="1fr 6fr 1fr"
+          gridGap={5}
         >
           {/* <GridItem colSpan={1}> */}
-            <RebassBox>
-              <Toolbox />
-            </RebassBox>
+          <StyledBox>
+            <Toolbox />
+          </StyledBox>
           {/* </GridItem> */}
           {/* <GridItem colSpan={2}> */}
-            {/* {json ? ( */}
-            <div style={{ maxWidth: "70%" }}>
-              <Frame>
-                <Element is={Container} padding={5} background="#eee" canvas>
-                  <Card />
-                </Element>
-              </Frame>
-            </div>
-            {/* ) : null} */}
+          {/* {json ? ( */}
+          <StyledBox pt={40}>
+            <Frame>
+              <Element is={Container} canvas>
+                <Card />
+              </Element>
+            </Frame>
+          </StyledBox>
+          {/* ) : null} */}
           {/* </GridItem> */}
           {/* <GridItem colSpan={1}> */}
-            <SettingsPanel />
+          <SettingsPanel />
           {/* </GridItem> */}
-        </RebassFlex>
+        </StyledGrid>
+        {/* <Layers /> */}
       </Editor>
-    </RebassBox>
+    </StyledBox>
   );
 }

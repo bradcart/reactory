@@ -1,13 +1,21 @@
 import React from "react";
 import { Box, Flex, Button as RebassButton } from "rebass";
-import { useEditor } from "@craftjs/core";
+import StyledBox from "../styled/Box";
+import StyledFlex from "../styled/Flex";
+import StyledButton from "../styled/Button";
+import Heading from "../styled/Heading";
+import { QueryMethods, useEditor } from "@craftjs/core";
+import css from "@styled-system/css";
 
 export const SettingsPanel = () => {
   const { actions, selected } = useEditor((state, query) => {
-    const currentNodeId = state.events.selected;
+    const currentNodeId = query.getEvent("selected").first();
     let selected;
 
     if (currentNodeId) {
+      // console.log(query.getEvent('selected').first());
+      // console.log(state.events.selected.entries());
+      // console.log(currentNodeId);
       selected = {
         id: currentNodeId,
         name: state.nodes[currentNodeId].data.name,
@@ -24,26 +32,45 @@ export const SettingsPanel = () => {
   });
 
   return selected ? (
-    <Box bg="rgba(0, 0, 0, 0.06)" mt={2} px={2} py={2}>
-      <Flex flexDirection="column">
-        <Flex px={1} justifyContent="space-between">
-          <h3>Selected</h3>
-          <h6>{selected.name}</h6>
-        </Flex>
-        <Flex flexDirection="column">
-          {selected.settings && React.createElement(selected.settings)}
-          {selected.isDeletable ? (
-            <RebassButton
-              colorScheme="red"
-              onClick={() => {
-                actions.delete(selected.id);
-              }}
-            >
-              Delete
-            </RebassButton>
-          ) : null}
-        </Flex>
-      </Flex>
-    </Box>
+    <StyledFlex
+      height="auto"
+      flexDirection="column"
+      mt={2}
+      bg="white"
+      css={css({
+        borderRadius: 10,
+        borderStyle: "solid",
+        borderColor: "transparent",
+        overflow: "hidden",
+      })}
+    >
+      <StyledFlex
+        py={2}
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="center"
+        bg="black"
+      >
+        <Heading level={5} color="white" css={css({ lineHeight: "150%" })}>
+          SELECTED
+        </Heading>
+        <Heading level={5} color="white" css={css({ lineHeight: "150%" })}>
+          {selected.name.toUpperCase()}
+        </Heading>
+      </StyledFlex>
+      <StyledFlex px={3} py={2} flexDirection="column">
+        {selected.settings && React.createElement(selected.settings)}
+        {selected.isDeletable ? (
+          <StyledButton
+            color="red"
+            onClick={() => {
+              actions.delete(selected.id);
+            }}
+          >
+            Delete
+          </StyledButton>
+        ) : null}
+      </StyledFlex>
+    </StyledFlex>
   ) : null;
 };
