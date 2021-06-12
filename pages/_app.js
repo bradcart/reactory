@@ -1,11 +1,14 @@
-import "../styles/globals.css";
+import "../styles/globals.scss";
 import { ThemeProvider } from "styled-components";
 import theme from "../theme";
+import { IdProvider } from "@radix-ui/react-id";
 
 function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
-      <Component {...pageProps} />
+      <IdProvider>
+        <Component {...pageProps} />
+      </IdProvider>
     </ThemeProvider>
   );
 }

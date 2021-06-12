@@ -7,7 +7,12 @@ export const Container = ({ background, padding = 0, children }) => {
     connectors: { connect, drag },
   } = useNode();
   return (
-    <Box ref={(ref) => connect(drag(ref))} bg={background} p={`${padding}px`}>
+    <Box
+      ref={(ref) => connect(drag(ref))}
+      width="80%"
+      bg={background}
+      p={`${padding}px`}
+    >
       {children}
     </Box>
   );

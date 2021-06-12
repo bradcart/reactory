@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import FetchProjectData from "../components/utils/FetchProjectData";
+// import fetchProjectData from "../components/utils/fetchProjectData";
 // import styles from "../styles/Home.module.css";
 
 import StyledBox from "../components/styled/Box";
 import StyledGrid from "../components/styled/Grid";
 
-import { Toolbox } from "../components/interface/Toolbox";
-import { SettingsPanel } from "../components/interface/SettingsPanel";
-import { Topbar } from "../components/interface/Topbar";
+import { Toolbox } from "../components/interface/viewport/Toolbox";
+import { SettingsPanel } from "../components/interface/viewport/SettingsPanel";
+import { Topbar } from "../components/interface/viewport/Topbar";
 
 import { Container } from "../components/user/Container";
 import { Button } from "../components/user/Button";
@@ -17,6 +17,8 @@ import { Text } from "../components/user/Text";
 
 import { Editor, Frame, Element } from "@craftjs/core";
 import { Layers } from "@craftjs/layers";
+import { Viewport } from "../components/interface/viewport";
+import { RenderNode } from "../components/interface/RenderNode";
 
 const texture = "/texture.png";
 
@@ -38,32 +40,29 @@ export default function Home() {
       backgroundSize="14%"
       backgroundRepeat="repeat"
     >
-      <Editor resolver={{ Card, CardTop, CardBottom, Button, Text, Container }}>
+      <Editor
+        resolver={{ Card, CardTop, CardBottom, Button, Text, Container }}
+        onRender={RenderNode}
+      >
         <Topbar />
-        <StyledGrid
-          gridTemplateColumns="1fr 6fr 1fr"
-          gridGap={5}
-        >
+        <StyledBox height="93vh">
           {/* <GridItem colSpan={1}> */}
-          <StyledBox>
-            <Toolbox />
-          </StyledBox>
           {/* </GridItem> */}
           {/* <GridItem colSpan={2}> */}
           {/* {json ? ( */}
-          <StyledBox pt={40}>
+          <Viewport>
             <Frame>
               <Element is={Container} canvas>
                 <Card />
               </Element>
             </Frame>
-          </StyledBox>
-          {/* ) : null} */}
-          {/* </GridItem> */}
-          {/* <GridItem colSpan={1}> */}
-          <SettingsPanel />
-          {/* </GridItem> */}
-        </StyledGrid>
+          </Viewport>
+        </StyledBox>
+        {/* ) : null} */}
+        {/* </GridItem> */}
+        {/* <GridItem colSpan={1}> */}
+        {/* <SettingsPanel /> */}
+        {/* </GridItem> */}
         {/* <Layers /> */}
       </Editor>
     </StyledBox>

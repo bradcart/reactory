@@ -1,25 +1,20 @@
 import React from "react";
-import {
-  Button as RebassButton,
-  Box as RebassBox,
-  Flex as RebassFlex,
-} from "rebass";
-import StyledBox from "../styled/Box";
-import StyledFlex from "../styled/Flex";
-import StyledGrid from "../styled/Grid";
-import StyledButton from "../styled/Button";
-import Heading from "../styled/Heading";
+import StyledBox from "../../styled/Box";
+import StyledFlex from "../../styled/Flex";
+import StyledGrid from "../../styled/Grid";
+import StyledButton from "../../styled/Button";
+import Heading from "../../styled/Heading";
 import { Element, useEditor } from "@craftjs/core";
-import { Container } from "../user/Container";
-import { Card } from "../user/Card";
-import { Button } from "../user/Button";
-import { Text } from "../user/Text";
+import { Container } from "../../user/Container";
+import { Card } from "../../user/Card";
+import { Button } from "../../user/Button";
+import { Text } from "../../user/Text";
 
 export const Toolbox = () => {
   const { connectors, query } = useEditor();
 
   return (
-    <StyledBox px={2} pt={4} minHeight="90vh" bg="white">
+    <StyledBox px={3} pt={4} height="100%" width="100%" bg="white">
       <StyledFlex flexDirection="column">
         {/* <StyledFlex pb={2} justifyContent="center">
           <Heading level={4}>Drag to add</Heading>
