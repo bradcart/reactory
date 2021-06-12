@@ -55,6 +55,7 @@ export const Card = ({ background, padding = 20 }) => {
 };
 
 Card.craft = {
+  displayName: "Card",
   props: ContainerDefaultProps,
   related: {
     // Since Card has the same settings as Container, we'll just reuse ContainerSettings
