@@ -3,6 +3,7 @@ export default {
     transparent: "transparent",
     black: "#1B1B1B",
     white: "#F1F4F3",
+    gray: "#AFB6B4",
     glass: "rgba(27, 27, 27, 0.83)",
   },
   fontSizes: {

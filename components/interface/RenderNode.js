@@ -2,38 +2,39 @@ import { useNode, useEditor } from "@craftjs/core";
 import { ROOT_NODE } from "@craftjs/utils";
 import React, { useEffect, useRef, useCallback } from "react";
 import ReactDOM from "react-dom";
-import styled from "styled-components";
+// import styled from "styled-components";
+import { styled } from "../../stitches.config";
 
-const IndicatorDiv = styled.div`
-  height: 30px;
-  margin-top: -29px;
-  font-size: 12px;
-  line-height: 12px;
-  padding: 2px;
-  color: #f1f4f3;
-  background-color: #1b1b1b;
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  svg {
-    fill: #fff;
-    width: 15px;
-    height: 15px;
-  }
-`;
+const IndicatorDiv = styled("div", {
+  height: 30,
+  mt: -29,
+  fontSize: "12px",
+  lineHeight: "12px",
+  p: "2px",
+  color: "#f1f4f3",
+  backgroundColor: "#1b1b1b",
+  position: "fixed",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  "& svg": {
+    fill: "$white",
+    width: 15,
+    height: 15,
+  },
+});
 
-const Btn = styled.a`
-  padding: 0 0px;
-  opacity: 0.9;
-  display: flex;
-  align-items: center;
-  > div {
-    position: relative;
-    top: -50%;
-    left: -50%;
-  }
-`;
+const Btn = styled("a", {
+  p: 0,
+  opacity: 0.9,
+  display: "flex",
+  alignItems: "center",
+  "> div": {
+    position: "relative",
+    top: "-50%",
+    left: "-50%",
+  },
+});
 
 export const RenderNode = ({ render }) => {
   const { id } = useNode();

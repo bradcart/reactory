@@ -1,52 +1,46 @@
-import Box from "../styled/Box";
-import { HexColorPicker, HexColorInput } from "react-colorful";
 import { useNode } from "@craftjs/core";
 
-export const Container = ({ background, padding = 0, children }) => {
+import { StyledBox } from "../styled/StyledBox";
+
+import { StyledSlider } from "../styled/inputs/Slider";
+
+export const Container = ({ background, padding, children }) => {
   const {
     connectors: { connect, drag },
   } = useNode();
   return (
-    <Box
+    <StyledBox
       ref={(ref) => connect(drag(ref))}
-      width="80%"
-      bg={background}
-      p={`${padding}px`}
+      style={{
+        backgroundColor: background,
+        padding: padding,
+      }}
     >
       {children}
-    </Box>
+    </StyledBox>
   );
 };
 
 export const ContainerSettings = () => {
   const {
-    background,
     padding,
     actions: { setProp },
   } = useNode((node) => ({
-    background: node.data.props.background,
     padding: node.data.props.padding,
   }));
 
   return (
     <>
-      <div>
-        <HexColorPicker
-          value={background}
-          onChange={(color) => {
-            setProp((props) => (props.background = color));
-          }}
-        />
-        <HexColorInput
-          value={background}
-          placeholder={background}
-          onChange={(color) => {
-            setProp((props) => (props.background = color));
-          }}
-          style={{ width: "50%", margin: "10px 0" }}
-        />
-      </div>
-      <div className="slidecontainer">
+      <StyledSlider
+        value={[padding]}
+        onValueChange={(value) =>
+          setProp((props) => (props.padding = value[0]))
+        }
+        step={5}
+        min={0}
+        max={80}
+      />
+      {/* <div className="slidecontainer">
         <input
           type="range"
           min={1}
@@ -58,19 +52,18 @@ export const ContainerSettings = () => {
             setProp((props) => (props.padding = e.target.value));
           }}
         />
-      </div>
+      </div> */}
     </>
   );
 };
 
 // We export this because we'll be using this in the Card component as well
 export const ContainerDefaultProps = {
-  background: "#fff",
-  padding: 3,
+  background: "#ffffff",
+  padding: 20,
 };
 
 Container.craft = {
-  displayName: "Container",
   props: ContainerDefaultProps,
   related: {
     settings: ContainerSettings,

@@ -19,7 +19,8 @@ export const Viewport = ({ children }) => {
         style={{
           display: "grid",
           // flexDirection: "row",
-          gridTemplateColumns: "1fr 12fr 1fr",
+          gridTemplateColumns: "10% 80% 10%",
+          gridTemplateRows: "100%",
           width: "100%",
           height: "100%",
           overflow: "hidden",
