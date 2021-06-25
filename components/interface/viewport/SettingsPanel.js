@@ -37,10 +37,10 @@ export const SettingsPanel = () => {
     >
       {selected ? (
         <StyledBox
+          flex
+          direction="column"
           css={{
-            display: "flex",
-            marginTop: 2,
-            flexDirection: "column",
+            mt: 2,
             // borderRadius: 10,
             // borderStyle: "solid",
             // borderColor: "transparent",
@@ -65,12 +65,14 @@ export const SettingsPanel = () => {
             </Heading>
           </StyledBox> */}
           <StyledBox
-            css={{
-              display: "flex",
-              // paddingX: 3,
-              // paddingY: 2,
-              flexDirection: "column",
-            }}
+            flex
+            direction="column"
+            css={
+              {
+                // paddingX: 3,
+                // paddingY: 2,
+              }
+            }
           >
             {selected.settings && React.createElement(selected.settings)}
             {/* {selected.isDeletable ? (

@@ -36,13 +36,13 @@ export const Toolbox = () => {
             )
           }
         >
-          <ContainerIcon width={64} />
+          <ContainerIcon width={60} />
         </StyledButton>
         <StyledButton
           variant="toolbox"
           ref={(ref) => connectors.create(ref, <Text text="Hi world" />)}
         >
-          <TextIcon width={72} />
+          <TextIcon width={74} />
         </StyledButton>
         <StyledButton
           variant="toolbox"

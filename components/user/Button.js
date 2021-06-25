@@ -4,6 +4,8 @@ import { StyledButton } from "../styled/StyledButton";
 
 import { StyledBox } from "../styled/StyledBox";
 import { StyledToggleGroup } from "../styled/inputs/ToggleGroup";
+import { StyledText } from "../styled/StyledText";
+import ColorPicker from "../styled/inputs/ColorPicker";
 
 export const Button = ({ size, variant, color, text }) => {
   const {
@@ -15,7 +17,8 @@ export const Button = ({ size, variant, color, text }) => {
       ref={(ref) => connect(drag(ref))}
       size={size}
       // variant={variant}
-      color={color}
+      type={variant}
+      style={{ backgroundColor: color }}
     >
       {text}
     </StyledButton>
@@ -38,7 +41,7 @@ const ButtonSettings = () => {
         backgroundColor: "transparent",
       }}
     >
-      <h3>Size</h3>
+      <StyledText variant="settings">Size</StyledText>
       <StyledToggleGroup
         currentValue={props.size}
         onValueChange={(value) => setProp((props) => (props.size = value))}
@@ -49,6 +52,7 @@ const ButtonSettings = () => {
         valueThree="lg"
         labelThree="Large"
       />
+      <StyledText variant="settings">Variant</StyledText>
       <StyledToggleGroup
         currentValue={props.color}
         onValueChange={(value) => setProp((props) => (props.color = value))}
@@ -69,20 +73,19 @@ const ButtonSettings = () => {
           <StyledButton>Solid</StyledButton>
         </div>
       </form> */}
-      <form
-        onChange={(e) => setProp((props) => (props.color = e.target.value))}
-      >
-        <h3>Color</h3>
-        <div>
+      <StyledText variant="settings">Color</StyledText>
+      <ColorPicker
+        onClick={(e) => setProp((props) => (props.color = e.target.value))}
+      />
+      {/* <div>
           <StyledButton>Blue</StyledButton>
           <StyledButton>Purple</StyledButton>
           <StyledButton>Pink</StyledButton>
         </div>
-      </form>
       <input
         defaultValue={props.text}
         onChange={(e) => setProp((props) => (props.text = e.target.value))}
-      />
+      /> */}
     </StyledBox>
   );
 };

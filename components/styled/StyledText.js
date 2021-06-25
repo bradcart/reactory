@@ -8,15 +8,25 @@ export const StyledText = styled(DEFAULT_TAG, {
   lineHeight: "1",
   margin: "0",
   fontWeight: 400,
-  // fontVariantNumeric: "tabular-nums",
-  // display: "block",
+  fontVariantNumeric: "tabular-nums",
+  display: "block",
 
   // Props
   variants: {
     variant: {
       toolbox: {
-        fontFamily: "Nimbus Sans",
+        fontFamily: "FreeSans",
         fontSize: "14px",
+      },
+      settings: {
+        fontFamily: "$grifter",
+        fontSize: "16px",
+        color: "$white",
+        letterSpacing: "0.03em",
+        textTransform: "uppercase",
+        textAlign: "center",
+        lineHeight: "auto",
+        p: 5,
       },
     },
     size: {

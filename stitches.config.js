@@ -21,9 +21,8 @@ export const { css, styled, global, theme, getCssString } = createCss({
       gray400: "#666",
       gray500: "#777",
       gray600: "#999",
-
-      toolboxRadial:
-        "radial-gradient(45.31% 45.31% at 50% 50%, #F0F5F3 0%, #D8D8D8 100%)",
+      gray700: "#cfcfcf",
+      grayAlpha: "rgba(102, 102, 102, 0.6)",
 
       viridian: "#57886c",
       orange: "#fb4d3d",
@@ -153,7 +152,13 @@ export const { css, styled, global, theme, getCssString } = createCss({
       9: "59px",
     },
     fonts: {
-      system: "system-ui",
+      helvetica: "Helvetica Now",
+      grifter: "GRIFTER",
+      graphik: "Graphik",
+      dx: "DX Rigraf",
+      geo: "Geomanist",
+      geolight: "Geomanist Light",
+      helmet: "Helmet",
     },
     radii: {
       1: "4px",

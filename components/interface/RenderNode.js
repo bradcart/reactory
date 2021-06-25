@@ -114,14 +114,14 @@ export const RenderNode = ({ render }) => {
               }}
             >
               <h2
-                className="flex-1 mr-4"
+                // className="flex-1 mr-4"
                 style={{ flex: 1, marginRight: "4px" }}
               >
                 {name}
               </h2>
               {moveable ? (
                 <Btn
-                  className="mr-2 cursor-move"
+                  // className="mr-2 cursor-move"
                   style={{ marginRight: "2px", cursor: "move" }}
                   ref={drag}
                 >
@@ -130,7 +130,7 @@ export const RenderNode = ({ render }) => {
               ) : null}
               {id !== ROOT_NODE && (
                 <Btn
-                  className="mr-2 cursor-pointer"
+                  // className="mr-2 cursor-pointer"
                   style={{ marginRight: "2px", cursor: "pointer" }}
                   onClick={() => {
                     actions.selectNode(parent);

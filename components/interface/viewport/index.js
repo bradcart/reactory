@@ -19,7 +19,7 @@ export const Viewport = ({ children }) => {
         style={{
           display: "grid",
           // flexDirection: "row",
-          gridTemplateColumns: "10% 80% 10%",
+          gridTemplateColumns: "230px 1fr 230px",
           gridTemplateRows: "100%",
           width: "100%",
           height: "100%",
@@ -54,7 +54,7 @@ export const Viewport = ({ children }) => {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                paddingTop: "8px",
+                paddingTop: "30px",
               }}
             >
               {children}

@@ -1,4 +1,3 @@
-// import React from "react";
 import { styled } from "../../stitches.config";
 
 const TRANSITION_DURATION = "0.3s";
@@ -27,9 +26,12 @@ export const StyledButton = styled("button", {
   },
 
   // Custom
-  // borderRadius: "$1",
-  // borderWidth: "1px",
-  // borderStyle: "solid",
+  borderRadius: "$1",
+  borderWidth: 1,
+  borderStyle: "solid",
+  borderColor: "$white",
+  fontFamily: "$graphik",
+  textTransform: "lowercase",
   // height: "$5",
   // p: "$1",
   // fontSize: 15,
@@ -39,29 +41,23 @@ export const StyledButton = styled("button", {
   variants: {
     variant: {
       toolbox: {
-        position: "relative",
-        zIndex: 1,
         width: 128,
-        height: 98,
+        height: 96,
+
         backgroundColor: "transparent",
         color: "$white",
-        borderWidth: "1px",
+
+        borderWidth: 1,
         borderStyle: "solid",
         borderColor: "$white",
         borderRadius: "$3",
+
         opacity: 0.98,
         transitionProperty: "all",
         transitionDuration: TRANSITION_DURATION,
         transitionTimingFunction: TRANSITION_TIMING_FUNCTION,
 
-        //background gradient
-        "&::before": {
-          content: "",
-          background: "$toolboxRadial",
-          opacity: 0,
-        },
-
-        //inner svg icon
+        //inner svg
         "& svg": {
           transitionProperty: "fill",
           transitionDuration: TRANSITION_DURATION,
@@ -69,18 +65,19 @@ export const StyledButton = styled("button", {
           fill: "$white",
         },
 
-        //styles for Button component svg
+        //Button component svg
         "& .button-component-icon": {
-          transitionProperty: "stroke, strokeWidth, strokeMiterlimit",
-          transitionDuration: TRANSITION_DURATION,
-          transitionTimingFunction: TRANSITION_TIMING_FUNCTION,
           stroke: "$white",
           strokeWidth: 0.75,
           strokeMiterlimit: 10,
+          transitionProperty: "stroke, strokeWidth, strokeMiterlimit",
+          transitionDuration: TRANSITION_DURATION,
+          transitionTimingFunction: TRANSITION_TIMING_FUNCTION,
         },
 
         //hover effects
         "&:hover": {
+          backgroundColor: "$white",
           color: "$black100",
           borderColor: "transparent",
           "& svg": {
@@ -89,25 +86,35 @@ export const StyledButton = styled("button", {
           "& .button-component-icon": {
             stroke: "$black100",
           },
-          "&::before": {
-            opacity: 0.98,
-          },
+        },
+      },
+      topbar: {
+        p: "$2",
+        mx: "$2",
+        backgroundColor: "$black100",
+        color: "$white",
+        fontFamily: "$dx",
+        fontSize: 13,
+        borderWidth: "1.75px",
+        borderColor: "$gray700",
+        transitionProperty: "all",
+        transitionDuration: TRANSITION_DURATION,
+        transitionTimingFunction: TRANSITION_TIMING_FUNCTION,
+        "&:hover": {
+          backgroundColor: "$white",
+          color: "$black100",
         },
       },
     },
 
     color: {
       black: {
-        backgroundColor: "$black",
+        backgroundColor: "$black100",
         color: "$white",
-        "&:hover": {
-          backgroundColor: "$white",
-          color: "$black",
-        },
       },
       white: {
         backgroundColor: "$white",
-        color: "$black",
+        color: "$black100",
       },
       none: {
         backgroundColor: "transparent",
@@ -116,8 +123,8 @@ export const StyledButton = styled("button", {
     },
     size: {
       sm: {
-        padding: "$2",
-        fontSize: 15,
+        padding: 8,
+        fontSize: 14,
       },
       md: {
         padding: "$2",
@@ -125,7 +132,7 @@ export const StyledButton = styled("button", {
       },
       lg: {
         padding: "$3",
-        fontSize: 18,
+        fontSize: 20,
         fontWeight: 500,
       },
     },

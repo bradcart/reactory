@@ -33,7 +33,12 @@ const ColorPicker = ({ onClick }) => {
     <ColorPickerPanel>
       {Object.entries(theme.colors).map(([key, value]) => {
         return key !== "test" ? (
-          <ColorPickerSwatch key={key} css={{ backgroundColor: value }} />
+          <ColorPickerSwatch
+            key={key}
+            css={{ backgroundColor: value }}
+            value={value}
+            onClick={onClick}
+          />
         ) : null;
       })}
     </ColorPickerPanel>

@@ -28,7 +28,7 @@ export const CardBottom = ({ children }) => {
   const {
     connectors: { connect },
   } = useNode();
-  return <div ref={connect}>{children}</div>;
+  return <StyledBox ref={connect}>{children}</StyledBox>;
 };
 
 CardBottom.craft = {
@@ -38,9 +38,9 @@ CardBottom.craft = {
   },
 };
 
-export const Card = ({ background, padding = 20 }) => {
+export const Card = (props) => {
   return (
-    <Container background={background} padding={padding}>
+    <Container flex={false} background="#fff">
       <Element id="image" is={CardTop} canvas>
         <Image width={300} />
         {/* <Text text="Title" fontSize={20} />

@@ -66,7 +66,7 @@ export default function Home() {
           {/* {json ? ( */}
           <Viewport>
             <Frame>
-              <Element is={Container} canvas>
+              <Element is={Canvas} canvas>
                 <Card />
               </Element>
             </Frame>

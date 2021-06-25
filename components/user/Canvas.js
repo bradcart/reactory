@@ -11,9 +11,9 @@ export const Canvas = ({ background, padding = 0, children }) => {
       css={{
         backgroundColor: background,
         padding: `${padding}px`,
-        minHeight: "calc(92vh - 60px)",
+        height: "calc(95vh - 60px)",
         position: "absolute",
-        width: "100%",
+        width: "90%",
       }}
     >
       {children}
@@ -52,7 +52,7 @@ const CanvasSettings = () => {
 
 const CanvasDefaultProps = {
   background: "#eeeeee",
-  padding: 3,
+  padding: 0,
 };
 
 Canvas.craft = {

@@ -36,7 +36,7 @@ const SliderThumb = styled(Slider.Thumb, {
   height: 13,
   outline: "none",
   opacity: 1,
-  backgroundColor: "$gray400",
+  backgroundColor: "$gray700",
   boxShadow: "0 0 1px rgba(0,0,0,.3), 0 1px 4px rgba(0,0,0,.15)",
   borderRadius: "$round",
 

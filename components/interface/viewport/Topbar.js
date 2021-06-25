@@ -16,13 +16,16 @@ export const Topbar = () => {
 
   return (
     <StyledBox
+      flex
+      align="center"
       css={{
-        px: "$4",
+        pt: 5,
+        px: 40,
         height: "5vh",
         backgroundColor: "$black100",
         borderBottom: "1px solid $black200",
-        display: "flex",
-        alignItems: "center",
+        // display: "flex",
+        // alignItems: "center",
         justifyContent: "space-between",
       }}
     >
@@ -39,10 +42,12 @@ export const Topbar = () => {
             Enabled
           </FormLabel>
         </FormControl> */}
-      <StyledHeading size={6}>REACTORY</StyledHeading>
+      <StyledHeading size={7} css={{ mx: "$2" }}>
+        REACTORY
+      </StyledHeading>
       <StyledBox css={{ display: "flex" }}>
         <StyledButton
-          color="black"
+          variant="topbar"
           onClick={() => {
             const json = query.serialize();
             copy(lz.encodeBase64(lz.compress(json)));
@@ -51,11 +56,7 @@ export const Topbar = () => {
         >
           Copy current state
         </StyledButton>
-        <StyledButton
-          color="black"
-          size="sm"
-          onClick={() => setDialogOpen(true)}
-        >
+        <StyledButton variant="topbar" onClick={() => setDialogOpen(true)}>
           Load
         </StyledButton>
       </StyledBox>
