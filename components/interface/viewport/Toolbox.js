@@ -3,6 +3,8 @@ import { Element, useEditor } from "@craftjs/core";
 import { Container } from "../../user/Container";
 import { Button } from "../../user/Button";
 import { Text } from "../../user/Text";
+import { Image } from "../../user/Image";
+import { Card } from "../../user/Card";
 
 import { StyledBox } from "../../styled/StyledBox";
 import { StyledButton } from "../../styled/StyledButton";
@@ -10,6 +12,8 @@ import { StyledButton } from "../../styled/StyledButton";
 import { ContainerIcon } from "../../icons/ContainerIcon";
 import { TextIcon } from "../../icons/TextIcon";
 import { ButtonIcon } from "../../icons/ButtonIcon";
+import { ImageIcon } from "../../icons/ImageIcon";
+import { CardIcon } from "../../icons/CardIcon";
 
 export const Toolbox = () => {
   const { connectors, query } = useEditor();
@@ -21,7 +25,7 @@ export const Toolbox = () => {
       <StyledBox
         css={{
           display: "grid",
-          gridTemplateRows: "repeat(4, 1fr)",
+          gridTemplateRows: "repeat(5, 1fr)",
           gridRowGap: "$3",
           alignItems: "center",
           justifyItems: "center",
@@ -50,18 +54,19 @@ export const Toolbox = () => {
         >
           <ButtonIcon width={104} />
         </StyledButton>
+        <StyledButton
+          variant="toolbox"
+          ref={(ref) => connectors.create(ref, <Image />)}
+        >
+          <ImageIcon width={78} />
+        </StyledButton>
+        <StyledButton
+          variant="toolbox"
+          ref={(ref) => connectors.create(ref, <Card />)}
+        >
+          <CardIcon width={78} />
+        </StyledButton>
       </StyledBox>
     </StyledBox>
   );
 };
-
-/*
-<StyledButton
-    variant="toolbox"
-    ref={(ref) => connectors.create(ref, <Card />)}
-  >
-    Card
-</StyledButton> 
-*/
-
-/* <StyledText variant="toolbox">container</StyledText> */

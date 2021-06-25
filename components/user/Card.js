@@ -17,12 +17,13 @@ export const CardTop = ({ children }) => {
   return <StyledBox ref={connect}>{children}</StyledBox>;
 };
 
-// CardTop.craft = {
-//   rules: {
-//     // Only accept Text
-//     canMoveIn: (incomingNode) => incomingNode.data.type == Text,
-//   },
-// };
+CardTop.craft = {
+  displayName: "CardTop",
+  // rules: {
+  // Only accept Text
+  // canMoveIn: (incomingNode) => incomingNode.data.type == Text,
+  // },
+};
 
 export const CardBottom = ({ children }) => {
   const {
@@ -32,10 +33,11 @@ export const CardBottom = ({ children }) => {
 };
 
 CardBottom.craft = {
-  rules: {
-    // Only accept Buttons
-    canMoveIn: (incomingNode) => incomingNode.data.type == Button,
-  },
+  displayName: "CardBottom",
+  // rules: {
+  // Only accept Buttons
+  // canMoveIn: (incomingNode) => incomingNode.data.type == Button,
+  // },
 };
 
 export const Card = (props) => {
