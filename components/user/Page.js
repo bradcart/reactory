@@ -1,19 +1,26 @@
-import { StyledBox } from "../styled/StyledBox";
 import { useNode } from "@craftjs/core";
+import { StyledBox } from "../styled/StyledBox";
+import { StyledText } from "../styled/StyledText";
+import { StyledSlider } from "../styled/inputs/Slider";
+import { ColorPicker } from "../styled/inputs/ColorPicker";
 
 export const Page = ({ background, padding = 0, children }) => {
   const {
     connectors: { connect, drag },
   } = useNode();
+
+  //VARIANTS: PADDING, BACKGROUND, BACKGROUND IMAGE SETTINGS
   return (
     <StyledBox
       ref={(ref) => connect(drag(ref))}
-      css={{
-        backgroundColor: background,
-        padding: `${padding}px`,
+      style={{
+        width: "90%",
         height: "calc(95vh - 60px)",
         position: "absolute",
-        width: "90%",
+        padding: `${padding}px`,
+        background: background,
+        overflow: "auto",
+        boxShadow: "0px 4px 20px 8px rgba(0, 0, 0, 0.25)",
       }}
     >
       {children}
@@ -33,19 +40,20 @@ const PageSettings = () => {
 
   return (
     <>
-      <div className="slidecontainer">
-        <input
-          type="range"
-          min={1}
-          max={50}
-          step={7}
-          className="slider"
-          value={padding}
-          onChange={(e) => {
-            setProp((props) => (props.padding = e.target.value));
-          }}
-        />
-      </div>
+      <StyledText variant="settings">Padding</StyledText>
+      <StyledSlider
+        value={[padding]}
+        onValueChange={(value) =>
+          setProp((props) => (props.padding = value[0]))
+        }
+        step={5}
+        min={0}
+        max={80}
+      />
+      <StyledText variant="settings">Background</StyledText>
+      <ColorPicker
+        onClick={(e) => setProp((props) => (props.background = e.target.value))}
+      />
     </>
   );
 };

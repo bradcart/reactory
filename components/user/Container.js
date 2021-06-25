@@ -1,7 +1,5 @@
 import { useNode } from "@craftjs/core";
-
 import { StyledBox } from "../styled/StyledBox";
-
 import { StyledText } from "../styled/StyledText";
 import { StyledSlider } from "../styled/inputs/Slider";
 import { StyledToggleGroup } from "../styled/inputs/ToggleGroup";
@@ -95,19 +93,6 @@ export const ContainerSettings = () => {
         valueThree="end"
         labelThree="End"
       />
-      {/* <div className="slidecontainer">
-        <input
-          type="range"
-          min={1}
-          max={50}
-          step={7}
-          className="slider"
-          value={padding}
-          onChange={(e) => {
-            setProp((props) => (props.padding = e.target.value));
-          }}
-        />
-      </div> */}
     </>
   );
 };

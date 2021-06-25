@@ -28,7 +28,7 @@ const ColorPickerSwatch = styled("button", {
   //   },
 });
 
-const ColorPicker = ({ onClick }) => {
+export const ColorPicker = ({ onClick }) => {
   return (
     <ColorPickerPanel>
       {Object.entries(theme.colors).map(([key, value]) => {
@@ -44,5 +44,3 @@ const ColorPicker = ({ onClick }) => {
     </ColorPickerPanel>
   );
 };
-
-export default ColorPicker;

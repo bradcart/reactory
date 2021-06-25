@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useEditor } from "@craftjs/core";
 import { Toolbox } from "./Toolbox";
 import { Topbar } from "./Topbar";
@@ -26,14 +26,14 @@ export const Viewport = ({ children }) => {
       >
         <Topbar />
         <div
-          className="under-topbar"
+          className="below-topbar"
           style={{
             width: "100%",
             height: "100%",
             display: "grid",
+            position: "fixed",
             gridTemplateColumns: "230px 1fr 230px",
             gridTemplateRows: "100%",
-            position: "fixed",
             // overflow: "hidden",
           }}
         >
@@ -41,20 +41,20 @@ export const Viewport = ({ children }) => {
           <div
             className="page-container"
             style={{
-              height: "100%",
               display: "flex",
               flex: 1,
+              height: "100%",
               flexDirection: "column",
             }}
           >
             <div
               className="craftjs-renderer"
               style={{
+                flex: 1,
                 width: "100%",
                 height: "100%",
                 paddingBottom: "8px",
-                flex: 1,
-                overflow: "auto",
+                // overflow: "auto",
               }}
               ref={(ref) =>
                 connectors.select(connectors.hover(ref, null), null)
@@ -63,10 +63,10 @@ export const Viewport = ({ children }) => {
               <div
                 style={{
                   position: "relative",
-                  paddingTop: "30px",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
+                  paddingTop: "30px",
                 }}
               >
                 {children}

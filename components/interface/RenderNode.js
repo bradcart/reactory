@@ -64,8 +64,10 @@ export const RenderNode = ({ render }) => {
 
   useEffect(() => {
     if (dom) {
-      if (isActive || isHover) dom.classList.add("component-selected");
-      else dom.classList.remove("component-selected");
+      if ((isActive || isHover) && name !== "Page") {
+        // console.log(dom);
+        dom.classList.add("component-selected");
+      } else dom.classList.remove("component-selected");
     }
   }, [dom, isActive, isHover]);
 
@@ -102,12 +104,19 @@ export const RenderNode = ({ render }) => {
 
   return (
     <>
-      {isHover || isActive
+      {(isHover || isActive) && name !== "Page"
         ? ReactDOM.createPortal(
             <IndicatorDiv
               ref={currentRef}
               //   className="px-2 py-2 text-white bg-primary fixed flex items-center"
               style={{
+                px: "0.5rem",
+                py: "0.5rem",
+                color: "#fff",
+                backgroundColor: "#111",
+                position: "fixed",
+                display: "flex",
+                alignItems: "center",
                 left: getPos(dom).left,
                 top: getPos(dom).top,
                 zIndex: 9999,
