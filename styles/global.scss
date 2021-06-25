@@ -9,7 +9,7 @@
 }
 
 @font-face {
-  font-family: "FreeSans";
+  font-family: "Free Sans";
   src: url(/fonts/free-sans.woff2) format("woff2");
 }
 
@@ -30,22 +30,27 @@
 
 @font-face {
   font-family: "DX Rigraf";
-  src: url(/fonts/DXRigraf-SemiBoldExpanded.otf) format("opentype");
+  src: url(/fonts/dxrigraf-semi-bold-expanded.otf) format("opentype");
 }
 
 @font-face {
-  font-family: "Geomanist";
-  src: url(/fonts/Geomanist-Regular.ttf) format("truetype");
+  font-family: "HKI Nightlife";
+  src: url(/fonts/hki-night.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: "Geomanist Light";
-  src: url(/fonts/Geomanist-Light.ttf) format("truetype");
+  font-family: "Oskari G2";
+  src: url(/fonts/oskari-g2-medium.otf) format("opentype");
 }
 
 @font-face {
-  font-family: "Helmet";
-  src: url(/fonts/Helmet-Regular.ttf) format("truetype");
+  font-family: "BRRR";
+  src: url(/fonts/brrr-skrrrt.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Space Mono Bold";
+  src: url(/fonts/space-mono-bold.ttf) format("truetype");
 }
 
 /* Box sizing rules */
@@ -129,10 +134,12 @@ button {
   cursor: pointer;
 }
 
-h1 {
-  font-family: "Newake";
-  color: white;
-}
+// h1 {
+//   font-family: "HKI Nightlife";
+//   color: white;
+//   font-size: 68px;
+//   transform: rotate(0.75deg);
+// }
 
 /* Radix components */
 // .alert-dialog-overlay {

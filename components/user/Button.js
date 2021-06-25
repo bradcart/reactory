@@ -32,13 +32,7 @@ const ButtonSettings = () => {
   }));
 
   return (
-    <StyledBox
-      css={{
-        display: "flex",
-        flexDirection: "column",
-        backgroundColor: "transparent",
-      }}
-    >
+    <StyledBox flex direction="column">
       <StyledText variant="settings">Size</StyledText>
       <StyledToggleGroup
         currentValue={props.size}

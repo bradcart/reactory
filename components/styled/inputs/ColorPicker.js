@@ -2,6 +2,8 @@ import { styled, theme } from "../../../stitches.config";
 
 const ColorPickerPanel = styled("div", {
   padding: "$3",
+  mt: "$2",
+  mb: "$5",
   display: "grid",
   gridTemplateColumns: "repeat(5, 1fr)",
   rowGap: "$2",

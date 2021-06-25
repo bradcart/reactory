@@ -62,7 +62,7 @@ const ToggleButton = styled("button", {
 const ToggleRoot = styled("div", {
   p: 0,
   mt: "$2",
-  mb: "$8",
+  mb: "$5",
   display: "flex",
   position: "relative",
   borderRadius: "$1",

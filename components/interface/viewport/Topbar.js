@@ -42,7 +42,15 @@ export const Topbar = () => {
             Enabled
           </FormLabel>
         </FormControl> */}
-      <StyledHeading size={7} css={{ mx: "$2" }}>
+      <StyledHeading
+        css={{
+          mx: "$2",
+          color: "$white",
+          fontFamily: "$hki",
+          fontSize: "34px",
+          transform: "rotate(0.87deg)",
+        }}
+      >
         REACTORY
       </StyledHeading>
       <StyledBox css={{ display: "flex" }}>
