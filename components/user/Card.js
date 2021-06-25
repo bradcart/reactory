@@ -54,9 +54,9 @@ export const Card = (props) => {
 };
 
 Card.craft = {
+  displayName: "Card",
   props: ContainerDefaultProps,
   related: {
-    // Since Card has the same settings as Container, we'll just reuse ContainerSettings
     settings: ContainerSettings,
   },
 };

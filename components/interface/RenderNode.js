@@ -8,15 +8,15 @@ import { styled } from "../../stitches.config";
 const IndicatorDiv = styled("div", {
   height: 30,
   mt: -29,
-  fontSize: "12px",
-  lineHeight: "12px",
-  p: "2px",
-  color: "#f1f4f3",
-  backgroundColor: "#1b1b1b",
+  p: 2,
   position: "fixed",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
+  fontSize: 12,
+  lineHeight: "12px",
+  color: "$white",
+  backgroundColor: "$black100",
   "& svg": {
     fill: "$white",
     width: 15,
@@ -115,14 +115,17 @@ export const RenderNode = ({ render }) => {
             >
               <h2
                 // className="flex-1 mr-4"
-                style={{ flex: 1, marginRight: "4px" }}
+                style={{ flex: 1, marginRight: "1rem" }}
               >
                 {name}
               </h2>
               {moveable ? (
                 <Btn
                   // className="mr-2 cursor-move"
-                  style={{ marginRight: "2px", cursor: "move" }}
+                  style={{
+                    marginRight: "0.5rem",
+                    cursor: "move",
+                  }}
                   ref={drag}
                 >
                   {/* <Move /> */}1
@@ -131,7 +134,7 @@ export const RenderNode = ({ render }) => {
               {id !== ROOT_NODE && (
                 <Btn
                   // className="mr-2 cursor-pointer"
-                  style={{ marginRight: "2px", cursor: "pointer" }}
+                  style={{ marginRight: "0.5rem", cursor: "pointer" }}
                   onClick={() => {
                     actions.selectNode(parent);
                   }}
@@ -141,7 +144,7 @@ export const RenderNode = ({ render }) => {
               )}
               {deletable ? (
                 <Btn
-                  className="cursor-pointer"
+                  // className="cursor-pointer"
                   style={{ cursor: "pointer" }}
                   onMouseDown={(e) => {
                     e.stopPropagation();

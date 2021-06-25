@@ -91,6 +91,7 @@ const ButtonSettings = () => {
 };
 
 Button.craft = {
+  displayName: "button",
   props: {
     size: "sm",
     variant: "solid",

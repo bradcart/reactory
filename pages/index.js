@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 
 import { StyledBox } from "../components/styled/StyledBox";
 
-import { Canvas } from "../components/user/Canvas";
+import { Page } from "../components/user/Page";
 import { Container } from "../components/user/Container";
 import { Button } from "../components/user/Button";
 import { Card, CardTop, CardBottom } from "../components/user/Card";
@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <Editor
       resolver={{
-        Canvas,
+        Page,
         Card,
         CardTop,
         CardBottom,
@@ -44,7 +44,7 @@ export default function Home() {
         {/* {json ? ( */}
         <Viewport>
           <Frame>
-            <Element is={Canvas} canvas>
+            <Element is={Page} canvas>
               <Card />
             </Element>
           </Frame>

@@ -123,6 +123,7 @@ export const ContainerDefaultProps = {
 };
 
 Container.craft = {
+  displayName: "Container",
   props: ContainerDefaultProps,
   related: {
     settings: ContainerSettings,

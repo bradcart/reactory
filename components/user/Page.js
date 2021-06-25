@@ -1,7 +1,7 @@
 import { StyledBox } from "../styled/StyledBox";
 import { useNode } from "@craftjs/core";
 
-export const Canvas = ({ background, padding = 0, children }) => {
+export const Page = ({ background, padding = 0, children }) => {
   const {
     connectors: { connect, drag },
   } = useNode();
@@ -21,7 +21,7 @@ export const Canvas = ({ background, padding = 0, children }) => {
   );
 };
 
-const CanvasSettings = () => {
+const PageSettings = () => {
   const {
     background,
     padding,
@@ -50,14 +50,15 @@ const CanvasSettings = () => {
   );
 };
 
-const CanvasDefaultProps = {
+const PageDefaultProps = {
   background: "#eeeeee",
   padding: 0,
 };
 
-Canvas.craft = {
-  props: CanvasDefaultProps,
+Page.craft = {
+  displayName: "Page",
+  props: PageDefaultProps,
   related: {
-    settings: CanvasSettings,
+    settings: PageSettings,
   },
 };
