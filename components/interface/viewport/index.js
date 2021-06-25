@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useEditor } from "@craftjs/core";
 import { Toolbox } from "./Toolbox";
 import { Topbar } from "./Topbar";
 import { SettingsPanel } from "./SettingsPanel";
+import { StyledBox } from "../../styled/StyledBox";
 
 export const Viewport = ({ children }) => {
   const {
@@ -15,54 +16,66 @@ export const Viewport = ({ children }) => {
 
   return (
     <div className="viewport">
-      <div
-        style={{
-          display: "grid",
-          // flexDirection: "row",
-          gridTemplateColumns: "230px 1fr 230px",
-          gridTemplateRows: "100%",
-          width: "100%",
-          height: "100%",
-          overflow: "hidden",
-          position: "fixed",
+      <StyledBox
+        css={{
+          width: "100vw",
+          height: "100vh",
+          position: "relative",
+          backgroundColor: "$black400",
         }}
       >
-        <Toolbox />
+        <Topbar />
         <div
-          className="page-container"
+          className="under-topbar"
           style={{
-            display: "flex",
-            flex: 1,
+            width: "100%",
             height: "100%",
-            flexDirection: "column",
+            display: "grid",
+            gridTemplateColumns: "230px 1fr 230px",
+            gridTemplateRows: "100%",
+            position: "fixed",
+            // overflow: "hidden",
           }}
         >
+          <Toolbox />
           <div
-            className="craftjs-renderer"
+            className="page-container"
             style={{
-              flex: 1,
-              width: "100%",
               height: "100%",
-              paddingBottom: "8px",
-              overflow: "auto",
+              display: "flex",
+              flex: 1,
+              flexDirection: "column",
             }}
-            ref={(ref) => connectors.select(connectors.hover(ref, null), null)}
           >
             <div
+              className="craftjs-renderer"
               style={{
-                position: "relative",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                paddingTop: "30px",
+                width: "100%",
+                height: "100%",
+                paddingBottom: "8px",
+                flex: 1,
+                overflow: "auto",
               }}
+              ref={(ref) =>
+                connectors.select(connectors.hover(ref, null), null)
+              }
             >
-              {children}
+              <div
+                style={{
+                  position: "relative",
+                  paddingTop: "30px",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                {children}
+              </div>
             </div>
           </div>
+          <SettingsPanel />
         </div>
-        <SettingsPanel />
-      </div>
+      </StyledBox>
     </div>
   );
 };

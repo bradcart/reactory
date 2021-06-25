@@ -19,7 +19,7 @@ export const Topbar = () => {
       flex
       align="center"
       css={{
-        pt: 5,
+        py: "2.5%",
         px: 40,
         height: "5vh",
         backgroundColor: "$black100",

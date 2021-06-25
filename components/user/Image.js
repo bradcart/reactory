@@ -35,7 +35,7 @@ const ImageSettings = () => {
   return (
     <StyledBox css={{ backgroundColor: "$black" }}>
       <TextInput
-        initialValue="Paste image URL here."
+        initialValue="paste image URL here"
         updateValue={updateImage}
         formId="img-src"
         formLabel="Image Source"
