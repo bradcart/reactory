@@ -27,6 +27,12 @@ const Box = styled("div", {
       end: {
         justifyContent: "flex-end",
       },
+      spaceAround: {
+        justifyContent: "space-around",
+      },
+      spaceBetween: {
+        justifyContent: "space-between",
+      },
     },
     align: {
       start: {

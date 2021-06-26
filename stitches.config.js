@@ -176,6 +176,8 @@ export const { css, styled, global, theme, getCssString } = createCss({
       free: "Free Sans",
       newake: "Newake",
       pragmatica: "Pragmatica",
+      monument: "Monument Extended",
+      basteleur: "Basteleur",
     },
     radii: {
       1: "4px",
@@ -186,6 +188,7 @@ export const { css, styled, global, theme, getCssString } = createCss({
     },
     transitions: {
       default: "all 0.3s ease",
+      defaultSlow: "all 0.8s ease",
       fill: "fill 0.3s ease",
       stroke:
         "stroke 0.3s ease, strokeWidth 0.3s ease, strokeMiterlimit 0.3s ease",

@@ -20,7 +20,7 @@ export const Page = ({ background, padding = 0, children }) => {
         padding: `${padding}px`,
         background: background,
         overflow: "auto",
-        boxShadow: "0px 4px 20px 8px rgba(0, 0, 0, 0.25)",
+        boxShadow: "0px 4px 16px 8px rgba(0, 0, 0, 0.25)",
       }}
     >
       {children}
@@ -60,7 +60,7 @@ const PageSettings = () => {
 
 const PageDefaultProps = {
   background: "#eeeeee",
-  padding: 0,
+  padding: 40,
 };
 
 Page.craft = {

@@ -1,13 +1,18 @@
 // import App from 'next/app'
 import { IdProvider } from "@radix-ui/react-id";
 // import { reset } from "stitches-reset";
-// import { global } from "../stitches.config";
+import { global } from "../stitches.config";
 import "../styles.scss";
 
 // const globalStyles = global(reset);
+const globalStyles = global({
+  body: {
+    backgroundColor: "$black100",
+  },
+});
 
 function MyApp({ Component, pageProps }) {
-  // globalStyles();
+  globalStyles();
   return (
     <IdProvider>
       <Component {...pageProps} />

@@ -17,6 +17,7 @@ export const Image = ({ src, width }) => {
 
 const ImageSettings = () => {
   const {
+    src,
     width,
     actions: { setProp },
   } = useNode((node) => ({
@@ -35,14 +36,14 @@ const ImageSettings = () => {
   return (
     <StyledBox css={{ backgroundColor: "$black" }}>
       <TextInput
-        initialValue="paste image URL here"
-        updateValue={updateImage}
+        placeholder="paste image URL here"
+        submitValue={updateImage}
         formId="img-src"
         formLabel="Image Source"
       />
       <TextInput
         initialValue={width}
-        updateValue={updateWidth}
+        submitValue={updateWidth}
         formId="img-width"
         formLabel="Width"
       />

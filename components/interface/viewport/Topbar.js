@@ -7,19 +7,38 @@ import { StyledBox } from "../../styled/StyledBox";
 import { StyledHeading } from "../../styled/StyledHeading";
 
 const TopbarButton = styled("button", {
+  // Reset
+  all: "unset",
+  alignItems: "center",
+  boxSizing: "border-box",
+  userSelect: "none",
+  "&::before": {
+    boxSizing: "border-box",
+  },
+  "&::after": {
+    boxSizing: "border-box",
+  },
+
+  // Custom reset?
+  display: "inline-flex",
+  flexShrink: 0,
+  justifyContent: "center",
+  lineHeight: "1",
+  WebkitTapHighlightColor: "rgba(0,0,0,0)",
+
   px: "$3",
   py: "$2",
   mx: "$2",
   backgroundColor: "$black100",
   color: "$white",
-  fontFamily: "$oskari",
+  fontFamily: "$grifter",
   fontSize: "$4",
+  lineHeight: "1",
   textTransform: "uppercase",
   borderWidth: "2px",
   borderColor: "$gray700",
   borderStyle: "outset",
   borderRadius: "$1",
-  transition: "$default",
   "&:hover": {
     backgroundColor: "$white",
     color: "$black100",
@@ -39,13 +58,11 @@ export const Topbar = () => {
       flex
       align="center"
       css={{
-        py: "2.5%",
+        py: "$7",
         px: 40,
         height: "5vh",
         backgroundColor: "$black100",
         borderBottom: "1px solid $black200",
-        // display: "flex",
-        // alignItems: "center",
         justifyContent: "space-between",
       }}
     >
@@ -68,9 +85,15 @@ export const Topbar = () => {
           color: "$white",
           fontFamily: "$hki",
           fontSize: "$8",
-          transform: "rotate(0.75deg)",
+          // fontWeight: 700,
+          transform: "rotate(0.725deg)",
           userSelect: "none",
           WebkitTapHighlightColor: "rgba(0,0,0,0)",
+          letterSpacing: "0em",
+          transition: "$default",
+          "&:hover": {
+            letterSpacing: "0.1em",
+          },
         }}
       >
         REACTORY

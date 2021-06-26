@@ -15,12 +15,8 @@ export const StyledText = styled(DEFAULT_TAG, {
   variants: {
     variant: {
       // Interface variants
-      toolbox: {
-        fontFamily: "FreeSans",
-        fontSize: "14px",
-      },
       settings: {
-        fontFamily: "$oskari",
+        fontFamily: "$grifter",
         fontSize: "$5",
         color: "$white",
         opacity: 0.9,
@@ -73,6 +69,6 @@ export const StyledText = styled(DEFAULT_TAG, {
   },
 });
 
-export const Text = React.forwardRef((props, forwardedRef) => {
-  return <StyledText {...props} ref={forwardedRef} />;
-});
+// export const Text = React.forwardRef((props, forwardedRef) => {
+//   return <StyledText {...props} ref={forwardedRef} />;
+// });

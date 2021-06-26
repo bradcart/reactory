@@ -15,12 +15,24 @@ import { ButtonIcon } from "../../icons/ButtonIcon";
 import { ImageIcon } from "../../icons/ImageIcon";
 import { CardIcon } from "../../icons/CardIcon";
 
+import * as Label from "@radix-ui/react-label";
+
+const StyledLabel = styled(Label.Root, {
+  position: "absolute",
+  fontSize: "14px",
+  fontFamily: "$grifter",
+  textTransform: "lowercase",
+  transition: "$default",
+  color: "$black100",
+  opacity: 0,
+  textAlign: "center",
+  bottom: "5%",
+});
+
 const ToolboxButton = styled("button", {
   // Reset
-  all: "unset",
   alignItems: "center",
   boxSizing: "border-box",
-  userSelect: "none",
   "&::before": {
     boxSizing: "border-box",
   },
@@ -28,12 +40,14 @@ const ToolboxButton = styled("button", {
     boxSizing: "border-box",
   },
   display: "inline-flex",
+  flexDirection: "column",
   flexShrink: 0,
   justifyContent: "center",
   lineHeight: "1",
   WebkitTapHighlightColor: "rgba(0,0,0,0)",
 
   // Custom
+  position: "relative",
   width: 128,
   height: 96,
   backgroundColor: "transparent",
@@ -47,7 +61,7 @@ const ToolboxButton = styled("button", {
 
   // Inner svg (all)
   "& svg": {
-    transition: "$fill",
+    transition: "$default",
     fill: "$white",
   },
   // Inner svg (ButtonIcon)
@@ -62,8 +76,12 @@ const ToolboxButton = styled("button", {
     backgroundColor: "$white",
     color: "$black100",
     borderColor: "transparent",
+    "& span": {
+      opacity: 1,
+    },
     "& svg": {
       fill: "$black100",
+      transform: "translateY(-10px)",
     },
     "& .button-component-icon": {
       stroke: "$black100",
@@ -96,20 +114,25 @@ export const Toolbox = () => {
           }
         >
           <ContainerIcon width={60} />
+          <StyledLabel>Container</StyledLabel>
         </ToolboxButton>
         <ToolboxButton
           ref={(ref) => connectors.create(ref, <Text text="Hi world" />)}
         >
           <TextIcon width={74} />
+          <StyledLabel>Text</StyledLabel>
         </ToolboxButton>
         <ToolboxButton ref={(ref) => connectors.create(ref, <Button />)}>
           <ButtonIcon width={104} />
+          <StyledLabel>Button</StyledLabel>
         </ToolboxButton>
         <ToolboxButton ref={(ref) => connectors.create(ref, <Image />)}>
           <ImageIcon width={78} />
+          <StyledLabel>Image</StyledLabel>
         </ToolboxButton>
         <ToolboxButton ref={(ref) => connectors.create(ref, <Card />)}>
           <CardIcon width={78} />
+          <StyledLabel>Card</StyledLabel>
         </ToolboxButton>
       </StyledBox>
     </StyledBox>

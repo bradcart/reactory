@@ -53,6 +53,12 @@
   src: url(/fonts/space-mono-bold.ttf) format("truetype");
 }
 
+@font-face {
+  font-family: "Monument Extended";
+  src: url(/fonts/monument-extended-bold.woff) format("woff");
+  font-weight: 900;
+}
+
 // * {
 //   box-sizing: border-box;
 // }
@@ -136,6 +142,133 @@ select {
 /* Custom - will rearrange later */
 button {
   cursor: pointer;
+}
+
+@keyframes spaceInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    -webkit-transform: scale(0.2) translate(0%, 200%);
+    transform: scale(0.2) translate(0%, 200%);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    -webkit-transform: scale(1) translate(0%, 0%);
+    transform: scale(1) translate(0%, 0%);
+  }
+}
+
+.intro-subtitle {
+  opacity: 0;
+  animation: spaceInDown 0.8s ease forwards;
+}
+
+@keyframes bounce-in-top {
+  0% {
+    -webkit-transform: translateY(-500px);
+    transform: translateY(-500px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  38% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+    opacity: 1;
+  }
+  55% {
+    -webkit-transform: translateY(-65px);
+    transform: translateY(-65px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  72% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  81% {
+    -webkit-transform: translateY(-28px);
+    transform: translateY(-28px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  90% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  95% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+}
+
+.intro-title-1 {
+  animation: bounce-in-top 0.8s linear both;
+}
+.intro-title-2 {
+  animation: bounce-in-top 0.8s linear 0.2s both;
+}
+.intro-title-3 {
+  animation: bounce-in-top 0.8s linear 0.4s both;
+}
+.intro-title-4 {
+  animation: bounce-in-top 0.8s linear 0.6s both;
+}
+.intro-title-5 {
+  animation: bounce-in-top 0.8s linear 0.8s both;
+}
+.intro-title-6 {
+  animation: bounce-in-top 0.8s linear 1s both;
+}
+.intro-title-7 {
+  animation: bounce-in-top 0.8s linear 1.2s both;
+}
+.intro-title-8 {
+  animation: bounce-in-top 0.8s linear 1.4s both;
+}
+
+@keyframes vanishIn {
+  0% {
+    opacity: 0;
+    transform-origin: 50% 50%;
+    transform: scale(2, 2);
+    filter: blur(90px);
+  }
+  100% {
+    opacity: 1;
+    transform-origin: 50% 50%;
+    transform: scale(1, 1);
+    filter: blur(0px);
+  }
+}
+
+.portfolio-link {
+  opacity: 0;
+  animation: vanishIn 1.3s ease 2s forwards;
+}
+
+a {
+  &:visited {
+    color: #fff;
+  }
 }
 
 // h1 {

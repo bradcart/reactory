@@ -6,9 +6,13 @@ import { StyledText } from "../StyledText";
 
 /* Generic form input that submits when Enter key is pressed or another element in settings panel is clicked */
 
-export const TextInput = ({ initialValue, updateValue, formId, formLabel }) => {
-  const [active, setActive] = useState(false);
-
+export const TextInput = ({
+  placeholder = "",
+  initialValue = "",
+  submitValue,
+  formId,
+  formLabel,
+}) => {
   // useEffect(() => {
   //   const listener = (event) => {
   //     if (event.code === "Enter" || event.code === "NumpadEnter") {
@@ -26,12 +30,12 @@ export const TextInput = ({ initialValue, updateValue, formId, formLabel }) => {
   //   };
   // }, [active]);
 
+  const [value, changeValue] = useState(initialValue);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // setActive(false);
-    // if (e.target.value !== initialValue) {
-    updateValue(e.target.value);
-    // }
+    submitValue(value);
   };
 
   // const Input = () => (
@@ -77,6 +81,7 @@ export const TextInput = ({ initialValue, updateValue, formId, formLabel }) => {
       css={{ mt: "$2", mb: "$5" }}
       name={formId}
       id={formId}
+      key={formId}
       onSubmit={(e) => handleSubmit(e)}
     >
       <StyledText
@@ -88,11 +93,11 @@ export const TextInput = ({ initialValue, updateValue, formId, formLabel }) => {
         {formLabel}
       </StyledText>
       <StyledInput
-        className="scss-text-input"
         id={formId}
         type="text"
-        placeholder={initialValue}
-        onClick={() => setActive(true)}
+        placeholder={placeholder}
+        value={value}
+        onChange={(e) => changeValue(e.target.value)}
       />
     </StyledBox>
   );
