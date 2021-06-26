@@ -1,4 +1,5 @@
 import { Element, useEditor } from "@craftjs/core";
+import { styled } from "../../../stitches.config";
 
 import { Container } from "../../user/Container";
 import { Button } from "../../user/Button";
@@ -7,13 +8,68 @@ import { Image } from "../../user/Image";
 import { Card } from "../../user/Card";
 
 import { StyledBox } from "../../styled/StyledBox";
-import { StyledButton } from "../../styled/StyledButton";
 
 import { ContainerIcon } from "../../icons/ContainerIcon";
 import { TextIcon } from "../../icons/TextIcon";
 import { ButtonIcon } from "../../icons/ButtonIcon";
 import { ImageIcon } from "../../icons/ImageIcon";
 import { CardIcon } from "../../icons/CardIcon";
+
+const ToolboxButton = styled("button", {
+  // Reset
+  all: "unset",
+  alignItems: "center",
+  boxSizing: "border-box",
+  userSelect: "none",
+  "&::before": {
+    boxSizing: "border-box",
+  },
+  "&::after": {
+    boxSizing: "border-box",
+  },
+  display: "inline-flex",
+  flexShrink: 0,
+  justifyContent: "center",
+  lineHeight: "1",
+  WebkitTapHighlightColor: "rgba(0,0,0,0)",
+
+  // Custom
+  width: 128,
+  height: 96,
+  backgroundColor: "transparent",
+  color: "$white",
+  borderWidth: 1,
+  borderStyle: "solid",
+  borderColor: "$white",
+  borderRadius: "$3",
+  opacity: 0.98,
+  transition: "$default",
+
+  // Inner svg (all)
+  "& svg": {
+    transition: "$fill",
+    fill: "$white",
+  },
+  // Inner svg (ButtonIcon)
+  "& .button-component-icon": {
+    stroke: "$white",
+    strokeWidth: 0.75,
+    strokeMiterlimit: 10,
+    transition: "$stroke",
+  },
+  // Hover effects
+  "&:hover": {
+    backgroundColor: "$white",
+    color: "$black100",
+    borderColor: "transparent",
+    "& svg": {
+      fill: "$black100",
+    },
+    "& .button-component-icon": {
+      stroke: "$black100",
+    },
+  },
+});
 
 export const Toolbox = () => {
   const { connectors, query } = useEditor();
@@ -31,8 +87,7 @@ export const Toolbox = () => {
           justifyItems: "center",
         }}
       >
-        <StyledButton
-          variant="toolbox"
+        <ToolboxButton
           ref={(ref) =>
             connectors.create(
               ref,
@@ -41,31 +96,21 @@ export const Toolbox = () => {
           }
         >
           <ContainerIcon width={60} />
-        </StyledButton>
-        <StyledButton
-          variant="toolbox"
+        </ToolboxButton>
+        <ToolboxButton
           ref={(ref) => connectors.create(ref, <Text text="Hi world" />)}
         >
           <TextIcon width={74} />
-        </StyledButton>
-        <StyledButton
-          variant="toolbox"
-          ref={(ref) => connectors.create(ref, <Button />)}
-        >
+        </ToolboxButton>
+        <ToolboxButton ref={(ref) => connectors.create(ref, <Button />)}>
           <ButtonIcon width={104} />
-        </StyledButton>
-        <StyledButton
-          variant="toolbox"
-          ref={(ref) => connectors.create(ref, <Image />)}
-        >
+        </ToolboxButton>
+        <ToolboxButton ref={(ref) => connectors.create(ref, <Image />)}>
           <ImageIcon width={78} />
-        </StyledButton>
-        <StyledButton
-          variant="toolbox"
-          ref={(ref) => connectors.create(ref, <Card />)}
-        >
+        </ToolboxButton>
+        <ToolboxButton ref={(ref) => connectors.create(ref, <Card />)}>
           <CardIcon width={78} />
-        </StyledButton>
+        </ToolboxButton>
       </StyledBox>
     </StyledBox>
   );

@@ -25,6 +25,8 @@ export const { css, styled, global, theme, getCssString } = createCss({
       gray700: "#cfcfcf",
       grayAlpha: "rgba(102, 102, 102, 0.6)",
 
+      glass: "rgba(27, 27, 27, 0.83)",
+
       viridian: "#57886c",
       orange: "#fb4d3d",
       pine: "#0a6e69",
@@ -152,6 +154,16 @@ export const { css, styled, global, theme, getCssString } = createCss({
       8: "35px",
       9: "59px",
     },
+    // fontSizes: {
+    //   1: "0.56rem",
+    //   2: "0.75rem",
+    //   3: "1rem",
+    //   4: "1.33rem",
+    //   5: "1.78rem",
+    //   6: "2.37rem",
+    //   7: "3.16rem",
+    //   8: "4.21rem",
+    // },
     fonts: {
       helvetica: "Helvetica Now",
       grifter: "GRIFTER",
@@ -171,6 +183,12 @@ export const { css, styled, global, theme, getCssString } = createCss({
       3: "10px",
       round: "50%",
       pill: "9999px",
+    },
+    transitions: {
+      default: "all 0.3s ease",
+      fill: "fill 0.3s ease",
+      stroke:
+        "stroke 0.3s ease, strokeWidth 0.3s ease, strokeMiterlimit 0.3s ease",
     },
   },
   utils: {
@@ -226,6 +244,14 @@ export const { css, styled, global, theme, getCssString } = createCss({
     my: (config) => (value) => ({
       marginTop: value,
       marginBottom: value,
+    }),
+    appearance: (config) => (value) => ({
+      WebkitAppearance: value,
+      appearance: value,
+    }),
+    userSelect: (config) => (value) => ({
+      WebkitUserSelect: value,
+      userSelect: value,
     }),
   },
   media: {

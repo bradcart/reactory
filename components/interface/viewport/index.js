@@ -21,7 +21,7 @@ export const Viewport = ({ children }) => {
           width: "100vw",
           height: "100vh",
           position: "relative",
-          backgroundColor: "$black300",
+          backgroundColor: "$black400",
         }}
       >
         <Topbar />

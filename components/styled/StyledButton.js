@@ -1,29 +1,24 @@
 import { styled } from "../../stitches.config";
 
-const TRANSITION_DURATION = "0.3s";
-const TRANSITION_TIMING_FUNCTION = "ease";
-
 export const StyledButton = styled("button", {
   // Reset
+  all: "unset",
   alignItems: "center",
-  appearance: "none",
   boxSizing: "border-box",
-  display: "inline-flex",
-  flexShrink: 0,
-  justifyContent: "center",
-  lineHeight: "1",
-  margin: "0",
-  outline: "none",
-  padding: "0",
-  textDecoration: "none",
   userSelect: "none",
-  WebkitTapHighlightColor: "rgba(0,0,0,0)",
   "&::before": {
     boxSizing: "border-box",
   },
   "&::after": {
     boxSizing: "border-box",
   },
+
+  // Custom reset?
+  display: "inline-flex",
+  flexShrink: 0,
+  justifyContent: "center",
+  lineHeight: "1",
+  WebkitTapHighlightColor: "rgba(0,0,0,0)",
 
   // Custom
   borderRadius: "$1",
@@ -32,84 +27,35 @@ export const StyledButton = styled("button", {
   borderColor: "$white",
   fontFamily: "$graphik",
   textTransform: "lowercase",
-  // height: "$5",
-  // p: "$1",
-  // fontSize: 15,
-  // fontWeight: 400,
-  // textTransform: "uppercase",
+  height: "$5",
+  p: "$1",
+  fontSize: "$2",
+  textTransform: "uppercase",
 
   variants: {
-    variant: {
-      toolbox: {
-        width: 128,
-        height: 96,
-
-        backgroundColor: "transparent",
-        color: "$white",
-
-        borderWidth: 1,
-        borderStyle: "solid",
-        borderColor: "$white",
-        borderRadius: "$3",
-
-        opacity: 0.98,
-        transitionProperty: "all",
-        transitionDuration: TRANSITION_DURATION,
-        transitionTimingFunction: TRANSITION_TIMING_FUNCTION,
-
-        //inner svg
-        "& svg": {
-          transitionProperty: "fill",
-          transitionDuration: TRANSITION_DURATION,
-          transitionTimingFunction: TRANSITION_TIMING_FUNCTION,
-          fill: "$white",
-        },
-
-        //Button component svg
-        "& .button-component-icon": {
-          stroke: "$white",
-          strokeWidth: 0.75,
-          strokeMiterlimit: 10,
-          transitionProperty: "stroke, strokeWidth, strokeMiterlimit",
-          transitionDuration: TRANSITION_DURATION,
-          transitionTimingFunction: TRANSITION_TIMING_FUNCTION,
-        },
-
-        //hover effects
-        "&:hover": {
-          backgroundColor: "$white",
-          color: "$black100",
-          borderColor: "transparent",
-          "& svg": {
-            fill: "$black100",
-          },
-          "& .button-component-icon": {
-            stroke: "$black100",
-          },
-        },
-      },
-      topbar: {
-        px: "$3",
-        py: "$2",
-        mx: "$2",
-        backgroundColor: "$black100",
-        color: "$white",
-        fontFamily: "$brrr",
+    size: {
+      sm: {
+        borderRadius: "$1",
+        height: "$5",
+        px: "$2",
         fontSize: "$1",
-        textTransform: "uppercase",
-        borderWidth: "2px",
-        borderColor: "$gray700",
-        borderStyle: "outset",
-        transitionProperty: "all",
-        transitionDuration: TRANSITION_DURATION,
-        transitionTimingFunction: TRANSITION_TIMING_FUNCTION,
-        "&:hover": {
-          backgroundColor: "$white",
-          color: "$black100",
-        },
+        lineHeight: "$sizes$5",
+      },
+      md: {
+        borderRadius: "$2",
+        height: "$6",
+        px: "$3",
+        fontSize: "$3",
+        lineHeight: "$sizes$6",
+      },
+      lg: {
+        borderRadius: "$2",
+        height: "$7",
+        px: "$4",
+        fontSize: "$4",
+        lineHeight: "$sizes$7",
       },
     },
-
     color: {
       black: {
         backgroundColor: "$black100",
@@ -124,25 +70,10 @@ export const StyledButton = styled("button", {
         borderColor: "none",
       },
     },
-    size: {
-      sm: {
-        padding: 8,
-        fontSize: 14,
-      },
-      md: {
-        padding: "$2",
-        fontSize: 16,
-      },
-      lg: {
-        padding: "$3",
-        fontSize: 20,
-        fontWeight: 500,
-      },
-    },
   },
   defaultVariants: {
+    size: "md",
     color: "black",
-    size: "sm",
   },
 });
 

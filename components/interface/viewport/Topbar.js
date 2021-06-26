@@ -1,10 +1,30 @@
 import React, { useState } from "react";
-import { StyledBox } from "../../styled/StyledBox";
-import { StyledButton } from "../../styled/StyledButton";
-import { StyledHeading } from "../../styled/StyledHeading";
 import { useEditor } from "@craftjs/core";
 import lz from "lzutf8";
 import copy from "copy-to-clipboard";
+import { styled } from "../../../stitches.config";
+import { StyledBox } from "../../styled/StyledBox";
+import { StyledHeading } from "../../styled/StyledHeading";
+
+const TopbarButton = styled("button", {
+  px: "$3",
+  py: "$2",
+  mx: "$2",
+  backgroundColor: "$black100",
+  color: "$white",
+  fontFamily: "$oskari",
+  fontSize: "$4",
+  textTransform: "uppercase",
+  borderWidth: "2px",
+  borderColor: "$gray700",
+  borderStyle: "outset",
+  borderRadius: "$1",
+  transition: "$default",
+  "&:hover": {
+    backgroundColor: "$white",
+    color: "$black100",
+  },
+});
 
 export const Topbar = () => {
   const { actions, query, enabled } = useEditor((state) => ({
@@ -47,15 +67,16 @@ export const Topbar = () => {
           mx: "$2",
           color: "$white",
           fontFamily: "$hki",
-          fontSize: "34px",
-          transform: "rotate(0.87deg)",
+          fontSize: "$8",
+          transform: "rotate(0.75deg)",
+          userSelect: "none",
+          WebkitTapHighlightColor: "rgba(0,0,0,0)",
         }}
       >
         REACTORY
       </StyledHeading>
       <StyledBox css={{ display: "flex" }}>
-        <StyledButton
-          variant="topbar"
+        <TopbarButton
           onClick={() => {
             const json = query.serialize();
             copy(lz.encodeBase64(lz.compress(json)));
@@ -63,10 +84,8 @@ export const Topbar = () => {
           }}
         >
           Copy current state
-        </StyledButton>
-        <StyledButton variant="topbar" onClick={() => setDialogOpen(true)}>
-          Load
-        </StyledButton>
+        </TopbarButton>
+        <TopbarButton onClick={() => setDialogOpen(true)}>Load</TopbarButton>
       </StyledBox>
       {dialogOpen ? (
         <StyledBox
@@ -93,10 +112,10 @@ export const Topbar = () => {
 
           <div>
             <StyledBox css={{ display: "flex" }}>
-              <StyledButton onClick={() => setDialogOpen(false)}>
+              <TopbarButton onClick={() => setDialogOpen(false)}>
                 Cancel
-              </StyledButton>
-              <StyledButton
+              </TopbarButton>
+              <TopbarButton
                 onClick={() => {
                   setDialogOpen(false);
                   const json = lz.decompress(lz.decodeBase64(stateToLoad));
@@ -104,7 +123,7 @@ export const Topbar = () => {
                 }}
               >
                 Load
-              </StyledButton>
+              </TopbarButton>
             </StyledBox>
           </div>
         </StyledBox>

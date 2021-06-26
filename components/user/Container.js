@@ -3,6 +3,7 @@ import { StyledBox } from "../styled/StyledBox";
 import { StyledText } from "../styled/StyledText";
 import { StyledSlider } from "../styled/inputs/Slider";
 import { StyledToggleGroup } from "../styled/inputs/ToggleGroup";
+import { CheckboxIcon } from "../icons/CheckboxIcon";
 
 export const Container = ({
   background,
@@ -46,16 +47,19 @@ export const ContainerSettings = () => {
     height,
     padding,
     justify,
+    align,
     actions: { setProp },
   } = useNode((node) => ({
     width: node.data.props.width,
     height: node.data.props.height,
     padding: node.data.props.padding,
     justify: node.data.props.justify,
+    align: node.data.props.align,
   }));
 
   return (
     <>
+      {/* <CheckboxIcon /> */}
       <StyledText variant="settings">Width</StyledText>
       <StyledSlider
         value={[width]}
@@ -87,11 +91,22 @@ export const ContainerSettings = () => {
         currentValue={justify}
         onValueChange={(value) => setProp((props) => (props.justify = value))}
         valueOne="start"
-        labelOne="Start"
+        labelOne="Left"
         valueTwo="center"
         labelTwo="Center"
         valueThree="end"
-        labelThree="End"
+        labelThree="Right"
+      />
+      <StyledText variant="settings">Align</StyledText>
+      <StyledToggleGroup
+        currentValue={align}
+        onValueChange={(value) => setProp((props) => (props.align = value))}
+        valueOne="start"
+        labelOne="Top"
+        valueTwo="center"
+        labelTwo="Center"
+        valueThree="end"
+        labelThree="Bottom"
       />
     </>
   );
@@ -105,6 +120,7 @@ export const ContainerDefaultProps = {
   padding: 20,
   flex: true,
   justify: "center",
+  align: "center",
 };
 
 Container.craft = {

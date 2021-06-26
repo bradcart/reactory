@@ -45,7 +45,8 @@ const ToggleButton = styled("button", {
   },
 
   //Custom
-  flexGrow: 1,
+  // flexGrow: 1,
+  width: "calc(100% / 3)",
   padding: "6px 5px 5px 5px",
   borderRadius: "inherit",
   borderColor: "inherit",
@@ -63,8 +64,8 @@ const ToggleRoot = styled("div", {
   p: 0,
   mt: "$2",
   mb: "$5",
-  display: "flex",
-  position: "relative",
+  // display: "flex",
+  // position: "relative",
   borderRadius: "$1",
   borderColor: "transparent",
   backgroundColor: "$black400",

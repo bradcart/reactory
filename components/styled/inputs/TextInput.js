@@ -9,27 +9,29 @@ import { StyledText } from "../StyledText";
 export const TextInput = ({ initialValue, updateValue, formId, formLabel }) => {
   const [active, setActive] = useState(false);
 
-  useEffect(() => {
-    const listener = (event) => {
-      if (event.code === "Enter" || event.code === "NumpadEnter") {
-        handleSubmit(event);
-      }
-    };
+  // useEffect(() => {
+  //   const listener = (event) => {
+  //     if (event.code === "Enter" || event.code === "NumpadEnter") {
+  //       handleSubmit(event);
+  //     }
+  //   };
 
-    if (active) {
-      document.addEventListener("keydown", listener);
-    } else {
-      document.removeEventListener("keydown", listener);
-    }
-    return () => {
-      document.removeEventListener("keydown", listener);
-    };
-  }, [active]);
+  //   if (active) {
+  //     document.addEventListener("keydown", listener);
+  //   } else {
+  //     document.removeEventListener("keydown", listener);
+  //   }
+  //   return () => {
+  //     document.removeEventListener("keydown", listener);
+  //   };
+  // }, [active]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setActive(false);
+    // setActive(false);
+    // if (e.target.value !== initialValue) {
     updateValue(e.target.value);
+    // }
   };
 
   // const Input = () => (
@@ -42,23 +44,37 @@ export const TextInput = ({ initialValue, updateValue, formId, formLabel }) => {
   // );
 
   const StyledInput = styled("input", {
+    outline: "none",
     p: 3,
-    background: "$gray100",
+    background: "transparent",
     color: "$white",
-    borderStyle: "solid",
-    borderColor: "$gray600",
-    borderRadius: "$1",
+    border: "none",
+    borderBottomWidth: "1px",
+    borderBottomStyle: "solid",
+    borderBottomColor: "$gray600",
     fontFamily: "$helvetica",
-    fontSize: 11,
+    fontSize: "12px",
+    transition: "border 0.3s ease",
     "&::placeholder": {
-      color: "$white",
+      color: "$gray600",
+      fontSize: "12px",
+      transition: "color 0.3s ease",
+    },
+    "&:focus": {
+      borderBottomColor: "$red",
+      "&::placeholder": {
+        color: "$gray700",
+      },
     },
   });
 
   return (
     <StyledBox
       as="form"
-      css={{ py: "$2" }}
+      flex
+      direction="column"
+      align="center"
+      css={{ mt: "$2", mb: "$5" }}
       name={formId}
       id={formId}
       onSubmit={(e) => handleSubmit(e)}
@@ -77,7 +93,6 @@ export const TextInput = ({ initialValue, updateValue, formId, formLabel }) => {
         type="text"
         placeholder={initialValue}
         onClick={() => setActive(true)}
-        onBlur={(e) => handleSubmit(e)}
       />
     </StyledBox>
   );

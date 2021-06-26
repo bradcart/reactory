@@ -53,14 +53,18 @@
   src: url(/fonts/space-mono-bold.ttf) format("truetype");
 }
 
+// * {
+//   box-sizing: border-box;
+// }
+
 /* Box sizing rules */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+// *,
+// *::before,
+// *::after {
+//   box-sizing: border-box;
+//   margin: 0;
+//   padding: 0;
+// }
 
 /* Remove default margin */
 body,

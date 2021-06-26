@@ -14,6 +14,7 @@ export const StyledText = styled(DEFAULT_TAG, {
   // Props
   variants: {
     variant: {
+      // Interface variants
       toolbox: {
         fontFamily: "FreeSans",
         fontSize: "14px",
@@ -29,6 +30,8 @@ export const StyledText = styled(DEFAULT_TAG, {
         lineHeight: "auto",
         p: "3px",
       },
+
+      // User variants
     },
     size: {
       1: {
