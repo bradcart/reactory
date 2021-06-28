@@ -7,13 +7,13 @@ const Icon = ({ width }) => (
     opacity={0.9}
   >
     <polygon
-      points="44 0 245 210 42 417 1 376 159 208 0 43 44 0"
+      points="245 43 86 208 244 376 203 417 0 210 201 0 245 43"
       fill-rule="evenodd"
     />
   </svg>
 );
 
-export const RightArrowIcon = ({ width }) => (
+export const ArrowIcon = ({ width, flipDirection }) => (
   <div
     style={{
       width: "100%",
@@ -22,6 +22,7 @@ export const RightArrowIcon = ({ width }) => (
       display: "inline-flex",
       alignItems: "center",
       justifyContent: "center",
+      transform: flipDirection ? "rotate(180deg)" : "none",
     }}
   >
     <Icon width={width} />

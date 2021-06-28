@@ -1,10 +1,9 @@
 import { useNode } from "@craftjs/core";
 import { StyledBox } from "../styled/StyledBox";
-import { StyledText } from "../styled/StyledText";
 import { StyledLabel } from "../styled/inputs/Label";
 import { StyledSlider } from "../styled/inputs/Slider";
 import { StyledToggleGroup } from "../styled/inputs/ToggleGroup";
-import { CheckboxIcon } from "../icons/CheckboxIcon";
+import { ColorPicker } from "../styled/inputs/ColorPicker";
 
 export const Container = ({
   background,
@@ -49,6 +48,7 @@ export const ContainerSettings = () => {
     padding,
     justify,
     align,
+    background,
     actions: { setProp },
   } = useNode((node) => ({
     width: node.data.props.width,
@@ -56,6 +56,7 @@ export const ContainerSettings = () => {
     padding: node.data.props.padding,
     justify: node.data.props.justify,
     align: node.data.props.align,
+    background: node.data.props.background,
   }));
 
   return (
@@ -108,6 +109,9 @@ export const ContainerSettings = () => {
         labelTwo="Center"
         valueThree="end"
         labelThree="Bottom"
+      />
+      <ColorPicker
+        onClick={(e) => setProp((props) => (props.background = e.target.value))}
       />
     </>
   );
