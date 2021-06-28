@@ -1,8 +1,8 @@
 import { useNode } from "@craftjs/core";
 import { StyledBox } from "../styled/StyledBox";
-import { StyledLabel } from "../styled/inputs/Label";
-import { StyledSlider } from "../styled/inputs/Slider";
-import { ColorPicker } from "../styled/inputs/ColorPicker";
+import { StyledLabel } from "../styled/settings/Label";
+import { StyledSlider } from "../styled/settings/Slider";
+import { ColorPicker } from "../styled/settings/ColorPicker";
 
 export const Page = ({ background, padding = 0, children }) => {
   const {

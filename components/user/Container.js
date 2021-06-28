@@ -1,9 +1,9 @@
 import { useNode } from "@craftjs/core";
 import { StyledBox } from "../styled/StyledBox";
-import { StyledLabel } from "../styled/inputs/Label";
-import { StyledSlider } from "../styled/inputs/Slider";
-import { StyledToggleGroup } from "../styled/inputs/ToggleGroup";
-import { ColorPicker } from "../styled/inputs/ColorPicker";
+import { StyledLabel } from "../styled/settings/Label";
+import { StyledSlider } from "../styled/settings/Slider";
+import { StyledToggleGroup } from "../styled/settings/ToggleGroup";
+import { ColorPicker } from "../styled/settings/ColorPicker";
 
 export const Container = ({
   background,

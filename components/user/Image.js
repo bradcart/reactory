@@ -1,11 +1,11 @@
 import { useNode } from "@craftjs/core";
 import { useState } from "react";
 import { StyledImage } from "../styled/StyledImage";
-import { StyledLabel } from "../styled/inputs/Label";
-import { StyledForm } from "../styled/inputs/Form";
-import { StyledInput } from "../styled/inputs/TextInput";
-import { StyledSlider } from "../styled/inputs/Slider";
-import { StyledToggleGroup } from "../styled/inputs/ToggleGroup";
+import { StyledLabel } from "../styled/settings/Label";
+import { StyledForm } from "../styled/settings/Form";
+import { StyledInput } from "../styled/settings/TextInput";
+import { StyledSlider } from "../styled/settings/Slider";
+import { StyledToggleGroup } from "../styled/settings/ToggleGroup";
 
 export const Image = ({ src, width, height, objectFit }) => {
   const {
@@ -43,36 +43,16 @@ const ImageSettings = () => {
   }));
 
   const [newSrc, changeNewSrc] = useState(src);
-  // const [newWidth, changeNewWidth] = useState(width);
 
   const updateImage = (e) => {
     e.preventDefault();
     setProp((props) => (props.src = newSrc));
   };
 
-  // const updateWidth = (e) => {
-  //   e.preventDefault();
-  //   setProp((props) => (props.width = newWidth));
-  // };
-
   return (
-    // <StyledBox css={{ backgroundColor: "$black" }}>
-    //   <TextInput
-    //     placeholder="paste image URL here"
-    //     submitValue={updateImage}
-    //     formId="img-src"
-    //     formLabel="Image Source"
-    //   />
-    //   <TextInput
-    //     initialValue={width}
-    //     submitValue={updateWidth}
-    //     formId="img-width"
-    //     formLabel="Width"
-    //   />
-    // </StyledBox>
     <>
       <StyledForm name="img-src" id="img-src" onSubmit={(e) => updateImage(e)}>
-        <StyledLabel htmlFor="img-src">Image Source</StyledLabel>
+        <StyledLabel htmlFor="img-src">Source</StyledLabel>
         <StyledInput
           id="img-src"
           type="text"
@@ -108,19 +88,6 @@ const ImageSettings = () => {
         valueTwo="contain"
         labelTwo="Contain"
       />
-      {/* <StyledForm
-        name="img-width"
-        id="img-width"
-        onSubmit={(e) => updateWidth(e)}
-      >
-        <StyledLabel htmlFor="img-width">width</StyledLabel>
-        <StyledInput
-          id="img-width"
-          type="text"
-          placeholder={width}
-          onChange={(e) => changeNewWidth(e.target.value)}
-        />
-      </StyledForm> */}
     </>
   );
 };

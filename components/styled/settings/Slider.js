@@ -1,7 +1,7 @@
 import { styled } from "../../../stitches.config";
 import * as Slider from "@radix-ui/react-slider";
-import { useEffect } from "react";
-import React from "react";
+import { StyledTooltip } from "./Tooltip";
+import { useState } from "react";
 
 const SliderTrack = styled(Slider.Track, {
   position: "relative",
@@ -32,14 +32,32 @@ const SliderRange = styled(Slider.Range, {
 const SliderThumb = styled(Slider.Thumb, {
   //   position: "relative",
   display: "block",
-  width: 13,
-  height: 13,
+  position: "relative",
+  // alignItems: "center",
+  // justifyContent: "center",
+  width: 12,
+  height: 12,
   outline: "none",
   opacity: 1,
-  backgroundColor: "$gray700",
+  backgroundColor: "$gray600",
   boxShadow: "0 0 1px rgba(0,0,0,.3), 0 1px 4px rgba(0,0,0,.15)",
   borderRadius: "$round",
   cursor: "pointer",
+  "&::after": {
+    content: '""',
+    m: 0,
+    p: 0,
+    display: "inline-block",
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 6,
+    height: 6,
+    backgroundColor: "$red",
+    opacity: 1,
+    borderRadius: "$round",
+  },
 
   //   "&::after": {
   //     content: '""',
@@ -62,6 +80,17 @@ const SliderThumb = styled(Slider.Thumb, {
   //   },
 });
 
+// const SliderThumbInner = styled("span", {
+//   display: "inline-block",
+//   width: 7,
+//   height: 7,
+//   outline: "none",
+//   opacity: 1,
+//   backgroundColor: "$red",
+//   borderRadius: "$round",
+//   cursor: "pointer",
+// });
+
 const SliderRoot = styled(Slider.Root, {
   mt: "$1",
   mb: "$6",
@@ -83,9 +112,9 @@ const SliderRoot = styled(Slider.Root, {
     // [`& ${SliderTrack}`]: {
     //   backgroundColor: "$black300",
     // },
-    // [`& ${SliderThumb}`]: {
-    //   opacity: 1,
-    // },
+    [`& ${SliderThumb}`]: {
+      opacity: 0.7,
+    },
   },
 });
 
@@ -103,12 +132,19 @@ const SliderRoot = styled(Slider.Root, {
 // });
 
 export const StyledSlider = (props) => {
+  const [open, toggleOpen] = useState(false);
   return (
-    <SliderRoot {...props}>
+    <SliderRoot
+      onMouseEnter={() => toggleOpen(true)}
+      onMouseLeave={() => toggleOpen(false)}
+      {...props}
+    >
       <SliderTrack>
         <SliderRange />
       </SliderTrack>
-      <SliderThumb />
+      <StyledTooltip content={props.value} open={open}>
+        <SliderThumb />
+      </StyledTooltip>
     </SliderRoot>
   );
 };

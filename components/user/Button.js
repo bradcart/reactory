@@ -1,9 +1,9 @@
 import { useNode } from "@craftjs/core";
 import { StyledButton } from "../styled/StyledButton";
 import { StyledBox } from "../styled/StyledBox";
-import { StyledToggleGroup } from "../styled/inputs/ToggleGroup";
-import { StyledLabel } from "../styled/inputs/Label";
-import { ColorPicker } from "../styled/inputs/ColorPicker";
+import { StyledToggleGroup } from "../styled/settings/ToggleGroup";
+import { StyledLabel } from "../styled/settings/Label";
+import { ColorPicker } from "../styled/settings/ColorPicker";
 
 export const Button = ({ size, variant, color, text }) => {
   const {
