@@ -1,4 +1,5 @@
 import { createCss } from "@stitches/react";
+import { tomato, red, crimson, pink } from "@radix-ui/colors";
 
 export const { css, styled, global, theme, getCssString } = createCss({
   theme: {

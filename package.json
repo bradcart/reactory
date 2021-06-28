@@ -11,6 +11,7 @@
     "@craftjs/core": "^0.1.0-beta.19",
     "@craftjs/layers": "^0.1.0-beta.19",
     "@craftjs/utils": "^0.1.0-beta.19",
+    "@radix-ui/colors": "^0.1.7",
     "@radix-ui/react-accessible-icon": "^0.0.15",
     "@radix-ui/react-accordion": "^0.0.17",
     "@radix-ui/react-alert-dialog": "^0.0.19",

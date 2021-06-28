@@ -3,6 +3,8 @@ import { styled } from "../../../stitches.config";
 export const StyledInput = styled("input", {
   outline: "none",
   p: 3,
+  width: "100%",
+  textAlign: "center",
   background: "transparent",
   color: "$white",
   border: "none",
@@ -21,6 +23,12 @@ export const StyledInput = styled("input", {
     borderBottomColor: "$red",
     "&::placeholder": {
       color: "$gray700",
+    },
+  },
+  "&:-webkit-autofill": {
+    boxShadow: "inset 0 0 0 100px #111",
+    "&::first-line": {
+      color: "$white",
     },
   },
 });

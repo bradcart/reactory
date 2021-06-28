@@ -65,7 +65,7 @@ const ButtonSettings = () => {
           <StyledButton>Solid</StyledButton>
         </div>
       </form> */}
-      <StyledText variant="settings">Color</StyledText>
+      {/* <StyledText variant="settings">Color</StyledText> */}
       <ColorPicker
         onClick={(e) => setProp((props) => (props.color = e.target.value))}
       />
