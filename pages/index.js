@@ -99,6 +99,7 @@ export default function Home() {
           userSelect: "none",
           "&:hover": {
             backgroundColor: "$white",
+            color: "$black100",
             "& a": {
               color: "$black100",
             },
