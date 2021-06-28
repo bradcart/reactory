@@ -63,8 +63,8 @@ const SliderThumb = styled(Slider.Thumb, {
 });
 
 const SliderRoot = styled(Slider.Root, {
-  mt: "$2",
-  mb: "$5",
+  mt: "$1",
+  mb: "$6",
   position: "relative",
   display: "flex",
   alignItems: "center",

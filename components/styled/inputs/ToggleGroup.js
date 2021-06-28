@@ -46,7 +46,6 @@ const ToggleButton = styled("button", {
 
   //Custom
   // flexGrow: 1,
-  width: "calc(100% / 3)",
   padding: "6px 5px 5px 5px",
   borderRadius: "inherit",
   borderColor: "inherit",
@@ -58,18 +57,41 @@ const ToggleButton = styled("button", {
     backgroundColor: "$black300",
     color: "$white",
   },
+  width: "100%",
+  // variants: {
+  //   numberTotal: {
+  //     3: {
+  //       width: "calc(100% / 3)",
+  //     },
+  //     2: {
+  //       width: "50%",
+  //     },
+  //   },
+  // },
 });
 
 const ToggleRoot = styled("div", {
   p: 0,
-  mt: "$2",
-  mb: "$5",
+  mt: "$1",
+  mb: "$6",
   // display: "flex",
   // position: "relative",
   borderRadius: "$1",
   borderColor: "transparent",
   backgroundColor: "$black400",
   color: "$gray600",
+  display: "inline-grid",
+  gridAutoFlow: "column",
+  variants: {
+    numberTotal: {
+      3: {
+        gridTemplateColumns: "repeat(3, 1fr)",
+      },
+      2: {
+        gridTemplateColumns: "repeat(2, 1fr)",
+      },
+    },
+  },
 });
 
 const ToggleSeparator = styled(Separator.Root, {
@@ -94,12 +116,12 @@ export const StyledToggleGroup = ({
       value={currentValue}
       onValueChange={onValueChange}
       as={ToggleRoot}
+      numberTotal={valueThree ? 3 : 2}
     >
       <ToggleGroup.Item
         value={valueOne}
         disabled={currentValue === valueOne ? true : false}
         as={ToggleButton}
-        // id="toggle-btn"
       >
         {labelOne}
       </ToggleGroup.Item>
@@ -111,13 +133,15 @@ export const StyledToggleGroup = ({
       >
         {labelTwo}
       </ToggleGroup.Item>
-      <ToggleGroup.Item
-        value={valueThree}
-        disabled={currentValue === valueThree ? true : false}
-        as={ToggleButton}
-      >
-        {labelThree}
-      </ToggleGroup.Item>
+      {valueThree && labelThree ? (
+        <ToggleGroup.Item
+          value={valueThree}
+          disabled={currentValue === valueThree ? true : false}
+          as={ToggleButton}
+        >
+          {labelThree}
+        </ToggleGroup.Item>
+      ) : null}
       {/* <ToggleHighlighter
         style={
           currentValue === 1

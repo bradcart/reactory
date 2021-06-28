@@ -103,6 +103,12 @@ body {
   line-height: 1.5;
 }
 
+/* Prevent vertical scroll bounce */
+html,
+body {
+  overflow: hidden;
+}
+
 /* Make images easier to work with */
 img,
 picture {
@@ -140,6 +146,7 @@ select {
 }
 
 /* Custom - will rearrange later */
+
 button {
   cursor: pointer;
 }

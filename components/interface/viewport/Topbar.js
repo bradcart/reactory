@@ -26,8 +26,8 @@ const TopbarButton = styled("button", {
   lineHeight: "1",
   WebkitTapHighlightColor: "rgba(0,0,0,0)",
 
-  px: "$3",
-  py: "$2",
+  // Custom
+  padding: "12px 15px 8px 15px",
   mx: "$2",
   backgroundColor: "$black100",
   color: "$white",
@@ -39,6 +39,7 @@ const TopbarButton = styled("button", {
   borderColor: "$gray700",
   borderStyle: "outset",
   borderRadius: "$1",
+  cursor: "pointer",
   "&:hover": {
     backgroundColor: "$white",
     color: "$black100",

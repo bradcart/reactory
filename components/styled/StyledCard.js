@@ -1,5 +1,5 @@
 import React from "react";
-import { styled } from "../stitches.config";
+import { styled } from "../../stitches.config";
 
 const DEFAULT_TAG = "div";
 
@@ -16,7 +16,7 @@ const Card = styled(DEFAULT_TAG, {
   verticalAlign: "middle",
   WebkitTapHighlightColor: "rgba(0, 0, 0, 0)",
 
-  //   backgroundColor: "$panel",
+  backgroundColor: "inherit",
   display: "block",
   textDecoration: "none",
   color: "inherit",
@@ -37,72 +37,68 @@ const Card = styled(DEFAULT_TAG, {
     pointerEvents: "none",
   },
 
-  variants: {
-    variant: {
-      interactive: {
-        "@hover": {
-          "&:hover": {
-            "&::before": {
-              boxShadow: "inset 0 0 0 1px rgba(0,0,0,.2)",
-            },
-          },
-        },
-        "&:focus": {
-          "&::before": {
-            boxShadow:
-              "inset 0 0 0 1px $colors$blue700, 0 0 0 1px $colors$blue700",
-          },
-        },
-      },
-      ghost: {
-        backgroundColor: "transparent",
-        transition:
-          "transform 200ms cubic-bezier(0.22, 1, 0.36, 1), background-color 25ms linear",
-        willChange: "transform",
-        "&::before": {
-          boxShadow:
-            "0px 10px 38px -10px rgba(22, 23, 24, 0.35), 0px 10px 20px -15px rgba(22, 23, 24, 0.2)",
-          opacity: "0",
-          transition: "all 200ms cubic-bezier(0.22, 1, 0.36, 1)",
-        },
-        "@hover": {
-          "&:hover": {
-            backgroundColor: "$panel",
-            transform: "translateY(-2px)",
-            "&::before": {
-              opacity: "1",
-            },
-          },
-        },
-        "&:active": {
-          transform: "translateY(0)",
-          transition: "none",
-          "&::before": {
-            boxShadow:
-              "0px 5px 16px -5px rgba(22, 23, 24, 0.35), 0px 5px 10px -7px rgba(22, 23, 24, 0.2)",
-            opacity: "1",
-          },
-        },
-        "&:focus": {
-          boxShadow:
-            "inset 0 0 0 1px $colors$blue700, 0 0 0 1px $colors$blue700",
-        },
-      },
-      active: {
-        transform: "translateY(0)",
-        transition: "none",
-        "&::before": {
-          boxShadow:
-            "0px 5px 16px -5px rgba(22, 23, 24, 0.35), 0px 5px 10px -7px rgba(22, 23, 24, 0.2)",
-          opacity: "1",
-        },
-        "&:focus": {
-          boxShadow:
-            "inset 0 0 0 1px $colors$blue700, 0 0 0 1px $colors$blue700",
-        },
-      },
-    },
-  },
+  // variants: {
+  //   variant: {
+  //     interactive: {
+  //       "&:hover": {
+  //         "&::before": {
+  //           boxShadow: "inset 0 0 0 1px rgba(0,0,0,.2)",
+  //         },
+  //       },
+  //       "&:focus": {
+  //         "&::before": {
+  //           boxShadow:
+  //             "inset 0 0 0 1px $colors$blue700, 0 0 0 1px $colors$blue700",
+  //         },
+  //       },
+  //     },
+  //     ghost: {
+  //       backgroundColor: "transparent",
+  //       transition:
+  //         "transform 200ms cubic-bezier(0.22, 1, 0.36, 1), background-color 25ms linear",
+  //       willChange: "transform",
+  //       "&::before": {
+  //         boxShadow:
+  //           "0px 10px 38px -10px rgba(22, 23, 24, 0.35), 0px 10px 20px -15px rgba(22, 23, 24, 0.2)",
+  //         opacity: "0",
+  //         transition: "all 200ms cubic-bezier(0.22, 1, 0.36, 1)",
+  //       },
+  //       "&:hover": {
+  //         backgroundColor: "$panel",
+  //         transform: "translateY(-2px)",
+  //         "&::before": {
+  //           opacity: "1",
+  //         },
+  //       },
+  //       "&:active": {
+  //         transform: "translateY(0)",
+  //         transition: "none",
+  //         "&::before": {
+  //           boxShadow:
+  //             "0px 5px 16px -5px rgba(22, 23, 24, 0.35), 0px 5px 10px -7px rgba(22, 23, 24, 0.2)",
+  //           opacity: "1",
+  //         },
+  //       },
+  //       "&:focus": {
+  //         boxShadow:
+  //           "inset 0 0 0 1px $colors$blue700, 0 0 0 1px $colors$blue700",
+  //       },
+  //     },
+  //     active: {
+  //       transform: "translateY(0)",
+  //       transition: "none",
+  //       "&::before": {
+  //         boxShadow:
+  //           "0px 5px 16px -5px rgba(22, 23, 24, 0.35), 0px 5px 10px -7px rgba(22, 23, 24, 0.2)",
+  //         opacity: "1",
+  //       },
+  //       "&:focus": {
+  //         boxShadow:
+  //           "inset 0 0 0 1px $colors$blue700, 0 0 0 1px $colors$blue700",
+  //       },
+  //     },
+  //   },
+  // },
 });
 
 export const StyledCard = React.forwardRef((props, forwardedRef) => {
