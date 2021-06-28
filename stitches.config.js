@@ -132,6 +132,7 @@ export const { css, styled, global, theme, getCssString } = createCss({
       7: "45px",
       8: "65px",
       9: "80px",
+      10: "100px",
     },
     sizes: {
       1: "5px",
@@ -143,6 +144,7 @@ export const { css, styled, global, theme, getCssString } = createCss({
       7: "45px",
       8: "65px",
       9: "80px",
+      10: "100px",
     },
     fontSizes: {
       1: "12px",

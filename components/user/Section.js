@@ -1,15 +1,13 @@
 import { useNode } from "@craftjs/core";
-import { StyledBox } from "../styled/StyledBox";
+import { StyledSection } from "../styled/StyledSection";
 import { StyledLabel } from "../styled/settings/Label";
 import { StyledSlider } from "../styled/settings/Slider";
 import { StyledToggleGroup } from "../styled/settings/ToggleGroup";
 import { ColorPicker } from "../styled/settings/ColorPicker";
 
-export const Container = ({
+export const Section = ({
+  size,
   background,
-  width,
-  height,
-  padding,
   flex,
   direction,
   justify,
@@ -23,37 +21,31 @@ export const Container = ({
   //VARIANTS: FLEX, FLEX DIRECTION, ALIGN ITEMS, JUSTIFY CONTENT, BORDER, BORDER RADIUS
   //STYLE PROP: WIDTH, HEIGHT, PADDING, BGCOLOR
   return (
-    <StyledBox
+    <StyledSection
       ref={(ref) => connect(drag(ref))}
-      flex={flex}
-      direction={direction}
+      size={size}
+      flex
+      //   direction={direction}
       justify={justify}
       align={align}
       style={{
         backgroundColor: background,
-        width: `${width}%`,
-        height: `${height * 10}px`,
-        padding: padding,
       }}
     >
       {children}
-    </StyledBox>
+    </StyledSection>
   );
 };
 
-export const ContainerSettings = () => {
+export const SectionSettings = () => {
   const {
-    width,
-    height,
-    padding,
+    size,
     justify,
     align,
     background,
     actions: { setProp },
   } = useNode((node) => ({
-    width: node.data.props.width,
-    height: node.data.props.height,
-    padding: node.data.props.padding,
+    size: node.data.props.size,
     justify: node.data.props.justify,
     align: node.data.props.align,
     background: node.data.props.background,
@@ -61,32 +53,16 @@ export const ContainerSettings = () => {
 
   return (
     <>
-      {/* <CheckboxIcon /> */}
-      <StyledLabel>Width</StyledLabel>
-      <StyledSlider
-        value={[width]}
-        onValueChange={(value) => setProp((props) => (props.width = value[0]))}
-        step={1}
-        min={0}
-        max={100}
-      />
-      <StyledLabel>Height</StyledLabel>
-      <StyledSlider
-        value={[height]}
-        onValueChange={(value) => setProp((props) => (props.height = value[0]))}
-        step={1}
-        min={0}
-        max={100}
-      />
-      <StyledLabel>Padding</StyledLabel>
-      <StyledSlider
-        value={[padding]}
-        onValueChange={(value) =>
-          setProp((props) => (props.padding = value[0]))
-        }
-        step={5}
-        min={0}
-        max={80}
+      <StyledLabel>Size</StyledLabel>
+      <StyledToggleGroup
+        currentValue={size}
+        onValueChange={(value) => setProp((props) => (props.size = value))}
+        valueOne="sm"
+        labelOne="Small"
+        valueTwo="md"
+        labelTwo="Medium"
+        valueThree="lg"
+        labelThree="Large"
       />
       <StyledLabel>Justify</StyledLabel>
       <StyledToggleGroup
@@ -118,20 +94,17 @@ export const ContainerSettings = () => {
 };
 
 // We export this because we'll be using this in the Card component as well
-export const ContainerDefaultProps = {
+export const SectionDefaultProps = {
   background: "#ffffff",
-  width: 30,
-  height: 3,
-  padding: 20,
-  flex: true,
+  size: "md",
   justify: "center",
   align: "center",
 };
 
-Container.craft = {
-  displayName: "Container",
-  props: ContainerDefaultProps,
+Section.craft = {
+  displayName: "Section",
+  props: SectionDefaultProps,
   related: {
-    settings: ContainerSettings,
+    settings: SectionSettings,
   },
 };

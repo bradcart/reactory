@@ -20,7 +20,7 @@ export const Page = ({ background, padding = 0, children }) => {
         padding: `${padding}px`,
         background: background,
         overflow: "auto",
-        boxShadow: "0px 4px 16px 8px rgba(0, 0, 0, 0.25)",
+        boxShadow: "0px 4px 20px 8px rgba(0, 0, 0, 0.5)",
       }}
     >
       {children}
@@ -39,7 +39,7 @@ const PageSettings = () => {
   }));
 
   return (
-    <StyledBox css={{ mt: "$1" }}>
+    <>
       <StyledLabel>Padding</StyledLabel>
       <StyledSlider
         value={[padding]}
@@ -54,7 +54,7 @@ const PageSettings = () => {
       <ColorPicker
         onClick={(e) => setProp((props) => (props.background = e.target.value))}
       />
-    </StyledBox>
+    </>
   );
 };
 

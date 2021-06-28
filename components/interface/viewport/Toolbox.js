@@ -1,6 +1,7 @@
 import { Element, useEditor } from "@craftjs/core";
 import { styled } from "../../../stitches.config";
 
+import { Section } from "../../user/Section";
 import { Container } from "../../user/Container";
 import { Button } from "../../user/Button";
 import { Text } from "../../user/Text";
@@ -9,6 +10,7 @@ import { Card } from "../../user/Card";
 
 import { StyledBox } from "../../styled/StyledBox";
 
+import { SectionIcon } from "../../icons/SectionIcon";
 import { ContainerIcon } from "../../icons/ContainerIcon";
 import { TextIcon } from "../../icons/TextIcon";
 import { ButtonIcon } from "../../icons/ButtonIcon";
@@ -105,6 +107,12 @@ export const Toolbox = () => {
           justifyItems: "center",
         }}
       >
+        <ToolboxButton
+          ref={(ref) => connectors.create(ref, <Element is={Section} canvas />)}
+        >
+          <SectionIcon width={78} />
+          <StyledLabel>Section</StyledLabel>
+        </ToolboxButton>
         <ToolboxButton
           ref={(ref) =>
             connectors.create(

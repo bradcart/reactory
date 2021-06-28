@@ -114,16 +114,7 @@ export const SettingsPanel = () => {
             </Heading>
           </StyledBox> */}
           <StyledBadge>{selected.displayName}</StyledBadge>
-          <StyledBox
-            flex
-            direction="column"
-            css={
-              {
-                // paddingX: 3,
-                // paddingY: 2,
-              }
-            }
-          >
+          <StyledBox flex direction="column" css={{ mt: "$1" }}>
             {selected.settings && React.createElement(selected.settings)}
             {/* {selected.isDeletable ? (
               <StyledButton

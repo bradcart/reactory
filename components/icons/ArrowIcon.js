@@ -8,7 +8,7 @@ const Icon = ({ width }) => (
   >
     <polygon
       points="245 43 86 208 244 376 203 417 0 210 201 0 245 43"
-      fill-rule="evenodd"
+      fillRule="evenodd"
     />
   </svg>
 );

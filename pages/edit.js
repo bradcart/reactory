@@ -3,6 +3,7 @@ import { Editor, Frame, Element } from "@craftjs/core";
 import { Layers } from "@craftjs/layers";
 
 import { Page } from "../components/user/Page";
+import { Section } from "../components/user/Section";
 import { Container } from "../components/user/Container";
 import { Button } from "../components/user/Button";
 import { Card, CardTop, CardBottom } from "../components/user/Card";
@@ -35,6 +36,7 @@ export default function Edit() {
         Text,
         Container,
         Image,
+        Section,
       }}
       onRender={RenderNode}
     >
