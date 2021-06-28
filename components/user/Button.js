@@ -7,12 +7,12 @@ import { ColorPicker } from "../styled/settings/ColorPicker";
 
 export const Button = ({ size, variant, color, text }) => {
   const {
-    connectors: { connect, drag },
+    connectors: { connect },
   } = useNode();
 
   return (
     <StyledButton
-      ref={(ref) => connect(drag(ref))}
+      ref={connect}
       size={size}
       // variant={variant}
       type={variant}

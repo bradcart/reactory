@@ -6,13 +6,13 @@ import { ColorPicker } from "../styled/settings/ColorPicker";
 
 export const Page = ({ background, padding = 0, children }) => {
   const {
-    connectors: { connect, drag },
+    connectors: { connect },
   } = useNode();
 
   //VARIANTS: PADDING, BACKGROUND, BACKGROUND IMAGE SETTINGS
   return (
     <StyledBox
-      ref={(ref) => connect(drag(ref))}
+      ref={connect}
       style={{
         width: "90%",
         height: "calc(95vh - 60px)",

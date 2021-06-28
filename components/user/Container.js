@@ -17,14 +17,14 @@ export const Container = ({
   children,
 }) => {
   const {
-    connectors: { connect, drag },
+    connectors: { connect },
   } = useNode();
 
   //VARIANTS: FLEX, FLEX DIRECTION, ALIGN ITEMS, JUSTIFY CONTENT, BORDER, BORDER RADIUS
   //STYLE PROP: WIDTH, HEIGHT, PADDING, BGCOLOR
   return (
     <StyledBox
-      ref={(ref) => connect(drag(ref))}
+      ref={connect}
       flex={flex}
       direction={direction}
       justify={justify}

@@ -15,14 +15,14 @@ export const Section = ({
   children,
 }) => {
   const {
-    connectors: { connect, drag },
+    connectors: { connect },
   } = useNode();
 
   //VARIANTS: FLEX, FLEX DIRECTION, ALIGN ITEMS, JUSTIFY CONTENT, BORDER, BORDER RADIUS
   //STYLE PROP: WIDTH, HEIGHT, PADDING, BGCOLOR
   return (
     <StyledSection
-      ref={(ref) => connect(drag(ref))}
+      ref={connect}
       size={size}
       flex
       //   direction={direction}

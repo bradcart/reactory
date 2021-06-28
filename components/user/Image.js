@@ -9,13 +9,10 @@ import { StyledToggleGroup } from "../styled/settings/ToggleGroup";
 
 export const Image = ({ src, width, height, objectFit }) => {
   const {
-    connectors: { connect, drag },
+    connectors: { connect },
   } = useNode();
   return (
-    <div
-      ref={(ref) => connect(drag(ref))}
-      style={{ width: `${width}px`, height: `${height}px` }}
-    >
+    <div ref={connect} style={{ width: `${width}px`, height: `${height}px` }}>
       <StyledImage
         src={src}
         style={{

@@ -2,8 +2,8 @@ import { useNode, useEditor } from "@craftjs/core";
 import { ROOT_NODE } from "@craftjs/utils";
 import React, { useEffect, useRef, useCallback } from "react";
 import ReactDOM from "react-dom";
-// import styled from "styled-components";
 import { styled } from "../../stitches.config";
+import { DragIcon, ArrowUpIcon, DeleteIcon } from "../icons/RenderNodeIcons";
 
 const IndicatorDiv = styled("div", {
   height: 30,
@@ -65,7 +65,7 @@ export const RenderNode = ({ render }) => {
 
   useEffect(() => {
     if (dom) {
-      if ((isActive || isHover) && name !== "Page") {
+      if (isActive || isHover) {
         // console.log(dom);
         dom.classList.add("component-selected");
       } else dom.classList.remove("component-selected");
@@ -109,7 +109,6 @@ export const RenderNode = ({ render }) => {
         ? ReactDOM.createPortal(
             <IndicatorDiv
               ref={currentRef}
-              //   className="px-2 py-2 text-white bg-primary fixed flex items-center"
               style={{
                 px: "0.5rem",
                 py: "0.5rem",
@@ -123,45 +122,37 @@ export const RenderNode = ({ render }) => {
                 zIndex: 9999,
               }}
             >
-              <h2
-                // className="flex-1 mr-4"
-                style={{ flex: 1, marginRight: "1rem" }}
-              >
-                {name}
-              </h2>
+              <h2 style={{ flex: "1 1 0%", marginRight: "1rem" }}>{name}</h2>
               {moveable ? (
                 <Btn
-                  // className="mr-2 cursor-move"
                   style={{
                     marginRight: "0.5rem",
                     cursor: "move",
                   }}
                   ref={drag}
                 >
-                  {/* <Move /> */}1
+                  <DragIcon />
                 </Btn>
               ) : null}
               {id !== ROOT_NODE && (
                 <Btn
-                  // className="mr-2 cursor-pointer"
                   style={{ marginRight: "0.5rem", cursor: "pointer" }}
                   onClick={() => {
                     actions.selectNode(parent);
                   }}
                 >
-                  {/* <ArrowUp /> */}2
+                  <ArrowUpIcon />
                 </Btn>
               )}
               {deletable ? (
                 <Btn
-                  // className="cursor-pointer"
                   style={{ cursor: "pointer" }}
                   onMouseDown={(e) => {
                     e.stopPropagation();
                     actions.delete(id);
                   }}
                 >
-                  {/* <Delete /> */}3
+                  <DeleteIcon />
                 </Btn>
               ) : null}
             </IndicatorDiv>,
