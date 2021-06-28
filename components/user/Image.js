@@ -3,7 +3,7 @@ import { useState } from "react";
 import { StyledImage } from "../styled/StyledImage";
 import { StyledLabel } from "../styled/inputs/Label";
 import { StyledForm } from "../styled/inputs/Form";
-import { StyledInput } from "../styled/inputs/TextInputCopy";
+import { StyledInput } from "../styled/inputs/TextInput";
 import { StyledSlider } from "../styled/inputs/Slider";
 import { StyledToggleGroup } from "../styled/inputs/ToggleGroup";
 
@@ -12,14 +12,16 @@ export const Image = ({ src, width, height, objectFit }) => {
     connectors: { connect, drag },
   } = useNode();
   return (
-    <div>
+    <div
+      ref={(ref) => connect(drag(ref))}
+      style={{ width: `${width}px`, height: `${height}px` }}
+    >
       <StyledImage
-        ref={(ref) => connect(drag(ref))}
         src={src}
         style={{
           objectFit: objectFit,
-          width: `${width}px`,
-          height: `${height}px`,
+          width: "100%",
+          height: "100%",
         }}
       />
     </div>
