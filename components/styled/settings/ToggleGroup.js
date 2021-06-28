@@ -52,12 +52,12 @@ const ToggleButton = styled("button", {
   fontSize: "11px",
   backgroundColor: "inherit",
   color: "inherit",
-  fontFamily: "$helvetica",
+  fontFamily: "$ddin",
+  textTransform: "uppercase",
   "&[data-state=on]": {
     backgroundColor: "$black300",
     color: "$white",
   },
-  width: "100%",
   // variants: {
   //   numberTotal: {
   //     3: {
@@ -73,9 +73,10 @@ const ToggleButton = styled("button", {
 const ToggleRoot = styled("div", {
   p: 0,
   mt: "$1",
-  mb: "$6",
+  mb: "$4",
   // display: "flex",
   // position: "relative",
+  width: "100%",
   borderRadius: "$1",
   borderColor: "transparent",
   backgroundColor: "$black400",

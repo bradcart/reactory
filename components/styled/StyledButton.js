@@ -29,7 +29,7 @@ export const StyledButton = styled("button", {
   fontFamily: "$helvetica",
   height: "$5",
   p: "$1",
-  fontSize: "$2",
+  // fontSize: "$2",
 
   variants: {
     size: {
@@ -37,21 +37,21 @@ export const StyledButton = styled("button", {
         borderRadius: "$1",
         height: "$5",
         px: "$2",
-        fontSize: "$1",
+        // fontSize: "$1",
         lineHeight: "$sizes$5",
       },
       md: {
         borderRadius: "$2",
         height: "$6",
         px: "$3",
-        fontSize: "$3",
+        // fontSize: "$3",
         lineHeight: "$sizes$6",
       },
       lg: {
         borderRadius: "$2",
         height: "$7",
         px: "$5",
-        fontSize: "$5",
+        // fontSize: "$5",
         lineHeight: "$sizes$7",
       },
     },

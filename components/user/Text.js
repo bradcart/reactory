@@ -6,8 +6,15 @@ import { StyledBox } from "../styled/StyledBox";
 import { StyledLabel } from "../styled/settings/Label";
 import { StyledSlider } from "../styled/settings/Slider";
 import { StyledToggleGroup } from "../styled/settings/ToggleGroup";
+import { StyledSeparator } from "../styled/settings/Separator";
 
-export const Text = ({ text, fontSize, fontWeight, textAlign }) => {
+export const Text = ({
+  text,
+  tagName = "p",
+  fontSize,
+  fontWeight,
+  textAlign,
+}) => {
   const {
     connectors: { connect, drag },
     selected,
@@ -38,7 +45,7 @@ export const Text = ({ text, fontSize, fontWeight, textAlign }) => {
               (props.text = e.target.value.replace(/<\/?[^>]+(>|$)/g, ""))
           )
         }
-        tagName="p"
+        tagName={tagName}
         className={"apply-font-" + id}
         style={{
           fontSize: `${fontSize}px`,
@@ -73,8 +80,11 @@ const TextSettings = () => {
 
   return (
     <>
-      <StyledBox css={{ mb: "$6", fontSize: "14px" }}>
-        <StyledLabel htmlFor="font-picker">Font</StyledLabel>
+      <StyledBox css={{ mt: "$1", mb: "$4", fontSize: "$3" }}>
+        <StyledSeparator />
+        <StyledLabel htmlFor="font-picker" css={{ mb: "$1" }}>
+          Font
+        </StyledLabel>
         <FontPicker
           apiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY}
           id="font-picker"
@@ -115,6 +125,7 @@ const TextSettings = () => {
         valueThree={700}
         labelThree="Bold"
       />
+      <StyledSeparator />
       <StyledLabel htmlFor="text__text-align">Align</StyledLabel>
       <StyledToggleGroup
         id="text__text-align"

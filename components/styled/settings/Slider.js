@@ -93,7 +93,8 @@ const SliderThumb = styled(Slider.Thumb, {
 
 const SliderRoot = styled(Slider.Root, {
   mt: "$1",
-  mb: "$6",
+  mb: "$4",
+  alignSelf: "stretch",
   position: "relative",
   display: "flex",
   alignItems: "center",

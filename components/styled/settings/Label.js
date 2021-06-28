@@ -10,13 +10,13 @@ export const StyledLabel = styled(Label.Root, {
   display: "block",
 
   // Custom
-  fontFamily: "$grifter",
-  fontSize: "$5",
+  fontFamily: "$ddin",
+  fontSize: "$4",
   color: "$white",
   opacity: 0.9,
   // letterSpacing: "0.03em",
   textTransform: "lowercase",
   textAlign: "center",
-  lineHeight: "auto",
+  lineHeight: 1,
   p: "3px",
 });

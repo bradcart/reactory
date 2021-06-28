@@ -1,8 +1,10 @@
 import { useNode } from "@craftjs/core";
 import { StyledSection } from "../styled/StyledSection";
+import { StyledBox } from "../styled/StyledBox";
 import { StyledLabel } from "../styled/settings/Label";
 import { StyledSlider } from "../styled/settings/Slider";
 import { StyledToggleGroup } from "../styled/settings/ToggleGroup";
+import { StyledSeparator } from "../styled/settings/Separator";
 import { ColorPicker } from "../styled/settings/ColorPicker";
 
 export const Section = ({
@@ -53,45 +55,52 @@ export const SectionSettings = () => {
 
   return (
     <>
-      <StyledLabel htmlFor="section__size">Size</StyledLabel>
-      <StyledToggleGroup
-        id="section__size"
-        currentValue={size}
-        onValueChange={(value) => setProp((props) => (props.size = value))}
-        valueOne="sm"
-        labelOne="Small"
-        valueTwo="md"
-        labelTwo="Medium"
-        valueThree="lg"
-        labelThree="Large"
-      />
-      <StyledLabel htmlFor="section__justify">Justify</StyledLabel>
-      <StyledToggleGroup
-        id="section__justify"
-        currentValue={justify}
-        onValueChange={(value) => setProp((props) => (props.justify = value))}
-        valueOne="start"
-        labelOne="Left"
-        valueTwo="center"
-        labelTwo="Center"
-        valueThree="end"
-        labelThree="Right"
-      />
-      <StyledLabel htmlFor="section__align">Align</StyledLabel>
-      <StyledToggleGroup
-        id="section__align"
-        currentValue={align}
-        onValueChange={(value) => setProp((props) => (props.align = value))}
-        valueOne="start"
-        labelOne="Top"
-        valueTwo="center"
-        labelTwo="Center"
-        valueThree="end"
-        labelThree="Bottom"
-      />
-      <ColorPicker
-        onClick={(e) => setProp((props) => (props.background = e.target.value))}
-      />
+      <StyledBox css={{ mt: "$1" }}>
+        <StyledSeparator />
+        <StyledLabel htmlFor="section__size">Size</StyledLabel>
+        <StyledToggleGroup
+          id="section__size"
+          currentValue={size}
+          onValueChange={(value) => setProp((props) => (props.size = value))}
+          valueOne="sm"
+          labelOne="Small"
+          valueTwo="md"
+          labelTwo="Medium"
+          valueThree="lg"
+          labelThree="Large"
+        />
+        <StyledLabel htmlFor="section__justify">Justify</StyledLabel>
+        <StyledToggleGroup
+          id="section__justify"
+          currentValue={justify}
+          onValueChange={(value) => setProp((props) => (props.justify = value))}
+          valueOne="start"
+          labelOne="Left"
+          valueTwo="center"
+          labelTwo="Center"
+          valueThree="end"
+          labelThree="Right"
+        />
+        <StyledLabel htmlFor="section__align">Align</StyledLabel>
+        <StyledToggleGroup
+          id="section__align"
+          currentValue={align}
+          onValueChange={(value) => setProp((props) => (props.align = value))}
+          valueOne="start"
+          labelOne="Top"
+          valueTwo="center"
+          labelTwo="Center"
+          valueThree="end"
+          labelThree="Bottom"
+        />
+        <StyledSeparator />
+        <StyledLabel>Background</StyledLabel>
+        <ColorPicker
+          onClick={(e) =>
+            setProp((props) => (props.background = e.target.value))
+          }
+        />
+      </StyledBox>
     </>
   );
 };
@@ -107,6 +116,10 @@ export const SectionDefaultProps = {
 Section.craft = {
   displayName: "Section",
   props: SectionDefaultProps,
+  rules: {
+    canDrop: (targetNode) => targetNode.data.displayName == "Page",
+    canMoveIn: (incomingNode) => incomingNode.data.displayName !== "Section",
+  },
   related: {
     settings: SectionSettings,
   },

@@ -4,6 +4,7 @@ import { StyledLabel } from "../styled/settings/Label";
 import { StyledSlider } from "../styled/settings/Slider";
 import { StyledToggleGroup } from "../styled/settings/ToggleGroup";
 import { ColorPicker } from "../styled/settings/ColorPicker";
+import { StyledSeparator } from "../styled/settings/Separator";
 
 export const Container = ({
   background,
@@ -60,8 +61,8 @@ export const ContainerSettings = () => {
   }));
 
   return (
-    <>
-      {/* <CheckboxIcon /> */}
+    <StyledBox css={{ mt: "$1" }}>
+      <StyledSeparator />
       <StyledLabel htmlFor="container__width">Width</StyledLabel>
       <StyledSlider
         id="container__width"
@@ -91,6 +92,7 @@ export const ContainerSettings = () => {
         min={0}
         max={80}
       />
+      <StyledSeparator />
       <StyledLabel htmlFor="container__justify">Justify</StyledLabel>
       <StyledToggleGroup
         id="container__justify"
@@ -115,10 +117,12 @@ export const ContainerSettings = () => {
         valueThree="end"
         labelThree="Bottom"
       />
+      <StyledSeparator />
+      <StyledLabel>Background</StyledLabel>
       <ColorPicker
         onClick={(e) => setProp((props) => (props.background = e.target.value))}
       />
-    </>
+    </StyledBox>
   );
 };
 

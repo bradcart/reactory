@@ -1,11 +1,13 @@
 import { useNode } from "@craftjs/core";
 import { useState } from "react";
 import { StyledImage } from "../styled/StyledImage";
+import { StyledBox } from "../styled/StyledBox";
 import { StyledLabel } from "../styled/settings/Label";
 import { StyledForm } from "../styled/settings/Form";
 import { StyledInput } from "../styled/settings/TextInput";
 import { StyledSlider } from "../styled/settings/Slider";
 import { StyledToggleGroup } from "../styled/settings/ToggleGroup";
+import { StyledSeparator } from "../styled/settings/Separator";
 
 export const Image = ({ src, width, height, objectFit }) => {
   const {
@@ -47,7 +49,8 @@ const ImageSettings = () => {
   };
 
   return (
-    <>
+    <StyledBox css={{ mt: "$1" }}>
+      <StyledSeparator />
       <StyledForm name="image-src" onSubmit={(e) => updateImage(e)}>
         <StyledLabel htmlFor="image__src">Source</StyledLabel>
         <StyledInput
@@ -57,6 +60,17 @@ const ImageSettings = () => {
           onChange={(e) => changeNewSrc(e.target.value)}
         />
       </StyledForm>
+      <StyledSeparator />
+      <StyledLabel htmlFor="image__object-fit">Fit</StyledLabel>
+      <StyledToggleGroup
+        id="image__object-fit"
+        currentValue={objectFit}
+        onValueChange={(value) => setProp((props) => (props.objectFit = value))}
+        valueOne="cover"
+        labelOne="Fill"
+        valueTwo="contain"
+        labelTwo="Contain"
+      />
       <StyledLabel htmlFor="image__width">Width</StyledLabel>
       <StyledSlider
         id="image__width"
@@ -75,17 +89,7 @@ const ImageSettings = () => {
         min={100}
         max={1000}
       />
-      <StyledLabel htmlFor="image__object-fit">Fit</StyledLabel>
-      <StyledToggleGroup
-        id="image__object-fit"
-        currentValue={objectFit}
-        onValueChange={(value) => setProp((props) => (props.objectFit = value))}
-        valueOne="cover"
-        labelOne="Fill"
-        valueTwo="contain"
-        labelTwo="Contain"
-      />
-    </>
+    </StyledBox>
   );
 };
 

@@ -4,7 +4,6 @@ import Link from "next/link";
 
 import { StyledBox } from "../components/styled/StyledBox";
 import { StyledText } from "../components/styled/StyledText";
-import { StyledButton } from "../components/styled/StyledButton";
 
 const StyledLetter = styled("span", {
   fontFamily: "$hki",
@@ -13,13 +12,43 @@ const StyledLetter = styled("span", {
   transform: "rotate(0.45deg)",
 });
 
+const StyledButton = styled("button", {
+  position: "absolute",
+  left: "50%",
+  bottom: "15%",
+  transform: "translateX(-50%)",
+  borderRadius: "$2",
+  fontFamily: "$grifter",
+  fontSize: "$6",
+  textTransform: "lowercase",
+  textAlign: "center",
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  paddingTop: "14px",
+  px: "$4",
+  paddingBottom: "8px",
+  borderWidth: "2px",
+  borderStyle: "solid",
+  borderColor: "$white",
+  backgroundColor: "$black100",
+  color: "$white",
+  cursor: "pointer",
+  userSelect: "none",
+  "&:hover": {
+    backgroundColor: "$white",
+    color: "$black100",
+    "& a": {
+      color: "$black100",
+    },
+  },
+});
+
 const StyledLink = styled("a", {
   textDecorationLine: "none",
   position: "absolute",
   top: "2.5%",
   right: "2.5%",
-  fontFamily: "$oskari",
-  fontSize: 18,
   color: "$white",
 });
 
@@ -74,38 +103,7 @@ export default function Home() {
           drag-n-drop site builder
         </StyledText>
       </StyledBox>
-      <StyledButton
-        size="lg"
-        color="black"
-        css={{
-          position: "absolute",
-          left: "50%",
-          bottom: "15%",
-          transform: "translateX(-50%)",
-          borderRadius: "$2",
-          fontFamily: "$grifter",
-          fontSize: "$6",
-          textTransform: "lowercase",
-          textAlign: "center",
-          display: "inline-flex",
-          alignItems: "center",
-          justifyContent: "center",
-          paddingTop: "14px",
-          px: "$4",
-          paddingBottom: "8px",
-          borderWidth: "2px",
-          borderStyle: "solid",
-          cursor: "pointer",
-          userSelect: "none",
-          "&:hover": {
-            backgroundColor: "$white",
-            color: "$black100",
-            "& a": {
-              color: "$black100",
-            },
-          },
-        }}
-      >
+      <StyledButton size="lg">
         <Link href="/edit">
           <a style={{ all: "unset" }}>START DEMO</a>
         </Link>

@@ -109,12 +109,6 @@ export const Toolbox = () => {
         }}
       >
         <ToolboxButton
-          ref={(ref) => connectors.create(ref, <Element is={Section} canvas />)}
-        >
-          <SectionIcon width={78} />
-          <StyledLabel>Section</StyledLabel>
-        </ToolboxButton>
-        <ToolboxButton
           ref={(ref) =>
             connectors.create(
               ref,
@@ -124,6 +118,12 @@ export const Toolbox = () => {
         >
           <ContainerIcon width={60} />
           <StyledLabel>Container</StyledLabel>
+        </ToolboxButton>
+        <ToolboxButton
+          ref={(ref) => connectors.create(ref, <Element is={Section} canvas />)}
+        >
+          <SectionIcon width={78} />
+          <StyledLabel>Section</StyledLabel>
         </ToolboxButton>
         <ToolboxButton
           ref={(ref) => connectors.create(ref, <Text text="Hi world" />)}

@@ -59,6 +59,35 @@
   font-weight: 900;
 }
 
+@font-face {
+  font-family: "D-DIN Exp";
+  src: url(/fonts/d-din-exp.otf) format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "D-DIN Exp";
+  src: url(/fonts/d-din-exp-bold.otf) format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SK Concretica";
+  src: url(/fonts/sk-concretica-regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Mattone";
+  src: url(/fonts/mattone-150.woff) format("woff");
+}
+
+// @font-face {
+//   font-family: "EXIL71 Bold";
+//   src: url();
+// }
+
 // * {
 //   box-sizing: border-box;
 // }
@@ -105,6 +134,8 @@ body {
 html,
 body {
   overflow: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Make images easier to work with */
@@ -145,8 +176,8 @@ select {
 
 /* font-picker-react */
 .dropdown-font-family {
-  font-family: "Helvetica Now";
-  font-size: "8px";
+  font-family: "D-DIN Exp";
+  // font-size: "6px";
 }
 
 /* Custom - will rearrange later */

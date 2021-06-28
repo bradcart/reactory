@@ -3,26 +3,26 @@ import { styled } from "../../../stitches.config";
 export const StyledInput = styled("input", {
   outline: "none",
   p: 3,
-  width: "100%",
-  textAlign: "center",
+  mt: "$1",
+  width: "95%",
   background: "transparent",
   color: "$white",
   border: "none",
   borderBottomWidth: "1px",
   borderBottomStyle: "solid",
-  borderBottomColor: "$gray600",
+  borderBottomColor: "$gray700",
   fontFamily: "$helvetica",
   fontSize: "12px",
   transition: "border 0.3s ease",
   "&::placeholder": {
-    color: "$gray600",
+    color: "$whiteDim",
     fontSize: "12px",
     transition: "color 0.3s ease",
   },
   "&:focus": {
     borderBottomColor: "$red",
     "&::placeholder": {
-      color: "$gray700",
+      color: "$gray400",
     },
   },
   "&:-webkit-autofill": {

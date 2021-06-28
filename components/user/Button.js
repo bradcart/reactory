@@ -1,9 +1,13 @@
-import { useNode } from "@craftjs/core";
+import { useNode, Element } from "@craftjs/core";
+import { Text } from "./Text";
 import { StyledButton } from "../styled/StyledButton";
 import { StyledBox } from "../styled/StyledBox";
 import { StyledToggleGroup } from "../styled/settings/ToggleGroup";
 import { StyledLabel } from "../styled/settings/Label";
 import { ColorPicker } from "../styled/settings/ColorPicker";
+import { StyledInput } from "../styled/settings/TextInput";
+import { StyledSeparator } from "../styled/settings/Separator";
+import * as StyledAccordion from "../styled/settings/Accordion";
 
 export const Button = ({ size, variant, background, color, text }) => {
   const {
@@ -21,7 +25,13 @@ export const Button = ({ size, variant, background, color, text }) => {
         color: color,
       }}
     >
-      {text}
+      <Element
+        is={Text}
+        id="button__text-value"
+        text="Click me"
+        tagName="span"
+        fontSize={14}
+      />
     </StyledButton>
   );
 };
@@ -41,7 +51,8 @@ const ButtonSettings = () => {
   }));
 
   return (
-    <StyledBox flex direction="column" css={{ mt: "$1" }}>
+    <StyledBox css={{ mt: "$1" }}>
+      <StyledSeparator />
       <StyledLabel htmlFor="button__size">Size</StyledLabel>
       <StyledToggleGroup
         id="button__size"
@@ -66,6 +77,7 @@ const ButtonSettings = () => {
         valueThree="text"
         labelThree="Text"
       />
+      <StyledSeparator />
       <StyledLabel htmlFor="button__background-color">Background</StyledLabel>
       <ColorPicker
         id="button__background-color"

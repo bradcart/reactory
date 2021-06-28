@@ -1,35 +1,40 @@
 import { styled } from "../../../stitches.config";
-import { slate, tomato, indigo, grass, amber } from "@radix-ui/colors";
+import { tomato, indigo, grass, amber } from "@radix-ui/colors";
 import { useEffect, useState } from "react";
-import { ArrowIcon } from "../../icons/ArrowIcon";
+import {
+  DoubleArrowLeftIcon,
+  DoubleArrowRightIcon,
+} from "@radix-ui/react-icons";
 
 const ColorPickerBox = styled("div", {
-  py: "$2",
+  py: "8px",
   px: "$3",
   mt: "$1",
-  mb: "$6",
+  mb: "$4",
+  mx: "auto",
+  width: "90%",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "space-between",
-  backgroundColor: "transparent",
-  border: "1px solid $grayAlpha",
+  backgroundColor: "$black300",
+  // border: "1px solid $grayAlpha",
   borderRadius: "$3",
 });
 
 const ColorPickerHeader = styled("div", {
-  m: "$1",
+  mx: "$1",
+  my: 3,
   width: "100%",
-  height: "$4",
+  height: "$3",
   display: "flex",
-  justifyContent: "space-around",
+  justifyContent: "space-between",
   alignItems: "center",
 });
 
 const ColorPickerArrow = styled("button", {
   // Reset
   all: "unset",
-  alignItems: "center",
   boxSizing: "border-box",
   userSelect: "none",
   "&::before": {
@@ -41,6 +46,7 @@ const ColorPickerArrow = styled("button", {
   display: "inline-flex",
   flexShrink: 0,
   justifyContent: "center",
+  alignItems: "center",
   lineHeight: "1",
   WebkitTapHighlightColor: "rgba(0,0,0,0)",
 
@@ -51,10 +57,16 @@ const ColorPickerArrow = styled("button", {
 });
 
 const ColorPickerTitle = styled("span", {
-  lineHeight: "1",
-  pt: "$1",
-  fontFamily: "$grifter",
-  color: "$white",
+  width: "50%",
+  height: "100%",
+  lineHeight: 1.33,
+  // pt: "$1",
+  fontFamily: "$ddin",
+  fontSize: "$2",
+  fontWeight: "bold",
+  textAlign: "center",
+  textTransform: "uppercase",
+  color: "$gray700",
   userSelect: "none",
 });
 
@@ -67,8 +79,8 @@ const ColorPickerPanel = styled("div", {
 });
 
 const ColorPickerSwatch = styled("button", {
-  width: "32px",
-  height: "32px",
+  width: "28px",
+  height: "28px",
   mx: "$1",
   borderRadius: "$round",
   borderWidth: 1,
@@ -144,11 +156,11 @@ export const ColorPicker = ({ id, onClick }) => {
     <ColorPickerBox id={id}>
       <ColorPickerHeader>
         <ColorPickerArrow onClick={() => clickLeftArrow()}>
-          <ArrowIcon width={10} />
+          <DoubleArrowLeftIcon color="#cfcfcf" />
         </ColorPickerArrow>
         <ColorPickerTitle>{Object.keys(colors)[colorSection]}</ColorPickerTitle>
         <ColorPickerArrow onClick={() => clickRightArrow()}>
-          <ArrowIcon flipDirection width={10} />
+          <DoubleArrowRightIcon color="#cfcfcf" />
         </ColorPickerArrow>
       </ColorPickerHeader>
       <ColorPickerPanel>
