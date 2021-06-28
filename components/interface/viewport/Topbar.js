@@ -8,7 +8,8 @@ import { StyledHeading } from "../../styled/StyledHeading";
 
 const TopbarButton = styled("button", {
   // Reset
-  all: "unset",
+  // all: "unset",
+  appearance: "none",
   alignItems: "center",
   boxSizing: "border-box",
   userSelect: "none",

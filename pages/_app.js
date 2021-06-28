@@ -1,4 +1,5 @@
 // import App from 'next/app'
+import { install } from "resize-observer";
 import { IdProvider } from "@radix-ui/react-id";
 // import { reset } from "stitches-reset";
 import { global } from "../stitches.config";
@@ -12,6 +13,9 @@ const globalStyles = global({
 });
 
 function MyApp({ Component, pageProps }) {
+  if (typeof window !== "undefined") {
+    install();
+  }
   globalStyles();
   return (
     <IdProvider>

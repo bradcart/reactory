@@ -2,7 +2,8 @@ import { styled } from "../../stitches.config";
 
 export const StyledButton = styled("button", {
   // Reset
-  all: "unset",
+  // all: "unset",
+  appearance: "none",
   alignItems: "center",
   boxSizing: "border-box",
   userSelect: "none",
