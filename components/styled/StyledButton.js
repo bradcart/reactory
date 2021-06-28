@@ -26,12 +26,10 @@ export const StyledButton = styled("button", {
   borderWidth: 1,
   borderStyle: "solid",
   borderColor: "$white",
-  fontFamily: "$graphik",
-  textTransform: "lowercase",
+  fontFamily: "$helvetica",
   height: "$5",
   p: "$1",
   fontSize: "$2",
-  textTransform: "uppercase",
 
   variants: {
     size: {
@@ -52,29 +50,14 @@ export const StyledButton = styled("button", {
       lg: {
         borderRadius: "$2",
         height: "$7",
-        px: "$4",
-        fontSize: "$4",
+        px: "$5",
+        fontSize: "$5",
         lineHeight: "$sizes$7",
-      },
-    },
-    color: {
-      black: {
-        backgroundColor: "$black100",
-        color: "$white",
-      },
-      white: {
-        backgroundColor: "$white",
-        color: "$black100",
-      },
-      none: {
-        backgroundColor: "transparent",
-        borderColor: "none",
       },
     },
   },
   defaultVariants: {
     size: "md",
-    color: "black",
   },
 });
 

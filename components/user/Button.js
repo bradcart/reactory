@@ -5,7 +5,7 @@ import { StyledToggleGroup } from "../styled/settings/ToggleGroup";
 import { StyledLabel } from "../styled/settings/Label";
 import { ColorPicker } from "../styled/settings/ColorPicker";
 
-export const Button = ({ size, variant, color, text }) => {
+export const Button = ({ size, variant, background, color, text }) => {
   const {
     connectors: { connect },
   } = useNode();
@@ -14,9 +14,12 @@ export const Button = ({ size, variant, color, text }) => {
     <StyledButton
       ref={connect}
       size={size}
-      // variant={variant}
-      type={variant}
-      style={{ backgroundColor: color }}
+      variant={variant}
+      style={{
+        backgroundColor: variant === "solid" ? background : "transparent",
+        borderColor: variant === "outline" ? background : "transparent",
+        color: color,
+      }}
     >
       {text}
     </StyledButton>
@@ -25,17 +28,23 @@ export const Button = ({ size, variant, color, text }) => {
 
 const ButtonSettings = () => {
   const {
+    size,
+    variant,
+    background,
+    color,
     actions: { setProp },
-    props,
   } = useNode((node) => ({
-    props: node.data.props,
+    size: node.data.props.size,
+    variant: node.data.props.variant,
+    background: node.data.props.background,
+    color: node.data.props.color,
   }));
 
   return (
     <StyledBox flex direction="column" css={{ mt: "$1" }}>
       <StyledLabel>Size</StyledLabel>
       <StyledToggleGroup
-        currentValue={props.size}
+        currentValue={size}
         onValueChange={(value) => setProp((props) => (props.size = value))}
         valueOne="sm"
         labelOne="Small"
@@ -46,38 +55,23 @@ const ButtonSettings = () => {
       />
       <StyledLabel>Variant</StyledLabel>
       <StyledToggleGroup
-        currentValue={props.color}
-        onValueChange={(value) => setProp((props) => (props.color = value))}
-        valueOne="black"
-        labelOne="Primary"
-        valueTwo="white"
-        labelTwo="Secondary"
-        valueThree="none"
+        currentValue={variant}
+        onValueChange={(value) => setProp((props) => (props.variant = value))}
+        valueOne="solid"
+        labelOne="Solid"
+        valueTwo="outline"
+        labelTwo="Outline"
+        valueThree="text"
         labelThree="Text"
       />
-      {/* <form
-        onChange={(e) => setProp((props) => (props.variant = e.target.value))}
-      >
-        <h3>Variant</h3>
-        <div>
-          <StyledButton>Text</StyledButton>
-          <StyledButton>Outlined</StyledButton>
-          <StyledButton>Solid</StyledButton>
-        </div>
-      </form> */}
-      {/* <StyledText variant="settings">Color</StyledText> */}
+      <StyledLabel>Background</StyledLabel>
+      <ColorPicker
+        onClick={(e) => setProp((props) => (props.background = e.target.value))}
+      />
+      <StyledLabel>Text</StyledLabel>
       <ColorPicker
         onClick={(e) => setProp((props) => (props.color = e.target.value))}
       />
-      {/* <div>
-          <StyledButton>Blue</StyledButton>
-          <StyledButton>Purple</StyledButton>
-          <StyledButton>Pink</StyledButton>
-        </div>
-      <input
-        defaultValue={props.text}
-        onChange={(e) => setProp((props) => (props.text = e.target.value))}
-      /> */}
     </StyledBox>
   );
 };
@@ -85,9 +79,10 @@ const ButtonSettings = () => {
 Button.craft = {
   displayName: "Button",
   props: {
-    size: "sm",
+    size: "md",
     variant: "solid",
-    color: "black",
+    background: "#111",
+    color: "#fff",
     text: "Click me",
   },
   related: {

@@ -18,9 +18,9 @@ const IndicatorDiv = styled("div", {
   fontSize: 10,
   lineHeight: "12px",
   color: "$white",
-  backgroundColor: "$glass",
-  boxShadow: "0px 4px 12px 5px rgba(3, 3, 3, 0.25)",
-  backdropFilter: "blur(4px)",
+  backgroundColor: "$black100",
+  // boxShadow: "0px 4px 12px 5px rgba(3, 3, 3, 0.25)",
+  // backdropFilter: "blur(4px)",
   "& svg": {
     fill: "$white",
     width: 15,

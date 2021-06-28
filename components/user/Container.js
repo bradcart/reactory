@@ -121,9 +121,9 @@ export const ContainerSettings = () => {
 export const ContainerDefaultProps = {
   background: "#ffffff",
   width: 30,
-  height: 3,
+  height: 16,
   padding: 20,
-  flex: true,
+  flex: false,
   justify: "center",
   align: "center",
 };

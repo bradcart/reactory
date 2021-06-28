@@ -33,6 +33,7 @@
     "@radix-ui/react-tooltip": "^0.0.20",
     "@stitches/react": "^0.2.2",
     "copy-to-clipboard": "^3.3.1",
+    "font-picker-react": "^3.5.2",
     "framer-motion": "^4.1.17",
     "lzutf8": "^0.6.0",
     "next": "10.2.3",

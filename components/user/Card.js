@@ -49,7 +49,7 @@ export const Card = (props) => {
         <Text text="Subtitle" fontSize={15} /> */}
       </Element>
       <Element id="buttons" is={CardBottom} canvas>
-        <Button size="md" color="black" text="Learn more" />
+        <Button text="Learn more" />
       </Element>
     </Container>
   );
