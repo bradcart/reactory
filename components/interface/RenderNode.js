@@ -8,7 +8,8 @@ import { DragIcon, ArrowUpIcon, DeleteIcon } from "../icons/RenderNodeIcons";
 const IndicatorDiv = styled("div", {
   height: 30,
   mt: -29,
-  p: 2,
+  px: "$1",
+  py: 2,
   position: "fixed",
   display: "flex",
   justifyContent: "center",
@@ -17,7 +18,9 @@ const IndicatorDiv = styled("div", {
   fontSize: 10,
   lineHeight: "12px",
   color: "$white",
-  backgroundColor: "$black100",
+  backgroundColor: "$glass",
+  boxShadow: "0px 4px 12px 5px rgba(3, 3, 3, 0.25)",
+  backdropFilter: "blur(4px)",
   "& svg": {
     fill: "$white",
     width: 15,
@@ -110,13 +113,6 @@ export const RenderNode = ({ render }) => {
             <IndicatorDiv
               ref={currentRef}
               style={{
-                px: "0.5rem",
-                py: "0.5rem",
-                color: "#fff",
-                backgroundColor: "#111",
-                position: "fixed",
-                display: "flex",
-                alignItems: "center",
                 left: getPos(dom).left,
                 top: getPos(dom).top,
                 zIndex: 9999,

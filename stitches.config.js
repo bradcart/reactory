@@ -26,7 +26,7 @@ export const { css, styled, global, theme, getCssString } = createCss({
       gray700: "#cfcfcf",
       grayAlpha: "rgba(102, 102, 102, 0.6)",
 
-      glass: "rgba(27, 27, 27, 0.83)",
+      glass: "rgba(27, 27, 27, 0.89)",
 
       viridian: "#57886c",
       orange: "#fb4d3d",

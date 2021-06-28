@@ -60,6 +60,7 @@ const ToolboxButton = styled("button", {
   borderRadius: "$3",
   opacity: 0.98,
   transition: "$default",
+  cursor: "move",
 
   // Inner svg (all)
   "& svg": {
