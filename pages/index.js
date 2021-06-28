@@ -100,16 +100,14 @@ export default function Home() {
           "&:hover": {
             backgroundColor: "$white",
             color: "$black100",
-            "& > a": {
+            "& a": {
               color: "$black100",
             },
           },
         }}
       >
         <Link href="/edit">
-          <a style={{ appearance: "none", textDecoration: "none" }}>
-            START DEMO
-          </a>
+          <a style={{ all: "unset" }}>START DEMO</a>
         </Link>
       </StyledButton>
     </StyledBox>
