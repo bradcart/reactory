@@ -2,7 +2,7 @@ import { useNode } from "@craftjs/core";
 import { StyledButton } from "../styled/StyledButton";
 import { StyledBox } from "../styled/StyledBox";
 import { StyledToggleGroup } from "../styled/inputs/ToggleGroup";
-import { StyledText } from "../styled/StyledText";
+import { StyledLabel } from "../styled/inputs/Label";
 import { ColorPicker } from "../styled/inputs/ColorPicker";
 
 export const Button = ({ size, variant, color, text }) => {
@@ -32,8 +32,8 @@ const ButtonSettings = () => {
   }));
 
   return (
-    <StyledBox flex direction="column">
-      <StyledText variant="settings">Size</StyledText>
+    <StyledBox flex direction="column" css={{ mt: "$1" }}>
+      <StyledLabel>Size</StyledLabel>
       <StyledToggleGroup
         currentValue={props.size}
         onValueChange={(value) => setProp((props) => (props.size = value))}
@@ -44,7 +44,7 @@ const ButtonSettings = () => {
         valueThree="lg"
         labelThree="Large"
       />
-      <StyledText variant="settings">Variant</StyledText>
+      <StyledLabel>Variant</StyledLabel>
       <StyledToggleGroup
         currentValue={props.color}
         onValueChange={(value) => setProp((props) => (props.color = value))}

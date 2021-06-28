@@ -1,6 +1,6 @@
 import { useNode } from "@craftjs/core";
 import { StyledBox } from "../styled/StyledBox";
-import { StyledText } from "../styled/StyledText";
+import { StyledLabel } from "../styled/inputs/Label";
 import { StyledSlider } from "../styled/inputs/Slider";
 import { ColorPicker } from "../styled/inputs/ColorPicker";
 
@@ -39,8 +39,8 @@ const PageSettings = () => {
   }));
 
   return (
-    <>
-      <StyledText variant="settings">Padding</StyledText>
+    <StyledBox css={{ mt: "$1" }}>
+      <StyledLabel>Padding</StyledLabel>
       <StyledSlider
         value={[padding]}
         onValueChange={(value) =>
@@ -50,11 +50,11 @@ const PageSettings = () => {
         min={0}
         max={80}
       />
-      <StyledText variant="settings">Background</StyledText>
+      <StyledLabel>Background</StyledLabel>
       <ColorPicker
         onClick={(e) => setProp((props) => (props.background = e.target.value))}
       />
-    </>
+    </StyledBox>
   );
 };
 

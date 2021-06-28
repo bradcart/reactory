@@ -2,6 +2,14 @@ import * as Label from "@radix-ui/react-label";
 import { styled } from "../../../stitches.config";
 
 export const StyledLabel = styled(Label.Root, {
+  // Reset
+  lineHeight: "1",
+  margin: "0",
+  fontWeight: 400,
+  fontVariantNumeric: "tabular-nums",
+  display: "block",
+
+  // Custom
   fontFamily: "$grifter",
   fontSize: "$5",
   color: "$white",

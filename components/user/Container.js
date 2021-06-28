@@ -1,6 +1,7 @@
 import { useNode } from "@craftjs/core";
 import { StyledBox } from "../styled/StyledBox";
 import { StyledText } from "../styled/StyledText";
+import { StyledLabel } from "../styled/inputs/Label";
 import { StyledSlider } from "../styled/inputs/Slider";
 import { StyledToggleGroup } from "../styled/inputs/ToggleGroup";
 import { CheckboxIcon } from "../icons/CheckboxIcon";
@@ -60,7 +61,7 @@ export const ContainerSettings = () => {
   return (
     <>
       {/* <CheckboxIcon /> */}
-      <StyledText variant="settings">Width</StyledText>
+      <StyledLabel>Width</StyledLabel>
       <StyledSlider
         value={[width]}
         onValueChange={(value) => setProp((props) => (props.width = value[0]))}
@@ -68,7 +69,7 @@ export const ContainerSettings = () => {
         min={0}
         max={100}
       />
-      <StyledText variant="settings">Height</StyledText>
+      <StyledLabel>Height</StyledLabel>
       <StyledSlider
         value={[height]}
         onValueChange={(value) => setProp((props) => (props.height = value[0]))}
@@ -76,7 +77,7 @@ export const ContainerSettings = () => {
         min={0}
         max={100}
       />
-      <StyledText variant="settings">Padding</StyledText>
+      <StyledLabel>Padding</StyledLabel>
       <StyledSlider
         value={[padding]}
         onValueChange={(value) =>
@@ -86,7 +87,7 @@ export const ContainerSettings = () => {
         min={0}
         max={80}
       />
-      <StyledText variant="settings">Justify</StyledText>
+      <StyledLabel>Justify</StyledLabel>
       <StyledToggleGroup
         currentValue={justify}
         onValueChange={(value) => setProp((props) => (props.justify = value))}
@@ -97,7 +98,7 @@ export const ContainerSettings = () => {
         valueThree="end"
         labelThree="Right"
       />
-      <StyledText variant="settings">Align</StyledText>
+      <StyledLabel>Align</StyledLabel>
       <StyledToggleGroup
         currentValue={align}
         onValueChange={(value) => setProp((props) => (props.align = value))}
