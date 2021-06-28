@@ -53,8 +53,9 @@ export const SectionSettings = () => {
 
   return (
     <>
-      <StyledLabel>Size</StyledLabel>
+      <StyledLabel htmlFor="section__size">Size</StyledLabel>
       <StyledToggleGroup
+        id="section__size"
         currentValue={size}
         onValueChange={(value) => setProp((props) => (props.size = value))}
         valueOne="sm"
@@ -64,8 +65,9 @@ export const SectionSettings = () => {
         valueThree="lg"
         labelThree="Large"
       />
-      <StyledLabel>Justify</StyledLabel>
+      <StyledLabel htmlFor="section__justify">Justify</StyledLabel>
       <StyledToggleGroup
+        id="section__justify"
         currentValue={justify}
         onValueChange={(value) => setProp((props) => (props.justify = value))}
         valueOne="start"
@@ -75,8 +77,9 @@ export const SectionSettings = () => {
         valueThree="end"
         labelThree="Right"
       />
-      <StyledLabel>Align</StyledLabel>
+      <StyledLabel htmlFor="section__align">Align</StyledLabel>
       <StyledToggleGroup
+        id="section__align"
         currentValue={align}
         onValueChange={(value) => setProp((props) => (props.align = value))}
         valueOne="start"

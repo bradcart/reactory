@@ -26,7 +26,7 @@ export const Text = ({ text, fontSize, fontWeight, textAlign }) => {
   }, [selected]);
 
   return (
-    <div style={{ fontWeight: fontWeight }}>
+    <div style={{ fontWeight: fontWeight, textAlign: textAlign }}>
       <ContentEditable
         innerRef={connect}
         html={text}
@@ -43,7 +43,6 @@ export const Text = ({ text, fontSize, fontWeight, textAlign }) => {
         style={{
           fontSize: `${fontSize}px`,
           fontWeight: "inherit",
-          textAlign: textAlign,
         }}
       />
     </div>
@@ -120,6 +119,7 @@ const TextSettings = () => {
       <StyledToggleGroup
         id="text__text-align"
         currentValue={textAlign}
+        onValueChange={(value) => setProp((props) => (props.textAlign = value))}
         valueOne="left"
         labelOne="Left"
         valueTwo="center"

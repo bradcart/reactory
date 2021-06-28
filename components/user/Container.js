@@ -62,24 +62,27 @@ export const ContainerSettings = () => {
   return (
     <>
       {/* <CheckboxIcon /> */}
-      <StyledLabel>Width</StyledLabel>
+      <StyledLabel htmlFor="container__width">Width</StyledLabel>
       <StyledSlider
+        id="container__width"
         value={[width]}
         onValueChange={(value) => setProp((props) => (props.width = value[0]))}
         step={1}
         min={0}
         max={100}
       />
-      <StyledLabel>Height</StyledLabel>
+      <StyledLabel htmlFor="container__height">Height</StyledLabel>
       <StyledSlider
+        id="container__height"
         value={[height]}
         onValueChange={(value) => setProp((props) => (props.height = value[0]))}
         step={1}
         min={0}
         max={100}
       />
-      <StyledLabel>Padding</StyledLabel>
+      <StyledLabel htmlFor="container__padding">Padding</StyledLabel>
       <StyledSlider
+        id="container__padding"
         value={[padding]}
         onValueChange={(value) =>
           setProp((props) => (props.padding = value[0]))
@@ -88,8 +91,9 @@ export const ContainerSettings = () => {
         min={0}
         max={80}
       />
-      <StyledLabel>Justify</StyledLabel>
+      <StyledLabel htmlFor="container__justify">Justify</StyledLabel>
       <StyledToggleGroup
+        id="container__justify"
         currentValue={justify}
         onValueChange={(value) => setProp((props) => (props.justify = value))}
         valueOne="start"
@@ -99,8 +103,9 @@ export const ContainerSettings = () => {
         valueThree="end"
         labelThree="Right"
       />
-      <StyledLabel>Align</StyledLabel>
+      <StyledLabel htmlFor="container__align">Align</StyledLabel>
       <StyledToggleGroup
+        id="container__align"
         currentValue={align}
         onValueChange={(value) => setProp((props) => (props.align = value))}
         valueOne="start"

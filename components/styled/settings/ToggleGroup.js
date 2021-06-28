@@ -101,6 +101,7 @@ const ToggleSeparator = styled(Separator.Root, {
 });
 
 export const StyledToggleGroup = ({
+  id,
   currentValue,
   onValueChange,
   valueOne,
@@ -113,6 +114,7 @@ export const StyledToggleGroup = ({
   return (
     <ToggleGroup.Root
       type="single"
+      id={id}
       value={currentValue}
       onValueChange={onValueChange}
       as={ToggleRoot}

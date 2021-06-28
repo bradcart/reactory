@@ -42,8 +42,9 @@ const ButtonSettings = () => {
 
   return (
     <StyledBox flex direction="column" css={{ mt: "$1" }}>
-      <StyledLabel>Size</StyledLabel>
+      <StyledLabel htmlFor="button__size">Size</StyledLabel>
       <StyledToggleGroup
+        id="button__size"
         currentValue={size}
         onValueChange={(value) => setProp((props) => (props.size = value))}
         valueOne="sm"
@@ -53,8 +54,9 @@ const ButtonSettings = () => {
         valueThree="lg"
         labelThree="Large"
       />
-      <StyledLabel>Variant</StyledLabel>
+      <StyledLabel htmlFor="button__variant">Variant</StyledLabel>
       <StyledToggleGroup
+        id="button__variant"
         currentValue={variant}
         onValueChange={(value) => setProp((props) => (props.variant = value))}
         valueOne="solid"
@@ -64,12 +66,14 @@ const ButtonSettings = () => {
         valueThree="text"
         labelThree="Text"
       />
-      <StyledLabel>Background</StyledLabel>
+      <StyledLabel htmlFor="button__background-color">Background</StyledLabel>
       <ColorPicker
+        id="button__background-color"
         onClick={(e) => setProp((props) => (props.background = e.target.value))}
       />
-      <StyledLabel>Text</StyledLabel>
+      <StyledLabel htmlFor="button__text-color">Text</StyledLabel>
       <ColorPicker
+        id="button__text-color"
         onClick={(e) => setProp((props) => (props.color = e.target.value))}
       />
     </StyledBox>

@@ -48,36 +48,36 @@ const ImageSettings = () => {
 
   return (
     <>
-      <StyledForm name="img-src" id="img-src" onSubmit={(e) => updateImage(e)}>
-        <StyledLabel htmlFor="img-src">Source</StyledLabel>
+      <StyledForm name="image-src" onSubmit={(e) => updateImage(e)}>
+        <StyledLabel htmlFor="image__src">Source</StyledLabel>
         <StyledInput
-          id="img-src"
+          id="image__src"
           type="text"
           placeholder="paste image URL here"
           onChange={(e) => changeNewSrc(e.target.value)}
         />
       </StyledForm>
-      <StyledLabel htmlFor="img-width">Width</StyledLabel>
+      <StyledLabel htmlFor="image__width">Width</StyledLabel>
       <StyledSlider
-        id="img-width"
+        id="image__width"
         value={[width]}
         onValueChange={(value) => setProp((props) => (props.width = value[0]))}
         step={10}
         min={100}
         max={1000}
       />
-      <StyledLabel htmlFor="img-height">Height</StyledLabel>
+      <StyledLabel htmlFor="image__height">Height</StyledLabel>
       <StyledSlider
-        id="img-height"
+        id="image__height"
         value={[height]}
         onValueChange={(value) => setProp((props) => (props.height = value[0]))}
         step={10}
         min={100}
         max={1000}
       />
-      <StyledLabel htmlFor="img-object-fit">Fit</StyledLabel>
+      <StyledLabel htmlFor="image__object-fit">Fit</StyledLabel>
       <StyledToggleGroup
-        id="img-object-fit"
+        id="image__object-fit"
         currentValue={objectFit}
         onValueChange={(value) => setProp((props) => (props.objectFit = value))}
         valueOne="cover"

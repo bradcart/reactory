@@ -40,8 +40,9 @@ const PageSettings = () => {
 
   return (
     <>
-      <StyledLabel>Padding</StyledLabel>
+      <StyledLabel htmlFor="page__padding">Padding</StyledLabel>
       <StyledSlider
+        id="page__padding"
         value={[padding]}
         onValueChange={(value) =>
           setProp((props) => (props.padding = value[0]))
@@ -50,8 +51,9 @@ const PageSettings = () => {
         min={0}
         max={80}
       />
-      <StyledLabel>Background</StyledLabel>
+      <StyledLabel htmlFor="page__background">Background</StyledLabel>
       <ColorPicker
+        id="page__background"
         onClick={(e) => setProp((props) => (props.background = e.target.value))}
       />
     </>

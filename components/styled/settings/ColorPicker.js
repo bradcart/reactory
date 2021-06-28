@@ -106,7 +106,7 @@ const colors = {
   },
 };
 
-export const ColorPicker = ({ onClick }) => {
+export const ColorPicker = ({ id, onClick }) => {
   const [colorSection, changeColorSection] = useState(0);
   const [colorValues, changeColorValues] = useState([]);
 
@@ -141,7 +141,7 @@ export const ColorPicker = ({ onClick }) => {
   };
 
   return (
-    <ColorPickerBox>
+    <ColorPickerBox id={id}>
       <ColorPickerHeader>
         <ColorPickerArrow onClick={() => clickLeftArrow()}>
           <ArrowIcon width={10} />
