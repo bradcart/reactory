@@ -6,6 +6,10 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <style
+            id="stitches"
+            dangerouslySetInnerHTML={{ __html: getCssString() }}
+          />
           <link
             rel="preload"
             href="/fonts/hkinight.woff"
@@ -66,10 +70,6 @@ class MyDocument extends Document {
               `,
             }}
           /> */}
-          <style
-            id="stitches"
-            dangerouslySetInnerHTML={{ __html: getCssString() }}
-          />
         </Head>
         <body>
           <Main />
