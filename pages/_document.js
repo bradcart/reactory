@@ -6,7 +6,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          {/* <link
+          <link
             rel="preload"
             href="/fonts/hkinight.woff"
             as="font"
@@ -47,26 +47,20 @@ class MyDocument extends Document {
             as="font"
             type="font/woff2"
             crossOrigin="anonymous"
-          /> */}
+          />
           {/* <style
             dangerouslySetInnerHTML={{
               __html: `
               @font-face {
                 font-family: 'HKI Nightlife';
-                font-weight: 400;
-                font-display: swap;
                 src: url(/fonts/hkinight.woff2) format('woff2'), url(/fonts/hkinight.woff) format('woff');
               }
               @font-face {
                 font-family: 'GRIFTER';
-                font-weight: 400;
-                font-display: swap;
                 src: url(/fonts/grifter-bold.woff2) format('woff2'), url(/fonts/grifter-bold.woff) format('woff');
               }
               @font-face {
                 font-family: 'D-DIN Exp';
-                font-weight: 400;
-                font-display: swap;
                 src: url(/fonts/d-dinexp.woff2) format('woff2'), url(/fonts/d-dinexp.woff) format('woff');
               }
               `,
