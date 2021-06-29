@@ -81,7 +81,7 @@ const TextSettings = () => {
   return (
     <>
       <StyledBox css={{ mt: "$1", mb: "$4", fontSize: "$3" }}>
-        <StyledSeparator />
+        <StyledSeparator decorative css={{ opacity: 0 }} />
         <StyledLabel htmlFor="font-picker" css={{ mb: "$1" }}>
           Font
         </StyledLabel>

@@ -33,7 +33,8 @@ export const Container = ({
       style={{
         backgroundColor: background,
         width: `${width}%`,
-        height: `${height * 10}px`,
+        // height: `${height * 10}px`,
+        height: `${height}%`,
         padding: padding,
       }}
     >
@@ -62,7 +63,7 @@ export const ContainerSettings = () => {
 
   return (
     <StyledBox css={{ mt: "$1" }}>
-      <StyledSeparator />
+      <StyledSeparator decorative css={{ opacity: 0 }} />
       <StyledLabel htmlFor="container__width">Width</StyledLabel>
       <StyledSlider
         id="container__width"

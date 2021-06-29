@@ -11,11 +11,11 @@ export const StyledInput = styled("input", {
   borderBottomWidth: "1px",
   borderBottomStyle: "solid",
   borderBottomColor: "$gray700",
-  fontFamily: "$helvetica",
+  fontFamily: "$ddin",
   fontSize: "12px",
   transition: "border 0.3s ease",
   "&::placeholder": {
-    color: "$whiteDim",
+    color: "$gray400",
     fontSize: "12px",
     transition: "color 0.3s ease",
   },

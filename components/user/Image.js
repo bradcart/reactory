@@ -14,7 +14,7 @@ export const Image = ({ src, width, height, objectFit }) => {
     connectors: { connect },
   } = useNode();
   return (
-    <div ref={connect} style={{ width: `${width}px`, height: `${height}px` }}>
+    <div ref={connect} style={{ width: `${width}%`, height: `${height}%` }}>
       <StyledImage
         src={src}
         style={{
@@ -50,7 +50,7 @@ const ImageSettings = () => {
 
   return (
     <StyledBox css={{ mt: "$1" }}>
-      <StyledSeparator />
+      <StyledSeparator decorative css={{ opacity: 0 }} />
       <StyledForm name="image-src" onSubmit={(e) => updateImage(e)}>
         <StyledLabel htmlFor="image__src">Source</StyledLabel>
         <StyledInput

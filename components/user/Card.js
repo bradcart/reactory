@@ -1,64 +1,86 @@
-import React from "react";
 import { useNode, Element } from "@craftjs/core";
-import { StyledBox } from "../styled/StyledBox";
+import { Image } from "./Image";
 import { Text } from "./Text";
 import { Button } from "./Button";
 import {
-  Container,
-  ContainerSettings,
-  ContainerDefaultProps,
-} from "./Container";
-import { Image } from "./Image";
+  StyledCard,
+  StyledCardTop,
+  StyledCardBottom,
+} from "../styled/StyledCard";
+import { StyledBox } from "../styled/StyledBox";
+import { StyledToggleGroup } from "../styled/settings/ToggleGroup";
+import { ColorPicker } from "../styled/settings/ColorPicker";
+import { StyledLabel } from "../styled/settings/Label";
+import { StyledSeparator } from "../styled/settings/Separator";
 
-export const CardTop = ({ children }) => {
+const dummyText =
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+
+export const Card = ({ size }) => {
   const {
-    connectors: { connect },
+    connectors: { connect, drag },
   } = useNode();
-  return <StyledBox ref={connect}>{children}</StyledBox>;
-};
-
-CardTop.craft = {
-  displayName: "CardTop",
-  // rules: {
-  // Only accept Text
-  // canMoveIn: (incomingNode) => incomingNode.data.type == Text,
-  // },
-};
-
-export const CardBottom = ({ children }) => {
-  const {
-    connectors: { connect },
-  } = useNode();
-  return <StyledBox ref={connect}>{children}</StyledBox>;
-};
-
-CardBottom.craft = {
-  displayName: "CardBottom",
-  // rules: {
-  // Only accept Buttons
-  // canMoveIn: (incomingNode) => incomingNode.data.type == Button,
-  // },
-};
-
-export const Card = (props) => {
   return (
-    <Container flex={false} background="#fff">
-      <Element id="image" is={CardTop} canvas>
-        <Image width={300} />
-        {/* <Text text="Title" fontSize={20} />
-        <Text text="Subtitle" fontSize={15} /> */}
-      </Element>
-      <Element id="buttons" is={CardBottom} canvas>
-        <Button text="Learn more" />
-      </Element>
-    </Container>
+    <StyledCard ref={(ref) => connect(drag(ref))} size={size}>
+      <StyledCardTop>
+        <Element is={Image} id="card__image" width={100} height={100} />
+      </StyledCardTop>
+      <StyledCardBottom>
+        <Element
+          is={Text}
+          id="card__text"
+          text={dummyText}
+          fontSize={16}
+          activeFontFamily="Montserrat"
+        />
+        <Element is={Button} id="card__button" />
+      </StyledCardBottom>
+    </StyledCard>
   );
+};
+
+const CardSettings = () => {
+  const {
+    size,
+    background,
+    actions: { setProp },
+  } = useNode((node) => ({
+    size: node.data.props.size,
+    background: node.data.props.background,
+  }));
+
+  return (
+    <StyledBox css={{ mt: "$1" }}>
+      <StyledSeparator decorative css={{ opacity: 0 }} />
+      <StyledLabel htmlFor="card__size">Size</StyledLabel>
+      <StyledToggleGroup
+        id="card__size"
+        currentValue={size}
+        onValueChange={(value) => setProp((props) => (props.size = value))}
+        valueOne="sm"
+        labelOne="Small"
+        valueTwo="md"
+        labelTwo="Medium"
+        valueThree="lg"
+        labelThree="Large"
+      />
+      <StyledSeparator />
+      <StyledLabel>Background</StyledLabel>
+      <ColorPicker
+        onClick={(e) => setProp((props) => (props.background = e.target.value))}
+      />
+    </StyledBox>
+  );
+};
+
+const CardDefaultProps = {
+  size: "sm",
 };
 
 Card.craft = {
   displayName: "Card",
-  props: ContainerDefaultProps,
+  props: CardDefaultProps,
   related: {
-    settings: ContainerSettings,
+    settings: CardSettings,
   },
 };

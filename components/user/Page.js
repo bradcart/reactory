@@ -2,6 +2,7 @@ import { useNode } from "@craftjs/core";
 import { StyledBox } from "../styled/StyledBox";
 import { StyledLabel } from "../styled/settings/Label";
 import { StyledSlider } from "../styled/settings/Slider";
+import { StyledSeparator } from "../styled/settings/Separator";
 import { ColorPicker } from "../styled/settings/ColorPicker";
 
 export const Page = ({ background, padding = 0, children }) => {
@@ -39,7 +40,8 @@ const PageSettings = () => {
   }));
 
   return (
-    <>
+    <StyledBox css={{ mt: "$1" }}>
+      <StyledSeparator decorative css={{ opacity: 0 }} />
       <StyledLabel htmlFor="page__padding">Padding</StyledLabel>
       <StyledSlider
         id="page__padding"
@@ -56,7 +58,7 @@ const PageSettings = () => {
         id="page__background"
         onClick={(e) => setProp((props) => (props.background = e.target.value))}
       />
-    </>
+    </StyledBox>
   );
 };
 

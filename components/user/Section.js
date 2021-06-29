@@ -56,7 +56,7 @@ export const SectionSettings = () => {
   return (
     <>
       <StyledBox css={{ mt: "$1" }}>
-        <StyledSeparator />
+        <StyledSeparator decorative css={{ opacity: 0 }} />
         <StyledLabel htmlFor="section__size">Size</StyledLabel>
         <StyledToggleGroup
           id="section__size"

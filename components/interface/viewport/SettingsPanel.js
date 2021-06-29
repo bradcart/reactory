@@ -2,6 +2,7 @@ import React from "react";
 import { QueryMethods, useEditor } from "@craftjs/core";
 import { StyledBox } from "../../styled/StyledBox";
 import { StyledBadge } from "../../styled/settings/Badge";
+import { Layers } from "@craftjs/layers";
 // import { StyledButton } from "../../styled/StyledButton";
 // import { StyledHeading } from "../../styled/StyledHeading";
 // import { StyledText } from "../../styled/StyledText";
@@ -36,7 +37,10 @@ export const SettingsPanel = () => {
 
   return (
     <StyledBox
+      flex
+      direction="column"
       css={{
+        justifyContent: "space-between",
         px: "$3",
         pt: 40,
         width: "100%",
@@ -50,6 +54,7 @@ export const SettingsPanel = () => {
           direction="column"
           align="center"
           css={{
+            justifyContent: "space-between",
             width: "100%",
           }}
         >

@@ -3,25 +3,36 @@ import { styled } from "../../stitches.config";
 
 const DEFAULT_TAG = "div";
 
-const Card = styled(DEFAULT_TAG, {
+export const StyledCardTop = styled("div", {
+  height: "100%",
+});
+
+export const StyledCardBottom = styled("div", {
+  height: "100%",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-around",
+  alignContent: "center",
+});
+
+const CardRoot = styled(DEFAULT_TAG, {
   // Reset
   appearance: "none",
   border: "none",
   boxSizing: "border-box",
   font: "inherit",
-  lineheight: "1",
+  lineHeight: "1",
   outline: "none",
   padding: 0,
   textAlign: "inherit",
   verticalAlign: "middle",
   WebkitTapHighlightColor: "rgba(0, 0, 0, 0)",
 
-  backgroundColor: "inherit",
-  display: "block",
+  display: "grid",
+  gridTemplateRows: "4fr 6fr",
+  gridTemplateColumns: "100%",
   textDecoration: "none",
-  color: "inherit",
   flexShrink: 0,
-  borderRadius: "$3",
   position: "relative",
 
   "&::before": {
@@ -33,8 +44,20 @@ const Card = styled(DEFAULT_TAG, {
     bottom: 0,
     left: 0,
     boxShadow: "inset 0 0 0 1px rgba(0,0,0,.1)",
-    borderRadius: "$3",
     pointerEvents: "none",
+  },
+  variants: {
+    size: {
+      sm: {
+        width: "350px",
+      },
+      md: {
+        width: "535px",
+      },
+      lg: {
+        width: "720px",
+      },
+    },
   },
 
   // variants: {
@@ -102,5 +125,9 @@ const Card = styled(DEFAULT_TAG, {
 });
 
 export const StyledCard = React.forwardRef((props, forwardedRef) => {
-  return <Card {...props} ref={forwardedRef} />;
+  return (
+    <CardRoot {...props} ref={forwardedRef}>
+      {props.children}
+    </CardRoot>
+  );
 });

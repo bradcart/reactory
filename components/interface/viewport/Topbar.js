@@ -28,7 +28,8 @@ const TopbarButton = styled("button", {
   WebkitTapHighlightColor: "rgba(0,0,0,0)",
 
   // Custom
-  padding: "12px 15px 8px 15px",
+  py: "$2",
+  px: "$3",
   mx: "$2",
   backgroundColor: "$black100",
   color: "$white",
