@@ -6,7 +6,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link
+          {/* <link
             rel="preload"
             href="/fonts/hkinight.woff"
             as="font"
@@ -47,8 +47,8 @@ class MyDocument extends Document {
             as="font"
             type="font/woff2"
             crossOrigin="anonymous"
-          />
-          <style
+          /> */}
+          {/* <style
             dangerouslySetInnerHTML={{
               __html: `
               @font-face {
@@ -71,7 +71,7 @@ class MyDocument extends Document {
               }
               `,
             }}
-          />
+          /> */}
           <style
             id="stitches"
             dangerouslySetInnerHTML={{ __html: getCssString() }}

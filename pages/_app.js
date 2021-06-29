@@ -5,26 +5,26 @@ import { global } from "../stitches.config";
 
 // const globalStyles = global(reset);
 const globalStyles = global({
-  // "@font-face": [
-  //   {
-  //     fontFamily: "HKI Nightlife",
-  //     fontWeight: 400,
-  //     fontDisplay: "swap",
-  //     src: 'url(/fonts/hkinight.woff2) format("woff2"), url(/fonts/hkinight.woff) format("woff")',
-  //   },
-  //   {
-  //     fontFamily: "GRIFTER",
-  //     fontWeight: 400,
-  //     fontDisplay: "swap",
-  //     src: 'url(/fonts/grifter-bold.woff2) format("woff2"), url(/fonts/grifter-bold.woff) format("woff")',
-  //   },
-  //   {
-  //     fontFamily: "D-DIN Exp",
-  //     fontWeight: 400,
-  //     fontDisplay: "swap",
-  //     src: 'url(/fonts/d-dinexp.woff2) format("woff2"), url(/fonts/d-dinexp.woff) format("woff")',
-  //   },
-  // ],
+  "@font-face": [
+    {
+      fontFamily: "HKI Nightlife",
+      fontWeight: 400,
+      fontDisplay: "swap",
+      src: 'url(/fonts/hkinight.woff2) format("woff2"), url(/fonts/hkinight.woff) format("woff")',
+    },
+    {
+      fontFamily: "GRIFTER",
+      fontWeight: 400,
+      fontDisplay: "swap",
+      src: 'url(/fonts/grifter-bold.woff2) format("woff2"), url(/fonts/grifter-bold.woff) format("woff")',
+    },
+    {
+      fontFamily: "D-DIN Exp",
+      fontWeight: 400,
+      fontDisplay: "swap",
+      src: 'url(/fonts/d-dinexp.woff2) format("woff2"), url(/fonts/d-dinexp.woff) format("woff")',
+    },
+  ],
   "*, *::before, *::after": {
     boxSizing: "border-box",
   },
