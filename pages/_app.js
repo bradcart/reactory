@@ -9,7 +9,7 @@ const globalStyles = global({
     {
       fontFamily: "HKI Nightlife",
       fontWeight: 400,
-      fontDisplay: "swap",
+      fontDisplay: "block",
       src: 'url(/fonts/hkinight.woff2) format("woff2"), url(/fonts/hkinight.woff) format("woff")',
     },
     {
