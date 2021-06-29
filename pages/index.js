@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import { styled, keyframes } from "../stitches.config";
-
 import { StyledBox } from "../components/styled/StyledBox";
 import { StyledText } from "../components/styled/StyledText";
 
@@ -90,9 +89,8 @@ const StyledButton = styled("button", {
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",
-  paddingTop: "14px",
+  py: "$3",
   px: "$4",
-  paddingBottom: "8px",
   borderWidth: "2px",
   borderStyle: "solid",
   borderColor: "$white",

@@ -48,7 +48,7 @@ class MyDocument extends Document {
             type="font/woff2"
             crossOrigin="anonymous"
           />
-          {/* <style
+          <style
             dangerouslySetInnerHTML={{
               __html: `
               @font-face {
@@ -71,7 +71,7 @@ class MyDocument extends Document {
               }
               `,
             }}
-          /> */}
+          />
           <style
             id="stitches"
             dangerouslySetInnerHTML={{ __html: getCssString() }}
