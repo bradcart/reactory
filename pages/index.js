@@ -1,45 +1,14 @@
 import React from "react";
 import Link from "next/link";
-import { styled, keyframes } from "../stitches.config";
+import { styled } from "../stitches.config";
 import { StyledBox } from "../components/styled/StyledBox";
 import { StyledText } from "../components/styled/StyledText";
-
-const bounceInTop = keyframes({
-  "0%": {
-    transform: "translateY(-500px)",
-    animationTimingFunction: "ease-in",
-    opacity: 0,
-  },
-  "38%": {
-    transform: "translateY(0)",
-    animationTimingFunction: "ease-out",
-    opacity: 1,
-  },
-  "55%": {
-    transform: "translateY(-65px)",
-    animationTimingFunction: "ease-in",
-  },
-  "72%": {
-    transform: "translateY(0)",
-    animationTimingFunction: "ease-out",
-  },
-  "81%": {
-    transform: "translateY(-28px)",
-    animationTimingFunction: "ease-in",
-  },
-  "90%": {
-    transform: "translateY(0)",
-    animationTimingFunction: "ease-out",
-  },
-  "95%": {
-    transform: "translateY(-8px)",
-    animationTimingFunction: "ease-in",
-  },
-  "100%": {
-    transform: "translateY(0)",
-    animationTimingFunction: "ease-out",
-  },
-});
+import {
+  bounceInTop,
+  bounceInBottom,
+  slideInLeft,
+  vanishIn,
+} from "../custom/keyframes";
 
 const StyledLetter = styled("span", {
   fontFamily: "$hki",
@@ -78,9 +47,9 @@ const StyledLetter = styled("span", {
 
 const StyledButton = styled("button", {
   position: "absolute",
-  left: "50%",
   bottom: "15%",
-  transform: "translateX(-50%)",
+  // left: "50%",
+  // transform: "translateX(-50%)",
   borderRadius: "$2",
   fontFamily: "$grifter",
   fontSize: "$6",
@@ -98,6 +67,7 @@ const StyledButton = styled("button", {
   color: "$white",
   cursor: "pointer",
   userSelect: "none",
+  animation: `${bounceInBottom} 0.8s linear 1.2s both`,
   "&:hover": {
     backgroundColor: "$white",
     color: "$black100",
@@ -107,22 +77,7 @@ const StyledButton = styled("button", {
   },
 });
 
-const vanishIn = keyframes({
-  "0%": {
-    opacity: 0,
-    transformOrigin: "50% 50%",
-    transform: "scale(2, 2)",
-    filter: "blur(90px)",
-  },
-  "100%": {
-    opacity: 1,
-    transformOrigin: "50% 50%",
-    transform: "scale(1, 1)",
-    filter: "blur(0px)",
-  },
-});
-
-const StyledLink = styled("a", {
+const StyledPortfolioLink = styled("a", {
   textDecorationLine: "none",
   position: "absolute",
   top: "2.5%",
@@ -133,8 +88,15 @@ const StyledLink = styled("a", {
   animation: `${vanishIn} 1.3s ease 2s forwards`,
 });
 
-const ForwardedLink = React.forwardRef((props, forwardedRef) => {
-  return <StyledLink {...props} ref={forwardedRef} />;
+const StyledInnerLink = styled("a", {
+  textDecorationLine: "none",
+  color: "$white",
+  width: "100%",
+  height: "100%",
+});
+
+const InnerLink = React.forwardRef((props, forwardedRef) => {
+  return <StyledInnerLink {...props} ref={forwardedRef} />;
 });
 
 export default function Home() {
@@ -150,9 +112,13 @@ export default function Home() {
         backgroundColor: "$black100",
       }}
     >
-      <StyledLink href="https://bradc.art/" target="_blank" rel="noreferrer">
+      <StyledPortfolioLink
+        href="https://bradc.art/"
+        target="_blank"
+        rel="noreferrer"
+      >
         BRADC.ART
-      </StyledLink>
+      </StyledPortfolioLink>
       <StyledBox
         css={{
           display: "flex",
@@ -174,16 +140,19 @@ export default function Home() {
         </div>
         <StyledText
           className="intro-subtitle"
-          css={{ fontFamily: "$grifter", fontSize: 46, color: "$white" }}
+          css={{
+            fontFamily: "$grifter",
+            fontSize: "46px",
+            color: "$white",
+            animation: `${slideInLeft} 0.8s both`,
+          }}
         >
           drag-n-drop site builder
         </StyledText>
       </StyledBox>
       <Link href="/edit">
         <StyledButton size="lg">
-          <a style={{ all: "unset", width: "100%", height: "100%" }}>
-            START DEMO
-          </a>
+          <StyledInnerLink>START DEMO</StyledInnerLink>
         </StyledButton>
       </Link>
     </StyledBox>
