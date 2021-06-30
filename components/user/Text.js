@@ -18,6 +18,7 @@ export const Text = ({
   textAlign,
   lineHeight,
   color,
+  inButton,
 }) => {
   const {
     connectors: { connect, drag },
@@ -35,6 +36,12 @@ export const Text = ({
   useEffect(() => {
     !selected && setEditable(false);
   }, [selected]);
+
+  useEffect(() => {
+    if (inButton) {
+      setProp((props) => (props.color = "#fff"));
+    }
+  }, []);
 
   return (
     <div style={{ fontWeight: fontWeight, textAlign: textAlign }}>
@@ -174,7 +181,6 @@ Text.craft = {
     fontSize: 20,
     fontWeight: 400,
     textAlign: "left",
-    color: "#111",
     lineHeight: 28,
   },
   // rules: {

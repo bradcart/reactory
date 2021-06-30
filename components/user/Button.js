@@ -9,7 +9,7 @@ import { StyledInput } from "../styled/settings/TextInput";
 import { StyledSeparator } from "../styled/settings/Separator";
 import * as StyledAccordion from "../styled/settings/Accordion";
 
-export const Button = ({ size, variant, background, color, text }) => {
+export const Button = ({ size, variant, background, text }) => {
   const {
     connectors: { connect },
   } = useNode();
@@ -22,7 +22,7 @@ export const Button = ({ size, variant, background, color, text }) => {
       style={{
         backgroundColor: variant === "solid" ? background : "transparent",
         borderColor: variant === "outline" ? background : "transparent",
-        color: color,
+        // color: color,
       }}
     >
       <Element
@@ -31,7 +31,8 @@ export const Button = ({ size, variant, background, color, text }) => {
         text="Click me"
         tagName="span"
         fontSize={14}
-        color="inherit"
+        inButton
+        // color="inherit"
       />
     </StyledButton>
   );
@@ -84,11 +85,11 @@ const ButtonSettings = () => {
         id="button__background-color"
         onClick={(e) => setProp((props) => (props.background = e.target.value))}
       />
-      <StyledLabel htmlFor="button__text-color">Text</StyledLabel>
+      {/* <StyledLabel htmlFor="button__text-color">Text</StyledLabel>
       <ColorPicker
         id="button__text-color"
         onClick={(e) => setProp((props) => (props.color = e.target.value))}
-      />
+      /> */}
     </StyledBox>
   );
 };
