@@ -14,7 +14,7 @@ const IndicatorDiv = styled("div", {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  fontFamily: "$helvetica",
+  fontFamily: "$ddin",
   fontSize: 10,
   lineHeight: "12px",
   color: "$white",

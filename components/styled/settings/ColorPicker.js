@@ -1,5 +1,20 @@
 import { styled } from "../../../stitches.config";
-import { tomato, indigo, grass, amber } from "@radix-ui/colors";
+import {
+  gray,
+  slate,
+  tomato,
+  red,
+  plum,
+  violet,
+  indigo,
+  blue,
+  mint,
+  teal,
+  green,
+  yellow,
+  amber,
+  orange,
+} from "@radix-ui/colors";
 import { useEffect, useState } from "react";
 import {
   DoubleArrowLeftIcon,
@@ -53,7 +68,32 @@ const ColorPickerArrow = styled("button", {
   // Custom
   width: "25%",
   height: "100%",
+  borderRadius: "$round",
   cursor: "pointer",
+  position: "relative",
+  color: "$gray700",
+  "&:hover": {
+    "&::after": {
+      backgroundColor: "$whiteDim",
+    },
+  },
+  "&:active": {
+    color: "$gray600",
+    "&::after": {
+      backgroundColor: "$whiteDimmer",
+    },
+  },
+  "&::after": {
+    content: "''",
+    position: "absolute",
+    background: "transparent",
+    left: "50%",
+    top: "50%",
+    transform: "translate(-50%, -50%)",
+    width: "22px",
+    height: "22px",
+    borderRadius: "$round",
+  },
 });
 
 const ColorPickerTitle = styled("span", {
@@ -103,18 +143,41 @@ const colors = {
     slate1000: "hsl(206 6.0% 43.5%)",
     slate1100: "hsl(0, 0%, 7%)",
   },
-  red: {
+  tomato: {
     ...tomato,
   },
-
-  blue: {
+  red: {
+    ...red,
+  },
+  plum: {
+    ...plum,
+  },
+  violet: {
+    ...violet,
+  },
+  indigo: {
     ...indigo,
   },
+  blue: {
+    ...blue,
+  },
+  mint: {
+    ...mint,
+  },
+  teal: {
+    ...teal,
+  },
   green: {
-    ...grass,
+    ...green,
   },
   yellow: {
+    ...yellow,
+  },
+  amber: {
     ...amber,
+  },
+  orange: {
+    ...orange,
   },
 };
 
@@ -145,7 +208,7 @@ export const ColorPicker = ({ id, onClick }) => {
   };
 
   const clickRightArrow = () => {
-    if (colorSection < 4) {
+    if (colorSection < 12) {
       changeColorSection(colorSection + 1);
     } else {
       changeColorSection(0);
@@ -155,12 +218,15 @@ export const ColorPicker = ({ id, onClick }) => {
   return (
     <ColorPickerBox id={id}>
       <ColorPickerHeader>
-        <ColorPickerArrow onClick={() => clickLeftArrow()}>
-          <DoubleArrowLeftIcon color="#cfcfcf" />
+        <ColorPickerArrow
+          onClick={() => clickLeftArrow()}
+          css={{ pr: "1.6px" }}
+        >
+          <DoubleArrowLeftIcon />
         </ColorPickerArrow>
         <ColorPickerTitle>{Object.keys(colors)[colorSection]}</ColorPickerTitle>
         <ColorPickerArrow onClick={() => clickRightArrow()}>
-          <DoubleArrowRightIcon color="#cfcfcf" />
+          <DoubleArrowRightIcon />
         </ColorPickerArrow>
       </ColorPickerHeader>
       <ColorPickerPanel>

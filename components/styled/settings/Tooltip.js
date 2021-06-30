@@ -4,15 +4,16 @@ import { styled } from "../../../stitches.config";
 
 const StyledContent = styled(Tooltip.Content, {
   borderRadius: "$1",
-  padding: "7px 10px 5px 10px",
-  fontFamily: "$helvetica",
-  fontSize: 12,
-  backgroundColor: "$black300",
+  py: "$1",
+  px: "$2",
+  fontFamily: "$ddin",
+  fontSize: "$3",
+  backgroundColor: "$glass",
   color: "$white",
 });
 
 const StyledArrow = styled(Tooltip.Arrow, {
-  fill: "$black300",
+  fill: "$glass",
 });
 
 export function StyledTooltip({

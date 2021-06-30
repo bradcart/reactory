@@ -19,11 +19,14 @@ const globalStyles = global({
       src: 'url(/fonts/d-dinexp.woff2) format("woff2"), url(/fonts/d-dinexp.woff) format("woff")',
     },
   ],
-  "*, *::before, *::after": {
+  "*": {
     boxSizing: "border-box",
-  },
-  body: {
-    margin: 0,
+    "&::before": {
+      boxSizing: "border-box",
+    },
+    "*::after": {
+      boxSizing: "border-box",
+    },
   },
   html: {
     backgroundColor: "$black100",
@@ -32,6 +35,7 @@ const globalStyles = global({
     },
   },
   body: {
+    margin: 0,
     overflow: "hidden",
     minHeight: "100vh",
     lineHeight: 1.5,
@@ -50,21 +54,21 @@ const globalStyles = global({
       color: "$white",
     },
   },
-  "&.component-selected": {
+  ".component-selected": {
     position: "relative",
     "&::after": {
-      content: " ",
-      border: "2px dashed $red",
+      content: '" "',
+      border: "2px dashed #f50057",
       width: "100%",
       height: "100%",
       position: "absolute",
-      left: 0,
-      top: 0,
+      left: "0",
+      top: "0",
       pointerEvents: "none",
       display: "block",
     },
   },
-  "&:.dropdown-font-family": {
+  ".dropdown-font-family": {
     fontFamily: "$ddin",
   },
 });

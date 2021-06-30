@@ -28,9 +28,10 @@ const CardRoot = styled(DEFAULT_TAG, {
   verticalAlign: "middle",
   WebkitTapHighlightColor: "rgba(0, 0, 0, 0)",
 
-  display: "grid",
+  // Custom
+  display: "inline-grid",
   gridTemplateRows: "4fr 6fr",
-  gridTemplateColumns: "100%",
+  gridTemplateColumns: "1fr",
   textDecoration: "none",
   flexShrink: 0,
   position: "relative",
@@ -46,16 +47,29 @@ const CardRoot = styled(DEFAULT_TAG, {
     boxShadow: "inset 0 0 0 1px rgba(0,0,0,.1)",
     pointerEvents: "none",
   },
+
   variants: {
     size: {
       sm: {
         width: "350px",
+        minHeight: "400px",
       },
       md: {
         width: "535px",
       },
       lg: {
         width: "720px",
+      },
+    },
+    radius: {
+      1: {
+        borderRadius: "$1",
+      },
+      2: {
+        borderRadius: "$2",
+      },
+      3: {
+        borderRadius: "$3",
       },
     },
   },

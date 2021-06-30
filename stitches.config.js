@@ -29,6 +29,7 @@ export const { css, styled, global, theme, keyframes, getCssString } =
         gray500: "#777",
         gray600: "#999",
         gray700: "#cfcfcf",
+        gray800: "#d9d9d9",
         grayAlpha: "rgba(102, 102, 102, 0.6)",
 
         glass: "rgba(27, 27, 27, 0.89)",

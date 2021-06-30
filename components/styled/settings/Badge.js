@@ -37,8 +37,6 @@ export const StyledBadge = styled("span", {
   textAlign: "center",
   whiteSpace: "nowrap",
   height: "$4",
-  pt: "$3",
-  pb: "$2",
-  px: "$3",
-  // mb: "$1",
+  py: "$2",
+  px: "$2",
 });
