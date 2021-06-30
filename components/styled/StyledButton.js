@@ -29,26 +29,23 @@ export const StyledButton = styled("button", {
     size: {
       sm: {
         borderRadius: "$1",
-        height: "$5",
-        px: "$2",
+        minHeight: "$5",
+        px: "$3",
         lineHeight: "$sizes$5",
       },
       md: {
         borderRadius: "$2",
-        height: "$6",
-        px: "$3",
+        minHeight: "$6",
+        px: "$5",
         lineHeight: "$sizes$6",
       },
       lg: {
         borderRadius: "$2",
-        height: "$7",
-        px: "$5",
+        minHeight: "$7",
+        px: "$8",
         lineHeight: "$sizes$7",
       },
     },
-  },
-  defaultVariants: {
-    size: "md",
   },
 });
 

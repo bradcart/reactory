@@ -18,6 +18,10 @@ const globalStyles = global({
       fontFamily: "D-DIN Exp",
       src: 'url(/fonts/d-dinexp.woff2) format("woff2"), url(/fonts/d-dinexp.woff) format("woff")',
     },
+    {
+      fontFamily: "Poppins",
+      src: 'url(/fonts/poppins-regular.woff2) format("woff2"), url(/fonts/poppins-regular.woff) format("woff")',
+    },
   ],
   "*": {
     boxSizing: "border-box",
@@ -42,13 +46,13 @@ const globalStyles = global({
     textRendering: "optimizeLegibility",
     "-webkit-font-smoothing": "antialiased",
   },
-  img: {
-    maxWidth: "100%",
-    display: "block",
-  },
-  input: {
-    fontFamily: "inherit",
-  },
+  // img: {
+  //   maxWidth: "100%",
+  //   display: "block",
+  // },
+  // input: {
+  //   fontFamily: "inherit",
+  // },
   a: {
     "&:visited": {
       color: "$white",
@@ -59,6 +63,7 @@ const globalStyles = global({
     "&::after": {
       content: '" "',
       border: "2px dashed #f50057",
+      borderRadius: "inherit",
       width: "100%",
       height: "100%",
       position: "absolute",

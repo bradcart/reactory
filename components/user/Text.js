@@ -3,27 +3,31 @@ import dynamic from "next/dynamic";
 import ContentEditable from "react-contenteditable";
 import { useNode } from "@craftjs/core";
 import { StyledBox } from "../styled/StyledBox";
-import { StyledLabel } from "../styled/settings/Label";
 import { StyledSlider } from "../styled/settings/Slider";
 import { StyledToggleGroup } from "../styled/settings/ToggleGroup";
+import { ColorPicker } from "../styled/settings/ColorPicker";
+import { StyledLabel } from "../styled/settings/Label";
 import { StyledSeparator } from "../styled/settings/Separator";
 
 export const Text = ({
   text,
   tagName = "p",
+  activeFontFamily,
   fontSize,
   fontWeight,
   textAlign,
+  lineHeight,
+  color,
 }) => {
   const {
     connectors: { connect, drag },
+    id,
     selected,
     dragged,
     actions: { setProp },
-    id,
-  } = useNode((state) => ({
-    selected: state.events.selected,
-    dragged: state.events.dragged,
+  } = useNode((node) => ({
+    selected: node.events.selected,
+    dragged: node.events.dragged,
   }));
 
   const [editable, setEditable] = useState(false);
@@ -46,10 +50,13 @@ export const Text = ({
           )
         }
         tagName={tagName}
-        className={"apply-font-" + id}
+        className={`apply-font-${id}`}
         style={{
           fontSize: `${fontSize}px`,
           fontWeight: "inherit",
+          fontFamily: activeFontFamily,
+          color: color,
+          lineHeight: `${lineHeight}px`,
         }}
       />
     </div>
@@ -58,17 +65,20 @@ export const Text = ({
 
 const TextSettings = () => {
   const {
+    id,
     activeFontFamily,
     fontSize,
     fontWeight,
     textAlign,
+    lineHeight,
     actions: { setProp },
-    id,
   } = useNode((node) => ({
     activeFontFamily: node.data.props.activeFontFamily,
     fontSize: node.data.props.fontSize,
     fontWeight: node.data.props.fontWeight,
     textAlign: node.data.props.textAlign,
+    color: node.data.props.color,
+    lineHeight: node.data.props.lineHeight,
   }));
 
   let FontPicker;
@@ -109,7 +119,18 @@ const TextSettings = () => {
         }
         step={1}
         min={8}
-        max={144}
+        max={72}
+      />
+      <StyledLabel htmlFor="text__line-height">Line Height</StyledLabel>
+      <StyledSlider
+        id="text__line-height"
+        value={[lineHeight]}
+        onValueChange={(value) =>
+          setProp((props) => (props.lineHeight = value[0]))
+        }
+        step={1}
+        min={1}
+        max={100}
       />
       <StyledLabel htmlFor="text__font-weight">Weight</StyledLabel>
       <StyledToggleGroup
@@ -125,7 +146,6 @@ const TextSettings = () => {
         valueThree={700}
         labelThree="Bold"
       />
-      <StyledSeparator />
       <StyledLabel htmlFor="text__text-align">Align</StyledLabel>
       <StyledToggleGroup
         id="text__text-align"
@@ -138,6 +158,10 @@ const TextSettings = () => {
         valueThree="right"
         labelThree="Right"
       />
+      <StyledSeparator />
+      <ColorPicker
+        onClick={(e) => setProp((props) => (props.color = e.target.value))}
+      />
     </>
   );
 };
@@ -146,10 +170,12 @@ Text.craft = {
   displayName: "Text",
   props: {
     text: "Hi",
-    activeFontFamily: "Open Sans",
+    activeFontFamily: "Poppins",
     fontSize: 20,
     fontWeight: 400,
     textAlign: "left",
+    color: "#111",
+    lineHeight: 28,
   },
   // rules: {
   //   canDrag: (node) => node.data.props.text !== "Drag",

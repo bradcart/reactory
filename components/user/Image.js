@@ -76,18 +76,18 @@ const ImageSettings = () => {
         id="image__width"
         value={[width]}
         onValueChange={(value) => setProp((props) => (props.width = value[0]))}
-        step={10}
-        min={100}
-        max={1000}
+        step={1}
+        min={0}
+        max={100}
       />
       <StyledLabel htmlFor="image__height">Height</StyledLabel>
       <StyledSlider
         id="image__height"
         value={[height]}
         onValueChange={(value) => setProp((props) => (props.height = value[0]))}
-        step={10}
-        min={100}
-        max={1000}
+        step={1}
+        min={0}
+        max={100}
       />
     </StyledBox>
   );
@@ -95,8 +95,8 @@ const ImageSettings = () => {
 
 const ImageDefaultProps = {
   src: "/placeholder.png",
-  width: 600,
-  height: 400,
+  width: 100,
+  height: 100,
   objectFit: "cover",
 };
 

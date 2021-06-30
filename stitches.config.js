@@ -108,6 +108,7 @@ export const { css, styled, global, theme, keyframes, getCssString } =
         1: "4px",
         2: "6px",
         3: "10px",
+        4: "20px",
         round: "50%",
         pill: "9999px",
       },

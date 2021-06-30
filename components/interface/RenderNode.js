@@ -6,16 +6,16 @@ import { styled } from "../../stitches.config";
 import { DragIcon, ArrowUpIcon, DeleteIcon } from "../icons/RenderNodeIcons";
 
 const IndicatorDiv = styled("div", {
-  height: 30,
-  mt: -29,
+  height: "30px",
+  mt: "-29px",
   px: "$1",
-  py: 2,
+  py: "$1",
   position: "fixed",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
   fontFamily: "$ddin",
-  fontSize: 10,
+  fontSize: "10px",
   lineHeight: "12px",
   color: "$white",
   backgroundColor: "$black100",
@@ -23,21 +23,24 @@ const IndicatorDiv = styled("div", {
   // backdropFilter: "blur(4px)",
   "& svg": {
     fill: "$white",
-    width: 15,
-    height: 15,
+    width: "15px",
+    height: "15px",
   },
 });
 
 const Btn = styled("a", {
-  p: 0,
+  p: "1px",
+  mx: "3px",
+  flexGrow: "1",
   opacity: 0.9,
   display: "flex",
   alignItems: "center",
-  "> div": {
-    position: "relative",
-    top: "-50%",
-    left: "-50%",
-  },
+  justifyContent: "center",
+  // "> div": {
+  // position: "relative",
+  // top: "-50%",
+  // left: "-50%",
+  // },
 });
 
 export const RenderNode = ({ render }) => {
@@ -118,11 +121,10 @@ export const RenderNode = ({ render }) => {
                 zIndex: 9999,
               }}
             >
-              <h2 style={{ flex: "1 1 0%", marginRight: "1rem" }}>{name}</h2>
+              <h2 style={{ marginRight: "5px" }}>{name}</h2>
               {moveable ? (
                 <Btn
                   style={{
-                    marginRight: "0.5rem",
                     cursor: "move",
                   }}
                   ref={drag}
@@ -132,7 +134,7 @@ export const RenderNode = ({ render }) => {
               ) : null}
               {id !== ROOT_NODE && (
                 <Btn
-                  style={{ marginRight: "0.5rem", cursor: "pointer" }}
+                  style={{ cursor: "pointer" }}
                   onClick={() => {
                     actions.selectNode(parent);
                   }}

@@ -5,9 +5,12 @@ import { styled } from "../../stitches.config";
 export const StyledImage = styled("img", {
   // Reset
   verticalAlign: "middle",
-  width: "100%",
+  maxWidth: "100%",
   height: "auto",
-  objectFit: "cover",
+  // objectFit: "cover",
+
+  // Custom
+  // borderRadius: "inherit"
 });
 
 // export const StyledImage = (props) => {

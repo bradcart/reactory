@@ -31,6 +31,7 @@ export const Button = ({ size, variant, background, color, text }) => {
         text="Click me"
         tagName="span"
         fontSize={14}
+        color="inherit"
       />
     </StyledButton>
   );

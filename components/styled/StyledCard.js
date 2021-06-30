@@ -5,14 +5,51 @@ const DEFAULT_TAG = "div";
 
 export const StyledCardTop = styled("div", {
   height: "100%",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  borderTopLeftRadius: "inherit",
+  borderTopRightRadius: "inherit",
+
+  // border: "1px solid yellow",
 });
 
 export const StyledCardBottom = styled("div", {
   height: "100%",
+  display: "grid",
+  gridTemplateRows: "3fr 1fr",
+  gridTemplateColumns: "100%",
+  alignItems: "center",
+});
+
+export const StyledCardBottomUpper = styled("div", {
+  height: "100%",
+  px: "$4",
   display: "flex",
-  flexDirection: "column",
-  justifyContent: "space-around",
-  alignContent: "center",
+  variants: {
+    alignItems: {
+      start: {
+        alignItems: "start",
+      },
+      center: {
+        alignItems: "center",
+      },
+      end: {
+        alignItems: "end",
+      },
+    },
+  },
+});
+
+export const StyledCardBottomLower = styled("div", {
+  height: "100%",
+  display: "flex",
+  justifyContent: "space-evenly",
+  alignItems: "center",
+  borderBottomLeftRadius: "inherit",
+  borderBottomRightRadius: "inherit",
+
+  // border: "1px solid blue",
 });
 
 const CardRoot = styled(DEFAULT_TAG, {
@@ -29,30 +66,35 @@ const CardRoot = styled(DEFAULT_TAG, {
   WebkitTapHighlightColor: "rgba(0, 0, 0, 0)",
 
   // Custom
+  minHeight: "300px",
   display: "inline-grid",
-  gridTemplateRows: "4fr 6fr",
+  gridTemplateRows: "4fr 4fr",
   gridTemplateColumns: "1fr",
+  // justifyItems: "center",
   textDecoration: "none",
   flexShrink: 0,
-  position: "relative",
+  overflow: "hidden",
+  boxShadow:
+    "0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.20)",
+  // filter: "drop-shadow(0px 24px 64px rgba(0, 0, 0, 0.6))",
+  // position: "relative",
 
-  "&::before": {
-    boxSizing: "border-box",
-    content: '""',
-    position: "absolute",
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: 0,
-    boxShadow: "inset 0 0 0 1px rgba(0,0,0,.1)",
-    pointerEvents: "none",
-  },
+  // "&::before": {
+  //   boxSizing: "border-box",
+  //   content: '""',
+  //   position: "absolute",
+  //   top: 0,
+  //   right: 0,
+  //   bottom: 0,
+  //   left: 0,
+  //   boxShadow: "inset 0 0 0 1px rgba(0,0,0,.1)",
+  //   pointerEvents: "none",
+  // },
 
   variants: {
     size: {
       sm: {
         width: "350px",
-        minHeight: "400px",
       },
       md: {
         width: "535px",
@@ -62,14 +104,14 @@ const CardRoot = styled(DEFAULT_TAG, {
       },
     },
     radius: {
-      1: {
-        borderRadius: "$1",
+      straight: {
+        borderRadius: "0px",
       },
-      2: {
+      round: {
         borderRadius: "$2",
       },
-      3: {
-        borderRadius: "$3",
+      rounder: {
+        borderRadius: "$4",
       },
     },
   },
