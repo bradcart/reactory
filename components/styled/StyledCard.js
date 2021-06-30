@@ -20,6 +20,38 @@ export const StyledCardBottom = styled("div", {
   gridTemplateRows: "3fr 1fr",
   gridTemplateColumns: "100%",
   alignItems: "center",
+  variants: {
+    padding: {
+      10: {
+        p: "10px",
+      },
+      20: {
+        p: "20px",
+      },
+      30: {
+        p: "30px",
+      },
+      40: {
+        p: "40px",
+      },
+      50: {
+        px: "50px",
+        py: "40px",
+      },
+      60: {
+        px: "60px",
+        py: "40px",
+      },
+      70: {
+        px: "70px",
+        py: "40px",
+      },
+      80: {
+        px: "80px",
+        py: "40px",
+      },
+    },
+  },
 });
 
 export const StyledCardBottomUpper = styled("div", {
@@ -112,6 +144,32 @@ const CardRoot = styled(DEFAULT_TAG, {
       },
       rounder: {
         borderRadius: "$4",
+      },
+    },
+    padding: {
+      10: {
+        gridTemplateRows: "8fr 8fr",
+      },
+      20: {
+        gridTemplateRows: "7fr 8fr",
+      },
+      30: {
+        gridTemplateRows: "6fr 8fr",
+      },
+      40: {
+        gridTemplateRows: "5fr 8fr",
+      },
+      50: {
+        gridTemplateRows: "4fr 8fr",
+      },
+      60: {
+        gridTemplateRows: "3fr 8fr",
+      },
+      70: {
+        gridTemplateRows: "2fr 8fr",
+      },
+      80: {
+        gridTemplateRows: "1fr 8fr",
       },
     },
   },

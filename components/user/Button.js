@@ -9,7 +9,13 @@ import { StyledInput } from "../styled/settings/TextInput";
 import { StyledSeparator } from "../styled/settings/Separator";
 import * as StyledAccordion from "../styled/settings/Accordion";
 
-export const Button = ({ size, variant, background, text }) => {
+export const Button = ({
+  size,
+  variant,
+  background,
+  text,
+  invertDefaultTextColor = false,
+}) => {
   const {
     connectors: { connect },
   } = useNode();
@@ -31,7 +37,7 @@ export const Button = ({ size, variant, background, text }) => {
         text="Click me"
         tagName="span"
         fontSize={14}
-        inButton
+        invertDefaultTextColor={invertDefaultTextColor}
         // color="inherit"
       />
     </StyledButton>

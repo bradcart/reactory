@@ -18,7 +18,7 @@ export const Text = ({
   textAlign,
   lineHeight,
   color,
-  inButton,
+  invertDefaultTextColor,
 }) => {
   const {
     connectors: { connect, drag },
@@ -38,7 +38,7 @@ export const Text = ({
   }, [selected]);
 
   useEffect(() => {
-    if (inButton) {
+    if (invertDefaultTextColor) {
       setProp((props) => (props.color = "#fff"));
     }
   }, []);

@@ -24,11 +24,16 @@ export const Card = ({ size, padding, alignItems, radius }) => {
     connectors: { connect, drag },
   } = useNode();
   return (
-    <StyledCard ref={(ref) => connect(drag(ref))} size={size} radius={radius}>
+    <StyledCard
+      ref={(ref) => connect(drag(ref))}
+      size={size}
+      radius={radius}
+      padding={padding}
+    >
       <StyledCardTop>
         <Element is={Image} id="card__image" width={100} height={100} />
       </StyledCardTop>
-      <StyledCardBottom style={{ padding: `${padding}px` }}>
+      <StyledCardBottom padding={padding}>
         <StyledCardBottomUpper alignItems={alignItems}>
           <Element
             is={Text}
@@ -39,7 +44,11 @@ export const Card = ({ size, padding, alignItems, radius }) => {
           />
         </StyledCardBottomUpper>
         <StyledCardBottomLower>
-          <Element is={Button} id="card__button-primary" />
+          <Element
+            is={Button}
+            id="card__button-primary"
+            invertDefaultTextColor
+          />
           <Element
             is={Button}
             id="card__button-secondary"
@@ -90,7 +99,7 @@ const CardSettings = () => {
         onValueChange={(value) =>
           setProp((props) => (props.padding = value[0]))
         }
-        step={5}
+        step={10}
         min={10}
         max={80}
       />

@@ -13,9 +13,44 @@ import { Image } from "../components/user/Image";
 
 import { Viewport } from "../components/interface/viewport";
 import { RenderNode } from "../components/interface/RenderNode";
+import { styled } from "../stitches.config";
 // import fetchProjectData from "../components/utils/fetchProjectData";
 
 // const texture = "/texture.png";
+
+const ViewportOverlay = styled("div", {
+  display: "none",
+  width: "100%",
+  height: "100%",
+  position: "fixed",
+  top: 0,
+  left: 0,
+  zIndex: 9999,
+  px: "$2",
+  backgroundColor: "rgba(0, 0, 0, 0.87)",
+  color: "$white",
+  textAlign: "center",
+  fontFamily: "$grifter",
+  fontSize: "42px",
+  "> span": {
+    mt: "$2",
+    fontFamily: "$ddin",
+    fontSize: "24px",
+  },
+  "@media(max-width: 899px)": {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
+
+const ViewportWarning = () => (
+  <ViewportOverlay>
+    Your browser is too small
+    <span>Resize your browser to be at least 900px to use this demo.</span>
+  </ViewportOverlay>
+);
 
 export default function Edit() {
   /* const [json, setJson] = useState(null);
@@ -39,6 +74,7 @@ export default function Edit() {
       }}
       onRender={RenderNode}
     >
+      <ViewportWarning />
       {/* {json ? ( */}
       <Viewport>
         <Frame>
