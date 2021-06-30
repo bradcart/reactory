@@ -26,6 +26,13 @@ const IndicatorDiv = styled("div", {
     width: "15px",
     height: "15px",
   },
+  variants: {
+    variant: {
+      dropzone: {
+        backgroundColor: "$viridian",
+      },
+    },
+  },
 });
 
 const Btn = styled("a", {
@@ -56,15 +63,19 @@ export const RenderNode = ({ render }) => {
     moveable,
     deletable,
     connectors: { drag },
+    custom,
     parent,
+    parentOfParent,
   } = useNode((node) => ({
     isHover: node.events.hovered,
     dom: node.dom,
     name: node.data.custom.displayName || node.data.displayName,
     moveable: query.node(node.id).isDraggable(),
     deletable: query.node(node.id).isDeletable(),
+    parentOfParent: query.node(node.id).ancestors()[1],
     parent: node.data.parent,
     props: node.data.props,
+    custom: node.data.custom,
   }));
 
   const currentRef = useRef(<HTMLDivElement />);
@@ -73,8 +84,10 @@ export const RenderNode = ({ render }) => {
     if (dom) {
       if (isActive || isHover) {
         // console.log(dom);
-        dom.classList.add("component-selected");
-      } else dom.classList.remove("component-selected");
+        custom && custom.droppableOnly
+          ? dom.classList.add("dropzone-selected")
+          : dom.classList.add("component-selected");
+      } else dom.classList.remove("component-selected", "dropzone-selected");
     }
   }, [dom, isActive, isHover]);
 
@@ -120,6 +133,7 @@ export const RenderNode = ({ render }) => {
                 top: getPos(dom).top,
                 zIndex: 9999,
               }}
+              variant={custom && custom.droppableOnly ? "dropzone" : ""}
             >
               <h2 style={{ marginRight: "5px" }}>{name}</h2>
               {moveable ? (
@@ -132,11 +146,15 @@ export const RenderNode = ({ render }) => {
                   <DragIcon />
                 </Btn>
               ) : null}
-              {id !== ROOT_NODE && (
+              {id !== ROOT_NODE && !custom.droppableOnly && (
                 <Btn
                   style={{ cursor: "pointer" }}
                   onClick={() => {
-                    actions.selectNode(parent);
+                    // console.log(parent);
+                    // console.log(parentOfParent);
+                    custom.skipParentNode
+                      ? actions.selectNode(parentOfParent)
+                      : actions.selectNode(parent);
                   }}
                 >
                   <ArrowUpIcon />

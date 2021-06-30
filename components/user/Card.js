@@ -19,7 +19,47 @@ import { StyledSeparator } from "../styled/settings/Separator";
 const dummyText =
   "Our team was inspired by the seven skills of highly effective programmers created by the TechLead. We wanted to provide our own take on the topic. Here are our seven skills of effective programmers...";
 
-export const Card = ({ size, padding, alignItems, radius }) => {
+export const CardText = ({ alignItems, children }) => {
+  const {
+    connectors: { connect },
+  } = useNode();
+  return (
+    <StyledCardBottomUpper ref={connect} alignItems={alignItems}>
+      {children}
+    </StyledCardBottomUpper>
+  );
+};
+
+CardText.craft = {
+  displayName: "Card Text Container",
+  rules: {
+    canMoveIn: (incomingNode) => incomingNode.data.displayName == "Text",
+  },
+  custom: {
+    droppableOnly: true,
+  },
+};
+
+export const CardButtons = ({ children }) => {
+  const {
+    connectors: { connect },
+  } = useNode();
+  return (
+    <StyledCardBottomLower ref={connect}>{children}</StyledCardBottomLower>
+  );
+};
+
+CardButtons.craft = {
+  displayName: "Card Button Container",
+  rules: {
+    canMoveIn: (incomingNode) => incomingNode.data.displayName == "Button",
+  },
+  custom: {
+    droppableOnly: true,
+  },
+};
+
+export const Card = ({ size, padding, alignItems, radius, background }) => {
   const {
     connectors: { connect, drag },
   } = useNode();
@@ -29,24 +69,31 @@ export const Card = ({ size, padding, alignItems, radius }) => {
       size={size}
       radius={radius}
       padding={padding}
+      style={{ backgroundColor: background }}
     >
       <StyledCardTop>
         <Element is={Image} id="card__image" width={100} height={100} />
       </StyledCardTop>
       <StyledCardBottom padding={padding}>
-        <StyledCardBottomUpper alignItems={alignItems}>
+        <Element
+          is={CardText}
+          id="card__text-container"
+          canvas
+          alignItems={alignItems}
+        >
           <Element
             is={Text}
             id="card__text"
             text={dummyText}
-            fontSize={16}
+            fontSize={12}
             activeFontFamily="Poppins"
           />
-        </StyledCardBottomUpper>
-        <StyledCardBottomLower>
+        </Element>
+        <Element is={CardButtons} id="card__button-container" canvas>
           <Element
             is={Button}
             id="card__button-primary"
+            skipParentNode
             invertDefaultTextColor
           />
           <Element
@@ -54,8 +101,9 @@ export const Card = ({ size, padding, alignItems, radius }) => {
             id="card__button-secondary"
             variant="outline"
             color="#111"
+            skipParentNode
           />
-        </StyledCardBottomLower>
+        </Element>
       </StyledCardBottom>
     </StyledCard>
   );
@@ -110,11 +158,11 @@ const CardSettings = () => {
         onValueChange={(value) =>
           setProp((props) => (props.alignItems = value))
         }
-        valueOne="top"
+        valueOne="start"
         labelOne="Top"
         valueTwo="center"
         labelTwo="Center"
-        valueThree="bottom"
+        valueThree="end"
         labelThree="Bottom"
       />
       <StyledSeparator />
@@ -141,9 +189,10 @@ const CardSettings = () => {
 
 const CardDefaultProps = {
   size: "sm",
-  padding: 10,
+  padding: 20,
   alignItems: "center",
   radius: "round",
+  background: "#eee",
 };
 
 Card.craft = {

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useNode, Element } from "@craftjs/core";
 import { Text } from "./Text";
 import { StyledButton } from "../styled/StyledButton";
@@ -15,10 +16,18 @@ export const Button = ({
   background,
   text,
   invertDefaultTextColor = false,
+  skipParentNode = false,
 }) => {
   const {
     connectors: { connect },
+    actions: { setCustom },
   } = useNode();
+
+  useEffect(() => {
+    if (skipParentNode) {
+      setCustom((custom) => (custom.skipParentNode = true));
+    }
+  }, []);
 
   return (
     <StyledButton
@@ -108,6 +117,9 @@ Button.craft = {
     background: "#111",
     color: "#fff",
     text: "Click me",
+  },
+  custom: {
+    skipParentNode: false,
   },
   related: {
     settings: ButtonSettings,

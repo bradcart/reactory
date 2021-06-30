@@ -62,7 +62,22 @@ const globalStyles = global({
     position: "relative",
     "&::after": {
       content: '" "',
-      border: "2px dashed #f50057",
+      border: "2px outset #f50057",
+      borderRadius: "inherit",
+      width: "100%",
+      height: "100%",
+      position: "absolute",
+      left: "0",
+      top: "0",
+      pointerEvents: "none",
+      display: "block",
+    },
+  },
+  ".dropzone-selected": {
+    position: "relative",
+    "&::after": {
+      content: '" "',
+      border: "1px inset #57886c",
       borderRadius: "inherit",
       width: "100%",
       height: "100%",

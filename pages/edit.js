@@ -7,7 +7,7 @@ import { Section } from "../components/user/Section";
 import { Container } from "../components/user/Container";
 import { Button } from "../components/user/Button";
 // import { Card, CardTop, CardBottom } from "../components/user/Card";
-import { Card } from "../components/user/Card";
+import { Card, CardText, CardButtons } from "../components/user/Card";
 import { Text } from "../components/user/Text";
 import { Image } from "../components/user/Image";
 
@@ -66,6 +66,8 @@ export default function Edit() {
       resolver={{
         Page,
         Card,
+        CardText,
+        CardButtons,
         Button,
         Text,
         Container,

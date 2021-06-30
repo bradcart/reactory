@@ -44,7 +44,13 @@ export const Text = ({
   }, []);
 
   return (
-    <div style={{ fontWeight: fontWeight, textAlign: textAlign }}>
+    <div
+      style={{
+        fontWeight: fontWeight,
+        textAlign: textAlign,
+        pointerEvents: "auto",
+      }}
+    >
       <ContentEditable
         innerRef={connect}
         html={text}

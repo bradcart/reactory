@@ -58,16 +58,18 @@ export const StyledCardBottomUpper = styled("div", {
   height: "100%",
   px: "$4",
   display: "flex",
+  flexDirection: "column",
+  // pointerEvents: "none",
   variants: {
     alignItems: {
       start: {
-        alignItems: "start",
+        alignItems: "flex-start",
       },
       center: {
         alignItems: "center",
       },
       end: {
-        alignItems: "end",
+        alignItems: "flex-end",
       },
     },
   },
@@ -80,6 +82,7 @@ export const StyledCardBottomLower = styled("div", {
   alignItems: "center",
   borderBottomLeftRadius: "inherit",
   borderBottomRightRadius: "inherit",
+  // pointerEvents: "none",
 
   // border: "1px solid blue",
 });
