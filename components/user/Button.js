@@ -12,7 +12,7 @@ export const Button = ({
   size,
   variant,
   background,
-  invertDefaultTextColor = false,
+  color,
   skipParentNode = false,
 }) => {
   const {
@@ -43,8 +43,7 @@ export const Button = ({
         text="Click me"
         tagName="span"
         fontSize={14}
-        invertDefaultTextColor={invertDefaultTextColor}
-        // color="inherit"
+        color={color}
       />
     </StyledButton>
   );

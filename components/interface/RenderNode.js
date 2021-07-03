@@ -8,7 +8,7 @@ import { DragIcon, ArrowUpIcon, DeleteIcon } from "../icons/RenderNodeIcons";
 const IndicatorDiv = styled("div", {
   height: "30px",
   mt: "-29px",
-  px: "$2",
+  px: "$1",
   py: "$3",
   position: "fixed",
   display: "flex",

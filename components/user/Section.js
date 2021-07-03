@@ -11,7 +11,6 @@ import { ColorPicker } from "../styled/settings/ColorPicker";
 export const Section = ({
   size,
   background,
-  flex,
   direction,
   justify,
   align,
@@ -21,14 +20,13 @@ export const Section = ({
     connectors: { connect },
   } = useNode();
 
-  //VARIANTS: FLEX, FLEX DIRECTION, ALIGN ITEMS, JUSTIFY CONTENT, BORDER, BORDER RADIUS
+  //VARIANTS: FLEX DIRECTION, ALIGN ITEMS, JUSTIFY CONTENT, BORDER, BORDER RADIUS
   //STYLE PROP: WIDTH, HEIGHT, PADDING, BGCOLOR
   return (
     <StyledSection
       ref={connect}
       size={size}
-      flex
-      //   direction={direction}
+      direction={direction}
       justify={justify}
       align={align}
       style={{
@@ -43,6 +41,7 @@ export const Section = ({
 export const SectionSettings = () => {
   const {
     size,
+    direction,
     justify,
     align,
     background,
@@ -51,6 +50,7 @@ export const SectionSettings = () => {
     actions: { setProp, setCustom },
   } = useNode((node) => ({
     size: node.data.props.size,
+    direction: node.data.props.direction,
     justify: node.data.props.justify,
     align: node.data.props.align,
     background: node.data.props.background,
@@ -76,6 +76,16 @@ export const SectionSettings = () => {
         labelTwo="Medium"
         valueThree="lg"
         labelThree="Large"
+      />
+      <StyledLabel htmlFor="section__direction">Direction</StyledLabel>
+      <StyledToggleGroup
+        id="section__direction"
+        currentValue={direction}
+        onValueChange={(value) => setProp((props) => (props.direction = value))}
+        valueOne="row"
+        labelOne="Row"
+        valueTwo="column"
+        labelTwo="Column"
       />
       <StyledLabel htmlFor="section__justify">Justify</StyledLabel>
       <StyledToggleGroup
@@ -112,8 +122,9 @@ export const SectionSettings = () => {
 
 // We export this because we'll be using this in the Card component as well
 export const SectionDefaultProps = {
-  background: "#ffffff",
+  background: "inherit",
   size: "md",
+  direction: "row",
   justify: "center",
   align: "center",
 };

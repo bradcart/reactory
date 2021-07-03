@@ -87,15 +87,14 @@ export const Card = ({ size, padding, alignItems, radius, background }) => {
             text={dummyText}
             fontSize={12}
             activeFontFamily="Poppins"
-            skipParentNode
           />
         </Element>
         <Element is={CardButtons} id="card__button-container" canvas>
           <Element
             is={Button}
             id="card__button-primary"
+            color="#fff"
             skipParentNode
-            invertDefaultTextColor
           />
           <Element
             is={Button}

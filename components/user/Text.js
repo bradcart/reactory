@@ -19,7 +19,6 @@ export const Text = ({
   textAlign,
   lineHeight,
   color,
-  invertDefaultTextColor,
   skipParentNode = false,
 }) => {
   const {
@@ -40,9 +39,6 @@ export const Text = ({
   }, [selected]);
 
   useEffect(() => {
-    if (invertDefaultTextColor) {
-      setProp((props) => (props.color = "#fff"));
-    }
     if (skipParentNode) {
       setCustom((custom) => (custom.skipParentNode = true));
     }
