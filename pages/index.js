@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { styled } from "../stitches.config";
 import { StyledBox } from "../components/styled/StyledBox";
 import { StyledText } from "../components/styled/StyledText";
+import {
+  TopLeftBlockIcon,
+  TopRightBlockIcon,
+  BottomLeftBlockIcon,
+  BottomRightBlockIcon,
+  ShapesIcon,
+} from "../components/icons/IntroIcons";
 import {
   bounceInTop,
   bounceInBottom,
@@ -46,35 +53,62 @@ const StyledLetter = styled("span", {
 });
 
 const StyledButton = styled("button", {
+  userSelect: "none",
   position: "absolute",
+  zIndex: 2,
   bottom: "15%",
   // left: "50%",
   // transform: "translateX(-50%)",
+  width: "240px",
+  height: "50px",
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  py: "$3",
+  px: "$4",
   borderRadius: "$2",
-  fontFamily: "$grifter",
+  borderWidth: "2px 4px 6px 4px",
+  borderStyle: "outset",
+  borderColor: "$gray900 $gray800 $gray700 $gray900",
+  backgroundColor: "$black100",
+  color: "$white",
+  fontFamily: "$gt",
   fontSize: "$6",
   textTransform: "lowercase",
   textAlign: "center",
-  display: "inline-flex",
-  alignItems: "center",
-  justifyContent: "center",
-  py: "$3",
-  px: "$4",
-  borderWidth: "2px",
-  borderStyle: "solid",
-  borderColor: "$white",
-  backgroundColor: "$black100",
-  color: "$white",
   cursor: "pointer",
-  userSelect: "none",
+
   animation: `${bounceInBottom} 0.8s linear 1.2s both`,
+  filter: "brightness(93%)",
+  transition: "filter 0.3s, border-color 0.3s ease",
   "&:hover": {
-    backgroundColor: "$white",
-    color: "$black100",
-    "& a": {
-      color: "$black100",
-    },
+    filter: "brightness(100%)",
+    borderColor: "$white $gray600 $gray600 $white",
   },
+  "&:active": {
+    borderWidth: "2px 4px 4px 4px",
+    height: "46px",
+  },
+
+  // "&:hover": {
+  //   backgroundColor: "$white",
+  //   color: "$black100",
+  //   "& a": {
+  //     color: "$black100",
+  //   },
+  // },
+
+  // "&::before": {
+  //   content: '""',
+  //   position: "absolute",
+  //   top: "10%",
+  //   zIndex: -2,
+  //   height: "100%",
+  //   width: "102%",
+  //   borderRadius: "$2",
+  //   background:
+  //     "linear-gradient(180deg, rgba(225, 229, 227, 0) 0%, #A8ACAA 100%)",
+  // },
 });
 
 const StyledPortfolioLink = styled("a", {
@@ -88,18 +122,23 @@ const StyledPortfolioLink = styled("a", {
   animation: `${vanishIn} 1.3s ease 2s forwards`,
 });
 
-const StyledInnerLink = styled("a", {
-  textDecorationLine: "none",
-  color: "$white",
-  width: "100%",
-  height: "100%",
-});
+// const StyledInnerLink = styled("a", {
+//   textDecorationLine: "none",
+//   color: "$white",
+//   width: "100%",
+//   height: "100%",
+// });
 
-const InnerLink = React.forwardRef((props, forwardedRef) => {
-  return <StyledInnerLink {...props} ref={forwardedRef} />;
-});
+// const InnerLink = React.forwardRef((props, forwardedRef) => {
+//   return <StyledInnerLink {...props} ref={forwardedRef} />;
+// });
 
 export default function Home() {
+  const [colorize, toggleColorize] = useState(false);
+  const red = "hsl(347, 86%, 44%)";
+  const yellow = "hsl(42, 100%, 56%)";
+  const green = "hsl(180, 63%, 42%)";
+  const purple = "hsl(262, 73%, 48%)";
   return (
     <StyledBox
       css={{
@@ -126,9 +165,26 @@ export default function Home() {
           justifyContent: "space-between",
           alignItems: "center",
           height: "26%",
+          position: "relative",
+          px: "$7",
+          py: "$3",
         }}
       >
-        <div style={{ display: "flex", flexDirection: "row" }}>
+        <TopLeftBlockIcon animation={`${bounceInTop} 0.6s linear both`} />
+        <TopRightBlockIcon animation={`${bounceInTop} 0.8s linear 0.5s both`} />
+        <BottomLeftBlockIcon
+          animation={`${bounceInTop} 0.7s linear 1.5s both`}
+        />
+        <BottomRightBlockIcon
+          animation={`${bounceInTop} 0.6s linear 2.2s both`}
+        />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            transform: "rotate(0.78deg)",
+          }}
+        >
           <StyledLetter letterNumber={1}>R</StyledLetter>
           <StyledLetter letterNumber={2}>e</StyledLetter>
           <StyledLetter letterNumber={3}>a</StyledLetter>
@@ -151,8 +207,19 @@ export default function Home() {
         </StyledText>
       </StyledBox>
       <Link href="/edit">
-        <StyledButton size="lg">
-          <StyledInnerLink>START DEMO</StyledInnerLink>
+        <StyledButton
+          size="lg"
+          as="a"
+          onMouseEnter={() => toggleColorize(true)}
+          onMouseLeave={() => toggleColorize(false)}
+        >
+          START DEMO
+          <ShapesIcon
+            fillCube={colorize ? red : "#fff"}
+            fillStar={colorize ? yellow : "#fff"}
+            fillTopLeft={colorize ? green : "#fff"}
+            fillTopRight={colorize ? purple : "#fff"}
+          />
         </StyledButton>
       </Link>
     </StyledBox>

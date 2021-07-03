@@ -62,7 +62,7 @@ const globalStyles = global({
     position: "relative",
     "&::after": {
       content: '" "',
-      border: "2px outset #f50057",
+      border: "2px dashed #f50057",
       borderRadius: "inherit",
       width: "100%",
       height: "100%",

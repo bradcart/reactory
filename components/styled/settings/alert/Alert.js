@@ -27,12 +27,10 @@ const StyledAlert = styled("div", {
   animation: `${slideInBlurredBottom} 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both, ${slideOutBlurredBottom} 0.45s cubic-bezier(0.755, 0.050, 0.855, 0.060) 1.8s forwards`,
 });
 
-export const Alert = ({ mount, toggleMount }) => {
+export const Alert = ({ mount, toggleMount, content }) => {
   useEffect(() => {
     const timer = setTimeout(() => toggleMount(false), 2250);
     return () => clearTimeout(timer);
   }, [mount]);
-  return (
-    <>{mount ? <StyledAlert>State copied to clipboard!</StyledAlert> : null}</>
-  );
+  return <>{mount ? <StyledAlert>{content}</StyledAlert> : null}</>;
 };

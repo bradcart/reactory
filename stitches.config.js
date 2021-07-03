@@ -29,7 +29,8 @@ export const { css, styled, global, theme, keyframes, getCssString } =
         gray500: "#777",
         gray600: "#999",
         gray700: "#cfcfcf",
-        gray800: "#d9d9d9",
+        gray800: "#e6e6e6",
+        gray900: "#f0f0f0",
         grayAlpha: "rgba(102, 102, 102, 0.6)",
 
         glass: "rgba(27, 27, 27, 0.89)",
@@ -103,6 +104,7 @@ export const { css, styled, global, theme, keyframes, getCssString } =
         compagnon: "Compagnon Medium",
         concretica: "SK Concretica",
         mattone: "Mattone",
+        gt: "GT America Expanded Medium",
       },
       radii: {
         1: "4px",
