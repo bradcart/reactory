@@ -1,7 +1,9 @@
-import { useNode, useEditor } from "@craftjs/core";
-import { ROOT_NODE } from "@craftjs/utils";
 import React, { useEffect, useRef, useCallback } from "react";
 import ReactDOM from "react-dom";
+import { useRouter } from "next/router";
+// import { useUnload } from "../utils/useUnload";
+import { useNode, useEditor } from "@craftjs/core";
+import { ROOT_NODE } from "@craftjs/utils";
 import { styled } from "../../stitches.config";
 import {
   DragIcon,
@@ -9,7 +11,6 @@ import {
   DeleteIcon,
   ExternalLinkIcon,
 } from "../icons/RenderNodeIcons";
-import { StyledLink } from "../styled/StyledLink";
 
 const IndicatorDiv = styled("div", {
   height: "30px",
@@ -118,16 +119,26 @@ export const RenderNode = ({ render }) => {
     currentDOM.style.left = left;
   }, [dom, getPos]);
 
+  const router = useRouter();
+
   useEffect(() => {
     document
       .querySelector(".craftjs-renderer")
       .addEventListener("scroll", scroll);
 
-    return () => {
+    router.beforePopState(() => {
       document
         .querySelector(".craftjs-renderer")
         .removeEventListener("scroll", scroll);
-    };
+
+      router.push("/");
+    });
+
+    // return () => {
+    //   document
+    //     .querySelector(".craftjs-renderer")
+    //     .removeEventListener("scroll", scroll);
+    // };
   }, [scroll]);
 
   return (
