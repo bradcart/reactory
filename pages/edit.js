@@ -83,7 +83,37 @@ export default function Edit() {
           <Element is={Page} canvas>
             <Element
               is={Section}
-              id="canvas__section"
+              id="canvas__intro-section"
+              canvas
+              justify="spaceBetween"
+              padding={10}
+            >
+              <Element
+                is={Text}
+                id="canvas__intro-section-title"
+                text="Reactory is a single-page website builder with a drag and drop interface."
+                activeFontFamily="Poppins"
+                fontSize={50}
+                fontWeight={700}
+                lineHeight={60}
+                width={62}
+              />
+              <Element
+                is={Text}
+                id="canvas__intro-section-paragraph"
+                text={`Built in Next.js.
+                  <br />
+                Styled with Stitches and Radix-UI.`}
+                activeFontFamily="Noto Serif"
+                fontSize={18}
+                fontWeight={400}
+                lineHeight={36}
+                width={32}
+              />
+            </Element>
+            <Element
+              is={Section}
+              id="canvas__card-section"
               canvas
               justify="left"
               padding={0}

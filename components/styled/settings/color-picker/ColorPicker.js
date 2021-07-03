@@ -126,6 +126,7 @@ const ColorPickerSwatch = styled("button", {
   borderWidth: 1,
   borderStyle: "solid",
   borderColor: "$grayAlpha",
+  cursor: "pointer",
 });
 
 const colors = {

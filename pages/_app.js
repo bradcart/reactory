@@ -89,6 +89,22 @@ const globalStyles = global({
       // boxShadow: "inset 5px 5px 15px 5px rgba(0,0,0,0.3)",
     },
   },
+  ".page-selected": {
+    position: "relative",
+    "&::after": {
+      content: '" "',
+      border: "2px outset #f50057",
+      borderRadius: "inherit",
+      width: "calc((100vw - 460px) * .9)",
+      height: "calc(100% - 119px)",
+      position: "fixed",
+      left: "50%",
+      bottom: "0",
+      transform: "translateX(-50%)",
+      pointerEvents: "none",
+      display: "block",
+    },
+  },
   ".dropdown-font-family": {
     fontFamily: "$ddin",
   },

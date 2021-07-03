@@ -96,8 +96,15 @@ export const RenderNode = ({ render }) => {
         // console.log(dom);
         custom && custom.droppableOnly
           ? dom.classList.add("dropzone-selected")
+          : name == "Page"
+          ? dom.classList.add("page-selected")
           : dom.classList.add("component-selected");
-      } else dom.classList.remove("component-selected", "dropzone-selected");
+      } else
+        dom.classList.remove(
+          "component-selected",
+          "page-selected",
+          "dropzone-selected"
+        );
     }
   }, [dom, isActive, isHover]);
 

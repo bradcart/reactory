@@ -20,6 +20,7 @@ export const Text = ({
   fontWeight,
   textAlign,
   lineHeight,
+  width,
   color,
   skipParentNode = false,
 }) => {
@@ -49,7 +50,8 @@ export const Text = ({
       style={{
         fontWeight: fontWeight,
         textAlign: textAlign,
-        pointerEvents: "auto",
+        width: `${width}%`,
+        // pointerEvents: "auto",
       }}
     >
       <ContentEditable
@@ -85,6 +87,7 @@ const TextSettings = () => {
     fontWeight,
     textAlign,
     lineHeight,
+    width,
     selected,
     nodeName,
     actions: { setProp, setCustom },
@@ -95,6 +98,7 @@ const TextSettings = () => {
     textAlign: node.data.props.textAlign,
     color: node.data.props.color,
     lineHeight: node.data.props.lineHeight,
+    width: node.data.props.width,
     selected: node.events.selected,
     nodeName: node.data.custom.nodeName,
   }));
@@ -180,6 +184,15 @@ const TextSettings = () => {
         valueThree="right"
         labelThree="Right"
       />
+      <Label htmlFor="text__width">Width</Label>
+      <Slider
+        id="text__width"
+        value={[width]}
+        onValueChange={(value) => setProp((props) => (props.width = value[0]))}
+        step={1}
+        min={0}
+        max={100}
+      />
       <Separator />
       <ColorPicker
         onClick={(e) => setProp((props) => (props.color = e.target.value))}
@@ -197,6 +210,7 @@ Text.craft = {
     fontWeight: 400,
     textAlign: "left",
     lineHeight: 28,
+    width: 100,
   },
   custom: {
     skipParentNode: false,
