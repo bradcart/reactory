@@ -59,7 +59,7 @@ export const Badge = ({ selected, nodeName, setCustom }) => {
         onClick={() => setEditable(true)}
         disabled={!editable}
         tagName="span"
-        style={{ fontFamily: "inherit", fontSize: "inherit" }}
+        style={{ fontFamily: "inherit", fontSize: "inherit", cursor: "text" }}
         onChange={(e) =>
           setCustom(
             (custom) =>

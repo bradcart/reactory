@@ -6,17 +6,17 @@ export const StyledSection = styled(StyledBox, {
   width: "100%",
   display: "flex",
   variants: {
-    size: {
-      sm: {
-        py: "$4",
-      },
-      md: {
-        py: "$8",
-      },
-      lg: {
-        py: "$10",
-      },
-    },
+    // size: {
+    //   sm: {
+    //     py: "$4",
+    //   },
+    //   md: {
+    //     py: "$8",
+    //   },
+    //   lg: {
+    //     py: "$10",
+    //   },
+    // },
     direction: {
       row: {
         flexDirection: "row",
@@ -54,4 +54,9 @@ export const StyledSection = styled(StyledBox, {
       },
     },
   },
+  // defaultVariants: {
+  //   direction: "row",
+  //   justify: "center",
+  //   align: "center",
+  // },
 });

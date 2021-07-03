@@ -1,3 +1,5 @@
+export { Alert } from "./alert/Alert";
+export { AlertDialog } from "./alert-dialog/AlertDialog";
 export { ColorPicker } from "./color-picker/ColorPicker";
 export { Form } from "./form/Form";
 export { Label, Separator, Tooltip } from "./misc";

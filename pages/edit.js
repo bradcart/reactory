@@ -81,7 +81,15 @@ export default function Edit() {
       <Viewport>
         <Frame>
           <Element is={Page} canvas>
-            <Card />
+            <Element
+              is={Section}
+              id="canvas__section"
+              canvas
+              justify="left"
+              padding={0}
+            >
+              <Element is={Card} id="canvas__card" canvas />
+            </Element>
           </Element>
         </Frame>
       </Viewport>

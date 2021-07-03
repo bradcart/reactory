@@ -11,7 +11,8 @@ import {
 } from "../styled/settings";
 
 export const Section = ({
-  size,
+  height,
+  padding,
   background,
   direction,
   justify,
@@ -27,11 +28,14 @@ export const Section = ({
   return (
     <StyledSection
       ref={connect}
-      size={size}
       direction={direction}
       justify={justify}
       align={align}
       style={{
+        minHeight: `${height}vh`,
+        maxHeight: "auto",
+        // height: autoHeight ? "auto" : `${height}vh`,
+        padding: padding,
         backgroundColor: background,
       }}
     >
@@ -42,6 +46,8 @@ export const Section = ({
 
 export const SectionSettings = () => {
   const {
+    height,
+    padding,
     size,
     direction,
     justify,
@@ -51,6 +57,8 @@ export const SectionSettings = () => {
     nodeName,
     actions: { setProp, setCustom },
   } = useNode((node) => ({
+    height: node.data.props.height,
+    padding: node.data.props.padding,
     size: node.data.props.size,
     direction: node.data.props.direction,
     justify: node.data.props.justify,
@@ -67,7 +75,27 @@ export const SectionSettings = () => {
       setCustom={setCustom}
     >
       <Separator decorative css={{ opacity: 0 }} />
-      <Label htmlFor="section__size">Size</Label>
+      <Label htmlFor="section__height">Height</Label>
+      <Slider
+        id="section__height"
+        value={[height]}
+        onValueChange={(value) => setProp((props) => (props.height = value[0]))}
+        step={1}
+        min={1}
+        max={99}
+      />
+      <Label htmlFor="section__padding">Padding</Label>
+      <Slider
+        id="section__padding"
+        value={[padding]}
+        onValueChange={(value) =>
+          setProp((props) => (props.padding = value[0]))
+        }
+        step={5}
+        min={0}
+        max={80}
+      />
+      {/* <Label htmlFor="section__size">Size</Label>
       <ToggleGroup
         id="section__size"
         currentValue={size}
@@ -78,7 +106,7 @@ export const SectionSettings = () => {
         labelTwo="Medium"
         valueThree="lg"
         labelThree="Large"
-      />
+      /> */}
       <Label htmlFor="section__direction">Direction</Label>
       <ToggleGroup
         id="section__direction"
@@ -125,7 +153,8 @@ export const SectionSettings = () => {
 // We export this because we'll be using this in the Card component as well
 export const SectionDefaultProps = {
   background: "inherit",
-  size: "md",
+  height: 20,
+  padding: 10,
   direction: "row",
   justify: "center",
   align: "center",
@@ -138,8 +167,8 @@ Section.craft = {
     nodeName: "Section",
   },
   rules: {
-    canDrop: (targetNode) => targetNode.data.displayName == "Page",
-    canMoveIn: (incomingNode) => incomingNode.data.displayName !== "Section",
+    // canDrop: (targetNode) => targetNode.data.displayName == "Page",
+    // canMoveIn: (incomingNode) => incomingNode.data.displayName !== "Section",
   },
   related: {
     settings: SectionSettings,

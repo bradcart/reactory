@@ -26,6 +26,7 @@ const IndicatorDiv = styled("div", {
   lineHeight: "12px",
   color: "$white",
   backgroundColor: "$black100",
+  cursor: "default",
   // boxShadow: "0px 4px 12px 5px rgba(3, 3, 3, 0.25)",
   // backdropFilter: "blur(4px)",
   "& svg": {
@@ -126,12 +127,16 @@ export const RenderNode = ({ render }) => {
       .querySelector(".craftjs-renderer")
       .addEventListener("scroll", scroll);
 
-    router.beforePopState(() => {
-      document
-        .querySelector(".craftjs-renderer")
-        .removeEventListener("scroll", scroll);
+    router.beforePopState(({ url, as }) => {
+      if (as === "/") {
+        document
+          .querySelector(".craftjs-renderer")
+          .removeEventListener("scroll", scroll);
 
-      router.push("/");
+        router.push("/");
+      } else {
+        router.push("/edit");
+      }
     });
 
     // return () => {

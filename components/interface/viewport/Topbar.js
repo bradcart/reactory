@@ -1,12 +1,14 @@
 import React, { useState } from "react";
+import Link from "next/link";
 import { useEditor } from "@craftjs/core";
 import lz from "lzutf8";
 import copy from "copy-to-clipboard";
 import { styled } from "../../../stitches.config";
 import { StyledBox } from "../../styled/StyledBox";
 import { StyledHeading } from "../../styled/StyledHeading";
+import { Alert, AlertDialog } from "../../styled/settings";
 
-const TopbarButton = styled("button", {
+export const TopbarButton = styled("button", {
   // Reset
   // all: "unset",
   appearance: "none",
@@ -54,7 +56,18 @@ export const Topbar = () => {
   }));
 
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [stateToLoad, setStateToLoad] = useState("");
+  const [alert, toggleAlert] = useState(false);
+  // const [stateToLoad, setStateToLoad] = useState("");
+
+  const handleActionClick = (stateToLoad) => {
+    if (stateToLoad !== "") {
+      setDialogOpen(false);
+      const json = lz.decompress(lz.decodeBase64(stateToLoad));
+      actions.deserialize(json);
+    } else {
+      setDialogOpen(false);
+    }
+  };
 
   return (
     <StyledBox
@@ -62,7 +75,7 @@ export const Topbar = () => {
       align="center"
       css={{
         py: "$7",
-        px: 40,
+        px: "40px",
         height: "5vh",
         backgroundColor: "$black100",
         borderBottom: "1px solid $black200",
@@ -82,38 +95,50 @@ export const Topbar = () => {
             Enabled
           </FormLabel>
         </FormControl> */}
-      <StyledHeading
-        css={{
-          mx: "$2",
-          color: "$white",
-          fontFamily: "$hki",
-          fontSize: "$8",
-          // fontWeight: 700,
-          transform: "rotate(0.725deg)",
-          userSelect: "none",
-          WebkitTapHighlightColor: "rgba(0,0,0,0)",
-          letterSpacing: "0em",
-          transition: "$default",
-          "&:hover": {
-            letterSpacing: "0.1em",
-          },
-        }}
-      >
-        REACTORY
-      </StyledHeading>
+      <Link href="/">
+        <StyledHeading
+          as="a"
+          css={{
+            mx: "$2",
+            color: "$white",
+            fontFamily: "$hki",
+            fontSize: "$8",
+            // fontWeight: 700,
+            transform: "rotate(0.725deg)",
+            userSelect: "none",
+            WebkitTapHighlightColor: "rgba(0,0,0,0)",
+            cursor: "pointer",
+            letterSpacing: "0em",
+            transition: "$default",
+            "&:hover": {
+              letterSpacing: "0.1em",
+            },
+          }}
+        >
+          REACTORY
+        </StyledHeading>
+      </Link>
       <StyledBox css={{ display: "flex" }}>
         <TopbarButton
           onClick={() => {
             const json = query.serialize();
             copy(lz.encodeBase64(lz.compress(json)));
-            // toggleAlert(true);
+            toggleAlert(true);
           }}
         >
           Copy current state
         </TopbarButton>
-        <TopbarButton onClick={() => setDialogOpen(true)}>Load</TopbarButton>
+        <AlertDialog
+          open={dialogOpen}
+          onTriggerClick={() => setDialogOpen(true)}
+          onCancelClick={() => setDialogOpen(false)}
+          onActionClick={handleActionClick}
+        >
+          Load
+        </AlertDialog>
       </StyledBox>
-      {dialogOpen ? (
+
+      {/* {dialogOpen ? (
         <StyledBox
           // px={3}
           // py={3}
@@ -153,7 +178,8 @@ export const Topbar = () => {
             </StyledBox>
           </div>
         </StyledBox>
-      ) : null}
+      ) : null} */}
+      <Alert mount={alert} toggleMount={toggleAlert} />
     </StyledBox>
   );
 };

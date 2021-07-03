@@ -127,3 +127,48 @@ export const vanishIn = keyframes({
     filter: "blur(0px)",
   },
 });
+
+export const slideInBlurredBottom = keyframes({
+  "0%": {
+    transform: "translateY(1000px) scaleY(2.5) scaleX(0.2)",
+    transformOrigin: "50% 100%",
+    filter: "blur(40px)",
+    opacity: 0,
+  },
+  "100%": {
+    transform: "translateY(0) scaleY(1) scaleX(1)",
+    transformOrigin: "50% 50%",
+    filter: "blur(0)",
+    opacity: 1,
+  },
+});
+
+export const slideOutBlurredBottom = keyframes({
+  "0%": {
+    transform: "translateY(0) scaleY(1) scaleX(1)",
+    transformOrigin: "50% 50%",
+    filter: "blur(0)",
+    opacity: 1,
+  },
+  "100%": {
+    transform: "translateY(1000px) scaleY(2) scaleX(0.2)",
+    transformOrigin: "50% 100%",
+    filter: "blur(40px)",
+    opacity: 0,
+  },
+});
+
+export const slideInBlurredTop = keyframes({
+  "0%": {
+    transform: "translateY(-1000px) scaleY(2.5) scaleX(0.2)",
+    transformOrigin: "50% 0%",
+    filter: "blur(40px)",
+    opacity: 0,
+  },
+  "100%": {
+    transform: "translateY(0) scaleY(1) scaleX(1)",
+    transformOrigin: "50% 50%",
+    filter: "blur(0)",
+    opacity: 1,
+  },
+});

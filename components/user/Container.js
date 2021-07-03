@@ -1,5 +1,6 @@
 import { useNode } from "@craftjs/core";
 import { StyledBox } from "../styled/StyledBox";
+import { StyledContainer } from "../styled/StyledContainer";
 import {
   SettingsWrapper,
   Label,
@@ -14,7 +15,6 @@ export const Container = ({
   width,
   height,
   padding,
-  flex,
   direction,
   justify,
   align,
@@ -27,9 +27,8 @@ export const Container = ({
   //VARIANTS: FLEX, FLEX DIRECTION, ALIGN ITEMS, JUSTIFY CONTENT, BORDER, BORDER RADIUS
   //STYLE PROP: WIDTH, HEIGHT, PADDING, BGCOLOR
   return (
-    <StyledBox
+    <StyledContainer
       ref={connect}
-      flex={flex}
       direction={direction}
       justify={justify}
       align={align}
@@ -37,12 +36,13 @@ export const Container = ({
         backgroundColor: background,
         width: `${width}%`,
         // height: `${height * 10}px`,
-        height: `${height}%`,
+        height: `${height}vh`,
+        // maxHeight: "auto",
         padding: padding,
       }}
     >
       {children}
-    </StyledBox>
+    </StyledContainer>
   );
 };
 
@@ -82,7 +82,7 @@ export const ContainerSettings = () => {
         onValueChange={(value) => setProp((props) => (props.width = value[0]))}
         step={1}
         min={0}
-        max={100}
+        max={99}
       />
       <Label htmlFor="container__height">Height</Label>
       <Slider
@@ -91,7 +91,7 @@ export const ContainerSettings = () => {
         onValueChange={(value) => setProp((props) => (props.height = value[0]))}
         step={1}
         min={0}
-        max={100}
+        max={99}
       />
       <Label htmlFor="container__padding">Padding</Label>
       <Slider
@@ -142,9 +142,8 @@ export const ContainerSettings = () => {
 export const ContainerDefaultProps = {
   background: "#ffffff",
   width: 30,
-  height: 16,
+  height: 30,
   padding: 20,
-  flex: false,
   justify: "center",
   align: "center",
 };
