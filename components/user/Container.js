@@ -1,11 +1,13 @@
 import { useNode } from "@craftjs/core";
 import { StyledBox } from "../styled/StyledBox";
-import { SettingsWrapper } from "../styled/settings/wrapper";
-import { StyledLabel } from "../styled/settings/Label";
-import { StyledSlider } from "../styled/settings/Slider";
-import { StyledToggleGroup } from "../styled/settings/ToggleGroup";
-import { ColorPicker } from "../styled/settings/ColorPicker";
-import { StyledSeparator } from "../styled/settings/Separator";
+import {
+  SettingsWrapper,
+  Label,
+  Slider,
+  ToggleGroup,
+  ColorPicker,
+  Separator,
+} from "../styled/settings";
 
 export const Container = ({
   background,
@@ -72,9 +74,9 @@ export const ContainerSettings = () => {
       nodeName={nodeName}
       setCustom={setCustom}
     >
-      <StyledSeparator decorative css={{ opacity: 0 }} />
-      <StyledLabel htmlFor="container__width">Width</StyledLabel>
-      <StyledSlider
+      <Separator decorative css={{ opacity: 0 }} />
+      <Label htmlFor="container__width">Width</Label>
+      <Slider
         id="container__width"
         value={[width]}
         onValueChange={(value) => setProp((props) => (props.width = value[0]))}
@@ -82,8 +84,8 @@ export const ContainerSettings = () => {
         min={0}
         max={100}
       />
-      <StyledLabel htmlFor="container__height">Height</StyledLabel>
-      <StyledSlider
+      <Label htmlFor="container__height">Height</Label>
+      <Slider
         id="container__height"
         value={[height]}
         onValueChange={(value) => setProp((props) => (props.height = value[0]))}
@@ -91,8 +93,8 @@ export const ContainerSettings = () => {
         min={0}
         max={100}
       />
-      <StyledLabel htmlFor="container__padding">Padding</StyledLabel>
-      <StyledSlider
+      <Label htmlFor="container__padding">Padding</Label>
+      <Slider
         id="container__padding"
         value={[padding]}
         onValueChange={(value) =>
@@ -102,9 +104,9 @@ export const ContainerSettings = () => {
         min={0}
         max={80}
       />
-      <StyledSeparator />
-      <StyledLabel htmlFor="container__justify">Justify</StyledLabel>
-      <StyledToggleGroup
+      <Separator />
+      <Label htmlFor="container__justify">Justify</Label>
+      <ToggleGroup
         id="container__justify"
         currentValue={justify}
         onValueChange={(value) => setProp((props) => (props.justify = value))}
@@ -115,8 +117,8 @@ export const ContainerSettings = () => {
         valueThree="end"
         labelThree="Right"
       />
-      <StyledLabel htmlFor="container__align">Align</StyledLabel>
-      <StyledToggleGroup
+      <Label htmlFor="container__align">Align</Label>
+      <ToggleGroup
         id="container__align"
         currentValue={align}
         onValueChange={(value) => setProp((props) => (props.align = value))}
@@ -127,8 +129,8 @@ export const ContainerSettings = () => {
         valueThree="end"
         labelThree="Bottom"
       />
-      <StyledSeparator />
-      <StyledLabel>Background</StyledLabel>
+      <Separator />
+      <Label>Background</Label>
       <ColorPicker
         onClick={(e) => setProp((props) => (props.background = e.target.value))}
       />

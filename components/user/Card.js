@@ -9,12 +9,14 @@ import {
   StyledCardBottomUpper,
   StyledCardBottomLower,
 } from "../styled/StyledCard";
-import { SettingsWrapper } from "../styled/settings/wrapper/index";
-import { StyledToggleGroup } from "../styled/settings/ToggleGroup";
-import { StyledSlider } from "../styled/settings/Slider";
-import { ColorPicker } from "../styled/settings/ColorPicker";
-import { StyledLabel } from "../styled/settings/Label";
-import { StyledSeparator } from "../styled/settings/Separator";
+import {
+  SettingsWrapper,
+  ToggleGroup,
+  Slider,
+  ColorPicker,
+  Label,
+  Separator,
+} from "../styled/settings";
 
 const dummyText =
   "Our team was inspired by the seven skills of highly effective programmers created by the TechLead. We wanted to provide our own take on the topic. Here are our seven skills of effective programmers...";
@@ -135,9 +137,9 @@ const CardSettings = () => {
       nodeName={nodeName}
       setCustom={setCustom}
     >
-      <StyledSeparator decorative css={{ opacity: 0 }} />
-      <StyledLabel htmlFor="card__size">Size</StyledLabel>
-      <StyledToggleGroup
+      <Separator decorative css={{ opacity: 0 }} />
+      <Label htmlFor="card__size">Size</Label>
+      <ToggleGroup
         id="card__size"
         currentValue={size}
         onValueChange={(value) => setProp((props) => (props.size = value))}
@@ -148,8 +150,8 @@ const CardSettings = () => {
         valueThree="lg"
         labelThree="Large"
       />
-      <StyledLabel htmlFor="card__padding">Padding</StyledLabel>
-      <StyledSlider
+      <Label htmlFor="card__padding">Padding</Label>
+      <Slider
         id="card__padding"
         value={[padding]}
         onValueChange={(value) =>
@@ -159,8 +161,8 @@ const CardSettings = () => {
         min={10}
         max={80}
       />
-      <StyledLabel htmlFor="card__align-items">Align</StyledLabel>
-      <StyledToggleGroup
+      <Label htmlFor="card__align-items">Align</Label>
+      <ToggleGroup
         id="card__align-items"
         currentValue={alignItems}
         onValueChange={(value) =>
@@ -173,9 +175,9 @@ const CardSettings = () => {
         valueThree="end"
         labelThree="Bottom"
       />
-      <StyledSeparator />
-      <StyledLabel htmlFor="card__border-radius">Corners</StyledLabel>
-      <StyledToggleGroup
+      <Separator />
+      <Label htmlFor="card__border-radius">Corners</Label>
+      <ToggleGroup
         id="card__border-radius"
         currentValue={radius}
         onValueChange={(value) => setProp((props) => (props.radius = value))}
@@ -186,8 +188,8 @@ const CardSettings = () => {
         valueThree="rounder"
         labelThree="Rounder"
       />
-      <StyledSeparator />
-      <StyledLabel>Background</StyledLabel>
+      <Separator />
+      <Label>Background</Label>
       <ColorPicker
         onClick={(e) => setProp((props) => (props.background = e.target.value))}
       />

@@ -1,12 +1,14 @@
 import { useNode } from "@craftjs/core";
 import { StyledSection } from "../styled/StyledSection";
-import { SettingsWrapper } from "../styled/settings/wrapper";
 import { StyledBox } from "../styled/StyledBox";
-import { StyledLabel } from "../styled/settings/Label";
-import { StyledSlider } from "../styled/settings/Slider";
-import { StyledToggleGroup } from "../styled/settings/ToggleGroup";
-import { StyledSeparator } from "../styled/settings/Separator";
-import { ColorPicker } from "../styled/settings/ColorPicker";
+import {
+  SettingsWrapper,
+  Label,
+  Slider,
+  ToggleGroup,
+  ColorPicker,
+  Separator,
+} from "../styled/settings";
 
 export const Section = ({
   size,
@@ -64,9 +66,9 @@ export const SectionSettings = () => {
       nodeName={nodeName}
       setCustom={setCustom}
     >
-      <StyledSeparator decorative css={{ opacity: 0 }} />
-      <StyledLabel htmlFor="section__size">Size</StyledLabel>
-      <StyledToggleGroup
+      <Separator decorative css={{ opacity: 0 }} />
+      <Label htmlFor="section__size">Size</Label>
+      <ToggleGroup
         id="section__size"
         currentValue={size}
         onValueChange={(value) => setProp((props) => (props.size = value))}
@@ -77,8 +79,8 @@ export const SectionSettings = () => {
         valueThree="lg"
         labelThree="Large"
       />
-      <StyledLabel htmlFor="section__direction">Direction</StyledLabel>
-      <StyledToggleGroup
+      <Label htmlFor="section__direction">Direction</Label>
+      <ToggleGroup
         id="section__direction"
         currentValue={direction}
         onValueChange={(value) => setProp((props) => (props.direction = value))}
@@ -87,8 +89,8 @@ export const SectionSettings = () => {
         valueTwo="column"
         labelTwo="Column"
       />
-      <StyledLabel htmlFor="section__justify">Justify</StyledLabel>
-      <StyledToggleGroup
+      <Label htmlFor="section__justify">Justify</Label>
+      <ToggleGroup
         id="section__justify"
         currentValue={justify}
         onValueChange={(value) => setProp((props) => (props.justify = value))}
@@ -99,8 +101,8 @@ export const SectionSettings = () => {
         valueThree="end"
         labelThree="Right"
       />
-      <StyledLabel htmlFor="section__align">Align</StyledLabel>
-      <StyledToggleGroup
+      <Label htmlFor="section__align">Align</Label>
+      <ToggleGroup
         id="section__align"
         currentValue={align}
         onValueChange={(value) => setProp((props) => (props.align = value))}
@@ -111,8 +113,8 @@ export const SectionSettings = () => {
         valueThree="end"
         labelThree="Bottom"
       />
-      <StyledSeparator />
-      <StyledLabel>Background</StyledLabel>
+      <Separator />
+      <Label>Background</Label>
       <ColorPicker
         onClick={(e) => setProp((props) => (props.background = e.target.value))}
       />

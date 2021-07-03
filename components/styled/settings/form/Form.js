@@ -1,6 +1,6 @@
-import { styled } from "../../../stitches.config";
+import { styled } from "../../../../stitches.config";
 
-export const StyledForm = styled("form", {
+export const Form = styled("form", {
   boxSizing: "border-box",
   mb: "$6",
   display: "flex",

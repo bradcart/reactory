@@ -1,6 +1,6 @@
-import * as ToggleGroup from "@radix-ui/react-toggle-group";
+import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group";
 import * as Separator from "@radix-ui/react-separator";
-import { styled } from "../../../stitches.config";
+import { styled } from "../../../../stitches.config";
 
 // const ToggleHighlighter = styled("div", {
 //   position: "absolute",
@@ -101,7 +101,7 @@ const ToggleSeparator = styled(Separator.Root, {
   width: 1,
 });
 
-export const StyledToggleGroup = ({
+export const ToggleGroup = ({
   id,
   currentValue,
   onValueChange,
@@ -113,7 +113,7 @@ export const StyledToggleGroup = ({
   labelThree,
 }) => {
   return (
-    <ToggleGroup.Root
+    <ToggleGroupPrimitive.Root
       type="single"
       id={id}
       value={currentValue}
@@ -121,29 +121,29 @@ export const StyledToggleGroup = ({
       as={ToggleRoot}
       numberTotal={valueThree ? 3 : 2}
     >
-      <ToggleGroup.Item
+      <ToggleGroupPrimitive.Item
         value={valueOne}
         disabled={currentValue === valueOne ? true : false}
         as={ToggleButton}
       >
         {labelOne}
-      </ToggleGroup.Item>
+      </ToggleGroupPrimitive.Item>
       {/* <ToggleSeparator orientation="vertical" decorative /> */}
-      <ToggleGroup.Item
+      <ToggleGroupPrimitive.Item
         value={valueTwo}
         disabled={currentValue === valueTwo ? true : false}
         as={ToggleButton}
       >
         {labelTwo}
-      </ToggleGroup.Item>
+      </ToggleGroupPrimitive.Item>
       {valueThree && labelThree ? (
-        <ToggleGroup.Item
+        <ToggleGroupPrimitive.Item
           value={valueThree}
           disabled={currentValue === valueThree ? true : false}
           as={ToggleButton}
         >
           {labelThree}
-        </ToggleGroup.Item>
+        </ToggleGroupPrimitive.Item>
       ) : null}
       {/* <ToggleHighlighter
         style={
@@ -154,6 +154,6 @@ export const StyledToggleGroup = ({
             : { left: "auto" }
         }
       /> */}
-    </ToggleGroup.Root>
+    </ToggleGroupPrimitive.Root>
   );
 };

@@ -1,14 +1,15 @@
 import { useNode } from "@craftjs/core";
 import { useState } from "react";
 import { StyledImage } from "../styled/StyledImage";
-import { SettingsWrapper } from "../styled/settings/wrapper";
-import { StyledBox } from "../styled/StyledBox";
-import { StyledLabel } from "../styled/settings/Label";
-import { StyledForm } from "../styled/settings/Form";
-import { StyledInput } from "../styled/settings/TextInput";
-import { StyledSlider } from "../styled/settings/Slider";
-import { StyledToggleGroup } from "../styled/settings/ToggleGroup";
-import { StyledSeparator } from "../styled/settings/Separator";
+import {
+  SettingsWrapper,
+  Label,
+  Form,
+  TextInput,
+  Slider,
+  ToggleGroup,
+  Separator,
+} from "../styled/settings";
 
 export const Image = ({ src, width, height, objectFit }) => {
   const {
@@ -59,19 +60,19 @@ const ImageSettings = () => {
       nodeName={nodeName}
       setCustom={setCustom}
     >
-      <StyledSeparator decorative css={{ opacity: 0 }} />
-      <StyledForm name="image-src" onSubmit={(e) => updateImage(e)}>
-        <StyledLabel htmlFor="image__src">Source</StyledLabel>
-        <StyledInput
+      <Separator decorative css={{ opacity: 0 }} />
+      <Form name="image-src" onSubmit={(e) => updateImage(e)}>
+        <Label htmlFor="image__src">Source</Label>
+        <TextInput
           id="image__src"
           type="text"
           placeholder="paste image URL here"
           onChange={(e) => changeNewSrc(e.target.value)}
         />
-      </StyledForm>
-      <StyledSeparator />
-      <StyledLabel htmlFor="image__object-fit">Fit</StyledLabel>
-      <StyledToggleGroup
+      </Form>
+      <Separator />
+      <Label htmlFor="image__object-fit">Fit</Label>
+      <ToggleGroup
         id="image__object-fit"
         currentValue={objectFit}
         onValueChange={(value) => setProp((props) => (props.objectFit = value))}
@@ -80,8 +81,8 @@ const ImageSettings = () => {
         valueTwo="contain"
         labelTwo="Contain"
       />
-      <StyledLabel htmlFor="image__width">Width</StyledLabel>
-      <StyledSlider
+      <Label htmlFor="image__width">Width</Label>
+      <Slider
         id="image__width"
         value={[width]}
         onValueChange={(value) => setProp((props) => (props.width = value[0]))}
@@ -89,8 +90,8 @@ const ImageSettings = () => {
         min={0}
         max={100}
       />
-      <StyledLabel htmlFor="image__height">Height</StyledLabel>
-      <StyledSlider
+      <Label htmlFor="image__height">Height</Label>
+      <Slider
         id="image__height"
         value={[height]}
         onValueChange={(value) => setProp((props) => (props.height = value[0]))}

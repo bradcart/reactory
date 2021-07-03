@@ -1,7 +1,7 @@
-import * as Label from "@radix-ui/react-label";
-import { styled } from "../../../stitches.config";
+import * as LabelPrimitive from "@radix-ui/react-label";
+import { styled } from "../../../../stitches.config";
 
-export const StyledLabel = styled(Label.Root, {
+export const Label = styled(LabelPrimitive.Root, {
   // Reset
   lineHeight: "1",
   margin: "0",

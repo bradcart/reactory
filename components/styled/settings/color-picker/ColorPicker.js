@@ -1,4 +1,5 @@
-import { styled } from "../../../stitches.config";
+import { useEffect, useState } from "react";
+import { styled } from "../../../../stitches.config";
 import {
   gray,
   slate,
@@ -15,7 +16,6 @@ import {
   amber,
   orange,
 } from "@radix-ui/colors";
-import { useEffect, useState } from "react";
 import {
   DoubleArrowLeftIcon,
   DoubleArrowRightIcon,

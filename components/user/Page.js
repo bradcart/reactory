@@ -1,10 +1,12 @@
 import { useNode } from "@craftjs/core";
 import { StyledBox } from "../styled/StyledBox";
-import { SettingsWrapper } from "../styled/settings/wrapper";
-import { StyledSeparator } from "../styled/settings/Separator";
-import { StyledLabel } from "../styled/settings/Label";
-import { StyledSlider } from "../styled/settings/Slider";
-import { ColorPicker } from "../styled/settings/ColorPicker";
+import {
+  SettingsWrapper,
+  Separator,
+  Label,
+  Slider,
+  ColorPicker,
+} from "../styled/settings";
 
 export const Page = ({ background, padding = 0, children }) => {
   const {
@@ -50,9 +52,9 @@ const PageSettings = () => {
       nodeName={nodeName}
       setCustom={setCustom}
     >
-      <StyledSeparator decorative css={{ opacity: 0 }} />
-      <StyledLabel htmlFor="page__padding">Padding</StyledLabel>
-      <StyledSlider
+      <Separator decorative css={{ opacity: 0 }} />
+      <Label htmlFor="page__padding">Padding</Label>
+      <Slider
         id="page__padding"
         value={[padding]}
         onValueChange={(value) =>
@@ -62,7 +64,7 @@ const PageSettings = () => {
         min={0}
         max={80}
       />
-      <StyledLabel htmlFor="page__background">Background</StyledLabel>
+      <Label htmlFor="page__background">Background</Label>
       <ColorPicker
         id="page__background"
         onClick={(e) => setProp((props) => (props.background = e.target.value))}

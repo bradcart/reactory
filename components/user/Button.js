@@ -2,11 +2,13 @@ import { useEffect } from "react";
 import { useNode, Element } from "@craftjs/core";
 import { Text } from "./Text";
 import { StyledButton } from "../styled/StyledButton";
-import { SettingsWrapper } from "../styled/settings/wrapper";
-import { StyledToggleGroup } from "../styled/settings/ToggleGroup";
-import { StyledLabel } from "../styled/settings/Label";
-import { ColorPicker } from "../styled/settings/ColorPicker";
-import { StyledSeparator } from "../styled/settings/Separator";
+import {
+  SettingsWrapper,
+  ToggleGroup,
+  Label,
+  ColorPicker,
+  Separator,
+} from "../styled/settings";
 
 export const Button = ({
   size,
@@ -73,9 +75,9 @@ const ButtonSettings = () => {
       nodeName={nodeName}
       setCustom={setCustom}
     >
-      <StyledSeparator decorative css={{ opacity: 0 }} />
-      <StyledLabel htmlFor="button__size">Size</StyledLabel>
-      <StyledToggleGroup
+      <Separator decorative css={{ opacity: 0 }} />
+      <Label htmlFor="button__size">Size</Label>
+      <ToggleGroup
         id="button__size"
         currentValue={size}
         onValueChange={(value) => setProp((props) => (props.size = value))}
@@ -86,8 +88,8 @@ const ButtonSettings = () => {
         valueThree="lg"
         labelThree="Large"
       />
-      <StyledLabel htmlFor="button__variant">Variant</StyledLabel>
-      <StyledToggleGroup
+      <Label htmlFor="button__variant">Variant</Label>
+      <ToggleGroup
         id="button__variant"
         currentValue={variant}
         onValueChange={(value) => setProp((props) => (props.variant = value))}
@@ -98,13 +100,13 @@ const ButtonSettings = () => {
         valueThree="text"
         labelThree="Text"
       />
-      <StyledSeparator />
-      <StyledLabel htmlFor="button__background-color">Background</StyledLabel>
+      <Separator />
+      <Label htmlFor="button__background-color">Background</Label>
       <ColorPicker
         id="button__background-color"
         onClick={(e) => setProp((props) => (props.background = e.target.value))}
       />
-      {/* <StyledLabel htmlFor="button__text-color">Text</StyledLabel>
+      {/* <Label htmlFor="button__text-color">Text</Label>
       <ColorPicker
         id="button__text-color"
         onClick={(e) => setProp((props) => (props.color = e.target.value))}

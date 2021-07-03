@@ -1,6 +1,6 @@
-import { styled } from "../../../stitches.config";
+import { styled } from "../../../../stitches.config";
 
-export const StyledInput = styled("input", {
+export const TextInput = styled("input", {
   // Reset
   appearance: "none",
   borderWidth: "0",

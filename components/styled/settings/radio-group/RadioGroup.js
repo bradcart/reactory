@@ -1,7 +1,7 @@
-import { styled } from "../../../stitches.config";
-import * as RadioGroup from "@radix-ui/react-radio-group";
+import { styled } from "../../../../stitches.config";
+import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 
-export const StyledRadio = styled(RadioGroup.Item, {
+export const RadioItem = styled(RadioGroupPrimitive.Item, {
   appearance: "none",
   backgroundColor: "transparent",
   border: "none",
@@ -23,7 +23,7 @@ export const StyledRadio = styled(RadioGroup.Item, {
   },
 });
 
-export const StyledIndicator = styled(RadioGroup.Indicator, {
+export const RadioIndicator = styled(RadioGroupPrimitive.Indicator, {
   width: 7,
   height: 7,
   borderRadius: "50%",

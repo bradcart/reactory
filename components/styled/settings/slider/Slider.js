@@ -1,9 +1,9 @@
-import { styled } from "../../../stitches.config";
-import * as Slider from "@radix-ui/react-slider";
-import { StyledTooltip } from "./Tooltip";
+import { styled } from "../../../../stitches.config";
+import * as SliderPrimitive from "@radix-ui/react-slider";
+import { Tooltip } from "../misc/Tooltip";
 import { useState } from "react";
 
-const SliderTrack = styled(Slider.Track, {
+const SliderTrack = styled(SliderPrimitive.Track, {
   position: "relative",
   flexGrow: 1,
   backgroundColor: "$gray100",
@@ -17,7 +17,7 @@ const SliderTrack = styled(Slider.Track, {
   },
 });
 
-const SliderRange = styled(Slider.Range, {
+const SliderRange = styled(SliderPrimitive.Range, {
   position: "absolute",
   background: "$red",
   borderRadius: "inherit",
@@ -29,7 +29,7 @@ const SliderRange = styled(Slider.Range, {
   },
 });
 
-const SliderThumb = styled(Slider.Thumb, {
+const SliderThumb = styled(SliderPrimitive.Thumb, {
   //   position: "relative",
   display: "block",
   position: "relative",
@@ -91,7 +91,7 @@ const SliderThumb = styled(Slider.Thumb, {
 //   cursor: "pointer",
 // });
 
-const SliderRoot = styled(Slider.Root, {
+const SliderRoot = styled(SliderPrimitive.Root, {
   mt: "$1",
   mb: "$4",
   alignSelf: "stretch",
@@ -132,7 +132,7 @@ const SliderRoot = styled(Slider.Root, {
 //   );
 // });
 
-export const StyledSlider = (props) => {
+export const Slider = (props) => {
   const [open, toggleOpen] = useState(false);
   return (
     <SliderRoot
@@ -143,9 +143,9 @@ export const StyledSlider = (props) => {
       <SliderTrack>
         <SliderRange />
       </SliderTrack>
-      <StyledTooltip content={props.value} open={open}>
+      <Tooltip content={props.value} open={open}>
         <SliderThumb />
-      </StyledTooltip>
+      </Tooltip>
     </SliderRoot>
   );
 };

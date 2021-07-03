@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
+import { useNode } from "@craftjs/core";
 import dynamic from "next/dynamic";
 import ContentEditable from "react-contenteditable";
-import { useNode } from "@craftjs/core";
-import { SettingsWrapper } from "../styled/settings/wrapper/index";
 import { StyledBox } from "../styled/StyledBox";
-import { StyledSlider } from "../styled/settings/Slider";
-import { StyledToggleGroup } from "../styled/settings/ToggleGroup";
-import { ColorPicker } from "../styled/settings/ColorPicker";
-import { StyledLabel } from "../styled/settings/Label";
-import { StyledSeparator } from "../styled/settings/Separator";
+import {
+  SettingsWrapper,
+  Slider,
+  ToggleGroup,
+  ColorPicker,
+  Label,
+  Separator,
+} from "../styled/settings";
 
 export const Text = ({
   text,
@@ -22,14 +24,12 @@ export const Text = ({
   skipParentNode = false,
 }) => {
   const {
-    connectors: { connect, drag },
+    connectors: { connect },
     id,
     selected,
-    dragged,
     actions: { setProp, setCustom },
   } = useNode((node) => ({
     selected: node.events.selected,
-    dragged: node.events.dragged,
   }));
 
   const [editable, setEditable] = useState(false);
@@ -112,11 +112,11 @@ const TextSettings = () => {
       nodeName={nodeName}
       setCustom={setCustom}
     >
-      <StyledBox css={{ mt: "$1", mb: "$4", fontSize: "$3" }}>
-        <StyledSeparator decorative css={{ opacity: 0 }} />
-        <StyledLabel htmlFor="font-picker" css={{ mb: "$1" }}>
+      <StyledBox css={{ mb: "$4", fontSize: "$3" }}>
+        <Separator decorative css={{ opacity: 0 }} />
+        <Label htmlFor="font-picker" css={{ mb: "$1" }}>
           Font
-        </StyledLabel>
+        </Label>
         <FontPicker
           apiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY}
           id="font-picker"
@@ -132,8 +132,8 @@ const TextSettings = () => {
           // }
         />
       </StyledBox>
-      <StyledLabel htmlFor="text__font-size">Size</StyledLabel>
-      <StyledSlider
+      <Label htmlFor="text__font-size">Size</Label>
+      <Slider
         id="text__font-size"
         value={[fontSize]}
         onValueChange={(value) =>
@@ -143,8 +143,8 @@ const TextSettings = () => {
         min={8}
         max={72}
       />
-      <StyledLabel htmlFor="text__line-height">Line Height</StyledLabel>
-      <StyledSlider
+      <Label htmlFor="text__line-height">Line Height</Label>
+      <Slider
         id="text__line-height"
         value={[lineHeight]}
         onValueChange={(value) =>
@@ -154,8 +154,8 @@ const TextSettings = () => {
         min={1}
         max={100}
       />
-      <StyledLabel htmlFor="text__font-weight">Weight</StyledLabel>
-      <StyledToggleGroup
+      <Label htmlFor="text__font-weight">Weight</Label>
+      <ToggleGroup
         id="text__font-weight"
         currentValue={fontWeight}
         onValueChange={(value) =>
@@ -168,8 +168,8 @@ const TextSettings = () => {
         valueThree={700}
         labelThree="Bold"
       />
-      <StyledLabel htmlFor="text__text-align">Align</StyledLabel>
-      <StyledToggleGroup
+      <Label htmlFor="text__text-align">Align</Label>
+      <ToggleGroup
         id="text__text-align"
         currentValue={textAlign}
         onValueChange={(value) => setProp((props) => (props.textAlign = value))}
@@ -180,7 +180,7 @@ const TextSettings = () => {
         valueThree="right"
         labelThree="Right"
       />
-      <StyledSeparator />
+      <Separator />
       <ColorPicker
         onClick={(e) => setProp((props) => (props.color = e.target.value))}
       />

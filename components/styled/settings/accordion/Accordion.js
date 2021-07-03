@@ -1,9 +1,9 @@
-import { styled } from "../../../stitches.config";
+import { styled } from "../../../../stitches.config";
 // import { keyframes } from "@stitches/react";
-import * as Accordion from "@radix-ui/react-accordion";
+import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
 
-export const Root = styled(Accordion.Root, {
+export const Root = styled(AccordionPrimitive.Root, {
   width: "100%",
   justifySelf: "stretch",
   alignSelf: "stretch",
@@ -12,14 +12,14 @@ export const Root = styled(Accordion.Root, {
   overflow: "hidden",
 });
 
-export const Item = styled(Accordion.Item, {
+export const Item = styled(AccordionPrimitive.Item, {
   borderBottom: "1px solid $black300",
   "&:last-of-type": {
     borderBottom: "none",
   },
 });
 
-export const Header = styled(Accordion.Header, {
+export const Header = styled(AccordionPrimitive.Header, {
   margin: 0,
   display: "flex",
   alignItems: "center",
@@ -27,7 +27,7 @@ export const Header = styled(Accordion.Header, {
   fontSize: "16px",
 });
 
-const StyledTrigger = styled(Accordion.Trigger, {
+const StyledTrigger = styled(AccordionPrimitive.Trigger, {
   backgroundColor: "transparent",
   color: "$white",
   fontSize: "inherit",
