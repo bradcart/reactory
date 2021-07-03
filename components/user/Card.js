@@ -9,7 +9,7 @@ import {
   StyledCardBottomUpper,
   StyledCardBottomLower,
 } from "../styled/StyledCard";
-import { SettingsWrapper } from "../styled/settings/SettingsWrapper";
+import { SettingsWrapper } from "../styled/settings/wrapper/index";
 import { StyledToggleGroup } from "../styled/settings/ToggleGroup";
 import { StyledSlider } from "../styled/settings/Slider";
 import { ColorPicker } from "../styled/settings/ColorPicker";
@@ -87,6 +87,7 @@ export const Card = ({ size, padding, alignItems, radius, background }) => {
             text={dummyText}
             fontSize={12}
             activeFontFamily="Poppins"
+            skipParentNode
           />
         </Element>
         <Element is={CardButtons} id="card__button-container" canvas>
@@ -116,17 +117,25 @@ const CardSettings = () => {
     alignItems,
     radius,
     background,
-    actions: { setProp },
+    selected,
+    nodeName,
+    actions: { setProp, setCustom },
   } = useNode((node) => ({
     size: node.data.props.size,
     padding: node.data.props.padding,
     alignItems: node.data.props.alignItems,
     radius: node.data.props.radius,
     background: node.data.props.background,
+    selected: node.events.selected,
+    nodeName: node.data.custom.nodeName,
   }));
 
   return (
-    <SettingsWrapper>
+    <SettingsWrapper
+      selected={selected}
+      nodeName={nodeName}
+      setCustom={setCustom}
+    >
       <StyledSeparator decorative css={{ opacity: 0 }} />
       <StyledLabel htmlFor="card__size">Size</StyledLabel>
       <StyledToggleGroup
@@ -198,6 +207,9 @@ const CardDefaultProps = {
 Card.craft = {
   displayName: "Card",
   props: CardDefaultProps,
+  custom: {
+    nodeName: "Card",
+  },
   related: {
     settings: CardSettings,
   },

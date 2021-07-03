@@ -86,6 +86,7 @@ const globalStyles = global({
       top: "0",
       pointerEvents: "none",
       display: "block",
+      // boxShadow: "inset 5px 5px 15px 5px rgba(0,0,0,0.3)",
     },
   },
   ".dropdown-font-family": {

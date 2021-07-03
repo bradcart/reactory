@@ -1,7 +1,6 @@
 import React from "react";
 import { QueryMethods, useEditor } from "@craftjs/core";
 import { StyledBox } from "../../styled/StyledBox";
-import { StyledBadge } from "../../styled/settings/Badge";
 import { Layers } from "@craftjs/layers";
 // import { StyledButton } from "../../styled/StyledButton";
 // import { StyledHeading } from "../../styled/StyledHeading";
@@ -23,6 +22,9 @@ export const SettingsPanel = () => {
         id: currentNodeId,
         name: state.nodes[currentNodeId].data.name,
         displayName: state.nodes[currentNodeId].data.displayName,
+        nodeName:
+          state.nodes[currentNodeId].data.custom &&
+          state.nodes[currentNodeId].data.custom.nodeName,
         settings:
           state.nodes[currentNodeId].related &&
           state.nodes[currentNodeId].related.settings,
@@ -40,7 +42,7 @@ export const SettingsPanel = () => {
       flex
       direction="column"
       css={{
-        justifyContent: "space-between",
+        // justifyContent: "space-between",
         px: "$3",
         pt: 40,
         width: "100%",
@@ -48,20 +50,9 @@ export const SettingsPanel = () => {
         backgroundColor: "$black100",
       }}
     >
-      {selected ? (
-        <StyledBox
-          flex
-          direction="column"
-          align="center"
-          css={{
-            justifyContent: "space-between",
-            width: "100%",
-          }}
-        >
-          <StyledBadge>{selected.displayName}</StyledBadge>
-          {selected.settings && React.createElement(selected.settings)}
-        </StyledBox>
-      ) : null}
+      {selected && selected.settings
+        ? React.createElement(selected.settings)
+        : null}
     </StyledBox>
   );
 };

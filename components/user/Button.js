@@ -2,19 +2,16 @@ import { useEffect } from "react";
 import { useNode, Element } from "@craftjs/core";
 import { Text } from "./Text";
 import { StyledButton } from "../styled/StyledButton";
-import { StyledBox } from "../styled/StyledBox";
+import { SettingsWrapper } from "../styled/settings/wrapper";
 import { StyledToggleGroup } from "../styled/settings/ToggleGroup";
 import { StyledLabel } from "../styled/settings/Label";
 import { ColorPicker } from "../styled/settings/ColorPicker";
-import { StyledInput } from "../styled/settings/TextInput";
 import { StyledSeparator } from "../styled/settings/Separator";
-import * as StyledAccordion from "../styled/settings/Accordion";
 
 export const Button = ({
   size,
   variant,
   background,
-  text,
   invertDefaultTextColor = false,
   skipParentNode = false,
 }) => {
@@ -59,16 +56,24 @@ const ButtonSettings = () => {
     variant,
     background,
     color,
-    actions: { setProp },
+    selected,
+    nodeName,
+    actions: { setProp, setCustom },
   } = useNode((node) => ({
     size: node.data.props.size,
     variant: node.data.props.variant,
     background: node.data.props.background,
     color: node.data.props.color,
+    selected: node.events.selected,
+    nodeName: node.data.custom.nodeName,
   }));
 
   return (
-    <StyledBox css={{ mt: "$1" }}>
+    <SettingsWrapper
+      selected={selected}
+      nodeName={nodeName}
+      setCustom={setCustom}
+    >
       <StyledSeparator decorative css={{ opacity: 0 }} />
       <StyledLabel htmlFor="button__size">Size</StyledLabel>
       <StyledToggleGroup
@@ -105,7 +110,7 @@ const ButtonSettings = () => {
         id="button__text-color"
         onClick={(e) => setProp((props) => (props.color = e.target.value))}
       /> */}
-    </StyledBox>
+    </SettingsWrapper>
   );
 };
 
@@ -120,6 +125,7 @@ Button.craft = {
   },
   custom: {
     skipParentNode: false,
+    nodeName: "Button",
   },
   related: {
     settings: ButtonSettings,

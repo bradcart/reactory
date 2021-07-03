@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import ContentEditable from "react-contenteditable";
 import { useNode } from "@craftjs/core";
+import { SettingsWrapper } from "../styled/settings/wrapper/index";
 import { StyledBox } from "../styled/StyledBox";
 import { StyledSlider } from "../styled/settings/Slider";
 import { StyledToggleGroup } from "../styled/settings/ToggleGroup";
@@ -19,13 +20,14 @@ export const Text = ({
   lineHeight,
   color,
   invertDefaultTextColor,
+  skipParentNode = false,
 }) => {
   const {
     connectors: { connect, drag },
     id,
     selected,
     dragged,
-    actions: { setProp },
+    actions: { setProp, setCustom },
   } = useNode((node) => ({
     selected: node.events.selected,
     dragged: node.events.dragged,
@@ -40,6 +42,9 @@ export const Text = ({
   useEffect(() => {
     if (invertDefaultTextColor) {
       setProp((props) => (props.color = "#fff"));
+    }
+    if (skipParentNode) {
+      setCustom((custom) => (custom.skipParentNode = true));
     }
   }, []);
 
@@ -84,7 +89,9 @@ const TextSettings = () => {
     fontWeight,
     textAlign,
     lineHeight,
-    actions: { setProp },
+    selected,
+    nodeName,
+    actions: { setProp, setCustom },
   } = useNode((node) => ({
     activeFontFamily: node.data.props.activeFontFamily,
     fontSize: node.data.props.fontSize,
@@ -92,6 +99,8 @@ const TextSettings = () => {
     textAlign: node.data.props.textAlign,
     color: node.data.props.color,
     lineHeight: node.data.props.lineHeight,
+    selected: node.events.selected,
+    nodeName: node.data.custom.nodeName,
   }));
 
   let FontPicker;
@@ -102,7 +111,11 @@ const TextSettings = () => {
   const pickerId = id.replace(/[^0-9a-z]/gi, "");
 
   return (
-    <>
+    <SettingsWrapper
+      selected={selected}
+      nodeName={nodeName}
+      setCustom={setCustom}
+    >
       <StyledBox css={{ mt: "$1", mb: "$4", fontSize: "$3" }}>
         <StyledSeparator decorative css={{ opacity: 0 }} />
         <StyledLabel htmlFor="font-picker" css={{ mb: "$1" }}>
@@ -175,7 +188,7 @@ const TextSettings = () => {
       <ColorPicker
         onClick={(e) => setProp((props) => (props.color = e.target.value))}
       />
-    </>
+    </SettingsWrapper>
   );
 };
 
@@ -188,6 +201,10 @@ Text.craft = {
     fontWeight: 400,
     textAlign: "left",
     lineHeight: 28,
+  },
+  custom: {
+    skipParentNode: false,
+    nodeName: "Text",
   },
   // rules: {
   //   canDrag: (node) => node.data.props.text !== "Drag",

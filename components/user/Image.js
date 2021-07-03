@@ -1,6 +1,7 @@
 import { useNode } from "@craftjs/core";
 import { useState } from "react";
 import { StyledImage } from "../styled/StyledImage";
+import { SettingsWrapper } from "../styled/settings/wrapper";
 import { StyledBox } from "../styled/StyledBox";
 import { StyledLabel } from "../styled/settings/Label";
 import { StyledForm } from "../styled/settings/Form";
@@ -33,12 +34,16 @@ const ImageSettings = () => {
     width,
     height,
     objectFit,
-    actions: { setProp },
+    selected,
+    nodeName,
+    actions: { setProp, setCustom },
   } = useNode((node) => ({
     src: node.data.props.src,
     width: node.data.props.width,
     height: node.data.props.height,
     objectFit: node.data.props.objectFit,
+    selected: node.events.selected,
+    nodeName: node.data.custom.nodeName,
   }));
 
   const [newSrc, changeNewSrc] = useState(src);
@@ -49,7 +54,11 @@ const ImageSettings = () => {
   };
 
   return (
-    <StyledBox css={{ mt: "$1" }}>
+    <SettingsWrapper
+      selected={selected}
+      nodeName={nodeName}
+      setCustom={setCustom}
+    >
       <StyledSeparator decorative css={{ opacity: 0 }} />
       <StyledForm name="image-src" onSubmit={(e) => updateImage(e)}>
         <StyledLabel htmlFor="image__src">Source</StyledLabel>
@@ -89,7 +98,7 @@ const ImageSettings = () => {
         min={0}
         max={100}
       />
-    </StyledBox>
+    </SettingsWrapper>
   );
 };
 
@@ -103,6 +112,9 @@ const ImageDefaultProps = {
 Image.craft = {
   displayName: "Image",
   props: ImageDefaultProps,
+  custom: {
+    nodeName: "Image",
+  },
   related: {
     settings: ImageSettings,
   },

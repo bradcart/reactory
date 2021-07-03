@@ -1,5 +1,6 @@
 import { useNode } from "@craftjs/core";
 import { StyledBox } from "../styled/StyledBox";
+import { SettingsWrapper } from "../styled/settings/wrapper";
 import { StyledSeparator } from "../styled/settings/Separator";
 import { StyledLabel } from "../styled/settings/Label";
 import { StyledSlider } from "../styled/settings/Slider";
@@ -33,14 +34,22 @@ const PageSettings = () => {
   const {
     background,
     padding,
-    actions: { setProp },
+    selected,
+    nodeName,
+    actions: { setProp, setCustom },
   } = useNode((node) => ({
     background: node.data.props.background,
     padding: node.data.props.padding,
+    selected: node.events.selected,
+    nodeName: node.data.custom.nodeName,
   }));
 
   return (
-    <StyledBox css={{ mt: "$1" }}>
+    <SettingsWrapper
+      selected={selected}
+      nodeName={nodeName}
+      setCustom={setCustom}
+    >
       <StyledSeparator decorative css={{ opacity: 0 }} />
       <StyledLabel htmlFor="page__padding">Padding</StyledLabel>
       <StyledSlider
@@ -58,7 +67,7 @@ const PageSettings = () => {
         id="page__background"
         onClick={(e) => setProp((props) => (props.background = e.target.value))}
       />
-    </StyledBox>
+    </SettingsWrapper>
   );
 };
 
@@ -70,6 +79,9 @@ const PageDefaultProps = {
 Page.craft = {
   displayName: "Page",
   props: PageDefaultProps,
+  custom: {
+    nodeName: "Page",
+  },
   related: {
     settings: PageSettings,
   },

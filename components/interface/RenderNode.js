@@ -8,8 +8,8 @@ import { DragIcon, ArrowUpIcon, DeleteIcon } from "../icons/RenderNodeIcons";
 const IndicatorDiv = styled("div", {
   height: "30px",
   mt: "-29px",
-  px: "$1",
-  py: "$1",
+  px: "$2",
+  py: "$3",
   position: "fixed",
   display: "flex",
   justifyContent: "center",
@@ -69,19 +69,20 @@ export const RenderNode = ({ render }) => {
   } = useNode((node) => ({
     isHover: node.events.hovered,
     dom: node.dom,
-    name: node.data.custom.displayName || node.data.displayName,
+    name: node.data.custom.nodeName || node.data.displayName,
     moveable: query.node(node.id).isDraggable(),
     deletable: query.node(node.id).isDeletable(),
-    parentOfParent: query.node(node.id).ancestors()[1],
-    parent: node.data.parent,
     props: node.data.props,
     custom: node.data.custom,
+    parent: node.data.parent,
+    parentOfParent: query.node(node.id).ancestors()[1],
   }));
 
   const currentRef = useRef(<HTMLDivElement />);
 
   useEffect(() => {
     if (dom) {
+      // console.log(dom);
       if (isActive || isHover) {
         // console.log(dom);
         custom && custom.droppableOnly
@@ -135,7 +136,9 @@ export const RenderNode = ({ render }) => {
               }}
               variant={custom && custom.droppableOnly ? "dropzone" : ""}
             >
-              <h2 style={{ marginRight: "5px" }}>{name}</h2>
+              <h2 style={{ marginRight: "5px" }}>
+                {name.replace("&nbsp;", "")}
+              </h2>
               {moveable ? (
                 <Btn
                   style={{

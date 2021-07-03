@@ -1,5 +1,6 @@
 import { useNode } from "@craftjs/core";
 import { StyledBox } from "../styled/StyledBox";
+import { SettingsWrapper } from "../styled/settings/wrapper";
 import { StyledLabel } from "../styled/settings/Label";
 import { StyledSlider } from "../styled/settings/Slider";
 import { StyledToggleGroup } from "../styled/settings/ToggleGroup";
@@ -51,7 +52,9 @@ export const ContainerSettings = () => {
     justify,
     align,
     background,
-    actions: { setProp },
+    selected,
+    nodeName,
+    actions: { setProp, setCustom },
   } = useNode((node) => ({
     width: node.data.props.width,
     height: node.data.props.height,
@@ -59,10 +62,16 @@ export const ContainerSettings = () => {
     justify: node.data.props.justify,
     align: node.data.props.align,
     background: node.data.props.background,
+    selected: node.events.selected,
+    nodeName: node.data.custom.nodeName,
   }));
 
   return (
-    <StyledBox css={{ mt: "$1" }}>
+    <SettingsWrapper
+      selected={selected}
+      nodeName={nodeName}
+      setCustom={setCustom}
+    >
       <StyledSeparator decorative css={{ opacity: 0 }} />
       <StyledLabel htmlFor="container__width">Width</StyledLabel>
       <StyledSlider
@@ -123,7 +132,7 @@ export const ContainerSettings = () => {
       <ColorPicker
         onClick={(e) => setProp((props) => (props.background = e.target.value))}
       />
-    </StyledBox>
+    </SettingsWrapper>
   );
 };
 
@@ -141,6 +150,9 @@ export const ContainerDefaultProps = {
 Container.craft = {
   displayName: "Container",
   props: ContainerDefaultProps,
+  custom: {
+    nodeName: "Container",
+  },
   related: {
     settings: ContainerSettings,
   },
