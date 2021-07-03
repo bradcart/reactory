@@ -1,12 +1,15 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNode, Element } from "@craftjs/core";
 import { Text } from "./Text";
 import { StyledButton } from "../styled/StyledButton";
+import { StyledLink } from "../styled/StyledLink";
 import {
   SettingsWrapper,
   ToggleGroup,
   Label,
   ColorPicker,
+  Form,
+  TextInput,
   Separator,
 } from "../styled/settings";
 
@@ -15,6 +18,7 @@ export const Button = ({
   variant,
   background,
   color,
+  href,
   skipParentNode = false,
 }) => {
   const {
@@ -39,14 +43,27 @@ export const Button = ({
         // color: color,
       }}
     >
-      <Element
-        is={Text}
-        id="button__text-value"
-        text="Click me"
-        tagName="span"
-        fontSize={14}
-        color={color}
-      />
+      {href !== "" ? (
+        <StyledLink href={href} target="_blank" rel="noreferrer">
+          <Element
+            is={Text}
+            id="button__text-value"
+            text="Click me"
+            tagName="span"
+            fontSize={14}
+            color={color}
+          />
+        </StyledLink>
+      ) : (
+        <Element
+          is={Text}
+          id="button__text-value"
+          text="Click me"
+          tagName="span"
+          fontSize={14}
+          color={color}
+        />
+      )}
     </StyledButton>
   );
 };
@@ -56,7 +73,7 @@ const ButtonSettings = () => {
     size,
     variant,
     background,
-    color,
+    href,
     selected,
     nodeName,
     actions: { setProp, setCustom },
@@ -64,10 +81,20 @@ const ButtonSettings = () => {
     size: node.data.props.size,
     variant: node.data.props.variant,
     background: node.data.props.background,
-    color: node.data.props.color,
+    href: node.data.props.href,
     selected: node.events.selected,
     nodeName: node.data.custom.nodeName,
   }));
+
+  const [buttonHref, changeButtonHref] = useState(href);
+
+  const updateHref = (e) => {
+    e.preventDefault();
+    setProp((props) => (props.href = buttonHref));
+    if (nodeName === "Button") {
+      setCustom((custom) => (custom.nodeName = "Button link"));
+    }
+  };
 
   return (
     <SettingsWrapper
@@ -106,11 +133,16 @@ const ButtonSettings = () => {
         id="button__background-color"
         onClick={(e) => setProp((props) => (props.background = e.target.value))}
       />
-      {/* <Label htmlFor="button__text-color">Text</Label>
-      <ColorPicker
-        id="button__text-color"
-        onClick={(e) => setProp((props) => (props.color = e.target.value))}
-      /> */}
+      <Separator />
+      <Label htmlFor="button__action">Link to</Label>
+      <Form name="button-href" onSubmit={(e) => updateHref(e)}>
+        <TextInput
+          id="button__action"
+          type="text"
+          placeholder={href === "" ? "paste link URL here" : href}
+          onChange={(e) => changeButtonHref(e.target.value)}
+        />
+      </Form>
     </SettingsWrapper>
   );
 };
@@ -123,6 +155,7 @@ Button.craft = {
     background: "#111",
     color: "#fff",
     text: "Click me",
+    href: "",
   },
   custom: {
     skipParentNode: false,

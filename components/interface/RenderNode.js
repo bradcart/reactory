@@ -3,7 +3,13 @@ import { ROOT_NODE } from "@craftjs/utils";
 import React, { useEffect, useRef, useCallback } from "react";
 import ReactDOM from "react-dom";
 import { styled } from "../../stitches.config";
-import { DragIcon, ArrowUpIcon, DeleteIcon } from "../icons/RenderNodeIcons";
+import {
+  DragIcon,
+  ArrowUpIcon,
+  DeleteIcon,
+  ExternalLinkIcon,
+} from "../icons/RenderNodeIcons";
+import { StyledLink } from "../styled/StyledLink";
 
 const IndicatorDiv = styled("div", {
   height: "30px",
@@ -63,6 +69,7 @@ export const RenderNode = ({ render }) => {
     moveable,
     deletable,
     connectors: { drag },
+    props,
     custom,
     parent,
     parentOfParent,
@@ -172,6 +179,16 @@ export const RenderNode = ({ render }) => {
                   }}
                 >
                   <DeleteIcon />
+                </Btn>
+              ) : null}
+              {props.href && props.href !== "" ? (
+                <Btn
+                  style={{ cursor: "pointer" }}
+                  href={props.href}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <ExternalLinkIcon />
                 </Btn>
               ) : null}
             </IndicatorDiv>,

@@ -25,6 +25,7 @@ export const StyledButton = styled("button", {
   // Custom
   borderWidth: 1,
   borderStyle: "solid",
+  cursor: "pointer",
 
   variants: {
     size: {

@@ -87,3 +87,31 @@ export const DeleteIcon = ({ width }) => (
     <Delete width={width} />
   </div>
 );
+
+const ExternalLink = ({ width }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 31.99 31.97"
+    overflow="visible"
+    width={width}
+  >
+    <path
+      d="M24.47.49h0a1.15,1.15,0,1,0,0,2.29h4.11L10,21.38a1.17,1.17,0,0,0-.33.81,1.14,1.14,0,0,0,1.14,1.14,1.17,1.17,0,0,0,.81-.33L30.18,4.39v4.1h0a1.15,1.15,0,1,0,2.29,0h0V1.82a1,1,0,0,0,0-.18A1.15,1.15,0,0,0,31.34.49H24.47ZM1.64,7.34A1.16,1.16,0,0,0,.49,8.49h0V31.32a1.16,1.16,0,0,0,1.15,1.15H24.47a1.15,1.15,0,0,0,1.14-1.15h0V14.09h0a1.14,1.14,0,1,0-2.28,0h0V30.18H2.78V9.63H19a1.15,1.15,0,0,0,0-2.29H1.64Z"
+      transform="translate(-0.49 -0.49)"
+    />
+  </svg>
+);
+
+export const ExternalLinkIcon = ({ width }) => (
+  <div
+    style={{
+      width: "100%",
+      textAlign: "center",
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+    }}
+  >
+    <ExternalLink width={width} />
+  </div>
+);

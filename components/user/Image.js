@@ -62,7 +62,7 @@ const ImageSettings = () => {
     >
       <Separator decorative css={{ opacity: 0 }} />
       <Form name="image-src" onSubmit={(e) => updateImage(e)}>
-        <Label htmlFor="image__src">Source</Label>
+        <Label htmlFor="image__src">Image source</Label>
         <TextInput
           id="image__src"
           type="text"
