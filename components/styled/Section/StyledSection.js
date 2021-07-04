@@ -1,9 +1,21 @@
-import { styled } from "../../stitches.config";
+import { styled } from "../../../stitches.config";
 
-export const StyledContainer = styled("div", {
+export const StyledSection = styled("div", {
   boxSizing: "border-box",
-  display: "inline-flex",
+  width: "100%",
+  display: "flex",
   variants: {
+    // size: {
+    //   sm: {
+    //     py: "$4",
+    //   },
+    //   md: {
+    //     py: "$8",
+    //   },
+    //   lg: {
+    //     py: "$10",
+    //   },
+    // },
     direction: {
       row: {
         flexDirection: "row",
@@ -41,4 +53,9 @@ export const StyledContainer = styled("div", {
       },
     },
   },
+  // defaultVariants: {
+  //   direction: "row",
+  //   justify: "center",
+  //   align: "center",
+  // },
 });

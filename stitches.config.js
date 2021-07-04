@@ -122,6 +122,12 @@ export const { css, styled, global, theme, keyframes, getCssString } =
           "stroke 0.3s ease, strokeWidth 0.3s ease, strokeMiterlimit 0.3s ease",
       },
     },
+    media: {
+      bp1: "(min-width: 520px)",
+      bp2: "(min-width: 900px)",
+      bp3: "(min-width: 1200px)",
+      bp4: "(min-width: 1800px)",
+    },
     utils: {
       p: (config) => (value) => ({
         paddingTop: value,
@@ -184,11 +190,5 @@ export const { css, styled, global, theme, keyframes, getCssString } =
         WebkitUserSelect: value,
         userSelect: value,
       }),
-    },
-    media: {
-      bp1: "@media (min-width: 520px)",
-      bp2: "@media (min-width: 900px)",
-      bp3: "@media (min-width: 1200px)",
-      bp4: "@media (min-width: 1800px)",
     },
   });

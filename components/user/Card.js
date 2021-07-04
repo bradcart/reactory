@@ -8,7 +8,7 @@ import {
   StyledCardBottom,
   StyledCardBottomUpper,
   StyledCardBottomLower,
-} from "../styled/StyledCard";
+} from "../styled/Card/StyledCard";
 import {
   SettingsWrapper,
   ToggleGroup,

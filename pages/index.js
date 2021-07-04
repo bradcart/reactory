@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { styled } from "../stitches.config";
-import { StyledBox } from "../components/styled/StyledBox";
-import { StyledText } from "../components/styled/StyledText";
+import { StyledBox } from "../components/styled/Box/StyledBox";
+import { StyledText } from "../components/styled/Text/StyledText";
 import {
   TopLeftBlockIcon,
   TopRightBlockIcon,
@@ -19,9 +19,18 @@ import {
 
 const StyledLetter = styled("span", {
   fontFamily: "$hki",
-  fontSize: 144,
   color: "$white",
   transform: "rotate(0.45deg)",
+  fontSize: "82px",
+  "@bp2": {
+    fontSize: "96px",
+  },
+  "@bp3": {
+    fontSize: "108px",
+  },
+  "@bp4": {
+    fontSize: "144px",
+  },
   variants: {
     letterNumber: {
       1: {
@@ -68,8 +77,8 @@ const StyledButton = styled("button", {
   px: "$4",
   borderRadius: "$2",
   borderWidth: "2px 4px 6px 4px",
-  borderStyle: "outset",
-  borderColor: "$gray900 $gray800 $gray700 $gray900",
+  borderStyle: "solid",
+  borderColor: "$white $gray900 $gray600 $gray900",
   backgroundColor: "$black100",
   color: "$white",
   fontFamily: "$gt",
@@ -79,36 +88,15 @@ const StyledButton = styled("button", {
   cursor: "pointer",
 
   animation: `${bounceInBottom} 0.8s linear 1.2s both`,
-  filter: "brightness(93%)",
-  transition: "filter 0.3s, border-color 0.3s ease",
+  filter: "brightness(85%)",
+  transition: "filter 0.3s",
   "&:hover": {
-    filter: "brightness(100%)",
-    borderColor: "$white $gray600 $gray600 $white",
+    filter: "brightness(95%)",
   },
   "&:active": {
     borderWidth: "2px 4px 4px 4px",
     height: "46px",
   },
-
-  // "&:hover": {
-  //   backgroundColor: "$white",
-  //   color: "$black100",
-  //   "& a": {
-  //     color: "$black100",
-  //   },
-  // },
-
-  // "&::before": {
-  //   content: '""',
-  //   position: "absolute",
-  //   top: "10%",
-  //   zIndex: -2,
-  //   height: "100%",
-  //   width: "102%",
-  //   borderRadius: "$2",
-  //   background:
-  //     "linear-gradient(180deg, rgba(225, 229, 227, 0) 0%, #A8ACAA 100%)",
-  // },
 });
 
 const StyledPortfolioLink = styled("a", {
@@ -121,17 +109,6 @@ const StyledPortfolioLink = styled("a", {
   opacity: 0,
   animation: `${vanishIn} 1.3s ease 2s forwards`,
 });
-
-// const StyledInnerLink = styled("a", {
-//   textDecorationLine: "none",
-//   color: "$white",
-//   width: "100%",
-//   height: "100%",
-// });
-
-// const InnerLink = React.forwardRef((props, forwardedRef) => {
-//   return <StyledInnerLink {...props} ref={forwardedRef} />;
-// });
 
 export default function Home() {
   const [colorize, toggleColorize] = useState(false);
@@ -164,10 +141,19 @@ export default function Home() {
           flexDirection: "column",
           justifyContent: "space-between",
           alignItems: "center",
-          height: "26%",
+          height: "18%",
           position: "relative",
           px: "$7",
           py: "$3",
+          "@bp2": {
+            height: "21%",
+          },
+          "@bp3": {
+            height: "26%",
+          },
+          "@bp4": {
+            height: "27%",
+          },
         }}
       >
         <TopLeftBlockIcon animation={`${bounceInTop} 0.6s linear both`} />
@@ -198,9 +184,15 @@ export default function Home() {
           className="intro-subtitle"
           css={{
             fontFamily: "$grifter",
-            fontSize: "46px",
+            fontSize: "32px",
             color: "$white",
             animation: `${slideInLeft} 0.8s both`,
+            "@bp2": {
+              fontSize: "38px",
+            },
+            "@bp3": {
+              fontSize: "46px",
+            },
           }}
         >
           drag-n-drop site builder

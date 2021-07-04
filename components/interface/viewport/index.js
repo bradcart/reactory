@@ -3,7 +3,7 @@ import { useEditor } from "@craftjs/core";
 import { Toolbox } from "./Toolbox";
 import { Topbar } from "./Topbar";
 import { SettingsPanel } from "./SettingsPanel";
-import { StyledBox } from "../../styled/StyledBox";
+import { StyledBox } from "../../styled/Box/StyledBox";
 
 export const Viewport = ({ children }) => {
   const {

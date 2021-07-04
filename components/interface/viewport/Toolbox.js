@@ -8,7 +8,7 @@ import { Text } from "../../user/Text";
 import { Image } from "../../user/Image";
 import { Card } from "../../user/Card";
 
-import { StyledBox } from "../../styled/StyledBox";
+import { StyledBox } from "../../styled/Box/StyledBox";
 
 import { SectionIcon } from "../../icons/SectionIcon";
 import { ContainerIcon } from "../../icons/ContainerIcon";

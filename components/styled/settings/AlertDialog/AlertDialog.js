@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
 import { TopbarButton } from "../../../interface/viewport/Topbar";
-import { TextInput } from "../text-input/TextInput";
+import { TextInput } from "../TextInput/TextInput";
 import { styled } from "../../../../stitches.config";
 
 const AlertDialogOverlay = styled(AlertDialogPrimitive.Overlay, {

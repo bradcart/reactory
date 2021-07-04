@@ -1,6 +1,6 @@
 import { useNode } from "@craftjs/core";
-import { StyledBox } from "../styled/StyledBox";
-import { StyledContainer } from "../styled/StyledContainer";
+import { StyledBox } from "../styled/Box/StyledBox";
+import { StyledContainer } from "../styled/Container/StyledContainer";
 import {
   SettingsWrapper,
   Label,

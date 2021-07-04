@@ -1,6 +1,6 @@
 import React from "react";
-import { styled } from "../../stitches.config";
-import { StyledText } from "./StyledText";
+import { styled } from "../../../stitches.config";
+import { StyledText } from "../Text/StyledText";
 
 const DEFAULT_TAG = "h1";
 

@@ -1,5 +1,5 @@
 import { useNode } from "@craftjs/core";
-import { StyledBox } from "../styled/StyledBox";
+import { StyledBox } from "../styled/Box/StyledBox";
 import {
   SettingsWrapper,
   Separator,

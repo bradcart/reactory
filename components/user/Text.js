@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNode } from "@craftjs/core";
 import dynamic from "next/dynamic";
 import ContentEditable from "react-contenteditable";
-import { StyledBox } from "../styled/StyledBox";
+import { StyledBox } from "../styled/Box/StyledBox";
 import {
   SettingsWrapper,
   Slider,

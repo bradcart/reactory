@@ -1,6 +1,6 @@
 import { useNode } from "@craftjs/core";
-import { StyledSection } from "../styled/StyledSection";
-import { StyledBox } from "../styled/StyledBox";
+import { StyledSection } from "../styled/Section/StyledSection";
+import { StyledBox } from "../styled/Box/StyledBox";
 import {
   SettingsWrapper,
   Label,

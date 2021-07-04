@@ -1,6 +1,6 @@
 import React from "react";
 import { QueryMethods, useEditor } from "@craftjs/core";
-import { StyledBox } from "../../styled/StyledBox";
+import { StyledBox } from "../../styled/Box/StyledBox";
 import { Layers } from "@craftjs/layers";
 // import { StyledButton } from "../../styled/StyledButton";
 // import { StyledHeading } from "../../styled/StyledHeading";
