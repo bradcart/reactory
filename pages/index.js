@@ -112,10 +112,10 @@ const StyledPortfolioLink = styled("a", {
 
 export default function Home() {
   const [colorize, toggleColorize] = useState(false);
-  const red = "hsl(347, 86%, 44%)";
-  const yellow = "hsl(42, 100%, 56%)";
-  const green = "hsl(180, 63%, 42%)";
-  const purple = "hsl(262, 73%, 48%)";
+  const red = "hsl(347, 86%, 58%)";
+  const yellow = "hsl(42, 100%, 66%)";
+  const green = "hsl(180, 63%, 50%)";
+  const purple = "hsl(262, 73%, 62%)";
   return (
     <StyledBox
       css={{
