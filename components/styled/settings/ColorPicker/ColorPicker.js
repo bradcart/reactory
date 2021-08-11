@@ -5,6 +5,7 @@ import {
   slate,
   tomato,
   red,
+  crimson,
   plum,
   violet,
   indigo,
@@ -150,6 +151,9 @@ const colors = {
   red: {
     ...red,
   },
+  crimson: {
+    ...crimson,
+  },
   plum: {
     ...plum,
   },
@@ -209,7 +213,7 @@ export const ColorPicker = ({ id, onClick }) => {
   };
 
   const clickRightArrow = () => {
-    if (colorSection < 12) {
+    if (colorSection < 13) {
       changeColorSection(colorSection + 1);
     } else {
       changeColorSection(0);
