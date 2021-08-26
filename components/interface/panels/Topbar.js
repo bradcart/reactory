@@ -4,9 +4,9 @@ import { useEditor } from "@craftjs/core";
 import lz from "lzutf8";
 import copy from "copy-to-clipboard";
 import { styled } from "../../../stitches.config";
-import { StyledBox } from "../../styled/Box/StyledBox";
-import { StyledHeading } from "../../styled/Heading/StyledHeading";
-import { Alert, AlertDialog } from "../../styled/settings";
+import { StyledBox } from "../../base/Box/StyledBox";
+import { StyledHeading } from "../../base/Heading/StyledHeading";
+import { Alert, AlertDialog } from "../settings";
 
 export const TopbarButton = styled("button", {
   // Reset

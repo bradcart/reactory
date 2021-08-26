@@ -8,7 +8,7 @@ import {
   StyledCardBottom,
   StyledCardBottomUpper,
   StyledCardBottomLower,
-} from "../styled/Card/StyledCard";
+} from "../base/Card/StyledCard";
 import {
   SettingsWrapper,
   ToggleGroup,
@@ -16,7 +16,7 @@ import {
   ColorPicker,
   Label,
   Separator,
-} from "../styled/settings";
+} from "../interface/settings";
 
 const dummyText =
   "Our team was inspired by the seven skills of highly effective programmers created by the TechLead. We wanted to provide our own take on the topic. Here are our seven skills of effective programmers...";

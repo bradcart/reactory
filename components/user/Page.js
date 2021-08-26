@@ -1,12 +1,12 @@
 import { useNode } from "@craftjs/core";
-import { StyledBox } from "../styled/Box/StyledBox";
+import { StyledBox } from "../base/Box/StyledBox";
 import {
   SettingsWrapper,
   Separator,
   Label,
   Slider,
   ColorPicker,
-} from "../styled/settings";
+} from "../interface/settings";
 
 export const Page = ({ background, padding = 0, children }) => {
   const {

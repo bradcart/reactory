@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNode, useEditor } from "@craftjs/core";
 import dynamic from "next/dynamic";
 import ContentEditable from "react-contenteditable";
-import { StyledBox } from "../styled/Box/StyledBox";
+import { StyledBox } from "../base/Box/StyledBox";
 import {
   SettingsWrapper,
   Slider,
@@ -10,7 +10,7 @@ import {
   ColorPicker,
   Label,
   Separator,
-} from "../styled/settings";
+} from "../interface/settings";
 
 export const Text = ({
   text,

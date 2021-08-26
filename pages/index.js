@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { styled } from "../stitches.config";
-import { StyledBox } from "../components/styled/Box/StyledBox";
-import { StyledText } from "../components/styled/Text/StyledText";
+import { StyledBox } from "../components/base/Box/StyledBox";
+import { StyledText } from "../components/base/Text/StyledText";
 import {
   TopLeftBlockIcon,
   TopRightBlockIcon,
@@ -15,7 +15,7 @@ import {
   bounceInBottom,
   slideInLeft,
   vanishIn,
-} from "../custom/keyframes";
+} from "../utils/keyframes";
 
 const StyledLetter = styled("span", {
   fontFamily: "$hki",

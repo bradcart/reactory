@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNode, Element } from "@craftjs/core";
 import { Text } from "./Text";
-import { StyledButton } from "../styled/Button/StyledButton";
-import { StyledLink } from "../styled/Link/StyledLink";
+import { StyledButton } from "../base/Button/StyledButton";
+import { StyledLink } from "../base/Link/StyledLink";
 import {
   SettingsWrapper,
   ToggleGroup,
@@ -11,7 +11,7 @@ import {
   Form,
   TextInput,
   Separator,
-} from "../styled/settings";
+} from "../interface/settings";
 
 export const Button = ({
   size,

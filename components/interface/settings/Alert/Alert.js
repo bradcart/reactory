@@ -2,7 +2,7 @@ import { styled } from "../../../../stitches.config";
 import {
   slideInBlurredBottom,
   slideOutBlurredBottom,
-} from "../../../../custom/keyframes";
+} from "../../../../utils/keyframes";
 import { useEffect } from "react";
 
 const StyledAlert = styled("div", {

@@ -11,7 +11,7 @@ import { Card, CardText, CardButtons } from "../components/user/Card";
 import { Text } from "../components/user/Text";
 import { Image } from "../components/user/Image";
 
-import { Viewport } from "../components/interface/components";
+import { Viewport } from "../components/interface";
 import { RenderNode } from "../components/interface/RenderNode";
 import { styled } from "../stitches.config";
 // import fetchProjectData from "../components/utils/fetchProjectData";

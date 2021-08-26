@@ -1,6 +1,6 @@
 import { useNode } from "@craftjs/core";
-import { StyledSection } from "../styled/Section/StyledSection";
-import { StyledBox } from "../styled/Box/StyledBox";
+import { StyledSection } from "../base/Section/StyledSection";
+import { StyledBox } from "../base/Box/StyledBox";
 import {
   SettingsWrapper,
   Label,
@@ -8,7 +8,7 @@ import {
   ToggleGroup,
   ColorPicker,
   Separator,
-} from "../styled/settings";
+} from "../interface/settings";
 
 export const Section = ({
   height,

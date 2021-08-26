@@ -1,6 +1,6 @@
 import { useState } from "react";
 import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
-import { TopbarButton } from "../../../interface/components/Topbar";
+import { TopbarButton } from "../../panels/Topbar";
 import { TextInput } from "../TextInput/TextInput";
 import { styled } from "../../../../stitches.config";
 

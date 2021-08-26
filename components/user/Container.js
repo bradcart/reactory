@@ -1,6 +1,6 @@
 import { useNode } from "@craftjs/core";
-import { StyledBox } from "../styled/Box/StyledBox";
-import { StyledContainer } from "../styled/Container/StyledContainer";
+import { StyledBox } from "../base/Box/StyledBox";
+import { StyledContainer } from "../base/Container/StyledContainer";
 import {
   SettingsWrapper,
   Label,
@@ -8,7 +8,7 @@ import {
   ToggleGroup,
   ColorPicker,
   Separator,
-} from "../styled/settings";
+} from "../interface/settings";
 
 export const Container = ({
   background,

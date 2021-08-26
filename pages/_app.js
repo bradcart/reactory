@@ -4,7 +4,9 @@ import { IdProvider } from "@radix-ui/react-id";
 import { global } from "../stitches.config";
 
 // const globalStyles = global(reset);
+
 const globalStyles = global({
+  // Fonts
   "@font-face": [
     {
       fontFamily: "HKI Nightlife",
@@ -27,6 +29,8 @@ const globalStyles = global({
       src: 'url(/fonts/poppins-regular.woff2) format("woff2"), url(/fonts/poppins-regular.woff) format("woff")',
     },
   ],
+
+  // HTML Elements
   "*": {
     boxSizing: "border-box",
     "&::before": {
@@ -62,6 +66,8 @@ const globalStyles = global({
       color: "$white",
     },
   },
+
+  // Custom classes
   ".component-selected": {
     position: "relative",
     "&::after": {

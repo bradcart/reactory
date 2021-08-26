@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useEditor } from "@craftjs/core";
-import { Toolbox } from "./Toolbox";
-import { Topbar } from "./Topbar";
-import { SettingsPanel } from "./SettingsPanel";
-import { StyledBox } from "../../styled/Box/StyledBox";
+import { Toolbox } from "./panels/Toolbox";
+import { Topbar } from "./panels/Topbar";
+import { SettingsPanel } from "./panels/SettingsPanel";
+import { StyledBox } from "../base/Box/StyledBox";
 
 export const Viewport = ({ children }) => {
   const {
