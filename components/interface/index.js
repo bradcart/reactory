@@ -1,16 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { StyledBox } from "../base/Box/StyledBox";
 import { useEditor } from "@craftjs/core";
 import { Toolbox } from "./panels/Toolbox";
 import { Topbar } from "./panels/Topbar";
 import { SettingsPanel } from "./panels/SettingsPanel";
-import { StyledBox } from "../base/Box/StyledBox";
 
 export const Viewport = ({ children }) => {
-  const {
-    enabled,
-    connectors,
-    actions: { setOptions },
-  } = useEditor((state) => ({
+  const { enabled, connectors } = useEditor((state) => ({
     enabled: state.options.enabled,
   }));
 
@@ -42,7 +38,6 @@ export const Viewport = ({ children }) => {
             className="page-container"
             style={{
               display: "flex",
-              // flex: 1,
               height: "100%",
               flexDirection: "column",
               gridColumn: enabled ? "2 / 3" : "1 / 4",
@@ -51,9 +46,7 @@ export const Viewport = ({ children }) => {
             <div
               className="craftjs-renderer"
               style={{
-                // flex: 1,
                 position: "relative",
-                // width: "100%",
                 height: "100%",
                 // width: enabled ? "90%" : "98%",
                 // width: "clamp(740px, 90%, 2100px)",
@@ -68,17 +61,7 @@ export const Viewport = ({ children }) => {
                 connectors.select(connectors.hover(ref, null), null)
               }
             >
-              {/* <div
-                style={{
-                  position: "relative",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  paddingTop: "30px",
-                }}
-              > */}
               {children}
-              {/* </div> */}
             </div>
           </div>
           {enabled ? <SettingsPanel /> : null}

@@ -1,6 +1,6 @@
 import { useNode } from "@craftjs/core";
+// import { StyledBox } from "../base/Box/StyledBox";
 import { StyledBox } from "../base/Box/StyledBox";
-import { StyledContainer } from "../base/Container/StyledContainer";
 import {
   SettingsWrapper,
   Label,
@@ -10,7 +10,7 @@ import {
   Separator,
 } from "../interface/settings";
 
-export const Container = ({
+export const Box = ({
   background,
   width,
   height,
@@ -27,7 +27,7 @@ export const Container = ({
   //VARIANTS: FLEX, FLEX DIRECTION, ALIGN ITEMS, JUSTIFY CONTENT, BORDER, BORDER RADIUS
   //STYLE PROP: WIDTH, HEIGHT, PADDING, BGCOLOR
   return (
-    <StyledContainer
+    <StyledBox
       ref={connect}
       direction={direction}
       justify={justify}
@@ -42,11 +42,11 @@ export const Container = ({
       }}
     >
       {children}
-    </StyledContainer>
+    </StyledBox>
   );
 };
 
-export const ContainerSettings = () => {
+export const BoxSettings = () => {
   const {
     width,
     height,
@@ -139,7 +139,7 @@ export const ContainerSettings = () => {
 };
 
 // We export this because we'll be using this in the Card component as well
-export const ContainerDefaultProps = {
+export const BoxDefaultProps = {
   background: "#ffffff",
   width: 30,
   height: 30,
@@ -148,13 +148,13 @@ export const ContainerDefaultProps = {
   align: "center",
 };
 
-Container.craft = {
-  displayName: "Block",
-  props: ContainerDefaultProps,
+Box.craft = {
+  displayName: "Box",
+  props: BoxDefaultProps,
   custom: {
-    nodeName: "Block",
+    nodeName: "Box",
   },
   related: {
-    settings: ContainerSettings,
+    settings: BoxSettings,
   },
 };

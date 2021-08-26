@@ -4,7 +4,7 @@ import { Editor, Frame, Element } from "@craftjs/core";
 
 import { Page } from "../components/user/Page";
 import { Section } from "../components/user/Section";
-import { Container } from "../components/user/Container";
+import { Box } from "../components/user/Box";
 import { Button } from "../components/user/Button";
 // import { Card, CardTop, CardBottom } from "../components/user/Card";
 import { Card, CardText, CardButtons } from "../components/user/Card";
@@ -70,7 +70,7 @@ export default function Edit() {
         CardButtons,
         Button,
         Text,
-        Container,
+        Box,
         Image,
         Section,
       }}

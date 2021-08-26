@@ -2,7 +2,7 @@ import { Element, useEditor } from "@craftjs/core";
 import { styled } from "../../../stitches.config";
 
 import { Section } from "../../user/Section";
-import { Container } from "../../user/Container";
+import { Box } from "../../user/Box";
 import { Button } from "../../user/Button";
 import { Text } from "../../user/Text";
 import { Image } from "../../user/Image";
@@ -110,14 +110,11 @@ export const Toolbox = () => {
       >
         <ToolboxButton
           ref={(ref) =>
-            connectors.create(
-              ref,
-              <Element is={Container} padding={20} canvas />
-            )
+            connectors.create(ref, <Element is={Box} padding={20} canvas />)
           }
         >
           <ContainerIcon width={60} />
-          <StyledLabel>Block</StyledLabel>
+          <StyledLabel>Box</StyledLabel>
         </ToolboxButton>
         <ToolboxButton
           ref={(ref) => connectors.create(ref, <Element is={Section} canvas />)}
