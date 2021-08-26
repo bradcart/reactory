@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNode } from "@craftjs/core";
-import { StyledImage } from "../base/Image/StyledImage";
+import { StyledImage } from "../../base/Image/StyledImage";
 import {
   SettingsWrapper,
   Label,
@@ -9,7 +9,7 @@ import {
   Slider,
   ToggleGroup,
   Separator,
-} from "../interface/settings";
+} from "../../interface/settings";
 
 export const Image = ({ src, width, height, objectFit }) => {
   const {

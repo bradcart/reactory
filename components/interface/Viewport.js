@@ -1,7 +1,10 @@
 import React from "react";
 import { StyledBox } from "../base/Box/StyledBox";
 import { useEditor } from "@craftjs/core";
-import { Topbar, Toolbox, SettingsPanel } from "./panels";
+import { Topbar } from "./panels/Topbar";
+import { Toolbox } from "./panels/Toolbox";
+import { SettingsPanel } from "./panels/SettingsPanel";
+import { ViewportWarning } from "./misc/ViewportWarning";
 
 export const Viewport = ({ children }) => {
   const { enabled, connectors } = useEditor((state) => ({
@@ -10,6 +13,7 @@ export const Viewport = ({ children }) => {
 
   return (
     <div className="viewport">
+      <ViewportWarning />
       <StyledBox
         css={{
           width: "100vw",

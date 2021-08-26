@@ -1,5 +1,6 @@
 import { useNode } from "@craftjs/core";
-import { StyledBox } from "../base/Box/StyledBox";
+import { StyledSection } from "../../base/Section/StyledSection";
+import { StyledBox } from "../../base/Box/StyledBox";
 import {
   SettingsWrapper,
   Label,
@@ -7,13 +8,12 @@ import {
   ToggleGroup,
   ColorPicker,
   Separator,
-} from "../interface/settings";
+} from "../../interface/settings";
 
-export const Box = ({
-  background,
-  width,
+export const Section = ({
   height,
   padding,
+  background,
   direction,
   justify,
   align,
@@ -23,31 +23,33 @@ export const Box = ({
     connectors: { connect },
   } = useNode();
 
-  //VARIANTS: FLEX, FLEX DIRECTION, ALIGN ITEMS, JUSTIFY CONTENT, BORDER, BORDER RADIUS
+  //VARIANTS: FLEX DIRECTION, ALIGN ITEMS, JUSTIFY CONTENT, BORDER, BORDER RADIUS
   //STYLE PROP: WIDTH, HEIGHT, PADDING, BGCOLOR
   return (
-    <StyledBox
+    <StyledSection
       ref={connect}
       direction={direction}
       justify={justify}
       align={align}
       style={{
-        backgroundColor: background,
-        width: `${width}%`,
-        height: `${height}vh`,
+        minHeight: `${height}vh`,
+        maxHeight: "auto",
+        // height: autoHeight ? "auto" : `${height}vh`,
         padding: padding,
+        backgroundColor: background,
       }}
     >
       {children}
-    </StyledBox>
+    </StyledSection>
   );
 };
 
-export const BoxSettings = () => {
+export const SectionSettings = () => {
   const {
-    width,
     height,
     padding,
+    size,
+    direction,
     justify,
     align,
     background,
@@ -55,9 +57,10 @@ export const BoxSettings = () => {
     nodeName,
     actions: { setProp, setCustom },
   } = useNode((node) => ({
-    width: node.data.props.width,
     height: node.data.props.height,
     padding: node.data.props.padding,
+    size: node.data.props.size,
+    direction: node.data.props.direction,
     justify: node.data.props.justify,
     align: node.data.props.align,
     background: node.data.props.background,
@@ -72,27 +75,18 @@ export const BoxSettings = () => {
       setCustom={setCustom}
     >
       <Separator decorative css={{ opacity: 0 }} />
-      <Label htmlFor="container__width">Width</Label>
+      <Label htmlFor="section__height">Height</Label>
       <Slider
-        id="container__width"
-        value={[width]}
-        onValueChange={(value) => setProp((props) => (props.width = value[0]))}
-        step={1}
-        min={0}
-        max={99}
-      />
-      <Label htmlFor="container__height">Height</Label>
-      <Slider
-        id="container__height"
+        id="section__height"
         value={[height]}
         onValueChange={(value) => setProp((props) => (props.height = value[0]))}
         step={1}
-        min={0}
+        min={1}
         max={99}
       />
-      <Label htmlFor="container__padding">Padding</Label>
+      <Label htmlFor="section__padding">Padding</Label>
       <Slider
-        id="container__padding"
+        id="section__padding"
         value={[padding]}
         onValueChange={(value) =>
           setProp((props) => (props.padding = value[0]))
@@ -101,10 +95,31 @@ export const BoxSettings = () => {
         min={0}
         max={80}
       />
-      <Separator />
-      <Label htmlFor="container__justify">Justify</Label>
+      {/* <Label htmlFor="section__size">Size</Label>
       <ToggleGroup
-        id="container__justify"
+        id="section__size"
+        currentValue={size}
+        onValueChange={(value) => setProp((props) => (props.size = value))}
+        valueOne="sm"
+        labelOne="Small"
+        valueTwo="md"
+        labelTwo="Medium"
+        valueThree="lg"
+        labelThree="Large"
+      /> */}
+      <Label htmlFor="section__direction">Direction</Label>
+      <ToggleGroup
+        id="section__direction"
+        currentValue={direction}
+        onValueChange={(value) => setProp((props) => (props.direction = value))}
+        valueOne="row"
+        labelOne="Row"
+        valueTwo="column"
+        labelTwo="Column"
+      />
+      <Label htmlFor="section__justify">Justify</Label>
+      <ToggleGroup
+        id="section__justify"
         currentValue={justify}
         onValueChange={(value) => setProp((props) => (props.justify = value))}
         valueOne="start"
@@ -114,9 +129,9 @@ export const BoxSettings = () => {
         valueThree="end"
         labelThree="Right"
       />
-      <Label htmlFor="container__align">Align</Label>
+      <Label htmlFor="section__align">Align</Label>
       <ToggleGroup
-        id="container__align"
+        id="section__align"
         currentValue={align}
         onValueChange={(value) => setProp((props) => (props.align = value))}
         valueOne="start"
@@ -136,22 +151,26 @@ export const BoxSettings = () => {
 };
 
 // We export this because we'll be using this in the Card component as well
-export const BoxDefaultProps = {
-  background: "#ffffff",
-  width: 30,
-  height: 30,
-  padding: 20,
+const SectionDefaultProps = {
+  background: "#inherit",
+  height: 20,
+  padding: 10,
+  direction: "row",
   justify: "center",
   align: "center",
 };
 
-Box.craft = {
-  displayName: "Box",
-  props: BoxDefaultProps,
+Section.craft = {
+  displayName: "Section",
+  props: SectionDefaultProps,
   custom: {
-    nodeName: "Box",
+    nodeName: "Section",
+  },
+  rules: {
+    canDrop: (targetNode) => targetNode.data.displayName === "Page",
+    canMoveIn: (incomingNode) => incomingNode.data.displayName !== "Section",
   },
   related: {
-    settings: BoxSettings,
+    settings: SectionSettings,
   },
 };

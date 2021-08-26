@@ -1,14 +1,14 @@
 import { useNode, Element } from "@craftjs/core";
-import { Image } from "./Image";
-import { Text } from "./Text";
-import { Button } from "./Button";
+import { Image } from "../Image/Image";
+import { Text } from "../Text/Text";
+import { Button } from "../Button/Button";
 import {
   StyledCard,
   StyledCardTop,
   StyledCardBottom,
   StyledCardBottomUpper,
   StyledCardBottomLower,
-} from "../base/Card/StyledCard";
+} from "../../base/Card/StyledCard";
 import {
   SettingsWrapper,
   ToggleGroup,
@@ -16,7 +16,7 @@ import {
   ColorPicker,
   Label,
   Separator,
-} from "../interface/settings";
+} from "../../interface/settings";
 
 const dummyText =
   "Our team was inspired by the seven skills of highly effective programmers created by the TechLead. We wanted to provide our own take on the topic. Here are our seven skills of effective programmers...";

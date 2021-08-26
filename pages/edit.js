@@ -11,8 +11,7 @@ import {
   Section,
   Text,
 } from "../components/user";
-import { Viewport } from "../components/interface";
-import { ViewportWarning } from "../components/interface/misc/ViewportWarning";
+import { Viewport } from "../components/interface/Viewport";
 import { RenderNode } from "../components/interface/misc/RenderNode";
 // import fetchProjectData from "../components/utils/fetchProjectData";
 
@@ -40,7 +39,6 @@ export default function Edit() {
       }}
       onRender={RenderNode}
     >
-      <ViewportWarning />
       {/* {json ? ( */}
       <Viewport>
         <Frame>

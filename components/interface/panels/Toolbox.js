@@ -1,12 +1,12 @@
 import { Element, useEditor } from "@craftjs/core";
 import { styled } from "../../../stitches.config";
 
-import { Section } from "../../user/Section";
-import { Box } from "../../user/Box";
-import { Button } from "../../user/Button";
-import { Text } from "../../user/Text";
-import { Image } from "../../user/Image";
-import { Card } from "../../user/Card";
+import { Section } from "../../user/Section/Section";
+import { Box } from "../../user/Box/Box";
+import { Button } from "../../user/Button/Button";
+import { Text } from "../../user/Text/Text";
+import { Image } from "../../user/Image/Image";
+import { Card } from "../../user/Card/Card";
 
 import { StyledBox } from "../../base/Box/StyledBox";
 
