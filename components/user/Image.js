@@ -1,5 +1,5 @@
-import { useNode } from "@craftjs/core";
 import { useState } from "react";
+import { useNode } from "@craftjs/core";
 import { StyledImage } from "../base/Image/StyledImage";
 import {
   SettingsWrapper,

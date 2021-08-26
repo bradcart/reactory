@@ -167,8 +167,8 @@ Section.craft = {
     nodeName: "Section",
   },
   rules: {
-    // canDrop: (targetNode) => targetNode.data.displayName == "Page",
-    // canMoveIn: (incomingNode) => incomingNode.data.displayName !== "Section",
+    canDrop: (targetNode) => targetNode.data.displayName === "Page",
+    canMoveIn: (incomingNode) => incomingNode.data.displayName !== "Section",
   },
   related: {
     settings: SectionSettings,

@@ -4,13 +4,13 @@ import { useRouter } from "next/router";
 // import { useUnload } from "../utils/useUnload";
 import { useNode, useEditor } from "@craftjs/core";
 import { ROOT_NODE } from "@craftjs/utils";
-import { styled } from "../../stitches.config";
+import { styled } from "../../../stitches.config";
 import {
   DragIcon,
   ArrowUpIcon,
   DeleteIcon,
   ExternalLinkIcon,
-} from "../icons/RenderNodeIcons";
+} from "../../icons/RenderNodeIcons";
 
 const IndicatorDiv = styled("div", {
   height: "30px",

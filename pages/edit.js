@@ -1,62 +1,26 @@
-import React, { useState, useEffect } from "react";
 import { Editor, Frame, Element } from "@craftjs/core";
 // import { Layers } from "@craftjs/layers";
-
-import { Page } from "../components/user/Page";
-import { Section } from "../components/user/Section";
-import { Box } from "../components/user/Box";
-import { Button } from "../components/user/Button";
-// import { Card, CardTop, CardBottom } from "../components/user/Card";
-import { Card, CardText, CardButtons } from "../components/user/Card";
-import { Text } from "../components/user/Text";
-import { Image } from "../components/user/Image";
-
+import {
+  Box,
+  Button,
+  Card,
+  CardText,
+  CardButtons,
+  Image,
+  Page,
+  Section,
+  Text,
+} from "../components/user";
 import { Viewport } from "../components/interface";
-import { RenderNode } from "../components/interface/RenderNode";
-import { styled } from "../stitches.config";
+import { ViewportWarning } from "../components/interface/misc/ViewportWarning";
+import { RenderNode } from "../components/interface/misc/RenderNode";
 // import fetchProjectData from "../components/utils/fetchProjectData";
 
 // const texture = "/texture.png";
 
-const ViewportOverlay = styled("div", {
-  display: "none",
-  width: "100%",
-  height: "100%",
-  position: "fixed",
-  top: 0,
-  left: 0,
-  zIndex: 9999,
-  px: "$2",
-  backgroundColor: "rgba(0, 0, 0, 0.87)",
-  color: "$white",
-  textAlign: "center",
-  fontFamily: "$grifter",
-  fontSize: "42px",
-  "> span": {
-    mt: "$2",
-    fontFamily: "$ddin",
-    fontSize: "24px",
-  },
-  "@media(max-width: 1365px)": {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
-
-const ViewportWarning = () => (
-  <ViewportOverlay>
-    Your browser is too small
-    <span>Resize your browser to be at least 1366px to use this demo.</span>
-  </ViewportOverlay>
-);
-
 export default function Edit() {
   /* const [json, setJson] = useState(null);
-
   const data = FetchProjectData();
-
   useEffect(() => {
     setJson(data);
   }, [data]); */
@@ -104,10 +68,10 @@ export default function Edit() {
                 text={`Built in Next.js.
                   <br />
                 Styled with Stitches and Radix-UI.`}
-                activeFontFamily="Noto Serif"
+                activeFontFamily="Poppins"
                 fontSize={18}
                 fontWeight={400}
-                lineHeight={36}
+                lineHeight={28}
                 width={32}
               />
             </Element>

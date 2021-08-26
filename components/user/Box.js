@@ -1,5 +1,4 @@
 import { useNode } from "@craftjs/core";
-// import { StyledBox } from "../base/Box/StyledBox";
 import { StyledBox } from "../base/Box/StyledBox";
 import {
   SettingsWrapper,
@@ -35,9 +34,7 @@ export const Box = ({
       style={{
         backgroundColor: background,
         width: `${width}%`,
-        // height: `${height * 10}px`,
         height: `${height}vh`,
-        // maxHeight: "auto",
         padding: padding,
       }}
     >

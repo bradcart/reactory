@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { useNode, useEditor } from "@craftjs/core";
+import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
+import { useNode, useEditor } from "@craftjs/core";
 import ContentEditable from "react-contenteditable";
 import { StyledBox } from "../base/Box/StyledBox";
 import {
@@ -15,15 +15,17 @@ import {
 export const Text = ({
   text,
   tagName = "p",
-  activeFontFamily,
-  fontSize,
-  fontWeight,
-  textAlign,
-  lineHeight,
-  width,
+  activeFontFamily = "Poppins",
+  fontSize = 20,
+  fontWeight = 400,
+  textAlign = "left",
+  lineHeight = 28,
+  width = 100,
   color,
   skipParentNode = false,
 }) => {
+  const [editable, setEditable] = useState(false);
+
   const {
     connectors: { connect },
     id,
@@ -36,8 +38,6 @@ export const Text = ({
   const { enabled } = useEditor((state) => ({
     enabled: state.options.enabled,
   }));
-
-  const [editable, setEditable] = useState(false);
 
   useEffect(() => {
     !selected && setEditable(false);
@@ -55,6 +55,11 @@ export const Text = ({
         fontWeight: fontWeight,
         textAlign: textAlign,
         width: `${width}%`,
+        fontSize: `${fontSize}px`,
+        fontWeight: "inherit",
+        fontFamily: activeFontFamily,
+        color: color,
+        lineHeight: `${lineHeight}px`,
         // pointerEvents: "auto",
       }}
     >
@@ -71,13 +76,6 @@ export const Text = ({
         }
         tagName={tagName}
         className={`apply-font-${id}`}
-        style={{
-          fontSize: `${fontSize}px`,
-          fontWeight: "inherit",
-          fontFamily: activeFontFamily,
-          color: color,
-          lineHeight: `${lineHeight}px`,
-        }}
       />
     </div>
   );

@@ -1,9 +1,7 @@
 import React from "react";
 import { StyledBox } from "../base/Box/StyledBox";
 import { useEditor } from "@craftjs/core";
-import { Toolbox } from "./panels/Toolbox";
-import { Topbar } from "./panels/Topbar";
-import { SettingsPanel } from "./panels/SettingsPanel";
+import { Topbar, Toolbox, SettingsPanel } from "./panels";
 
 export const Viewport = ({ children }) => {
   const { enabled, connectors } = useEditor((state) => ({
