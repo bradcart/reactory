@@ -37,30 +37,38 @@ export const Viewport = ({ children }) => {
             // overflow: "hidden",
           }}
         >
-          <Toolbox />
+          {enabled ? <Toolbox /> : null}
           <div
             className="page-container"
             style={{
               display: "flex",
-              flex: 1,
+              // flex: 1,
               height: "100%",
               flexDirection: "column",
+              gridColumn: enabled ? "2 / 3" : "1 / 4",
             }}
           >
             <div
               className="craftjs-renderer"
               style={{
-                flex: 1,
-                width: "100%",
+                // flex: 1,
+                position: "relative",
+                // width: "100%",
                 height: "100%",
+                // width: enabled ? "90%" : "98%",
+                // width: "clamp(740px, 90%, 2100px)",
+                width: enabled ? "max(90%, 740px)" : "max(98%, 740px)",
+                paddingTop: "30px",
                 paddingBottom: "8px",
+                margin: "0 auto",
+                transition: "width 0.3s ease",
                 // overflow: "auto",
               }}
               ref={(ref) =>
                 connectors.select(connectors.hover(ref, null), null)
               }
             >
-              <div
+              {/* <div
                 style={{
                   position: "relative",
                   display: "flex",
@@ -68,12 +76,12 @@ export const Viewport = ({ children }) => {
                   alignItems: "center",
                   paddingTop: "30px",
                 }}
-              >
-                {children}
-              </div>
+              > */}
+              {children}
+              {/* </div> */}
             </div>
           </div>
-          <SettingsPanel />
+          {enabled ? <SettingsPanel /> : null}
         </div>
       </StyledBox>
     </div>

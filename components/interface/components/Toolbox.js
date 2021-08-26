@@ -117,7 +117,7 @@ export const Toolbox = () => {
           }
         >
           <ContainerIcon width={60} />
-          <StyledLabel>Container</StyledLabel>
+          <StyledLabel>Block</StyledLabel>
         </ToolboxButton>
         <ToolboxButton
           ref={(ref) => connectors.create(ref, <Element is={Section} canvas />)}

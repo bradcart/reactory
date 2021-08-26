@@ -11,7 +11,7 @@ import { Card, CardText, CardButtons } from "../components/user/Card";
 import { Text } from "../components/user/Text";
 import { Image } from "../components/user/Image";
 
-import { Viewport } from "../components/interface/viewport";
+import { Viewport } from "../components/interface/components";
 import { RenderNode } from "../components/interface/RenderNode";
 import { styled } from "../stitches.config";
 // import fetchProjectData from "../components/utils/fetchProjectData";
@@ -37,7 +37,7 @@ const ViewportOverlay = styled("div", {
     fontFamily: "$ddin",
     fontSize: "24px",
   },
-  "@media(max-width: 899px)": {
+  "@media(max-width: 1365px)": {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -48,7 +48,7 @@ const ViewportOverlay = styled("div", {
 const ViewportWarning = () => (
   <ViewportOverlay>
     Your browser is too small
-    <span>Resize your browser to be at least 900px to use this demo.</span>
+    <span>Resize your browser to be at least 1366px to use this demo.</span>
   </ViewportOverlay>
 );
 

@@ -60,8 +60,9 @@ const Btn = styled("a", {
 
 export const RenderNode = ({ render }) => {
   const { id } = useNode();
-  const { actions, query, isActive } = useEditor((state) => ({
+  const { actions, query, isActive, enabled } = useEditor((state) => ({
     isActive: state.nodes[id].events.selected,
+    enabled: state.options.enabled,
   }));
 
   const {
@@ -92,7 +93,7 @@ export const RenderNode = ({ render }) => {
   useEffect(() => {
     if (dom) {
       // console.log(dom);
-      if (isActive || isHover) {
+      if (enabled && (isActive || isHover)) {
         // console.log(dom);
         custom && custom.droppableOnly
           ? dom.classList.add("dropzone-selected")
@@ -155,7 +156,7 @@ export const RenderNode = ({ render }) => {
 
   return (
     <>
-      {(isHover || isActive) && name !== "Page"
+      {enabled && (isHover || isActive)
         ? ReactDOM.createPortal(
             <IndicatorDiv
               ref={currentRef}
@@ -169,7 +170,7 @@ export const RenderNode = ({ render }) => {
               <h2 style={{ marginRight: "5px" }}>
                 {name.replace("&nbsp;", "")}
               </h2>
-              {moveable ? (
+              {name !== "Page" && moveable ? (
                 <Btn
                   style={{
                     cursor: "move",

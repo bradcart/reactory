@@ -121,6 +121,13 @@ export const Topbar = () => {
       <StyledBox css={{ display: "flex" }}>
         <TopbarButton
           onClick={() => {
+            actions.setOptions((options) => (options.enabled = !enabled));
+          }}
+        >
+          {enabled ? "Preview: OFF" : "Preview: ON"}
+        </TopbarButton>
+        <TopbarButton
+          onClick={() => {
             const json = query.serialize();
             copy(lz.encodeBase64(lz.compress(json)));
             toggleCopyAlert(true);

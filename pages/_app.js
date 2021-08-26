@@ -11,6 +11,10 @@ const globalStyles = global({
       src: 'url(/fonts/hkinight.woff2) format("woff2"), url(/fonts/hkinight.woff) format("woff")',
     },
     {
+      fontFamily: "GT America Expanded",
+      src: 'url(/fonts/gt-america-expanded-bold.woff2) format("woff2"), url(/fonts/gt-america-expanded-bold.woff) format("woff")',
+    },
+    {
       fontFamily: "GRIFTER",
       src: 'url(/fonts/grifter-bold.woff2) format("woff2"), url(/fonts/grifter-bold.woff) format("woff")',
     },

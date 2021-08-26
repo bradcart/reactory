@@ -1,4 +1,4 @@
-import { styled } from "../../stitches.config";
+import { styled } from "../../../stitches.config";
 import * as ScrollAreaPrimitive from "@radix-ui/react-scroll-area";
 
 const SCROLLBAR_SIZE = 8;

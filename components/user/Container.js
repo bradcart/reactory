@@ -149,10 +149,10 @@ export const ContainerDefaultProps = {
 };
 
 Container.craft = {
-  displayName: "Container",
+  displayName: "Block",
   props: ContainerDefaultProps,
   custom: {
-    nodeName: "Container",
+    nodeName: "Block",
   },
   related: {
     settings: ContainerSettings,

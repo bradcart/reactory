@@ -104,7 +104,7 @@ export const { css, styled, global, theme, keyframes, getCssString } =
         compagnon: "Compagnon Medium",
         concretica: "SK Concretica",
         mattone: "Mattone",
-        gt: "GT America Trial Exp Md",
+        gt: "GT America Expanded",
       },
       radii: {
         1: "4px",

@@ -18,7 +18,8 @@ export const Page = ({ background, padding = 0, children }) => {
     <StyledBox
       ref={connect}
       style={{
-        width: "90%",
+        // width: "90%",
+        width: "100%",
         height: "calc(95vh - 60px)",
         position: "absolute",
         padding: `${padding}px`,
