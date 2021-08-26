@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNode } from "@craftjs/core";
+import { useNode, useEditor } from "@craftjs/core";
 import dynamic from "next/dynamic";
 import ContentEditable from "react-contenteditable";
 import { StyledBox } from "../styled/Box/StyledBox";
@@ -33,6 +33,10 @@ export const Text = ({
     selected: node.events.selected,
   }));
 
+  const { enabled } = useEditor((state) => ({
+    enabled: state.options.enabled,
+  }));
+
   const [editable, setEditable] = useState(false);
 
   useEffect(() => {
@@ -58,7 +62,7 @@ export const Text = ({
         innerRef={connect}
         html={text}
         onClick={() => setEditable(true)}
-        disabled={!editable}
+        disabled={enabled ? !editable : true}
         onChange={(e) =>
           setProp(
             (props) =>
