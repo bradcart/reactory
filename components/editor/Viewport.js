@@ -30,7 +30,7 @@ export const Viewport = ({ children }) => {
             height: "100%",
             display: "grid",
             position: "fixed",
-            gridTemplateColumns: "230px 1fr 230px",
+            gridTemplateColumns: "260px 1fr 260px",
             gridTemplateRows: "100%",
             // overflow: "hidden",
           }}
@@ -52,7 +52,7 @@ export const Viewport = ({ children }) => {
                 height: "100%",
                 // width: enabled ? "90%" : "98%",
                 // width: "clamp(740px, 90%, 2100px)",
-                width: enabled ? "max(90%, 740px)" : "max(98%, 740px)",
+                width: enabled ? "max(90%, 680px)" : "max(98%, 740px)",
                 paddingTop: "30px",
                 paddingBottom: "8px",
                 margin: "0 auto",

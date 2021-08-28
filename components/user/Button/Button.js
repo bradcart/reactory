@@ -11,7 +11,7 @@ import {
   Form,
   TextInput,
   Separator,
-} from "../../interface/settings";
+} from "../../editor/settings";
 
 export const Button = ({
   size,

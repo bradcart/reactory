@@ -11,8 +11,8 @@ import {
   Section,
   Text,
 } from "../components/user";
-import { Viewport } from "../components/interface/Viewport";
-import { RenderNode } from "../components/interface/misc/RenderNode";
+import { Viewport } from "../components/editor/Viewport";
+import { RenderNode } from "../components/editor/misc/RenderNode";
 // import fetchProjectData from "../components/utils/fetchProjectData";
 
 // const texture = "/texture.png";
@@ -47,7 +47,7 @@ export default function Edit() {
               is={Section}
               id="canvas__intro-section"
               canvas
-              justify="spaceBetween"
+              justify="center"
               padding={10}
             >
               <Element
@@ -77,7 +77,7 @@ export default function Edit() {
               is={Section}
               id="canvas__card-section"
               canvas
-              justify="left"
+              justify="start"
               padding={0}
             >
               <Element is={Card} id="canvas__card" canvas />

@@ -9,7 +9,7 @@ import {
   Slider,
   ToggleGroup,
   Separator,
-} from "../../interface/settings";
+} from "../../editor/settings";
 
 export const Image = ({ src, width, height, objectFit }) => {
   const {

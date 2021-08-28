@@ -10,6 +10,7 @@ export const Label = styled(LabelPrimitive.Root, {
   display: "block",
 
   // Custom
+  userSelect: "none",
   fontFamily: "$ddin",
   fontSize: "$4",
   color: "$white",
@@ -19,4 +20,5 @@ export const Label = styled(LabelPrimitive.Root, {
   textAlign: "center",
   lineHeight: 1,
   p: "3px",
+  alignSelf: "flex-start",
 });

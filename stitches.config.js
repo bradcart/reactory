@@ -9,8 +9,8 @@ export const { css, styled, global, theme, keyframes, getCssString } =
         // loContrast: "white",
 
         white: "#fff",
-        whiteDim: "rgba(255, 255, 255, 0.26)",
-        whiteDimmer: "rgba(255, 255, 255, 0.13)",
+        whiteDim: "rgba(255, 255, 255, 0.16)",
+        whiteDimmer: "rgba(255, 255, 255, 0.08)",
         whiteAlpha: "rgba(255, 255, 255, 0.9)",
 
         black100: "#111",
@@ -27,7 +27,7 @@ export const { css, styled, global, theme, keyframes, getCssString } =
         gray300: "#555",
         gray400: "#666",
         gray500: "#777",
-        gray600: "#999",
+        gray600: "#a0a0a0",
         gray700: "#cfcfcf",
         gray800: "#e6e6e6",
         gray900: "#f0f0f0",
@@ -68,7 +68,7 @@ export const { css, styled, global, theme, keyframes, getCssString } =
       fontSizes: {
         1: "10px",
         2: "12px",
-        3: "14px",
+        3: "13px",
         4: "16px",
         5: "19px",
         6: "21px",
@@ -90,7 +90,8 @@ export const { css, styled, global, theme, keyframes, getCssString } =
         hki: "HKI Nightlife",
         grifter: "GRIFTER",
         ddin: "D-DIN Exp",
-        helvetica: "Helvetica Now",
+        cousine: "Cousine",
+        helvetica: "Helvetica Neue",
         dx: "DX Rigraf",
         oskari: "Oskari G2",
         brrr: "BRRR",

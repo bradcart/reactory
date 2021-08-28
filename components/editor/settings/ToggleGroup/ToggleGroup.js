@@ -1,26 +1,6 @@
 import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group";
-import * as Separator from "@radix-ui/react-separator";
 import { styled } from "../../../../stitches.config";
-
-// const ToggleHighlighter = styled("div", {
-//   position: "absolute",
-//   width: "calc(100% / 3)",
-//   pointerEvents: "none",
-//   "&::after": {
-//     content: "",
-//     position: "absolute",
-//     width: "100%",
-//     height: 27,
-//     zIndex: 10,
-//     top: 1,
-//     right: 1,
-//     bottom: 1,
-//     left: "200%",
-//     backgroundColor: "$translucentGray",
-//     borderRadius: "$1",
-//     boxShadow: "2px 4px rgba(0, 0, 0, .1)",
-//   },
-// });
+// import * as Separator from "@radix-ui/react-separator";
 
 const ToggleButton = styled("button", {
   // Reset
@@ -44,47 +24,43 @@ const ToggleButton = styled("button", {
     boxSizing: "border-box",
   },
 
-  //Custom
-  // flexGrow: 1,
-  padding: "6px 5px 5px 5px",
-  borderRadius: "inherit",
+  // Custom
+  cursor: "pointer",
+  flexGrow: 1,
+  padding: "6px 10px 5px 10px",
   borderColor: "inherit",
-  fontSize: "11px",
-  backgroundColor: "inherit",
+  fontSize: "$3",
+  backgroundColor: "$black200",
   color: "inherit",
   fontFamily: "$ddin",
-  textTransform: "uppercase",
+  textTransform: "lowercase",
   "&[data-state=on]": {
-    backgroundColor: "$black300",
+    backgroundColor: "$gray300",
     color: "$white",
+    boxShadow: "0px 2px 4px 0px rgba(0,0,0,.1),0px 1px 0px 0px rgba(0,0,0,.05)",
   },
-  // variants: {
-  //   numberTotal: {
-  //     3: {
-  //       width: "calc(100% / 3)",
-  //     },
-  //     2: {
-  //       width: "50%",
-  //     },
-  //   },
-  // },
+  "&[data-state=off]": {
+    "&:hover": {
+      color: "$white",
+    },
+  },
 });
 
-const ToggleRoot = styled("div", {
+const ToggleRoot = styled(ToggleGroupPrimitive.Root, {
+  display: "flex",
+  justifyContent: "space-between",
+  // gridAutoFlow: "column",
+  width: "95%",
   p: 0,
-  mt: "$1",
-  mb: "$4",
-  // display: "flex",
-  // position: "relative",
-  width: "100%",
+  mt: "$2",
+  mb: "$5",
+
+  color: "$gray600",
   borderRadius: "$1",
   borderColor: "transparent",
-  backgroundColor: "$black400",
-  color: "$gray600",
-  display: "inline-grid",
-  gridAutoFlow: "column",
+  overflow: "hidden",
   variants: {
-    numberTotal: {
+    numberOfButtons: {
       3: {
         gridTemplateColumns: "repeat(3, 1fr)",
       },
@@ -95,11 +71,11 @@ const ToggleRoot = styled("div", {
   },
 });
 
-const ToggleSeparator = styled(Separator.Root, {
-  backgroundColor: "$gray400",
-  height: 27,
-  width: 1,
-});
+// const ToggleSeparator = styled(Separator.Root, {
+//   backgroundColor: "$gray400",
+//   height: 27,
+//   width: 1,
+// });
 
 export const ToggleGroup = ({
   id,
@@ -113,13 +89,13 @@ export const ToggleGroup = ({
   labelThree,
 }) => {
   return (
-    <ToggleGroupPrimitive.Root
+    <ToggleRoot
       type="single"
       id={id}
       value={currentValue}
       onValueChange={onValueChange}
       as={ToggleRoot}
-      numberTotal={valueThree ? 3 : 2}
+      numberOfButtons={valueThree ? 3 : 2}
     >
       <ToggleGroupPrimitive.Item
         value={valueOne}
@@ -145,15 +121,6 @@ export const ToggleGroup = ({
           {labelThree}
         </ToggleGroupPrimitive.Item>
       ) : null}
-      {/* <ToggleHighlighter
-        style={
-          currentValue === 1
-            ? { left: "1px" }
-            : currentValue === 2
-            ? { left: 200 }
-            : { left: "auto" }
-        }
-      /> */}
-    </ToggleGroupPrimitive.Root>
+    </ToggleRoot>
   );
 };

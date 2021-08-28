@@ -6,7 +6,7 @@ import {
   Label,
   Slider,
   ColorPicker,
-} from "../../interface/settings";
+} from "../../editor/settings";
 
 export const Page = ({ background, padding = 0, children }) => {
   const {

@@ -7,7 +7,7 @@ import {
   ToggleGroup,
   ColorPicker,
   Separator,
-} from "../../interface/settings";
+} from "../../editor/settings";
 
 export const Box = ({
   background,

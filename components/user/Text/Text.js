@@ -10,7 +10,7 @@ import {
   ColorPicker,
   Label,
   Separator,
-} from "../../interface/settings";
+} from "../../editor/settings";
 
 export const Text = ({
   text,
@@ -42,7 +42,6 @@ export const Text = ({
   useEffect(() => {
     !selected && setEditable(false);
   }, [selected]);
-
   useEffect(() => {
     if (skipParentNode) {
       setCustom((custom) => (custom.skipParentNode = true));
@@ -105,6 +104,7 @@ const TextSettings = () => {
     nodeName: node.data.custom.nodeName,
   }));
 
+  // Compatibility fix for font-picker-react
   let FontPicker;
   if (typeof window !== "undefined") {
     FontPicker = dynamic(() => import("font-picker-react"), { ssr: false });
@@ -118,11 +118,11 @@ const TextSettings = () => {
       nodeName={nodeName}
       setCustom={setCustom}
     >
-      <StyledBox css={{ mb: "$4", fontSize: "$3" }}>
-        <Separator decorative css={{ opacity: 0 }} />
-        <Label htmlFor="font-picker" css={{ mb: "$1" }}>
-          Font
-        </Label>
+      <Separator decorative css={{ opacity: 0 }} />
+      <Label htmlFor="font-picker" css={{ mb: "$2" }}>
+        Font
+      </Label>
+      <div style={{ alignSelf: "flex-start", marginLeft: "2.5%" }}>
         <FontPicker
           apiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY}
           id="font-picker"
@@ -137,29 +137,8 @@ const TextSettings = () => {
           //   Object.keys(font.files).includes("300", "400", "700")
           // }
         />
-      </StyledBox>
-      <Label htmlFor="text__font-size">Size</Label>
-      <Slider
-        id="text__font-size"
-        value={[fontSize]}
-        onValueChange={(value) =>
-          setProp((props) => (props.fontSize = value[0]))
-        }
-        step={1}
-        min={8}
-        max={72}
-      />
-      <Label htmlFor="text__line-height">Line Height</Label>
-      <Slider
-        id="text__line-height"
-        value={[lineHeight]}
-        onValueChange={(value) =>
-          setProp((props) => (props.lineHeight = value[0]))
-        }
-        step={1}
-        min={1}
-        max={100}
-      />
+      </div>
+      <Separator decorative css={{ opacity: 0 }} />
       <Label htmlFor="text__font-weight">Weight</Label>
       <ToggleGroup
         id="text__font-weight"
@@ -186,7 +165,29 @@ const TextSettings = () => {
         valueThree="right"
         labelThree="Right"
       />
-      <Label htmlFor="text__width">Width</Label>
+      <Label htmlFor="text__font-size">Size</Label>
+      <Slider
+        id="text__font-size"
+        value={[fontSize]}
+        onValueChange={(value) =>
+          setProp((props) => (props.fontSize = value[0]))
+        }
+        step={1}
+        min={8}
+        max={72}
+      />
+      <Label htmlFor="text__line-height">Line Height</Label>
+      <Slider
+        id="text__line-height"
+        value={[lineHeight]}
+        onValueChange={(value) =>
+          setProp((props) => (props.lineHeight = value[0]))
+        }
+        step={1}
+        min={1}
+        max={100}
+      />
+      <Label htmlFor="text__width">Line Width</Label>
       <Slider
         id="text__width"
         value={[width]}
@@ -195,7 +196,8 @@ const TextSettings = () => {
         min={0}
         max={100}
       />
-      <Separator />
+
+      <Label>Color</Label>
       <ColorPicker
         onClick={(e) => setProp((props) => (props.color = e.target.value))}
       />

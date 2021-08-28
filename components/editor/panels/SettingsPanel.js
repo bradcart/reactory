@@ -1,10 +1,7 @@
 import React from "react";
-import { QueryMethods, useEditor } from "@craftjs/core";
+import { useEditor } from "@craftjs/core";
 import { StyledBox } from "../../base/Box/StyledBox";
-import { Layers } from "@craftjs/layers";
-// import { StyledButton } from "../../styled/StyledButton";
-// import { StyledHeading } from "../../styled/StyledHeading";
-// import { StyledText } from "../../styled/StyledText";
+// import { Layers } from "@craftjs/layers";
 
 export const SettingsPanel = () => {
   const { actions, selected } = useEditor((state, query) => {

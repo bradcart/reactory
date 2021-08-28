@@ -24,18 +24,18 @@ import {
 
 const ColorPickerBox = styled("div", {
   py: "8px",
-  px: "$3",
-  mt: "$1",
-  mb: "$4",
+  px: 0,
+  mt: "$2",
+  mb: "$5",
   mx: "auto",
-  width: "90%",
+  width: "80%",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "space-between",
-  backgroundColor: "$black300",
-  // border: "1px solid $grayAlpha",
-  borderRadius: "$3",
+  backgroundColor: "$black200",
+  border: "1px solid transparent",
+  borderRadius: "$4",
 });
 
 const ColorPickerHeader = styled("div", {
@@ -44,7 +44,7 @@ const ColorPickerHeader = styled("div", {
   width: "100%",
   height: "$3",
   display: "flex",
-  justifyContent: "space-between",
+  justifyContent: "center",
   alignItems: "center",
 });
 
@@ -67,12 +67,12 @@ const ColorPickerArrow = styled("button", {
   WebkitTapHighlightColor: "rgba(0,0,0,0)",
 
   // Custom
-  width: "25%",
+  width: "20%",
   height: "100%",
   borderRadius: "$round",
   cursor: "pointer",
   position: "relative",
-  color: "$gray700",
+  // color: "$gray700",
   "&:hover": {
     "&::after": {
       backgroundColor: "$whiteDim",
@@ -98,21 +98,22 @@ const ColorPickerArrow = styled("button", {
 });
 
 const ColorPickerTitle = styled("span", {
-  width: "50%",
+  width: "40%",
   height: "100%",
-  lineHeight: 1.33,
+  lineHeight: 1.15,
   // pt: "$1",
   fontFamily: "$ddin",
-  fontSize: "$2",
-  fontWeight: "bold",
+  fontSize: "$3",
+  // fontWeight: "bold",
   textAlign: "center",
-  textTransform: "uppercase",
-  color: "$gray700",
+  textTransform: "lowercase",
+  color: "$gray800",
+  // fontWeight: "bold",
   userSelect: "none",
 });
 
 const ColorPickerPanel = styled("div", {
-  my: "$2",
+  my: "$3",
   display: "grid",
   gridTemplateColumns: "repeat(4, 1fr)",
   rowGap: "$2",
@@ -122,7 +123,7 @@ const ColorPickerPanel = styled("div", {
 const ColorPickerSwatch = styled("button", {
   width: "28px",
   height: "28px",
-  mx: "$1",
+  mx: "3px",
   borderRadius: "$round",
   borderWidth: 1,
   borderStyle: "solid",
@@ -151,7 +152,7 @@ const colors = {
   red: {
     ...red,
   },
-  crimson: {
+  pink: {
     ...crimson,
   },
   plum: {
@@ -208,7 +209,7 @@ export const ColorPicker = ({ id, onClick }) => {
     if (colorSection > 0) {
       changeColorSection(colorSection - 1);
     } else {
-      changeColorSection(4);
+      changeColorSection(13);
     }
   };
 
@@ -223,15 +224,15 @@ export const ColorPicker = ({ id, onClick }) => {
   return (
     <ColorPickerBox id={id}>
       <ColorPickerHeader>
-        <ColorPickerArrow
-          onClick={() => clickLeftArrow()}
-          css={{ pr: "1.6px" }}
-        >
-          <DoubleArrowLeftIcon />
+        <ColorPickerArrow onClick={() => clickLeftArrow()}>
+          <DoubleArrowLeftIcon color="#e6e6e6" style={{ marginRight: "3px" }} />
         </ColorPickerArrow>
         <ColorPickerTitle>{Object.keys(colors)[colorSection]}</ColorPickerTitle>
-        <ColorPickerArrow onClick={() => clickRightArrow()}>
-          <DoubleArrowRightIcon />
+        <ColorPickerArrow
+          onClick={() => clickRightArrow()}
+          style={{ marginLeft: "3px" }}
+        >
+          <DoubleArrowRightIcon color="#e6e6e6" />
         </ColorPickerArrow>
       </ColorPickerHeader>
       <ColorPickerPanel>

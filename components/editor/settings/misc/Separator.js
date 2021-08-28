@@ -6,5 +6,6 @@ export const Separator = styled(SeparatorPrimitive.Root, {
   backgroundColor: "$whiteDimmer",
   width: "100%",
   height: 1,
-  my: "$4",
+  mt: "$2",
+  mb: "$5",
 });

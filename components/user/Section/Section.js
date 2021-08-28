@@ -1,6 +1,5 @@
 import { useNode } from "@craftjs/core";
 import { StyledSection } from "../../base/Section/StyledSection";
-import { StyledBox } from "../../base/Box/StyledBox";
 import {
   SettingsWrapper,
   Label,
@@ -8,7 +7,7 @@ import {
   ToggleGroup,
   ColorPicker,
   Separator,
-} from "../../interface/settings";
+} from "../../editor/settings";
 
 export const Section = ({
   height,
@@ -48,7 +47,6 @@ export const SectionSettings = () => {
   const {
     height,
     padding,
-    size,
     direction,
     justify,
     align,
@@ -95,18 +93,7 @@ export const SectionSettings = () => {
         min={0}
         max={80}
       />
-      {/* <Label htmlFor="section__size">Size</Label>
-      <ToggleGroup
-        id="section__size"
-        currentValue={size}
-        onValueChange={(value) => setProp((props) => (props.size = value))}
-        valueOne="sm"
-        labelOne="Small"
-        valueTwo="md"
-        labelTwo="Medium"
-        valueThree="lg"
-        labelThree="Large"
-      /> */}
+      <Separator />
       <Label htmlFor="section__direction">Direction</Label>
       <ToggleGroup
         id="section__direction"
@@ -150,7 +137,6 @@ export const SectionSettings = () => {
   );
 };
 
-// We export this because we'll be using this in the Card component as well
 const SectionDefaultProps = {
   background: "#inherit",
   height: 20,
