@@ -22,7 +22,7 @@ const StyledAlert = styled("div", {
   borderRadius: "$2",
   backgroundColor: "$black100",
   color: "$white",
-  fontFamily: "$grifter",
+  fontFamily: "$ddin",
   fontSize: "$4",
   animation: `${slideInBlurredBottom} 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both, ${slideOutBlurredBottom} 0.45s cubic-bezier(0.755, 0.050, 0.855, 0.060) 1.8s forwards`,
 });
