@@ -3,7 +3,6 @@ import { styled } from "../../../../stitches.config";
 
 export const Label = styled(LabelPrimitive.Root, {
   // Reset
-  lineHeight: "1",
   margin: "0",
   fontWeight: 400,
   fontVariantNumeric: "tabular-nums",
@@ -15,7 +14,6 @@ export const Label = styled(LabelPrimitive.Root, {
   fontSize: "$4",
   color: "$white",
   opacity: 0.9,
-  // letterSpacing: "0.03em",
   textTransform: "lowercase",
   textAlign: "center",
   lineHeight: 1,

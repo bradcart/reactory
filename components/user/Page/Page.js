@@ -75,7 +75,7 @@ const PageSettings = () => {
 };
 
 const PageDefaultProps = {
-  background: "#fcfafc",
+  background: "#fbfcfd",
   padding: 40,
 };
 

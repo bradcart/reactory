@@ -103,6 +103,16 @@ const ButtonSettings = () => {
       setCustom={setCustom}
     >
       <Separator decorative css={{ opacity: 0 }} />
+      <Label htmlFor="button__action">Link to</Label>
+      <Form name="button-href" onSubmit={(e) => updateHref(e)}>
+        <TextInput
+          id="button__action"
+          type="text"
+          placeholder={href === "" ? "paste link URL here" : href}
+          onChange={(e) => changeButtonHref(e.target.value)}
+        />
+      </Form>
+      <Separator />
       <Label htmlFor="button__size">Size</Label>
       <ToggleGroup
         id="button__size"
@@ -133,16 +143,6 @@ const ButtonSettings = () => {
         id="button__background-color"
         onClick={(e) => setProp((props) => (props.background = e.target.value))}
       />
-      <Separator />
-      <Label htmlFor="button__action">Link to</Label>
-      <Form name="button-href" onSubmit={(e) => updateHref(e)}>
-        <TextInput
-          id="button__action"
-          type="text"
-          placeholder={href === "" ? "paste link URL here" : href}
-          onChange={(e) => changeButtonHref(e.target.value)}
-        />
-      </Form>
     </SettingsWrapper>
   );
 };

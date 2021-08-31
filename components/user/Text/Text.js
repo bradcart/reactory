@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { useNode, useEditor } from "@craftjs/core";
 import ContentEditable from "react-contenteditable";
-import { StyledBox } from "../../base/Box/StyledBox";
+// import { StyledBox } from "../../base/Box/StyledBox";
 import {
   SettingsWrapper,
   Slider,
@@ -153,6 +153,18 @@ const TextSettings = () => {
         valueThree={700}
         labelThree="Bold"
       />
+      <Label htmlFor="text__font-size">Size</Label>
+      <Slider
+        id="text__font-size"
+        value={[fontSize]}
+        onValueChange={(value) =>
+          setProp((props) => (props.fontSize = value[0]))
+        }
+        step={1}
+        min={8}
+        max={72}
+      />
+      <Separator />
       <Label htmlFor="text__text-align">Align</Label>
       <ToggleGroup
         id="text__text-align"
@@ -164,17 +176,6 @@ const TextSettings = () => {
         labelTwo="Center"
         valueThree="right"
         labelThree="Right"
-      />
-      <Label htmlFor="text__font-size">Size</Label>
-      <Slider
-        id="text__font-size"
-        value={[fontSize]}
-        onValueChange={(value) =>
-          setProp((props) => (props.fontSize = value[0]))
-        }
-        step={1}
-        min={8}
-        max={72}
       />
       <Label htmlFor="text__line-height">Line Height</Label>
       <Slider

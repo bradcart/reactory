@@ -30,17 +30,18 @@ const StyledBadge = styled("span", {
   // Custom
   alignSelf: "center",
   backgroundColor: "$white",
-  opacity: 0.73,
+  opacity: 0.8,
   borderRadius: "$pill",
   color: "$black100",
-  fontFamily: "$grifter",
+  fontFamily: "$ddin",
   fontSize: "$3",
+  fontWeight: "bolder",
   textTransform: "uppercase",
   textAlign: "center",
   whiteSpace: "nowrap",
   height: "$4",
-  py: "$2",
   px: "$2",
+  py: "$2",
 });
 
 export const Badge = ({ selected, nodeName, setCustom }) => {

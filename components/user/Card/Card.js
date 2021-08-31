@@ -138,6 +138,19 @@ const CardSettings = () => {
       setCustom={setCustom}
     >
       <Separator decorative css={{ opacity: 0 }} />
+      <Label htmlFor="card__padding">Padding</Label>
+      <Slider
+        id="card__padding"
+        value={[padding]}
+        onValueChange={(value) =>
+          setProp((props) => (props.padding = value[0]))
+        }
+        step={10}
+        min={10}
+        max={80}
+      />
+      <Separator />
+
       <Label htmlFor="card__size">Size</Label>
       <ToggleGroup
         id="card__size"
@@ -150,18 +163,7 @@ const CardSettings = () => {
         valueThree="lg"
         labelThree="Large"
       />
-      <Label htmlFor="card__padding">Padding</Label>
-      <Slider
-        id="card__padding"
-        value={[padding]}
-        onValueChange={(value) =>
-          setProp((props) => (props.padding = value[0]))
-        }
-        step={10}
-        min={10}
-        max={80}
-      />
-      <Label htmlFor="card__align-items">Align</Label>
+      <Label htmlFor="card__align-items">Align Content</Label>
       <ToggleGroup
         id="card__align-items"
         currentValue={alignItems}
@@ -175,7 +177,6 @@ const CardSettings = () => {
         valueThree="end"
         labelThree="Bottom"
       />
-      <Separator />
       <Label htmlFor="card__border-radius">Corners</Label>
       <ToggleGroup
         id="card__border-radius"
