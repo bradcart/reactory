@@ -2,18 +2,18 @@ import Head from "next/head";
 import { Editor, Frame, Element } from "@craftjs/core";
 // import { Layers } from "@craftjs/layers";
 import {
-  Box,
-  Button,
-  Card,
-  CardText,
-  CardButtons,
-  Image,
+  ReactoryBox,
+  ReactoryButton,
+  ReactoryCard,
+  ReactoryCardText,
+  ReactoryCardButtons,
+  ReactoryImage,
   Page,
-  Section,
-  Text,
-} from "../components/user";
-import { Viewport } from "../components/editor/Viewport";
-import { RenderNode } from "../components/editor/misc/RenderNode";
+  ReactorySection,
+  ReactoryText,
+} from "../components";
+import { Viewport } from "../layouts/Viewport";
+import { RenderNode } from "../layouts/RenderNode";
 // import fetchProjectData from "../components/utils/fetchProjectData";
 
 // const texture = "/texture.png";
@@ -45,14 +45,14 @@ export default function Edit() {
       <Editor
         resolver={{
           Page,
-          Card,
-          CardText,
-          CardButtons,
-          Button,
-          Text,
-          Box,
-          Image,
-          Section,
+          ReactoryCard,
+          ReactoryCardText,
+          ReactoryCardButtons,
+          ReactoryButton,
+          ReactoryText,
+          ReactoryBox,
+          ReactoryImage,
+          ReactorySection,
         }}
         onRender={RenderNode}
       >
@@ -61,14 +61,14 @@ export default function Edit() {
           <Frame>
             <Element is={Page} canvas>
               <Element
-                is={Section}
+                is={ReactorySection}
                 id="canvas__intro-section"
                 canvas
                 justify="center"
                 padding={10}
               >
                 <Element
-                  is={Text}
+                  is={ReactoryText}
                   id="canvas__intro-section-title"
                   text="Reactory is a single-page website builder with a drag and drop interface."
                   activeFontFamily="Poppins"
@@ -78,7 +78,7 @@ export default function Edit() {
                   width={62}
                 />
                 <Element
-                  is={Text}
+                  is={ReactoryText}
                   id="canvas__intro-section-paragraph"
                   text={`Built in Next.js.
                   <br />
@@ -91,13 +91,13 @@ export default function Edit() {
                 />
               </Element>
               <Element
-                is={Section}
+                is={ReactorySection}
                 id="canvas__card-section"
                 canvas
                 justify="start"
                 padding={0}
               >
-                <Element is={Card} id="canvas__card" canvas />
+                <Element is={ReactoryCard} id="canvas__card" canvas />
               </Element>
             </Element>
           </Frame>

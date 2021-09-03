@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import Head from "next/head";
-import Link from "next/link";
+import NextLink from "next/link";
 import { styled } from "../stitches.config";
-import { StyledBox } from "../components/base/Box/StyledBox";
-import { StyledText } from "../components/base/Text/StyledText";
+import { Box, Text } from "../components";
 import {
   TopLeftBlockIcon,
   TopRightBlockIcon,
   BottomLeftBlockIcon,
   BottomRightBlockIcon,
   ShapesIcon,
-} from "../components/icons/IntroIcons";
+} from "../icons/IntroIcons";
 import {
   bounceInTop,
   bounceInBottom,
@@ -137,7 +136,7 @@ export default function Home() {
         <meta property="og:url" content="https://reactory.vercel.app/" />
         <meta property="og:image" content="/og-img.png" />
       </Head>
-      <StyledBox
+      <Box
         css={{
           position: "relative",
           height: "100vh",
@@ -151,7 +150,7 @@ export default function Home() {
         <StyledLink href="https://bradc.art/" target="_blank" rel="noreferrer">
           BRADC.ART
         </StyledLink>
-        <StyledBox
+        <Box
           css={{
             display: "flex",
             flexDirection: "column",
@@ -199,25 +198,30 @@ export default function Home() {
             <StyledLetter letterNumber={7}>r</StyledLetter>
             <StyledLetter letterNumber={8}>y</StyledLetter>
           </div>
-          <StyledText
+          <Text
             className="intro-subtitle"
             css={{
-              fontFamily: "$grifter",
-              fontSize: "28px",
+              mb: -30,
+              // fontFamily: "$grifter",
+              fontFamily: "'Krona One', sans-serif",
+              fontWeight: "bold",
+              letterSpacing: -4,
+              fontSize: "26px",
               color: "$white",
+
               animation: `${slideInLeft} 0.8s both`,
               "@bp2": {
-                fontSize: "36px",
+                fontSize: "34px",
               },
               "@bp3": {
-                fontSize: "46px",
+                fontSize: "44px",
               },
             }}
           >
             drag-n-drop site builder
-          </StyledText>
-        </StyledBox>
-        <Link href="/edit">
+          </Text>
+        </Box>
+        <NextLink href="/edit">
           <StyledButton
             onMouseEnter={() => toggleColorize(true)}
             onMouseLeave={() => toggleColorize(false)}
@@ -230,8 +234,8 @@ export default function Home() {
               fillTopRight={colorize ? purple : "#fff"}
             />
           </StyledButton>
-        </Link>
-      </StyledBox>
+        </NextLink>
+      </Box>
     </>
   );
 }

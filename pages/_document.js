@@ -10,6 +10,16 @@ class MyDocument extends Document {
             id="stitches"
             dangerouslySetInnerHTML={{ __html: getCssText() }}
           />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="anonymous"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap"
+            rel="stylesheet"
+          />
           <link
             rel="preload"
             href="/fonts/hkinight.woff"
