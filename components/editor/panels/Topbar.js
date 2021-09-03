@@ -115,7 +115,7 @@ export const Topbar = () => {
             },
           }}
         >
-          REACTORY
+          reactory
         </StyledHeading>
       </Link>
       <StyledBox css={{ display: "flex" }}>
