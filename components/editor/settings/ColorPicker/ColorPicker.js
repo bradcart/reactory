@@ -40,7 +40,7 @@ const ColorPickerBox = styled("div", {
 
 const ColorPickerHeader = styled("div", {
   mx: "$1",
-  my: 3,
+  mt: 7,
   width: "100%",
   height: "$3",
   display: "flex",

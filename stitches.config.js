@@ -68,7 +68,7 @@ export const { css, styled, globalCss, createTheme, keyframes, getCssText } =
       fontSizes: {
         1: "10px",
         2: "12px",
-        3: "13px",
+        3: "14px",
         4: "16px",
         5: "19px",
         6: "21px",

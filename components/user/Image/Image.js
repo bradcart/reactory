@@ -19,6 +19,7 @@ export const Image = ({ src, width, height, objectFit }) => {
     <div ref={connect} style={{ width: `${width}%`, height: `${height}%` }}>
       <StyledImage
         src={src}
+        alt=""
         style={{
           objectFit: objectFit,
           width: "100%",

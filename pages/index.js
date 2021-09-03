@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Head from "next/head";
 import Link from "next/link";
 import { styled } from "../stitches.config";
 import { StyledBox } from "../components/base/Box/StyledBox";
@@ -120,97 +121,116 @@ export default function Home() {
   const green = "hsl(180, 63%, 50%)";
   const purple = "hsl(262, 73%, 62%)";
   return (
-    <StyledBox
-      css={{
-        position: "relative",
-        height: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "$black100",
-      }}
-    >
-      <StyledLink href="https://bradc.art/" target="_blank" rel="noreferrer">
-        BRADC.ART
-      </StyledLink>
+    <>
+      <Head>
+        <title>Reactory</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta
+          name="description"
+          content="Reactory is a site builder experiment by Brad Carter [https://bradc.art]"
+        />
+        <meta property="og:title" content="Reactory" />
+        <meta
+          property="og:description"
+          content="Reactory is a site builder experiment by Brad Carter [https://bradc.art]"
+        />
+        <meta property="og:url" content="https://reactory.vercel.app/" />
+        <meta property="og:image" content="/og-img.png" />
+      </Head>
       <StyledBox
         css={{
+          position: "relative",
+          height: "100vh",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-between",
+          justifyContent: "center",
           alignItems: "center",
-          height: "18%",
-          position: "relative",
-          px: "$7",
-          py: "$3",
-          "@bp2": {
-            height: "21%",
-          },
-          "@bp3": {
-            height: "26%",
-          },
-          "@bp4": {
-            height: "27%",
-          },
+          backgroundColor: "$black100",
         }}
       >
-        <TopLeftBlockIcon animation={`${bounceInTop} 0.6s linear both`} />
-        <TopRightBlockIcon animation={`${bounceInTop} 0.8s linear 0.5s both`} />
-        <BottomLeftBlockIcon
-          animation={`${bounceInTop} 0.7s linear 1.5s both`}
-        />
-        <BottomRightBlockIcon
-          animation={`${bounceInTop} 0.6s linear 2.2s both`}
-        />
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            transform: "rotate(0.78deg)",
-          }}
-        >
-          <StyledLetter letterNumber={1}>R</StyledLetter>
-          <StyledLetter letterNumber={2}>e</StyledLetter>
-          <StyledLetter letterNumber={3}>a</StyledLetter>
-          <StyledLetter letterNumber={4}>c</StyledLetter>
-          <StyledLetter letterNumber={5}>t</StyledLetter>
-          <StyledLetter letterNumber={6}>o</StyledLetter>
-          <StyledLetter letterNumber={7}>r</StyledLetter>
-          <StyledLetter letterNumber={8}>y</StyledLetter>
-        </div>
-        <StyledText
-          className="intro-subtitle"
+        <StyledLink href="https://bradc.art/" target="_blank" rel="noreferrer">
+          BRADC.ART
+        </StyledLink>
+        <StyledBox
           css={{
-            fontFamily: "$grifter",
-            fontSize: "32px",
-            color: "$white",
-            animation: `${slideInLeft} 0.8s both`,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            alignItems: "center",
+            height: "18%",
+            position: "relative",
+            px: "$7",
+            py: "$3",
             "@bp2": {
-              fontSize: "38px",
+              height: "21%",
             },
             "@bp3": {
-              fontSize: "46px",
+              height: "26%",
+            },
+            "@bp4": {
+              height: "27%",
             },
           }}
         >
-          drag-n-drop site builder
-        </StyledText>
-      </StyledBox>
-      <Link href="/edit">
-        <StyledButton
-          onMouseEnter={() => toggleColorize(true)}
-          onMouseLeave={() => toggleColorize(false)}
-        >
-          START DEMO
-          <ShapesIcon
-            fillCube={colorize ? red : "#fff"}
-            fillStar={colorize ? yellow : "#fff"}
-            fillTopLeft={colorize ? green : "#fff"}
-            fillTopRight={colorize ? purple : "#fff"}
+          <TopLeftBlockIcon animation={`${bounceInTop} 0.6s linear both`} />
+          <TopRightBlockIcon
+            animation={`${bounceInTop} 0.8s linear 0.5s both`}
           />
-        </StyledButton>
-      </Link>
-    </StyledBox>
+          <BottomLeftBlockIcon
+            animation={`${bounceInTop} 0.7s linear 1.5s both`}
+          />
+          <BottomRightBlockIcon
+            animation={`${bounceInTop} 0.6s linear 2.2s both`}
+          />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              transform: "rotate(0.78deg)",
+            }}
+          >
+            <StyledLetter letterNumber={1}>R</StyledLetter>
+            <StyledLetter letterNumber={2}>e</StyledLetter>
+            <StyledLetter letterNumber={3}>a</StyledLetter>
+            <StyledLetter letterNumber={4}>c</StyledLetter>
+            <StyledLetter letterNumber={5}>t</StyledLetter>
+            <StyledLetter letterNumber={6}>o</StyledLetter>
+            <StyledLetter letterNumber={7}>r</StyledLetter>
+            <StyledLetter letterNumber={8}>y</StyledLetter>
+          </div>
+          <StyledText
+            className="intro-subtitle"
+            css={{
+              fontFamily: "$grifter",
+              fontSize: "32px",
+              color: "$white",
+              animation: `${slideInLeft} 0.8s both`,
+              "@bp2": {
+                fontSize: "38px",
+              },
+              "@bp3": {
+                fontSize: "46px",
+              },
+            }}
+          >
+            drag-n-drop site builder
+          </StyledText>
+        </StyledBox>
+        <Link href="/edit">
+          <StyledButton
+            onMouseEnter={() => toggleColorize(true)}
+            onMouseLeave={() => toggleColorize(false)}
+          >
+            START DEMO
+            <ShapesIcon
+              fillCube={colorize ? red : "#fff"}
+              fillStar={colorize ? yellow : "#fff"}
+              fillTopLeft={colorize ? green : "#fff"}
+              fillTopRight={colorize ? purple : "#fff"}
+            />
+          </StyledButton>
+        </Link>
+      </StyledBox>
+    </>
   );
 }
