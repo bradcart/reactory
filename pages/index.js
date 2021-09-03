@@ -189,7 +189,7 @@ export default function Home() {
               transform: "rotate(0.78deg)",
             }}
           >
-            <StyledLetter letterNumber={1}>R</StyledLetter>
+            <StyledLetter letterNumber={1}>r</StyledLetter>
             <StyledLetter letterNumber={2}>e</StyledLetter>
             <StyledLetter letterNumber={3}>a</StyledLetter>
             <StyledLetter letterNumber={4}>c</StyledLetter>
