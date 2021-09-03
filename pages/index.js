@@ -157,18 +157,19 @@ export default function Home() {
             flexDirection: "column",
             justifyContent: "space-between",
             alignItems: "center",
-            height: "18%",
+            height: "12%",
             position: "relative",
             px: "$7",
             py: "$3",
+            mb: "$7",
             "@bp2": {
-              height: "21%",
+              height: "14%",
             },
             "@bp3": {
-              height: "26%",
+              height: "16%",
             },
             "@bp4": {
-              height: "27%",
+              height: "19%",
             },
           }}
         >
@@ -202,11 +203,11 @@ export default function Home() {
             className="intro-subtitle"
             css={{
               fontFamily: "$grifter",
-              fontSize: "32px",
+              fontSize: "28px",
               color: "$white",
               animation: `${slideInLeft} 0.8s both`,
               "@bp2": {
-                fontSize: "38px",
+                fontSize: "36px",
               },
               "@bp3": {
                 fontSize: "46px",
