@@ -197,7 +197,7 @@ const TextSettings = () => {
         min={0}
         max={100}
       />
-
+      <Separator />
       <Label htmlFor="text__color">Color</Label>
       <ColorPicker
         id="text__color"

@@ -132,19 +132,50 @@ const ColorPickerSwatch = styled("button", {
 });
 
 const colors = {
+  // slate: {
+  //   slate000: "hsl(206 30.0% 98.8%)",
+  //   slate100: "hsl(210 16.7% 97.6%)",
+  //   slate200: "hsl(209 13.3% 95.3%)",
+  //   slate300: "hsl(209 12.2% 93.2%)",
+  //   slate400: "hsl(208 11.7% 91.1%)",
+  //   slate500: "hsl(208 11.3% 88.9%)",
+  //   slate600: "hsl(207 11.1% 85.9%)",
+  //   slate700: "hsl(205 10.7% 78.0%)",
+  //   slate800: "hsl(206 6.0% 56.1%)",
+  //   slate900: "hsl(206 5.8% 52.3%)",
+  //   slate1000: "hsl(206 6.0% 43.5%)",
+  //   slate1100: "hsl(0, 0%, 7%)",
+  // },
+  black: {
+    black000: "#383838",
+    black100: "#333",
+    black200: "#2e2e2e",
+    black300: "#292929",
+    black400: "#242424",
+    black500: "#1f1f1f",
+    black600: "#191919",
+    black700: "#141414",
+    black800: "#0f0f0f",
+    black900: "#0a0a0a",
+    black1000: "#050505",
+    black1100: "#000",
+  },
+  white: {
+    white000: "#fff",
+    white100: "#fafafa",
+    white200: "#f5f5f5",
+    white300: "#f0f0f0",
+    white400: "#ebebeb",
+    white500: "#e6e6e6",
+    white600: "#e0e0e0",
+    white700: "#dbdbdb",
+    white800: "#d6d6d6",
+    white900: "#d1d1d1",
+    white1000: "#ccc",
+    white1100: "#c7c7c7",
+  },
   slate: {
-    slate000: "hsl(206 30.0% 98.8%)",
-    slate100: "hsl(210 16.7% 97.6%)",
-    slate200: "hsl(209 13.3% 95.3%)",
-    slate300: "hsl(209 12.2% 93.2%)",
-    slate400: "hsl(208 11.7% 91.1%)",
-    slate500: "hsl(208 11.3% 88.9%)",
-    slate600: "hsl(207 11.1% 85.9%)",
-    slate700: "hsl(205 10.7% 78.0%)",
-    slate800: "hsl(206 6.0% 56.1%)",
-    slate900: "hsl(206 5.8% 52.3%)",
-    slate1000: "hsl(206 6.0% 43.5%)",
-    slate1100: "hsl(0, 0%, 7%)",
+    ...slate,
   },
   tomato: {
     ...tomato,
@@ -195,6 +226,7 @@ export const ColorPicker = ({ id, onClick }) => {
     const colorValuesArray = [];
     const colorSectionTitle = Object.keys(colors)[colorSection];
 
+    // Pushing each colorValue of each scale into an array
     for (let i = 0; i < 12; i++) {
       // let colorName = Object.entries(colors[colorSection])[i][0];
       let colorValue = Object.entries(colors[colorSectionTitle])[i][1];
@@ -209,12 +241,12 @@ export const ColorPicker = ({ id, onClick }) => {
     if (colorSection > 0) {
       changeColorSection(colorSection - 1);
     } else {
-      changeColorSection(13);
+      changeColorSection(15);
     }
   };
 
   const clickRightArrow = () => {
-    if (colorSection < 13) {
+    if (colorSection < 15) {
       changeColorSection(colorSection + 1);
     } else {
       changeColorSection(0);

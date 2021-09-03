@@ -41,10 +41,11 @@ export const SettingsPanel = () => {
       css={{
         // justifyContent: "space-between",
         px: "$3",
-        pt: 40,
+        py: 40,
         width: "100%",
         height: "100%",
         backgroundColor: "$black100",
+        overflow: "auto",
       }}
     >
       {selected && selected.settings
