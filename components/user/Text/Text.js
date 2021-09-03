@@ -55,7 +55,6 @@ export const Text = ({
         textAlign: textAlign,
         width: `${width}%`,
         fontSize: `${fontSize}px`,
-        fontWeight: "inherit",
         fontFamily: activeFontFamily,
         color: color,
         lineHeight: `${lineHeight}px`,
