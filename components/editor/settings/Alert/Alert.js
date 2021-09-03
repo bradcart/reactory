@@ -1,8 +1,5 @@
 import { styled } from "../../../../stitches.config";
-import {
-  slideInBlurredBottom,
-  slideOutBlurredBottom,
-} from "../../../../utils/keyframes";
+import { slideInBottom, slideOutBottom } from "../../../../utils/keyframes";
 import { useEffect } from "react";
 
 const StyledAlert = styled("div", {
@@ -24,7 +21,7 @@ const StyledAlert = styled("div", {
   color: "$white",
   fontFamily: "$ddin",
   fontSize: "$4",
-  animation: `${slideInBlurredBottom} 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both, ${slideOutBlurredBottom} 0.45s cubic-bezier(0.755, 0.050, 0.855, 0.060) 1.8s forwards`,
+  animation: `${slideInBottom} 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both, ${slideOutBottom} 0.45s cubic-bezier(0.755, 0.050, 0.855, 0.060) 1.8s forwards`,
 });
 
 export const Alert = ({ mount, toggleMount, content }) => {
