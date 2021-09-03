@@ -79,7 +79,7 @@ const StyledButton = styled("button", {
   borderWidth: "2px 4px 6px 4px",
   borderStyle: "solid",
   borderColor: "$white $gray900 $gray600 $gray900",
-  backgroundColor: "$black100",
+  backgroundColor: "$black150",
   color: "$white",
   fontFamily: "$gt",
   fontSize: "$6",
@@ -89,17 +89,20 @@ const StyledButton = styled("button", {
 
   animation: `${bounceInBottom} 0.8s linear 1.2s both`,
   filter: "brightness(85%)",
-  transition: "filter 0.3s",
+  transition: "filter 0.2s",
   "&:hover": {
     filter: "brightness(95%)",
+    backgroundColor: "$black100",
   },
   "&:active": {
     borderWidth: "2px 4px 4px 4px",
     height: "46px",
+    filter: "brightness(95%)",
+    backgroundColor: "$black100",
   },
 });
 
-const StyledPortfolioLink = styled("a", {
+const StyledLink = styled("a", {
   textDecorationLine: "none",
   position: "absolute",
   top: "2.5%",
@@ -128,13 +131,9 @@ export default function Home() {
         backgroundColor: "$black100",
       }}
     >
-      <StyledPortfolioLink
-        href="https://bradc.art/"
-        target="_blank"
-        rel="noreferrer"
-      >
+      <StyledLink href="https://bradc.art/" target="_blank" rel="noreferrer">
         BRADC.ART
-      </StyledPortfolioLink>
+      </StyledLink>
       <StyledBox
         css={{
           display: "flex",
@@ -200,8 +199,6 @@ export default function Home() {
       </StyledBox>
       <Link href="/edit">
         <StyledButton
-          size="lg"
-          as="a"
           onMouseEnter={() => toggleColorize(true)}
           onMouseLeave={() => toggleColorize(false)}
         >
