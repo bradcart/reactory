@@ -115,42 +115,54 @@ export const Toolbox = () => {
           }
         >
           <ContainerIcon width={60} />
-          <StyledLabel htmlFor="create__box">Box</StyledLabel>
+          <StyledLabel htmlFor="create__box" role="button">
+            Box
+          </StyledLabel>
         </ToolboxButton>
         <ToolboxButton
           id="create__section"
           ref={(ref) => connectors.create(ref, <Element is={Section} canvas />)}
         >
           <SectionIcon width={78} />
-          <StyledLabel htmlFor="create__section">Section</StyledLabel>
+          <StyledLabel htmlFor="create__section" role="button">
+            Section
+          </StyledLabel>
         </ToolboxButton>
         <ToolboxButton
           id="create__text"
           ref={(ref) => connectors.create(ref, <Text text="Hi world" />)}
         >
           <TextIcon width={74} />
-          <StyledLabel htmlFor="create__text">Text</StyledLabel>
+          <StyledLabel htmlFor="create__text" role="button">
+            Text
+          </StyledLabel>
         </ToolboxButton>
         <ToolboxButton
           id="create__button"
           ref={(ref) => connectors.create(ref, <Button />)}
         >
           <ButtonIcon width={104} />
-          <StyledLabel htmlFor="create__button">Button</StyledLabel>
+          <StyledLabel htmlFor="create__button" role="button">
+            Button
+          </StyledLabel>
         </ToolboxButton>
         <ToolboxButton
           id="create__image"
           ref={(ref) => connectors.create(ref, <Image />)}
         >
           <ImageIcon width={78} />
-          <StyledLabel htmlFor="create__image">Image</StyledLabel>
+          <StyledLabel htmlFor="create__image" role="button">
+            Image
+          </StyledLabel>
         </ToolboxButton>
         <ToolboxButton
           id="create__card"
           ref={(ref) => connectors.create(ref, <Card />)}
         >
           <CardIcon width={78} />
-          <StyledLabel htmlFor="create__card">Card</StyledLabel>
+          <StyledLabel htmlFor="create__card" role="button">
+            Card
+          </StyledLabel>
         </ToolboxButton>
       </StyledBox>
     </StyledBox>
