@@ -32,7 +32,7 @@
     "@radix-ui/react-toggle-group": "^0.0.11",
     "@radix-ui/react-toolbar": "^0.0.14",
     "@radix-ui/react-tooltip": "^0.0.21",
-    "@stitches/react": "^0.2.5",
+    "@stitches/react": "^1.0.0",
     "copy-to-clipboard": "^3.3.1",
     "font-picker-react": "^3.5.2",
     "framer-motion": "^4.1.17",

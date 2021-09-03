@@ -1,11 +1,11 @@
 // import App from 'next/app'
 import { install } from "resize-observer";
 import { IdProvider } from "@radix-ui/react-id";
-import { global } from "../stitches.config";
+import { globalCss } from "../stitches.config";
 
 // const globalStyles = global(reset);
 
-const globalStyles = global({
+const globalStyles = globalCss({
   // Fonts
   "@font-face": [
     {

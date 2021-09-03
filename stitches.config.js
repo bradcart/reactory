@@ -1,8 +1,8 @@
-import { createCss } from "@stitches/react";
+import { createStitches } from "@stitches/react";
 // import { tomato, red, crimson, pink } from "@radix-ui/colors";
 
-export const { css, styled, global, theme, keyframes, getCssString } =
-  createCss({
+export const { css, styled, globalCss, createTheme, keyframes, getCssText } =
+  createStitches({
     theme: {
       colors: {
         // hiContrast: "hsl(206,10%,5%)",
@@ -130,64 +130,64 @@ export const { css, styled, global, theme, keyframes, getCssString } =
       bp4: "(min-width: 1800px)",
     },
     utils: {
-      p: (config) => (value) => ({
+      p: (value) => ({
         paddingTop: value,
         paddingBottom: value,
         paddingLeft: value,
         paddingRight: value,
       }),
-      pt: (config) => (value) => ({
+      pt: (value) => ({
         paddingTop: value,
       }),
-      pr: (config) => (value) => ({
+      pr: (value) => ({
         paddingRight: value,
       }),
-      pb: (config) => (value) => ({
+      pb: (value) => ({
         paddingBottom: value,
       }),
-      pl: (config) => (value) => ({
+      pl: (value) => ({
         paddingLeft: value,
       }),
-      px: (config) => (value) => ({
+      px: (value) => ({
         paddingLeft: value,
         paddingRight: value,
       }),
-      py: (config) => (value) => ({
+      py: (value) => ({
         paddingTop: value,
         paddingBottom: value,
       }),
 
-      m: (config) => (value) => ({
+      m: (value) => ({
         marginTop: value,
         marginBottom: value,
         marginLeft: value,
         marginRight: value,
       }),
-      mt: (config) => (value) => ({
+      mt: (value) => ({
         marginTop: value,
       }),
-      mr: (config) => (value) => ({
+      mr: (value) => ({
         marginRight: value,
       }),
-      mb: (config) => (value) => ({
+      mb: (value) => ({
         marginBottom: value,
       }),
-      ml: (config) => (value) => ({
+      ml: (value) => ({
         marginLeft: value,
       }),
-      mx: (config) => (value) => ({
+      mx: (value) => ({
         marginLeft: value,
         marginRight: value,
       }),
-      my: (config) => (value) => ({
+      my: (value) => ({
         marginTop: value,
         marginBottom: value,
       }),
-      appearance: (config) => (value) => ({
+      appearance: (value) => ({
         WebkitAppearance: value,
         appearance: value,
       }),
-      userSelect: (config) => (value) => ({
+      userSelect: (value) => ({
         WebkitUserSelect: value,
         userSelect: value,
       }),

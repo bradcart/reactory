@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
-import { getCssString } from "../stitches.config";
+import { getCssString, getCssText } from "../stitches.config";
 
 class MyDocument extends Document {
   render() {
@@ -8,7 +8,7 @@ class MyDocument extends Document {
         <Head>
           <style
             id="stitches"
-            dangerouslySetInnerHTML={{ __html: getCssString() }}
+            dangerouslySetInnerHTML={{ __html: getCssText() }}
           />
           <link
             rel="preload"

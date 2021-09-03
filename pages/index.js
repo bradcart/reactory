@@ -62,6 +62,7 @@ const StyledLetter = styled("span", {
 });
 
 const StyledButton = styled("button", {
+  cursor: "pointer",
   userSelect: "none",
   position: "absolute",
   zIndex: 2,
@@ -75,17 +76,16 @@ const StyledButton = styled("button", {
   justifyContent: "space-between",
   py: "$3",
   px: "$4",
-  borderRadius: "$2",
-  borderWidth: "2px 4px 6px 4px",
-  borderStyle: "solid",
-  borderColor: "$white $gray900 $gray600 $gray900",
-  backgroundColor: "$black150",
   color: "$white",
   fontFamily: "$gt",
   fontSize: "$6",
   textTransform: "lowercase",
   textAlign: "center",
-  cursor: "pointer",
+  borderRadius: "$2",
+  borderWidth: "2px 4px 6px 4px",
+  borderStyle: "solid",
+  borderColor: "$white $gray900 $gray600 $gray900",
+  backgroundColor: "$black150",
 
   animation: `${bounceInBottom} 0.8s linear 1.2s both`,
   filter: "brightness(85%)",
