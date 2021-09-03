@@ -129,8 +129,9 @@ export const SectionSettings = () => {
         labelThree="Bottom"
       />
       <Separator />
-      <Label>Background</Label>
+      <Label htmlFor="section__background">Background</Label>
       <ColorPicker
+        id="section__background"
         onClick={(e) => setProp((props) => (props.background = e.target.value))}
       />
     </SettingsWrapper>

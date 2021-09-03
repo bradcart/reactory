@@ -72,27 +72,27 @@ export const BoxSettings = () => {
       setCustom={setCustom}
     >
       <Separator decorative css={{ opacity: 0 }} />
-      <Label htmlFor="container__width">Width</Label>
+      <Label htmlFor="box__width">Width</Label>
       <Slider
-        id="container__width"
+        id="box__width"
         value={[width]}
         onValueChange={(value) => setProp((props) => (props.width = value[0]))}
         step={1}
         min={0}
         max={99}
       />
-      <Label htmlFor="container__height">Height</Label>
+      <Label htmlFor="box__height">Height</Label>
       <Slider
-        id="container__height"
+        id="box__height"
         value={[height]}
         onValueChange={(value) => setProp((props) => (props.height = value[0]))}
         step={1}
         min={0}
         max={99}
       />
-      <Label htmlFor="container__padding">Padding</Label>
+      <Label htmlFor="box__padding">Padding</Label>
       <Slider
-        id="container__padding"
+        id="box__padding"
         value={[padding]}
         onValueChange={(value) =>
           setProp((props) => (props.padding = value[0]))
@@ -102,9 +102,9 @@ export const BoxSettings = () => {
         max={80}
       />
       <Separator />
-      <Label htmlFor="container__justify">Justify</Label>
+      <Label htmlFor="box__justify">Justify</Label>
       <ToggleGroup
-        id="container__justify"
+        id="box__justify"
         currentValue={justify}
         onValueChange={(value) => setProp((props) => (props.justify = value))}
         valueOne="start"
@@ -114,9 +114,9 @@ export const BoxSettings = () => {
         valueThree="end"
         labelThree="Right"
       />
-      <Label htmlFor="container__align">Align</Label>
+      <Label htmlFor="box__align">Align</Label>
       <ToggleGroup
-        id="container__align"
+        id="box__align"
         currentValue={align}
         onValueChange={(value) => setProp((props) => (props.align = value))}
         valueOne="start"
@@ -127,8 +127,9 @@ export const BoxSettings = () => {
         labelThree="Bottom"
       />
       <Separator />
-      <Label>Background</Label>
+      <Label htmlFor="box__background">Background</Label>
       <ColorPicker
+        id="box__background"
         onClick={(e) => setProp((props) => (props.background = e.target.value))}
       />
     </SettingsWrapper>

@@ -138,9 +138,9 @@ const ButtonSettings = () => {
         labelThree="Text"
       />
       <Separator />
-      <Label htmlFor="button__background-color">Background</Label>
+      <Label htmlFor="button__background">Background</Label>
       <ColorPicker
-        id="button__background-color"
+        id="button__background"
         onClick={(e) => setProp((props) => (props.background = e.target.value))}
       />
     </SettingsWrapper>

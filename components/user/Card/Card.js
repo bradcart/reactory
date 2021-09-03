@@ -190,8 +190,9 @@ const CardSettings = () => {
         labelThree="Rounder"
       />
       <Separator />
-      <Label>Background</Label>
+      <Label htmlFor="card__background">Background</Label>
       <ColorPicker
+        id="card__background"
         onClick={(e) => setProp((props) => (props.background = e.target.value))}
       />
     </SettingsWrapper>

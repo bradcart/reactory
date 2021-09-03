@@ -198,8 +198,9 @@ const TextSettings = () => {
         max={100}
       />
 
-      <Label>Color</Label>
+      <Label htmlFor="text__color">Color</Label>
       <ColorPicker
+        id="text__color"
         onClick={(e) => setProp((props) => (props.color = e.target.value))}
       />
     </SettingsWrapper>
