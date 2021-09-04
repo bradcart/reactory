@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { useEditor } from "@craftjs/core";
 import lz from "lzutf8";
@@ -8,7 +8,6 @@ import { Box, Heading, Alert, AlertDialog } from "../components";
 
 export const TopbarButton = styled("button", {
   // Reset
-  // all: "unset",
   appearance: "none",
   alignItems: "center",
   boxSizing: "border-box",
@@ -19,8 +18,6 @@ export const TopbarButton = styled("button", {
   "&::after": {
     boxSizing: "border-box",
   },
-
-  // Custom reset?
   display: "inline-flex",
   flexShrink: 0,
   justifyContent: "center",
@@ -106,8 +103,8 @@ export const Topbar = () => {
             userSelect: "none",
             WebkitTapHighlightColor: "rgba(0,0,0,0)",
             cursor: "pointer",
-            letterSpacing: "0em",
             transition: "$default",
+            letterSpacing: "0em",
             "&:hover": {
               letterSpacing: "0.1em",
             },
@@ -116,7 +113,7 @@ export const Topbar = () => {
           reactory
         </Heading>
       </Link>
-      <Box css={{ display: "flex" }}>
+      <Box flex>
         <TopbarButton
           onClick={() => {
             actions.setOptions((options) => (options.enabled = !enabled));

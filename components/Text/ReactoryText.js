@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { useNode, useEditor } from "@craftjs/core";
 import ContentEditable from "react-contenteditable";
-// import { StyledBox } from "../../base/Box/StyledBox";
 import {
   SettingsWrapper,
   Slider,
@@ -27,9 +26,9 @@ export const ReactoryText = ({
   const [editable, setEditable] = useState(false);
 
   const {
-    connectors: { connect },
     id,
     selected,
+    connectors: { connect },
     actions: { setProp, setCustom },
   } = useNode((node) => ({
     selected: node.events.selected,
@@ -39,6 +38,7 @@ export const ReactoryText = ({
     enabled: state.options.enabled,
   }));
 
+  // If node isn't selected disable ContentEditable
   useEffect(() => {
     !selected && setEditable(false);
   }, [selected]);
@@ -58,22 +58,21 @@ export const ReactoryText = ({
         fontFamily: activeFontFamily,
         color: color,
         lineHeight: `${lineHeight}px`,
-        // pointerEvents: "auto",
       }}
     >
       <ContentEditable
         innerRef={connect}
+        className={`apply-font-${id}`}
+        tagName={tagName}
         html={text}
-        onClick={() => setEditable(true)}
         disabled={enabled ? !editable : true}
+        onClick={() => setEditable(true)}
         onChange={(e) =>
           setProp(
             (props) =>
               (props.text = e.target.value.replace(/<\/?[^>]+(>|$)/g, ""))
           )
         }
-        tagName={tagName}
-        className={`apply-font-${id}`}
       />
     </div>
   );
@@ -92,6 +91,8 @@ const ReactoryTextSettings = () => {
     nodeName,
     actions: { setProp, setCustom },
   } = useNode((node) => ({
+    selected: node.events.selected,
+    nodeName: node.data.custom.nodeName,
     activeFontFamily: node.data.props.activeFontFamily,
     fontSize: node.data.props.fontSize,
     fontWeight: node.data.props.fontWeight,
@@ -99,8 +100,6 @@ const ReactoryTextSettings = () => {
     color: node.data.props.color,
     lineHeight: node.data.props.lineHeight,
     width: node.data.props.width,
-    selected: node.events.selected,
-    nodeName: node.data.custom.nodeName,
   }));
 
   // Compatibility fix for font-picker-react
@@ -108,7 +107,6 @@ const ReactoryTextSettings = () => {
   if (typeof window !== "undefined") {
     FontPicker = dynamic(() => import("font-picker-react"), { ssr: false });
   }
-
   const pickerId = id.replace(/[^0-9a-z]/gi, "");
 
   return (
@@ -221,9 +219,6 @@ ReactoryText.craft = {
     skipParentNode: false,
     nodeName: "Text",
   },
-  // rules: {
-  //   canDrag: (node) => node.data.props.text !== "Drag",
-  // },
   related: {
     settings: ReactoryTextSettings,
   },

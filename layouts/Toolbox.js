@@ -18,8 +18,7 @@ import { ImageIcon } from "../icons/ImageIcon";
 import { CardIcon } from "../icons/CardIcon";
 
 import * as Label from "@radix-ui/react-label";
-
-const StyledLabel = styled(Label.Root, {
+const ButtonLabel = styled(Label.Root, {
   position: "absolute",
   fontSize: "14px",
   fontFamily: "$grifter",
@@ -93,7 +92,7 @@ const ToolboxButton = styled("button", {
 });
 
 export const Toolbox = () => {
-  const { connectors, query } = useEditor();
+  const { connectors } = useEditor();
 
   return (
     <Box css={{ px: 10, pt: 40, height: "100%", backgroundColor: "$black100" }}>
@@ -116,9 +115,9 @@ export const Toolbox = () => {
           }
         >
           <ContainerIcon width={60} />
-          <StyledLabel htmlFor="create__box" role="button">
+          <ButtonLabel htmlFor="create__box" role="button">
             Box
-          </StyledLabel>
+          </ButtonLabel>
         </ToolboxButton>
         <ToolboxButton
           id="create__section"
@@ -127,9 +126,9 @@ export const Toolbox = () => {
           }
         >
           <SectionIcon width={78} />
-          <StyledLabel htmlFor="create__section" role="button">
+          <ButtonLabel htmlFor="create__section" role="button">
             Section
-          </StyledLabel>
+          </ButtonLabel>
         </ToolboxButton>
         <ToolboxButton
           id="create__text"
@@ -138,36 +137,36 @@ export const Toolbox = () => {
           }
         >
           <TextIcon width={74} />
-          <StyledLabel htmlFor="create__text" role="button">
+          <ButtonLabel htmlFor="create__text" role="button">
             Text
-          </StyledLabel>
+          </ButtonLabel>
         </ToolboxButton>
         <ToolboxButton
           id="create__button"
           ref={(ref) => connectors.create(ref, <ReactoryButton />)}
         >
           <ButtonIcon width={104} />
-          <StyledLabel htmlFor="create__button" role="button">
+          <ButtonLabel htmlFor="create__button" role="button">
             Button
-          </StyledLabel>
+          </ButtonLabel>
         </ToolboxButton>
         <ToolboxButton
           id="create__image"
           ref={(ref) => connectors.create(ref, <ReactoryImage />)}
         >
           <ImageIcon width={78} />
-          <StyledLabel htmlFor="create__image" role="button">
+          <ButtonLabel htmlFor="create__image" role="button">
             Image
-          </StyledLabel>
+          </ButtonLabel>
         </ToolboxButton>
         <ToolboxButton
           id="create__card"
           ref={(ref) => connectors.create(ref, <ReactoryCard />)}
         >
           <CardIcon width={78} />
-          <StyledLabel htmlFor="create__card" role="button">
+          <ButtonLabel htmlFor="create__card" role="button">
             Card
-          </StyledLabel>
+          </ButtonLabel>
         </ToolboxButton>
       </Box>
     </Box>

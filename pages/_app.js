@@ -3,8 +3,6 @@ import { install } from "resize-observer";
 import { IdProvider } from "@radix-ui/react-id";
 import { globalCss } from "../stitches.config";
 
-// const globalStyles = global(reset);
-
 const globalStyles = globalCss({
   // Fonts
   "@font-face": [
@@ -50,17 +48,13 @@ const globalStyles = globalCss({
     margin: 0,
     overflow: "hidden",
     minHeight: "100vh",
-    // lineHeight: 1.5,
     textRendering: "optimizeLegibility",
     "-webkit-font-smoothing": "antialiased",
   },
-  // img: {
-  //   maxWidth: "100%",
-  //   display: "block",
-  // },
-  // input: {
-  //   fontFamily: "inherit",
-  // },
+  img: {
+    maxWidth: "100%",
+    display: "block",
+  },
   a: {
     "&:visited": {
       color: "$white",

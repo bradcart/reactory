@@ -1,7 +1,6 @@
-import React, { useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import ReactDOM from "react-dom";
 import { useRouter } from "next/router";
-// import { useUnload } from "../hooks/useUnload";
 import { useNode, useEditor } from "@craftjs/core";
 import { ROOT_NODE } from "@craftjs/utils";
 import { styled } from "../stitches.config";
@@ -11,6 +10,7 @@ import {
   DeleteIcon,
   ExternalLinkIcon,
 } from "../icons/RenderNodeIcons";
+// import { useUnload } from "../hooks/useUnload";
 
 const IndicatorDiv = styled("div", {
   height: "30px",
@@ -121,8 +121,8 @@ export const RenderNode = ({ render }) => {
 
   const scroll = useCallback(() => {
     const { current: currentDOM } = currentRef;
-
     if (!currentDOM) return;
+
     const { top, left } = getPos(dom);
     currentDOM.style.top = top;
     currentDOM.style.left = left;
@@ -146,12 +146,6 @@ export const RenderNode = ({ render }) => {
         router.push("/edit");
       }
     });
-
-    // return () => {
-    //   document
-    //     .querySelector(".craftjs-renderer")
-    //     .removeEventListener("scroll", scroll);
-    // };
   }, [scroll]);
 
   return (
@@ -184,8 +178,8 @@ export const RenderNode = ({ render }) => {
                 <Btn
                   style={{ cursor: "pointer" }}
                   onClick={() => {
-                    // console.log(parent);
-                    // console.log(parentOfParent);
+                    /* If the selected Node is within a component that isn't editable
+                    (e.g. a dropzone within a Card), this Select Parent button will skip that component */
                     custom.skipParentNode
                       ? actions.selectNode(parentOfParent)
                       : actions.selectNode(parent);
